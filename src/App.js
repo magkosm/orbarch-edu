@@ -672,28 +672,29 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
 
         // Create task configuration object for custom mode (moved here to be accessible)
         const generateTaskConfig = () => {
-          // Default all tasks to true if no task list provided, or filter based on list
+          // If a tasks array is provided, use it to isolate specific tasks
+          // Otherwise default to all tasks active
           const isEnabled = (taskKey) => !tasks || tasks.includes(taskKey);
 
           return {
             comm: {
               isActive: isEnabled('comm'),
-              eventsPerMinute: commEPM,
+              eventsPerMinute: isEnabled('comm') ? commEPM : 0,
               difficulty: commDifficulty
             },
             monitoring: {
               isActive: isEnabled('monitoring'),
-              eventsPerMinute: monitoringEPM,
+              eventsPerMinute: isEnabled('monitoring') ? monitoringEPM : 0,
               difficulty: monitoringDifficulty
             },
             tracking: {
               isActive: isEnabled('tracking'),
-              eventsPerMinute: trackingEPM,
+              eventsPerMinute: isEnabled('tracking') ? trackingEPM : 0,
               difficulty: trackingDifficulty
             },
             resource: {
               isActive: isEnabled('resource'),
-              eventsPerMinute: resourceEPM,
+              eventsPerMinute: isEnabled('resource') ? resourceEPM : 0,
               difficulty: resourceDifficulty
             }
           };

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2026-01-28
+### Fixed
+- **Deep Linking Isolation**: Fixed an issue where task-specific links (e.g., `/comms`, `/tracking`) were activating all tasks. These links now correctly isolate the intended task with matched training presets (3m duration, difficulty 6, and instruction overlays).
+- **Route Normalization**: Removed duplicate routes and standardized the deep link configuration in `index.js`.
+- **Custom Mode Robustness**: Improved `App.js` startup logic to explicitly disable unrequested tasks when launched via partial parameters.
+
+
 ## [1.0.1] - 2026-01-28
 ### Added
 - **Dynamic Background Synchronization**: Users' selected environments (Cupola, Columbus, CASA) now sync across all tests (RT, N-Back, and MATB) even when accessed independently.

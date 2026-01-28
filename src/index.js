@@ -121,11 +121,50 @@ root.render(
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/comms" element={<AppWithParams startParams={{ mode: 'custom', tasks: ['comm'] }} />} />
-        <Route path="/monitoring" element={<AppWithParams startParams={{ mode: 'custom', tasks: ['monitoring'] }} />} />
-        <Route path="/tracking" element={<AppWithParams startParams={{ mode: 'custom', tasks: ['tracking'] }} />} />
-        <Route path="/resource" element={<AppWithParams startParams={{ mode: 'custom', tasks: ['resource'] }} />} />
-        <Route path="/resource" element={<AppWithParams startParams={{ mode: 'custom', tasks: ['resource'] }} />} />
+        <Route path="/comms" element={<AppWithParams startParams={{
+          mode: 'custom',
+          duration: 3 * 60 * 1000,
+          taskConfig: {
+            instructionKey: 'comm',
+            comm: { isActive: true, difficulty: 6, eventsPerMinute: 6 },
+            monitoring: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            tracking: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            resource: { isActive: false, difficulty: 1, eventsPerMinute: 0 }
+          }
+        }} />} />
+        <Route path="/monitoring" element={<AppWithParams startParams={{
+          mode: 'custom',
+          duration: 3 * 60 * 1000,
+          taskConfig: {
+            instructionKey: 'sysMon',
+            comm: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            monitoring: { isActive: true, difficulty: 6, eventsPerMinute: 6 },
+            tracking: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            resource: { isActive: false, difficulty: 1, eventsPerMinute: 0 }
+          }
+        }} />} />
+        <Route path="/tracking" element={<AppWithParams startParams={{
+          mode: 'custom',
+          duration: 3 * 60 * 1000,
+          taskConfig: {
+            instructionKey: 'track',
+            comm: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            monitoring: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            tracking: { isActive: true, difficulty: 6, eventsPerMinute: 6 },
+            resource: { isActive: false, difficulty: 1, eventsPerMinute: 0 }
+          }
+        }} />} />
+        <Route path="/resource" element={<AppWithParams startParams={{
+          mode: 'custom',
+          duration: 3 * 60 * 1000,
+          taskConfig: {
+            instructionKey: 'resMan',
+            comm: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            monitoring: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            tracking: { isActive: false, difficulty: 1, eventsPerMinute: 0 },
+            resource: { isActive: true, difficulty: 6, eventsPerMinute: 6 }
+          }
+        }} />} />
         <Route path="/normal" element={<AppWithParams startParams={{ mode: 'normal', duration: 5 * 60 * 1000 }} />} />
         <Route path="/2min" element={<AppWithParams startParams={{ mode: 'normal', duration: 2 * 60 * 1000 }} />} />
         <Route path="/reaction" element={<ReactionTimeRoute />} />
