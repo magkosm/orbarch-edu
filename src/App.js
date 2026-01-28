@@ -661,7 +661,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
         setIsInitializing(true);
         setShowMainMenu(false); // Hide menu immediately while preparing
         const startParams = JSON.parse(storedParams);
-        const { mode, duration, tasks } = startParams;
+        const { mode, duration, tasks, taskConfig } = startParams;
 
         // Set game mode immediately to prevent showing testing UI
         setCurrentGameMode(mode || 'normal');
@@ -674,7 +674,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
         const generateTaskConfig = () => {
           // If a tasks array is provided, use it to isolate specific tasks
           // Otherwise default to all tasks active
-          const isEnabled = (taskKey) => !tasks || tasks.includes(taskKey);
+          const isEnabled = (taskKey) => tasks ? tasks.includes(taskKey) : true;
 
           return {
             comm: {
@@ -709,7 +709,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
           };
 
           if (mode === 'custom') {
-            startOptions.taskConfig = generateTaskConfig();
+            startOptions.taskConfig = taskConfig || generateTaskConfig();
           }
 
           // startGame will set the mode again, but that's fine - it ensures consistency
