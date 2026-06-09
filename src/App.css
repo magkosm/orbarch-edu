@@ -236,27 +236,61 @@
 
 /* =========================================================
    Phone-only responsive layout for the MATB task grid.
-   These rules are scoped to `.matb-grid` / `.matb-cell`, so
-   they never affect the main menu, sidebar, or other views.
-   Inline grid styles are overridden with !important only on
-   phones; desktop/tablet rendering is left untouched.
+   These rules are scoped to the MATB containers, so they
+   never affect the main menu or other views. Inline styles
+   are overridden with !important only on phones; desktop /
+   tablet rendering is left untouched.
    ========================================================= */
 
-/* Phones in portrait: stack every task in a single, scrollable column. */
-@media (max-width: 600px) {
+/* ---- Scroll fix (portrait + landscape phones) ----
+   The task area lives inside a nested flex chain that ends in
+   `.app-container { height:100vh; overflow:hidden }`. Without a
+   real height on `.main-content` and `min-height:0` on the flex
+   children, the inner scroller expands to fit its content and the
+   outer container simply clips everything below the fold. These
+   rules give the chain a bounded height so `.matb-scroll-area`
+   can actually scroll and every task becomes reachable. */
+@media (max-width: 600px), (orientation: landscape) and (max-height: 600px) {
+  .app-container {
+    /* dvh avoids content hiding behind the mobile browser toolbar;
+       falls back to the inline 100vh where unsupported. */
+    height: 100dvh !important;
+  }
+
+  .main-content {
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  /* Direct children: the column-flex wrapper and the row-flex wrapper. */
+  .main-content > div,
+  .main-content > div > div {
+    min-height: 0 !important;
+  }
+
   .matb-scroll-area {
+    min-height: 0 !important;
+    overflow-y: auto !important;
     padding: 0.5rem !important;
+    /* Clear the fixed game HUD / control buttons pinned to the top. */
+    padding-top: 3rem !important;
     -webkit-overflow-scrolling: touch;
   }
 
   .matb-grid {
-    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: 0 !important;
     grid-template-rows: auto !important;
     grid-auto-rows: auto !important;
-    height: auto !important;
-    min-height: 100%;
     padding: 0 !important;
     gap: 0.75rem !important;
+  }
+}
+
+/* Phones in portrait: stack every task in a single scrollable column. */
+@media (max-width: 600px) {
+  .matb-grid {
+    grid-template-columns: 1fr !important;
   }
 
   .matb-cell {
@@ -281,30 +315,19 @@
 /* Phones in landscape: two readable columns, also scrollable.
    Wide tasks (tracking, resource) span the full width. */
 @media (orientation: landscape) and (max-height: 600px) {
-  .matb-scroll-area {
-    padding: 0.5rem !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
   .matb-grid {
     grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: auto !important;
-    grid-auto-rows: auto !important;
-    height: auto !important;
-    min-height: 100%;
-    padding: 0 !important;
-    gap: 0.75rem !important;
   }
 
   .matb-cell {
     grid-column: auto !important;
     grid-row: auto !important;
-    min-height: 78vh;
+    min-height: 70vh;
   }
 
   .matb-cell--tracking,
   .matb-cell--resource {
     grid-column: 1 / -1 !important;
-    min-height: 90vh;
+    min-height: 85vh;
   }
 }
