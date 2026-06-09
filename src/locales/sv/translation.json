@@ -318,6 +318,7 @@
     "cognition": "Besättningens kognition",
     "missionValue": "Uppdragsvärde",
     "brief": "Uppdragsbeskrivning",
+    "entrance": "Entré — moduler behöver en fri korridor hit",
     "hoverHint": "Håll muspekaren över en funktion för att se vad den gör, klicka sedan på rutnätet för att placera den.",
     "metricsV": {
       "science": "Vetenskap",
@@ -328,6 +329,7 @@
       "lifeSupport": "Behåll minst 1 livsuppehållande enhet",
       "stowage": "Lägg till minst 2 förvaringsenheter",
       "sleep": "Lägg till sovutrymme",
+      "access": "Ge varje modul en fri väg till entrén",
       "success": "Nå Uppdragsframgång ≥ 70"
     },
     "features": {

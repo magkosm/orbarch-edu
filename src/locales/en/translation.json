@@ -327,6 +327,7 @@
     "cognition": "Crew cognition",
     "missionValue": "Mission value",
     "brief": "Mission brief",
+    "entrance": "Entrance — modules need a clear corridor here",
     "hoverHint": "Hover a feature to see what it does, then click the grid to place it.",
     "metricsV": {
       "science": "Science",
@@ -337,6 +338,7 @@
       "lifeSupport": "Keep at least 1 life-support unit",
       "stowage": "Add at least 2 stowage units",
       "sleep": "Add sleeping quarters",
+      "access": "Give every module a clear path to the entrance",
       "success": "Reach Mission Success ≥ 70"
     },
     "features": {

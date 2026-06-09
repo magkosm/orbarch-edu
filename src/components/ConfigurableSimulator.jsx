@@ -103,7 +103,7 @@ function ConfigurableSimulator() {
 
   const [editingOutcomeId, setEditingOutcomeId] = useState(null);
   const [editingSliderId, setEditingSliderId] = useState(null);
-  const [showGraph, setShowGraph] = useState(true);
+  const [showGraph, setShowGraph] = useState(false);
   const [showAddSlider, setShowAddSlider] = useState(false);
   const [showAddOutcome, setShowAddOutcome] = useState(false);
 
@@ -385,13 +385,16 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
   const W = 480;
   const nodeW = 132;
   const nodeH = 38;
-  const rowH = 58;
-  const topPad = 48;
+  const rowH = 64;
+  const topPad = 50;
   const rows = Math.max(sliders.length, outcomes.length, 1);
-  const H = topPad + rows * rowH + 14;
+  const H = topPad + rows * rowH + 16;
   const inputX = 92;
   const outcomeX = W - 92;
   const yAt = (i) => topPad + rowH / 2 + i * rowH;
+  // Extra horizontal room so the left-bowing coupling wires aren't clipped.
+  const padL = 95;
+  const padR = 15;
 
   const inputY = {};
   sliders.forEach((s, i) => { inputY[s.id] = yAt(i); });
@@ -503,7 +506,7 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
         </span>
       </div>
 
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: 'block' }}>
+      <svg viewBox={`${-padL} -4 ${W + padL + padR} ${H + 8}`} width="100%" style={{ display: 'block' }}>
         <defs>
           <marker id="arrowG" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6ee7b7" /></marker>
           <marker id="arrowR" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fca5a5" /></marker>
@@ -554,7 +557,7 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const x = inputX - nodeW / 2;
           const y1 = inputY[srcId];
           const y2 = inputY[target.id];
-          const bow = 50 + Math.abs(y2 - y1) * 0.18;
+          const bow = Math.min(62 + Math.abs(y2 - y1) * 0.22, 86);
           const cx = x - bow;
           const d = `M ${x} ${y1} C ${cx} ${y1}, ${cx} ${y2}, ${x} ${y2}`;
           const active = (selected && selected.type === 'link' && selected.sourceId === srcId && selected.targetId === target.id) || hover === key;

@@ -48,8 +48,40 @@ const FEATURES = {
 const GRID_COLS = 7;
 const GRID_ROWS = 5;
 const GRID_SIZE = GRID_COLS * GRID_ROWS;
+const ENTRANCE_INDEX = Math.floor(GRID_ROWS / 2) * GRID_COLS; // mid-left airlock
 
 const VALUE_BASE = { science: 25, health: 25, lifeSupport: 25 };
+
+// Access check: every placed module must have an uninterrupted corridor (empty
+// cells) on at least one side leading back to the mid-left entrance.
+function computeAccess(cells) {
+  const reachable = new Array(GRID_SIZE).fill(false);
+  const isEmpty = (i) => i === ENTRANCE_INDEX || !cells[i];
+  const neighbors = (i) => {
+    const r = Math.floor(i / GRID_COLS);
+    const c = i % GRID_COLS;
+    const nb = [];
+    if (r > 0) nb.push(i - GRID_COLS);
+    if (r < GRID_ROWS - 1) nb.push(i + GRID_COLS);
+    if (c > 0) nb.push(i - 1);
+    if (c < GRID_COLS - 1) nb.push(i + 1);
+    return nb;
+  };
+  const queue = [ENTRANCE_INDEX];
+  reachable[ENTRANCE_INDEX] = true;
+  while (queue.length) {
+    const cur = queue.shift();
+    neighbors(cur).forEach((n) => { if (!reachable[n] && isEmpty(n)) { reachable[n] = true; queue.push(n); } });
+  }
+  const accessible = new Set();
+  const inaccessible = [];
+  cells.forEach((id, i) => {
+    if (!id) return;
+    if (neighbors(i).some((n) => reachable[n])) accessible.add(i);
+    else inaccessible.push(i);
+  });
+  return { reachable, accessible, inaccessible };
+}
 
 // Starting scenario: equipment-heavy, noisy and cluttered, with no stowage,
 // no acoustic treatment and no sleeping quarters. Students must fix it.
@@ -105,6 +137,7 @@ function HabitatBlueprintDesigner() {
   const [hoveredFeature, setHoveredFeature] = useState(null);
 
   const placeAt = useCallback((index) => {
+    if (index === ENTRANCE_INDEX) return; // entrance is reserved
     setCells((prev) => {
       const next = [...prev];
       next[index] = tool === 'erase' ? null : tool;
@@ -136,6 +169,9 @@ function HabitatBlueprintDesigner() {
   const rt = reactionTimeMs(cognitiveOverall);
   const rtDelta = REFERENCE_RT_MS - rt;
 
+  const access = useMemo(() => computeAccess(cells), [cells]);
+  const accessOk = access.inaccessible.length === 0;
+
   const handleHiddenTrigger = useCallback((e) => {
     e.preventDefault();
     window.dispatchEvent(new CustomEvent('orbarch:toggleMATB'));
@@ -157,6 +193,7 @@ function HabitatBlueprintDesigner() {
     { ok: (counts.noisyEquipment || 0) >= 1, label: t('blueprint.req.lifeSupport', 'Keep at least 1 life-support unit') },
     { ok: (counts.stowage || 0) >= 2, label: t('blueprint.req.stowage', 'Add at least 2 stowage units') },
     { ok: (counts.sleepingQuarters || 0) >= 1, label: t('blueprint.req.sleep', 'Add sleeping quarters') },
+    { ok: accessOk, label: t('blueprint.req.access', 'Give every module a clear path to the entrance') },
     { ok: missionSuccess >= 70, label: t('blueprint.req.success', 'Reach Mission Success ≥ 70') }
   ];
 
@@ -249,27 +286,31 @@ function HabitatBlueprintDesigner() {
               }}
             >
               {cells.map((id, i) => {
+                const isEntrance = i === ENTRANCE_INDEX;
                 const f = id ? FEATURES[id] : null;
+                const blocked = f && !access.accessible.has(i);
                 return (
                   <button
                     key={i}
                     onClick={() => placeAt(i)}
                     onMouseEnter={() => f && setHoveredFeature(id)}
-                    title={f ? `${t(`blueprint.features.${id}`, id)} — ${t(`blueprint.desc.${id}`, '')}` : ''}
+                    title={isEntrance
+                      ? t('blueprint.entrance', 'Entrance — modules need a clear corridor here')
+                      : f ? `${t(`blueprint.features.${id}`, id)} — ${t(`blueprint.desc.${id}`, '')}` : ''}
                     style={{
                       aspectRatio: '1 / 1',
                       borderRadius: '6px',
-                      border: '1px solid rgba(255,255,255,0.10)',
-                      background: f ? f.color : 'rgba(255,255,255,0.02)',
+                      border: blocked ? '2px solid #fc8181' : isEntrance ? '2px solid #4fd1c5' : '1px solid rgba(255,255,255,0.10)',
+                      background: isEntrance ? 'rgba(31,111,235,0.25)' : f ? f.color : 'rgba(255,255,255,0.02)',
                       color: 'white',
                       fontSize: '18px',
-                      cursor: 'pointer',
+                      cursor: isEntrance ? 'default' : 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center'
                     }}
                   >
-                    {f ? f.icon : ''}
+                    {isEntrance ? '🚪' : (f ? f.icon : '')}
                   </button>
                 );
               })}
@@ -308,9 +349,18 @@ function HabitatBlueprintDesigner() {
               ))}
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-              <MiniBars title={t('blueprint.cognition', 'Crew cognition')} bars={cognitionBars} t={t} />
-              <MiniBars title={t('blueprint.missionValue', 'Mission value')} bars={valueBars} t={t} />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 100px', gap: '12px', alignItems: 'stretch' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <MiniBars title={t('blueprint.cognition', 'Crew cognition')} bars={cognitionBars} t={t} />
+                <MiniBars title={t('blueprint.missionValue', 'Mission value')} bars={valueBars} t={t} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(10,14,22,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '10px 8px' }}>
+                <div style={{ fontSize: '22px', fontWeight: 'bold', color: successColor, lineHeight: 1 }}>{missionSuccess}</div>
+                <div style={{ flex: 1, width: '44px', minHeight: '150px', background: 'rgba(255,255,255,0.06)', borderRadius: '8px', position: 'relative', overflow: 'hidden', margin: '8px 0' }}>
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: `${missionSuccess}%`, background: successColor, transition: 'height 0.3s ease, background 0.3s ease' }} />
+                </div>
+                <div style={{ fontSize: '9px', opacity: 0.7, textAlign: 'center', lineHeight: 1.2 }}>{t('blueprint.missionSuccess', 'Mission success')}</div>
+              </div>
             </div>
           </div>
         </div>
