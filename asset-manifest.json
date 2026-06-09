@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/matb-web-test/static/css/main.56afe2cf.css",
+    "main.css": "/matb-web-test/static/css/main.4bf1bb34.css",
     "main.js": "/matb-web-test/static/js/main.86c37ab1.js",
     "static/js/453.4c1b0762.chunk.js": "/matb-web-test/static/js/453.4c1b0762.chunk.js",
     "static/media/Cupola.jpg": "/matb-web-test/static/media/Cupola.0a88fc15ed01ab77e1b4.jpg",
@@ -95,12 +95,12 @@
     "static/media/N.wav": "/matb-web-test/static/media/N.ec6439b8a5d4d62a7e36.wav",
     "static/media/R.wav": "/matb-web-test/static/media/R.c981836b18486cd2ff24.wav",
     "index.html": "/matb-web-test/index.html",
-    "main.56afe2cf.css.map": "/matb-web-test/static/css/main.56afe2cf.css.map",
+    "main.4bf1bb34.css.map": "/matb-web-test/static/css/main.4bf1bb34.css.map",
     "main.86c37ab1.js.map": "/matb-web-test/static/js/main.86c37ab1.js.map",
     "453.4c1b0762.chunk.js.map": "/matb-web-test/static/js/453.4c1b0762.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.56afe2cf.css",
+    "static/css/main.4bf1bb34.css",
     "static/js/main.86c37ab1.js"
   ]
 }
