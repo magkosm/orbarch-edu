@@ -442,6 +442,58 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
 
   const truncate = (str, n) => (str && str.length > n ? `${str.slice(0, n - 1)}…` : str);
 
+  // Build the set of nodes/wires related to the current selection so we can
+  // highlight everything that affects (or is affected by) it and dim the rest.
+  const highlight = useMemo(() => {
+    const nodes = new Set();
+    const wires = new Set();
+    const addCouplingsInto = (sid) => {
+      const s = sliders.find((x) => x.id === sid);
+      if (!s || !s.links) return;
+      Object.entries(s.links).forEach(([p, w]) => {
+        if (w) { nodes.add(`slider:${p}`); wires.add(`l-${sid}-${p}`); }
+      });
+    };
+
+    if (connectSource) {
+      const { kind, id } = connectSource;
+      nodes.add(`${kind}:${id}`);
+      if (kind === 'outcome') {
+        const o = outcomes.find((x) => x.id === id);
+        sliders.forEach((s) => {
+          const w = (o?.weights || {})[s.id] || 0;
+          if (w) { nodes.add(`slider:${s.id}`); wires.add(`w-${id}-${s.id}`); addCouplingsInto(s.id); }
+        });
+      } else {
+        addCouplingsInto(id); // inputs that push this input
+        sliders.forEach((target) => { // inputs this one pushes
+          const w = (target.links || {})[id] || 0;
+          if (w) { nodes.add(`slider:${target.id}`); wires.add(`l-${target.id}-${id}`); }
+        });
+        outcomes.forEach((o) => { // outcomes this input drives
+          const w = (o.weights || {})[id] || 0;
+          if (w) { nodes.add(`outcome:${o.id}`); wires.add(`w-${o.id}-${id}`); }
+        });
+      }
+    } else if (selected) {
+      if (selected.type === 'weight') {
+        nodes.add(`outcome:${selected.outcomeId}`);
+        nodes.add(`slider:${selected.sliderId}`);
+        wires.add(`w-${selected.outcomeId}-${selected.sliderId}`);
+        addCouplingsInto(selected.sliderId);
+      } else {
+        nodes.add(`slider:${selected.targetId}`);
+        nodes.add(`slider:${selected.sourceId}`);
+        wires.add(`l-${selected.targetId}-${selected.sourceId}`);
+      }
+    }
+    return { nodes, wires, active: nodes.size > 0 || wires.size > 0 };
+  }, [connectSource, selected, sliders, outcomes]);
+
+  const wireOpacity = (key, base) => (highlight.active ? (highlight.wires.has(key) ? 1 : 0.07) : base);
+  const nodeOpacity = (key) => (highlight.active && !highlight.nodes.has(key) ? 0.22 : 1);
+  const nodeHi = (key) => highlight.active && highlight.nodes.has(key);
+
   return (
     <div style={{ ...card, padding: '16px', background: 'linear-gradient(180deg, rgba(18,26,40,0.9), rgba(10,14,22,0.9))' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px', flexWrap: 'wrap', gap: '6px' }}>
@@ -484,11 +536,12 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const active = (selected && selected.type === 'weight' && selected.sliderId === s.id && selected.outcomeId === o.id) || hover === key;
           const mx = cubicMid(x1, c1x, c2x, x2);
           const my = cubicMid(y1, y1, y2, y2);
+          const op = wireOpacity(key, active ? 1 : 0.6);
           return (
-            <g key={key} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'weight', sliderId: s.id, outcomeId: o.id })}
+            <g key={key} style={{ cursor: 'pointer' }} onClick={() => { setSelected({ type: 'weight', sliderId: s.id, outcomeId: o.id }); setConnectSource(null); }}
               onMouseEnter={() => setHover(key)} onMouseLeave={() => setHover((h) => (h === key ? null : h))}>
               <path d={d} fill="none" stroke="transparent" strokeWidth="16" />
-              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} opacity={active ? 1 : 0.6} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
+              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} opacity={op} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
               {active && <WireBadge x={mx} y={my} w={w} />}
             </g>
           );
@@ -507,11 +560,12 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const active = (selected && selected.type === 'link' && selected.sourceId === srcId && selected.targetId === target.id) || hover === key;
           const mx = cubicMid(x, cx, cx, x);
           const my = cubicMid(y1, y1, y2, y2);
+          const op = wireOpacity(key, active ? 1 : 0.6);
           return (
-            <g key={key} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'link', sourceId: srcId, targetId: target.id })}
+            <g key={key} style={{ cursor: 'pointer' }} onClick={() => { setSelected({ type: 'link', sourceId: srcId, targetId: target.id }); setConnectSource(null); }}
               onMouseEnter={() => setHover(key)} onMouseLeave={() => setHover((h) => (h === key ? null : h))}>
               <path d={d} fill="none" stroke="transparent" strokeWidth="16" />
-              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} strokeDasharray="5 4" opacity={active ? 1 : 0.6} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
+              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} strokeDasharray="5 4" opacity={op} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
               {active && <WireBadge x={mx} y={my} w={w} />}
             </g>
           );
@@ -523,10 +577,12 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const effVal = eff[s.id];
           const coupled = effVal !== undefined && effVal !== s.value;
           const sel = isSel({ kind: 'slider', id: s.id });
+          const nKey = `slider:${s.id}`;
+          const hi = nodeHi(nKey);
           return (
-            <g key={`n-${s.id}`} style={{ cursor: 'pointer' }} onClick={() => handleNodeClick('slider', s.id)}>
+            <g key={`n-${s.id}`} style={{ cursor: 'pointer' }} opacity={nodeOpacity(nKey)} onClick={() => handleNodeClick('slider', s.id)}>
               <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="10"
-                fill="url(#gIn)" stroke={sel ? '#4fd1c5' : 'rgba(255,255,255,0.18)'} strokeWidth={sel ? 2 : 1} filter="url(#nodeShadow)" />
+                fill="url(#gIn)" stroke={sel ? '#4fd1c5' : hi ? '#cbd5e1' : 'rgba(255,255,255,0.18)'} strokeWidth={sel || hi ? 2 : 1} filter="url(#nodeShadow)" />
               <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width="4" height={nodeH} rx="2" fill="#4fd1c5" />
               <circle cx={inputX + nodeW / 2} cy={y} r="3" fill="#4fd1c5" />
               <text x={inputX + 3} y={y - 2} fontSize="11.5" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(s.label, 16)}</text>
@@ -541,10 +597,12 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
         {outcomes.map((o) => {
           const y = outcomeY[o.id];
           const sel = isSel({ kind: 'outcome', id: o.id });
+          const nKey = `outcome:${o.id}`;
+          const hi = nodeHi(nKey);
           return (
-            <g key={`o-${o.id}`} style={{ cursor: 'pointer' }} onClick={() => handleNodeClick('outcome', o.id)}>
+            <g key={`o-${o.id}`} style={{ cursor: 'pointer' }} opacity={nodeOpacity(nKey)} onClick={() => handleNodeClick('outcome', o.id)}>
               <rect x={outcomeX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="10"
-                fill="url(#gOut)" stroke={sel ? '#4fd1c5' : o.color} strokeWidth={sel ? 2 : 1.5} filter="url(#nodeShadow)" />
+                fill="url(#gOut)" stroke={sel ? '#4fd1c5' : hi ? '#cbd5e1' : o.color} strokeWidth={sel || hi ? 2 : 1.5} filter="url(#nodeShadow)" />
               <circle cx={outcomeX - nodeW / 2} cy={y} r="3" fill={o.color} />
               <text x={outcomeX - 12} y={y + 4} fontSize="11.5" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(o.label, 13)}</text>
               <g>
