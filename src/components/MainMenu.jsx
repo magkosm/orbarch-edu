@@ -8,6 +8,19 @@ import CustomModeSetup from './CustomModeSetup';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
 
+const workshopButtonStyle = {
+  padding: '8px 16px',
+  fontSize: '14px',
+  backgroundColor: '#2d3b4a',
+  color: 'white',
+  border: '1px solid rgba(255,255,255,0.15)',
+  borderRadius: '5px',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s',
+  flex: 1,
+  minWidth: '110px'
+};
+
 const MainMenu = ({ onStartGame, onExitApp, gameResults }) => {
   const { t } = useTranslation();
   const [selectedMode, setSelectedMode] = useState('normal'); // Normal is now default
@@ -820,6 +833,34 @@ const MainMenu = ({ onStartGame, onExitApp, gameResults }) => {
             onMouseOut={(e) => e.target.style.backgroundColor = '#6f42c1'}
           >
             {t('simulator.menuButton', 'Architecture Simulator')}
+          </button>
+        </div>
+
+        {/* Workshop tools */}
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '10px' }}>
+          <button
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/blueprint`}
+            style={workshopButtonStyle}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#3a4a5a'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#2d3b4a'}
+          >
+            {t('blueprint.menuButton', 'Blueprint Designer')}
+          </button>
+          <button
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/condition-lab`}
+            style={workshopButtonStyle}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#3a4a5a'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#2d3b4a'}
+          >
+            {t('conditionLab.menuButton', 'Condition Lab')}
+          </button>
+          <button
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/model-lab`}
+            style={workshopButtonStyle}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#3a4a5a'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#2d3b4a'}
+          >
+            {t('modelLab.menuButton', 'Model Lab')}
           </button>
         </div>
 

@@ -19,6 +19,9 @@ import ReactionTimeGame from './components/ReactionTimeGame';
 import NBackGame from './components/NBackGame';
 import SuiteManager from './components/SuiteManager';
 import SpaceArchitectureSimulator from './components/SpaceArchitectureSimulator';
+import HabitatBlueprintDesigner from './components/HabitatBlueprintDesigner';
+import ConditionLab from './components/ConditionLab';
+import ConfigurableSimulator from './components/ConfigurableSimulator';
 import reportWebVitals from './reportWebVitals';
 
 // Import i18n configuration
@@ -203,6 +206,9 @@ root.render(
         <Route path="/nbackdefault" element={<DirectNBackRoute />} />
         <Route path="/suite" element={<SuiteManager />} />
         <Route path="/simulator" element={<SpaceArchitectureSimulator />} />
+        <Route path="/blueprint" element={<HabitatBlueprintDesigner />} />
+        <Route path="/condition-lab" element={<ConditionLab />} />
+        <Route path="/model-lab" element={<ConfigurableSimulator />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
