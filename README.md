@@ -133,6 +133,14 @@ src/
 
 ---
 
+## Workshop
+
+A ready-to-run **75-minute** classroom workshop ("The Architect's Mind in Orbit",
+ages 14) built on these tools is in [`docs/workshop/`](./docs/workshop/) — available
+in English, Swedish and Greek.
+
+---
+
 ## Related projects & pages
 
 - **ESERO Sweden — Orbital Architecture (try the tests):** https://www.esero.se/orbital-architecture/
