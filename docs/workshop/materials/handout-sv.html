@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <title>Elevblad (A3) — Arkitektens sinne i omloppsbana</title>
+  <style>
+    @page { size: A3 portrait; margin: 14mm; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; color: #111; margin: 18px; }
+    .controls { margin-bottom: 12px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid #111; padding-bottom: 8px; }
+    h1 { font-size: 24px; margin: 0; }
+    .meta { font-size: 13px; color: #333; text-align: right; }
+    .row { display: flex; gap: 16px; margin-top: 16px; }
+    .col { flex: 1; }
+    h2 { font-size: 17px; margin: 14px 0 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { border: 1px solid #999; padding: 8px 10px; font-size: 14px; text-align: left; }
+    .fill { border-bottom: 1px solid #999; display: inline-block; min-width: 60px; }
+    ul.checks { list-style: none; padding: 0; font-size: 14px; }
+    ul.checks li { margin: 7px 0; }
+    .box { border: 2px dashed #888; border-radius: 8px; min-height: 150mm; display: flex; align-items: flex-start; justify-content: flex-start; padding: 8px; color: #999; }
+    .pitch, .exit { margin-top: 14px; font-size: 14px; }
+    .line { border-bottom: 1px solid #999; height: 22px; margin: 8px 0; }
+    @media print { .controls { display: none; } body { margin: 0; } }
+  </style>
+</head>
+<body>
+  <div class="controls"><button onclick="window.print()">🖨️ Skriv ut A3</button></div>
+  <header>
+    <h1>Arkitektens sinne i omloppsbana — Elevblad</h1>
+    <div class="meta">Namn / grupp: ____________________<br>Klass / datum: ____________________</div>
+  </header>
+
+  <div class="row">
+    <div class="col">
+      <h2>1 · Experimentet — mät det!</h2>
+      <p style="font-size:14px">Kör MATB-testet två gånger och skriv din slutpoäng.</p>
+      <table>
+        <tr><th>Förhållande</th><th>Slutpoäng</th></tr>
+        <tr><td>① Baslinje (tyst)</td><td>&nbsp;</td></tr>
+        <tr><td>② Stressad (kabinbuller)</td><td>&nbsp;</td></tr>
+      </table>
+      <p style="font-size:14px">Min förändring: bullret gjorde min poäng <b>↓ lägre / ↑ högre</b> med ungefär <span class="fill"></span> %.</p>
+      <p style="font-size:14px">Vår kvadrats genomsnittliga minskning: <span class="fill"></span> %.</p>
+      <p style="font-size:14px">Varför ändrade bullret prestationen?</p>
+      <div class="line"></div><div class="line"></div>
+
+      <h2>2 · Designa din modul (Ritning)</h2>
+      <ul class="checks">
+        <li>☐ Behöll minst 1 livsuppehållande enhet</li>
+        <li>☐ Lade till minst 2 förvaringsenheter</li>
+        <li>☐ Lade till sovutrymme</li>
+        <li>☐ Varje modul har en fri väg till entrén</li>
+        <li>☐ Uppdragsframgång ≥ 70 → <b>Min poäng:</b> <span class="fill"></span></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h2>3 · Skissa din ritning</h2>
+      <p style="font-size:13px">Märk minst <b>3</b> funktioner som skyddar besättningens sinne (akustisk zon, växter, virtuellt fönster, tyst sovplats) samt <b>entrén + korridorer</b>.</p>
+      <div class="box">rita här…</div>
+    </div>
+  </div>
+
+  <div class="pitch">
+    <b>Vår pitch (2 meningar):</b> "Vi lade till ____________________ för att skydda ____________________, och vår Uppdragsframgång blev ________."
+  </div>
+  <div class="exit">
+    <b>Utgångsbiljett —</b> en funktion som <b>hjälper</b> kognitionen: ____________________ · en som <b>skadar</b> den: ____________________
+  </div>
+</body>
+</html>

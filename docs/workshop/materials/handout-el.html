@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <title>Φύλλο μαθητή (A3) — Το μυαλό του αρχιτέκτονα σε τροχιά</title>
+  <style>
+    @page { size: A3 portrait; margin: 14mm; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; color: #111; margin: 18px; }
+    .controls { margin-bottom: 12px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid #111; padding-bottom: 8px; }
+    h1 { font-size: 22px; margin: 0; }
+    .meta { font-size: 13px; color: #333; text-align: right; }
+    .row { display: flex; gap: 16px; margin-top: 16px; }
+    .col { flex: 1; }
+    h2 { font-size: 17px; margin: 14px 0 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { border: 1px solid #999; padding: 8px 10px; font-size: 14px; text-align: left; }
+    .fill { border-bottom: 1px solid #999; display: inline-block; min-width: 60px; }
+    ul.checks { list-style: none; padding: 0; font-size: 14px; }
+    ul.checks li { margin: 7px 0; }
+    .box { border: 2px dashed #888; border-radius: 8px; min-height: 150mm; display: flex; align-items: flex-start; justify-content: flex-start; padding: 8px; color: #999; }
+    .pitch, .exit { margin-top: 14px; font-size: 14px; }
+    .line { border-bottom: 1px solid #999; height: 22px; margin: 8px 0; }
+    @media print { .controls { display: none; } body { margin: 0; } }
+  </style>
+</head>
+<body>
+  <div class="controls"><button onclick="window.print()">🖨️ Εκτύπωση A3</button></div>
+  <header>
+    <h1>Το μυαλό του αρχιτέκτονα σε τροχιά — Φύλλο μαθητή</h1>
+    <div class="meta">Όνομα / ομάδα: ____________________<br>Τάξη / ημ/νία: ____________________</div>
+  </header>
+
+  <div class="row">
+    <div class="col">
+      <h2>1 · Το πείραμα — μέτρησέ το!</h2>
+      <p style="font-size:14px">Τρέξε το τεστ MATB δύο φορές και γράψε την τελική βαθμολογία σου.</p>
+      <table>
+        <tr><th>Συνθήκη</th><th>Τελική βαθμολογία</th></tr>
+        <tr><td>① Βάση (ησυχία)</td><td>&nbsp;</td></tr>
+        <tr><td>② Με στρες (θόρυβος καμπίνας)</td><td>&nbsp;</td></tr>
+      </table>
+      <p style="font-size:14px">Η αλλαγή μου: ο θόρυβος έκανε τη βαθμολογία μου <b>↓ χαμηλότερη / ↑ υψηλότερη</b> κατά περίπου <span class="fill"></span> %.</p>
+      <p style="font-size:14px">Μέση μείωση της τετράδας μας: <span class="fill"></span> %.</p>
+      <p style="font-size:14px">Γιατί άλλαξε ο θόρυβος την απόδοση;</p>
+      <div class="line"></div><div class="line"></div>
+
+      <h2>2 · Σχεδίασε τη μονάδα σου (Κάτοψη)</h2>
+      <ul class="checks">
+        <li>☐ Κράτησα τουλάχιστον 1 μονάδα υποστήριξης ζωής</li>
+        <li>☐ Πρόσθεσα τουλάχιστον 2 μονάδες αποθήκευσης</li>
+        <li>☐ Πρόσθεσα χώρο ύπνου</li>
+        <li>☐ Κάθε μονάδα έχει ελεύθερη διαδρομή προς την είσοδο</li>
+        <li>☐ Επιτυχία Αποστολής ≥ 70 → <b>Η βαθμολογία μου:</b> <span class="fill"></span></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h2>3 · Σκιτσάρισε την κάτοψή σου</h2>
+      <p style="font-size:13px">Ονομάτισε τουλάχιστον <b>3</b> στοιχεία που προστατεύουν το μυαλό του πληρώματος (ακουστική ζώνη, φυτά, εικονικό παράθυρο, ήσυχος χώρος ύπνου) και την <b>είσοδο + διαδρόμους</b>.</p>
+      <div class="box">σχεδίασε εδώ…</div>
+    </div>
+  </div>
+
+  <div class="pitch">
+    <b>Η παρουσίασή μας (2 προτάσεις):</b> "Προσθέσαμε ____________________ για να προστατεύσουμε ____________________, και η Επιτυχία Αποστολής μας ήταν ________."
+  </div>
+  <div class="exit">
+    <b>Εισιτήριο εξόδου —</b> ένα στοιχείο που <b>βοηθά</b> τη γνωστική λειτουργία: ____________________ · ένα που τη <b>βλάπτει</b>: ____________________
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Student Worksheet (A3) — The Architect's Mind in Orbit</title>
+  <style>
+    @page { size: A3 portrait; margin: 14mm; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; color: #111; margin: 18px; }
+    .controls { margin-bottom: 12px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px solid #111; padding-bottom: 8px; }
+    h1 { font-size: 24px; margin: 0; }
+    .meta { font-size: 13px; color: #333; text-align: right; }
+    .row { display: flex; gap: 16px; margin-top: 16px; }
+    .col { flex: 1; }
+    h2 { font-size: 17px; margin: 14px 0 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { border: 1px solid #999; padding: 8px 10px; font-size: 14px; text-align: left; }
+    .fill { border-bottom: 1px solid #999; display: inline-block; min-width: 60px; }
+    ul.checks { list-style: none; padding: 0; font-size: 14px; }
+    ul.checks li { margin: 7px 0; }
+    .box { border: 2px dashed #888; border-radius: 8px; min-height: 150mm; display: flex; align-items: flex-start; justify-content: flex-start; padding: 8px; color: #999; }
+    .pitch, .exit { margin-top: 14px; font-size: 14px; }
+    .line { border-bottom: 1px solid #999; height: 22px; margin: 8px 0; }
+    @media print { .controls { display: none; } body { margin: 0; } }
+  </style>
+</head>
+<body>
+  <div class="controls"><button onclick="window.print()">🖨️ Print A3</button></div>
+  <header>
+    <h1>The Architect's Mind in Orbit — Worksheet</h1>
+    <div class="meta">Name / team: ____________________<br>Class / date: ____________________</div>
+  </header>
+
+  <div class="row">
+    <div class="col">
+      <h2>1 · The experiment — measure it!</h2>
+      <p style="font-size:14px">Run the MATB test twice and write your final score.</p>
+      <table>
+        <tr><th>Condition</th><th>Final score</th></tr>
+        <tr><td>① Baseline (quiet)</td><td>&nbsp;</td></tr>
+        <tr><td>② Stressed (cabin noise)</td><td>&nbsp;</td></tr>
+      </table>
+      <p style="font-size:14px">My change: the noise made my score <b>↓ down / ↑ up</b> by about <span class="fill"></span> %.</p>
+      <p style="font-size:14px">Our square's average drop: <span class="fill"></span> %.</p>
+      <p style="font-size:14px">Why did the noise change performance?</p>
+      <div class="line"></div><div class="line"></div>
+
+      <h2>2 · Design your module (Blueprint)</h2>
+      <ul class="checks">
+        <li>☐ Kept at least 1 life-support unit</li>
+        <li>☐ Added at least 2 stowage units</li>
+        <li>☐ Added sleeping quarters</li>
+        <li>☐ Every module has a clear path to the entrance</li>
+        <li>☐ Mission Success ≥ 70 → <b>My score:</b> <span class="fill"></span></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h2>3 · Sketch your blueprint</h2>
+      <p style="font-size:13px">Label at least <b>3</b> features that protect the crew's mind (acoustic zone, plants, virtual window, quiet sleep area) and the <b>entrance + corridors</b>.</p>
+      <div class="box">draw here…</div>
+    </div>
+  </div>
+
+  <div class="pitch">
+    <b>Our pitch (2 sentences):</b> "We added ____________________ to protect ____________________, and our Mission Success was ________."
+  </div>
+  <div class="exit">
+    <b>Exit ticket —</b> one feature that <b>helps</b> cognition: ____________________ · one that <b>hurts</b> it: ____________________
+  </div>
+</body>
+</html>
