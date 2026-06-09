@@ -233,3 +233,78 @@
   cursor: pointer;
   z-index: 101;
 }
+
+/* =========================================================
+   Phone-only responsive layout for the MATB task grid.
+   These rules are scoped to `.matb-grid` / `.matb-cell`, so
+   they never affect the main menu, sidebar, or other views.
+   Inline grid styles are overridden with !important only on
+   phones; desktop/tablet rendering is left untouched.
+   ========================================================= */
+
+/* Phones in portrait: stack every task in a single, scrollable column. */
+@media (max-width: 600px) {
+  .matb-scroll-area {
+    padding: 0.5rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .matb-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    grid-auto-rows: auto !important;
+    height: auto !important;
+    min-height: 100%;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .matb-cell {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    min-height: 300px;
+  }
+
+  .matb-cell--health {
+    min-height: 220px;
+  }
+
+  .matb-cell--tracking {
+    min-height: 320px;
+  }
+
+  .matb-cell--resource {
+    min-height: 380px;
+  }
+}
+
+/* Phones in landscape: two readable columns, also scrollable.
+   Wide tasks (tracking, resource) span the full width. */
+@media (orientation: landscape) and (max-height: 600px) {
+  .matb-scroll-area {
+    padding: 0.5rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .matb-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto !important;
+    grid-auto-rows: auto !important;
+    height: auto !important;
+    min-height: 100%;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .matb-cell {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    min-height: 78vh;
+  }
+
+  .matb-cell--tracking,
+  .matb-cell--resource {
+    grid-column: 1 / -1 !important;
+    min-height: 90vh;
+  }
+}

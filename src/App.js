@@ -59,30 +59,49 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
     }
   });
 
+  // Synchronously check startup params to avoid flash
+  const initialParams = (() => {
+    if (isSuiteMode) return suiteParams;
+    try {
+      const stored = localStorage.getItem('matb_start_params');
+      return stored ? JSON.parse(stored) : null;
+    } catch {
+      return null;
+    }
+  })();
+
   // Game mode state
-  const [currentGameMode, setCurrentGameMode] = useState('testing');
-  const [gameDuration, setGameDuration] = useState(5 * 60 * 1000); // 5 minutes default
+  const [currentGameMode, setCurrentGameMode] = useState(initialParams?.mode || 'testing');
+  const [gameDuration, setGameDuration] = useState(initialParams?.duration || 5 * 60 * 1000);
   const [gameResults, setGameResults] = useState(null);
 
+  // Helper to determine if a task is active from initial params
+  const isTaskActive = (taskKey) => {
+    if (!initialParams) return true;
+    if (initialParams.taskConfig?.[taskKey]) return initialParams.taskConfig[taskKey].isActive;
+    if (initialParams.tasks) return initialParams.tasks.includes(taskKey);
+    return true; // Default to true if not specified
+  };
+
   // Monitoring Task controls
-  const [monitoringEPM, setMonitoringEPM] = useState(3);
-  const [monitoringDifficulty, setMonitoringDifficulty] = useState(5);
-  const [isMonitoringTaskEnabled, setIsMonitoringTaskEnabled] = useState(true);
+  const [monitoringEPM, setMonitoringEPM] = useState(initialParams?.taskConfig?.monitoring?.eventsPerMinute || 3);
+  const [monitoringDifficulty, setMonitoringDifficulty] = useState(initialParams?.taskConfig?.monitoring?.difficulty || 5);
+  const [isMonitoringTaskEnabled, setIsMonitoringTaskEnabled] = useState(isTaskActive('monitoring'));
   const [monitoringAutoEvents, setMonitoringAutoEvents] = useState(false);
   const [monitoringEventLog, setMonitoringEventLog] = useState([]);
 
   // Communications Task controls
-  const [commEPM, setCommEPM] = useState(COMM_CONFIG.DEFAULT_EPM);
-  const [commDifficulty, setCommDifficulty] = useState(5);
-  const [isCommTaskEnabled, setIsCommTaskEnabled] = useState(true);
+  const [commEPM, setCommEPM] = useState(initialParams?.taskConfig?.comm?.eventsPerMinute || COMM_CONFIG.DEFAULT_EPM);
+  const [commDifficulty, setCommDifficulty] = useState(initialParams?.taskConfig?.comm?.difficulty || 5);
+  const [isCommTaskEnabled, setIsCommTaskEnabled] = useState(isTaskActive('comm'));
   const [commAutoEvents, setCommAutoEvents] = useState(false);
   const [commEventLog, setCommEventLog] = useState([]);
   const [commMetrics, setCommMetrics] = useState({ healthImpact: 0, systemLoad: 0 });
 
   // Resource Management controls
-  const [resourceEPM, setResourceEPM] = useState(2);
-  const [resourceDifficulty, setResourceDifficulty] = useState(5);
-  const [isResourceTaskEnabled, setIsResourceTaskEnabled] = useState(true);
+  const [resourceEPM, setResourceEPM] = useState(initialParams?.taskConfig?.resource?.eventsPerMinute || 2);
+  const [resourceDifficulty, setResourceDifficulty] = useState(initialParams?.taskConfig?.resource?.difficulty || 5);
+  const [isResourceTaskEnabled, setIsResourceTaskEnabled] = useState(isTaskActive('resource'));
   const [resourceAutoEvents, setResourceAutoEvents] = useState(false);
   const [resourceEventLog, setResourceEventLog] = useState([]);
   const [resourceMetrics, setResourceMetrics] = useState(
@@ -92,9 +111,9 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
   );
 
   // Tracking Task controls
-  const [trackingEPM, setTrackingEPM] = useState(2);
-  const [trackingDifficulty, setTrackingDifficulty] = useState(5);
-  const [isTrackingTaskEnabled, setIsTrackingTaskEnabled] = useState(true);
+  const [trackingEPM, setTrackingEPM] = useState(initialParams?.taskConfig?.tracking?.eventsPerMinute || 2);
+  const [trackingDifficulty, setTrackingDifficulty] = useState(initialParams?.taskConfig?.tracking?.difficulty || 5);
+  const [isTrackingTaskEnabled, setIsTrackingTaskEnabled] = useState(isTaskActive('tracking'));
   const [trackingAutoEvents, setTrackingAutoEvents] = useState(false);
   const [trackingEventLog, setTrackingEventLog] = useState([]);
   const [isTrackingManual, setIsTrackingManual] = useState(false);
@@ -147,8 +166,8 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
   // Mobile detection state
   const [isMobile, setIsMobile] = useState(isMobileDevice());
 
-  // Add state for custom game configuration
-  const [customGameConfig, setCustomGameConfig] = useState(null);
+  // Add state for custom game configuration - initialize from start params if they exist
+  const [customGameConfig, setCustomGameConfig] = useState(initialParams?.taskConfig || null);
 
   // Always use keyboard input mode
   const [trackingInputMode, setTrackingInputMode] = useState('keyboard'); // Default to keyboard input
@@ -643,100 +662,74 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
   }, []); // Only run once on mount
 
   useEffect(() => {
-    // Prioritize suite parameters if provided
-    if (isSuiteMode && suiteParams) {
-      if (startupParamsChecked) return;
-      // Synchronous start for suite mode to avoid race conditions with component mount
-      startGame(suiteParams, true);
-      setStartupParamsChecked(true);
-      return;
-    }
-
-    // Only check once and never when initializing
+    // Only handle startup once
     if (startupParamsChecked || isInitializing) return;
 
-    try {
-      const storedParams = localStorage.getItem('matb_start_params');
-      if (storedParams) {
-        setIsInitializing(true);
-        setShowMainMenu(false); // Hide menu immediately while preparing
-        const startParams = JSON.parse(storedParams);
-        const { mode, duration, tasks, taskConfig } = startParams;
+    if (initialParams) {
+      setIsInitializing(true);
+      setShowMainMenu(false);
 
-        // Set game mode immediately to prevent showing testing UI
-        setCurrentGameMode(mode || 'normal');
-        if (duration) setGameDuration(duration);
+      // Extract details
+      const { mode, duration, taskConfig, tasks } = initialParams;
 
-        // Clear params immediately to prevent re-triggering
+      // Clear params immediately to prevent re-triggering upon reload
+      if (!isSuiteMode) {
         localStorage.removeItem('matb_start_params');
+      }
 
-        // Create task configuration object for custom mode (moved here to be accessible)
-        const generateTaskConfig = () => {
-          // If a tasks array is provided, use it to isolate specific tasks
-          // Otherwise default to all tasks active
-          const isEnabled = (taskKey) => tasks ? tasks.includes(taskKey) : true;
+      const generateTaskConfigFromTasks = () => {
+        const isEnabled = (taskKey) => tasks ? tasks.includes(taskKey) : true;
+        return {
+          comm: {
+            isActive: isEnabled('comm'),
+            eventsPerMinute: isEnabled('comm') ? commEPM : 0,
+            difficulty: commDifficulty
+          },
+          monitoring: {
+            isActive: isEnabled('monitoring'),
+            eventsPerMinute: isEnabled('monitoring') ? monitoringEPM : 0,
+            difficulty: monitoringDifficulty
+          },
+          tracking: {
+            isActive: isEnabled('tracking'),
+            eventsPerMinute: isEnabled('tracking') ? trackingEPM : 0,
+            difficulty: trackingDifficulty
+          },
+          resource: {
+            isActive: isEnabled('resource'),
+            eventsPerMinute: isEnabled('resource') ? resourceEPM : 0,
+            difficulty: resourceDifficulty
+          }
+        };
+      };
 
-          return {
-            comm: {
-              isActive: isEnabled('comm'),
-              eventsPerMinute: isEnabled('comm') ? commEPM : 0,
-              difficulty: commDifficulty
-            },
-            monitoring: {
-              isActive: isEnabled('monitoring'),
-              eventsPerMinute: isEnabled('monitoring') ? monitoringEPM : 0,
-              difficulty: monitoringDifficulty
-            },
-            tracking: {
-              isActive: isEnabled('tracking'),
-              eventsPerMinute: isEnabled('tracking') ? trackingEPM : 0,
-              difficulty: trackingDifficulty
-            },
-            resource: {
-              isActive: isEnabled('resource'),
-              eventsPerMinute: isEnabled('resource') ? resourceEPM : 0,
-              difficulty: resourceDifficulty
-            }
-          };
+      // Wait a bit to ensure refs are ready
+      const timer = setTimeout(() => {
+        const startOptions = {
+          mode: mode || 'normal',
+          duration: duration || gameDuration,
+          taskConfig: taskConfig || (mode === 'custom' ? generateTaskConfigFromTasks() : null)
         };
 
-        // Wait a bit for normal mode to ensure refs are ready
-        const timer = setTimeout(() => {
+        startGame(startOptions, isSuiteMode);
 
-          const startOptions = {
-            mode: mode || 'normal',
-            duration: duration || gameDuration,
-          };
+        if (mode === 'testing') {
+          eventService.resumeAllTasks();
+        }
 
-          if (mode === 'custom') {
-            startOptions.taskConfig = taskConfig || generateTaskConfig();
-          }
-
-          // startGame will set the mode again, but that's fine - it ensures consistency
-          startGame(startOptions, false);
-
-          if (mode === 'testing') {
-            eventService.resumeAllTasks();
-          }
-
-          setIsInitializing(false);
-          setStartupParamsChecked(true);
-        }, 200); // Reduced timeout
-        return () => clearTimeout(timer);
-      } else {
+        setIsInitializing(false);
         setStartupParamsChecked(true);
-      }
-    } catch (error) {
-      console.error("Error processing startup parameters:", error);
-      localStorage.removeItem('matb_start_params');
+      }, 200);
+
+      return () => clearTimeout(timer);
+    } else {
       setStartupParamsChecked(true);
-      setIsInitializing(false);
     }
   }, [
     isSuiteMode, suiteParams, startGame, startupParamsChecked, isInitializing, gameDuration,
     commEPM, commDifficulty, monitoringEPM, monitoringDifficulty,
     trackingEPM, trackingDifficulty, resourceEPM, resourceDifficulty,
-    setShowMainMenu, setIsInitializing, setStartupParamsChecked
+    setShowMainMenu, setIsInitializing, setStartupParamsChecked, initialParams
   ]);
 
   // If the main menu should be shown, render it instead of the main app
@@ -764,8 +757,8 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
           }}>
             {/* Rest of the main content (tasks) */}
             <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
-              <div style={{ flex: 1, overflow: 'auto', padding: '1rem' }}>
-                <div style={{
+              <div className="matb-scroll-area" style={{ flex: 1, overflow: 'auto', padding: '1rem' }}>
+                <div className="matb-grid" style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(6, 1fr)',
                   gridTemplateRows: '1fr 1fr',
@@ -775,7 +768,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
                   boxSizing: 'border-box'
                 }}>
                   {/* Top Left - System Monitoring */}
-                  <div style={{
+                  <div className="matb-cell matb-cell--monitoring" style={{
                     gridColumn: '1 / span 2',
                     gridRow: '1',
                     border: '1px solid #ccc',
@@ -823,7 +816,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
                   </div>
 
                   {/* Top Middle - Tracking Task */}
-                  <div style={{
+                  <div className="matb-cell matb-cell--tracking" style={{
                     gridColumn: '3 / span 3',
                     gridRow: '1',
                     border: '1px solid #ccc',
@@ -877,7 +870,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
                   </div>
 
                   {/* Top Right - System Health */}
-                  <div style={{
+                  <div className="matb-cell matb-cell--health" style={{
                     gridColumn: '6',
                     gridRow: '1',
                     border: '1px solid #ccc',
@@ -908,7 +901,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
                   </div>
 
                   {/* Bottom Left - Communications Task */}
-                  <div style={{
+                  <div className="matb-cell matb-cell--comm" style={{
                     gridColumn: '1 / span 2',
                     gridRow: '2',
                     border: '1px solid #ccc',
@@ -955,7 +948,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
                   </div>
 
                   {/* Resource Management */}
-                  <div style={{
+                  <div className="matb-cell matb-cell--resource" style={{
                     gridColumn: '3 / span 4',
                     gridRow: '2',
                     border: '1px solid #ccc',
