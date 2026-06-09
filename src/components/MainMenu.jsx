@@ -802,6 +802,27 @@ const MainMenu = ({ onStartGame, onExitApp, gameResults }) => {
           </button>
         </div>
 
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+          <button
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/simulator`}
+            style={{
+              padding: '10px 20px',
+              fontSize: '16px',
+              backgroundColor: '#6f42c1',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              transition: 'background-color 0.3s',
+              width: '100%'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#5a32a3'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#6f42c1'}
+          >
+            {t('simulator.menuButton', 'Architecture Simulator')}
+          </button>
+        </div>
+
         <div style={{ marginTop: '20px' }}>
           <button
             onClick={onExitApp}

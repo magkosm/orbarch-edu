@@ -284,5 +284,32 @@
     "time": "Time",
     "currentScore": "Score",
     "quit": "Quit Game"
+  },
+  "simulator": {
+    "menuButton": "Architecture Simulator",
+    "title": "Space Architecture & Cognitive Performance Simulator",
+    "subtitle": "Adjust the habitat design parameters and watch the modelled effect on crew cognition.",
+    "sliders": {
+      "noise": "Noise",
+      "biophilia": "Biophilia",
+      "clutter": "Clutter",
+      "lighting": "Lighting"
+    },
+    "sliderHints": {
+      "noise": "Ambient noise level inside the module",
+      "biophilia": "Natural elements: plants, views, materials",
+      "clutter": "Visual and physical clutter in the space",
+      "lighting": "Quality and tuning of the lighting"
+    },
+    "metrics": {
+      "attention": "Attention",
+      "memory": "Working Memory",
+      "stress": "Stress",
+      "overall": "Overall"
+    },
+    "overallScore": "Overall cognitive performance",
+    "reset": "Reset",
+    "note": "Illustrative educational model — not clinical data.",
+    "buildTag": "Config: build_75m_rev2//ID:orbarch-matb-eval"
   }
 }

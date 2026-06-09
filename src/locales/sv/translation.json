@@ -275,5 +275,32 @@
     "time": "Tid",
     "currentScore": "Poäng",
     "quit": "Avsluta Spel"
+  },
+  "simulator": {
+    "menuButton": "Arkitektursimulator",
+    "title": "Simulator för rymdarkitektur och kognitiv prestation",
+    "subtitle": "Justera habitatets designparametrar och se den modellerade effekten på besättningens kognition.",
+    "sliders": {
+      "noise": "Buller",
+      "biophilia": "Biofili",
+      "clutter": "Röra",
+      "lighting": "Belysning"
+    },
+    "sliderHints": {
+      "noise": "Ljudnivå inne i modulen",
+      "biophilia": "Naturliga element: växter, utsikt, material",
+      "clutter": "Visuell och fysisk röra i utrymmet",
+      "lighting": "Belysningens kvalitet och inställning"
+    },
+    "metrics": {
+      "attention": "Uppmärksamhet",
+      "memory": "Arbetsminne",
+      "stress": "Stress",
+      "overall": "Totalt"
+    },
+    "overallScore": "Total kognitiv prestation",
+    "reset": "Återställ",
+    "note": "Illustrativ utbildningsmodell – inte kliniska data.",
+    "buildTag": "Config: build_75m_rev2//ID:orbarch-matb-eval"
   }
 }

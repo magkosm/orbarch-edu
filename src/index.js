@@ -12,12 +12,13 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import ReactionTimeGame from './components/ReactionTimeGame';
 import NBackGame from './components/NBackGame';
 import SuiteManager from './components/SuiteManager';
+import SpaceArchitectureSimulator from './components/SpaceArchitectureSimulator';
 import reportWebVitals from './reportWebVitals';
 
 // Import i18n configuration
@@ -127,10 +128,27 @@ const DirectNBackRoute = () => {
   );
 };
 
+/**
+ * Listens for the global `orbarch:toggleMATB` CustomEvent (dispatched by the
+ * hidden trigger in the Space Architecture Simulator) and transitions the user
+ * to the MATB testing suite. Decoupled via the event so any component can
+ * request the transition without a direct import.
+ */
+const MatbEventBridge = () => {
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    const handleToggle = () => navigate('/');
+    window.addEventListener('orbarch:toggleMATB', handleToggle);
+    return () => window.removeEventListener('orbarch:toggleMATB', handleToggle);
+  }, [navigate]);
+  return null;
+};
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <MatbEventBridge />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/comms" element={<AppWithParams startParams={{
@@ -184,6 +202,7 @@ root.render(
         <Route path="/reaction-default" element={<DirectReactionTimeRoute />} />
         <Route path="/nbackdefault" element={<DirectNBackRoute />} />
         <Route path="/suite" element={<SuiteManager />} />
+        <Route path="/simulator" element={<SpaceArchitectureSimulator />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
