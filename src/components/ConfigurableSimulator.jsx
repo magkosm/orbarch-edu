@@ -103,6 +103,7 @@ function ConfigurableSimulator() {
 
   const [editingOutcomeId, setEditingOutcomeId] = useState(null);
   const [editingSliderId, setEditingSliderId] = useState(null);
+  const [showGraph, setShowGraph] = useState(true);
   const [showAddSlider, setShowAddSlider] = useState(false);
   const [showAddOutcome, setShowAddOutcome] = useState(false);
 
@@ -185,13 +186,36 @@ function ConfigurableSimulator() {
           {t('modelLab.subtitle', 'Define inputs and outcomes, then wire them with positive/negative linear interactions.')}
         </p>
 
-        <InteractionGraph
-          sliders={config.sliders}
-          outcomes={computed}
-          eff={eff}
-          onSetWeight={setWeight}
-          onSetLink={setLink}
-        />
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: showGraph ? '14px' : '4px' }}>
+          <button
+            onClick={() => setShowGraph((v) => !v)}
+            style={{
+              padding: '8px 18px',
+              background: showGraph ? 'rgba(255,255,255,0.08)' : '#6f42c1',
+              color: '#fff',
+              border: '1px solid rgba(255,255,255,0.18)',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontSize: '13px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}
+          >
+            <span style={{ fontSize: '15px' }}>🪢</span>
+            {showGraph ? t('modelLab.hideMap', 'Hide interaction map') : t('modelLab.showMap', 'Show interaction map')}
+          </button>
+        </div>
+
+        {showGraph && (
+          <InteractionGraph
+            sliders={config.sliders}
+            outcomes={computed}
+            eff={eff}
+            onSetWeight={setWeight}
+            onSetLink={setLink}
+          />
+        )}
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', alignItems: 'start', marginTop: '20px' }}>
           {/* INPUTS */}
@@ -356,16 +380,17 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
   const { t } = useTranslation();
   const [connectSource, setConnectSource] = useState(null);
   const [selected, setSelected] = useState(null);
+  const [hover, setHover] = useState(null);
 
-  const W = 460;
-  const nodeW = 120;
-  const nodeH = 30;
-  const rowH = 50;
-  const topPad = 26;
+  const W = 480;
+  const nodeW = 132;
+  const nodeH = 38;
+  const rowH = 58;
+  const topPad = 48;
   const rows = Math.max(sliders.length, outcomes.length, 1);
-  const H = topPad * 2 + rows * rowH;
-  const inputX = 85;
-  const outcomeX = W - 85;
+  const H = topPad + rows * rowH + 14;
+  const inputX = 92;
+  const outcomeX = W - 92;
   const yAt = (i) => topPad + rowH / 2 + i * rowH;
 
   const inputY = {};
@@ -373,8 +398,9 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
   const outcomeY = {};
   outcomes.forEach((o, i) => { outcomeY[o.id] = yAt(i); });
 
-  const wireColor = (w) => (w > 0 ? '#9ae6b4' : '#fc8181');
-  const wireWidth = (w) => 1 + Math.min(Math.abs(w), 1) * 4;
+  const wireColor = (w) => (w > 0 ? '#6ee7b7' : '#fca5a5');
+  const wireWidth = (w) => 1.5 + Math.min(Math.abs(w), 1) * 4.5;
+  const cubicMid = (p0, p1, p2, p3) => 0.125 * p0 + 0.375 * p1 + 0.375 * p2 + 0.125 * p3;
 
   const handleNodeClick = (kind, id) => {
     if (!connectSource) { setConnectSource({ kind, id }); setSelected(null); return; }
@@ -414,56 +440,79 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
 
   const isSel = (node) => connectSource && connectSource.kind === node.kind && connectSource.id === node.id;
 
+  const truncate = (str, n) => (str && str.length > n ? `${str.slice(0, n - 1)}…` : str);
+
   return (
-    <div style={{ ...card, padding: '14px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+    <div style={{ ...card, padding: '16px', background: 'linear-gradient(180deg, rgba(18,26,40,0.9), rgba(10,14,22,0.9))' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px', flexWrap: 'wrap', gap: '6px' }}>
         <h2 style={{ fontSize: '16px', margin: 0 }}>{t('modelLab.graphTitle', 'Interaction map')}</h2>
-        <span style={{ fontSize: '11px', opacity: 0.6 }}>
-          {connectSource ? t('modelLab.connectHint', 'Now click a target node\u2026') : t('modelLab.graphHint', 'Click a node, then another, to connect. Click a wire to adjust.')}
+        <span style={{ fontSize: '11px', opacity: 0.65, color: connectSource ? '#4fd1c5' : 'inherit' }}>
+          {connectSource ? t('modelLab.connectHint', 'Now click a target node…') : t('modelLab.graphHint', 'Click a node, then another, to connect. Click a wire to adjust.')}
         </span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: 'block' }}>
         <defs>
-          <marker id="arrowG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#9ae6b4" />
-          </marker>
-          <marker id="arrowR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#fc8181" />
-          </marker>
+          <marker id="arrowG" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6ee7b7" /></marker>
+          <marker id="arrowR" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fca5a5" /></marker>
+          <linearGradient id="gIn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#27384f" /><stop offset="100%" stopColor="#16202f" /></linearGradient>
+          <linearGradient id="gOut" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#1f2c41" /><stop offset="100%" stopColor="#131c29" /></linearGradient>
+          <filter id="nodeShadow" x="-30%" y="-40%" width="160%" height="180%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="rgba(0,0,0,0.55)" /></filter>
+          <filter id="wireGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
         </defs>
+
+        {/* column headers */}
+        <text x={inputX} y={20} fontSize="10.5" fontWeight="bold" letterSpacing="1" textAnchor="middle" fill="rgba(255,255,255,0.5)">
+          {t('modelLab.inputsShort', 'INPUTS').toUpperCase()}
+        </text>
+        <text x={outcomeX} y={20} fontSize="10.5" fontWeight="bold" letterSpacing="1" textAnchor="middle" fill="rgba(255,255,255,0.5)">
+          {t('modelLab.outcomes', 'Outcomes').toUpperCase()}
+        </text>
 
         {/* slider -> outcome wires */}
         {outcomes.map((o) => sliders.map((s) => {
           const w = (o.weights || {})[s.id] || 0;
           if (!w) return null;
+          const key = `w-${o.id}-${s.id}`;
           const x1 = inputX + nodeW / 2;
           const y1 = inputY[s.id];
           const x2 = outcomeX - nodeW / 2;
           const y2 = outcomeY[o.id];
-          const d = `M ${x1} ${y1} C ${x1 + 55} ${y1}, ${x2 - 55} ${y2}, ${x2} ${y2}`;
-          const sel = selected && selected.type === 'weight' && selected.sliderId === s.id && selected.outcomeId === o.id;
+          const c1x = x1 + 60;
+          const c2x = x2 - 60;
+          const d = `M ${x1} ${y1} C ${c1x} ${y1}, ${c2x} ${y2}, ${x2} ${y2}`;
+          const active = (selected && selected.type === 'weight' && selected.sliderId === s.id && selected.outcomeId === o.id) || hover === key;
+          const mx = cubicMid(x1, c1x, c2x, x2);
+          const my = cubicMid(y1, y1, y2, y2);
           return (
-            <g key={`w-${o.id}-${s.id}`} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'weight', sliderId: s.id, outcomeId: o.id })}>
-              <path d={d} fill="none" stroke="transparent" strokeWidth="14" />
-              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} opacity={sel ? 1 : 0.75} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} />
+            <g key={key} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'weight', sliderId: s.id, outcomeId: o.id })}
+              onMouseEnter={() => setHover(key)} onMouseLeave={() => setHover((h) => (h === key ? null : h))}>
+              <path d={d} fill="none" stroke="transparent" strokeWidth="16" />
+              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} opacity={active ? 1 : 0.6} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
+              {active && <WireBadge x={mx} y={my} w={w} />}
             </g>
           );
         }))}
 
-        {/* slider -> slider coupling wires (bow to the left) */}
+        {/* slider -> slider coupling wires (dashed, bow to the left) */}
         {sliders.map((target) => Object.entries(target.links || {}).map(([srcId, w]) => {
           if (!w || inputY[srcId] === undefined) return null;
+          const key = `l-${target.id}-${srcId}`;
           const x = inputX - nodeW / 2;
           const y1 = inputY[srcId];
           const y2 = inputY[target.id];
-          const bow = 55 + Math.abs(y2 - y1) * 0.15;
-          const d = `M ${x} ${y1} C ${x - bow} ${y1}, ${x - bow} ${y2}, ${x} ${y2}`;
-          const sel = selected && selected.type === 'link' && selected.sourceId === srcId && selected.targetId === target.id;
+          const bow = 50 + Math.abs(y2 - y1) * 0.18;
+          const cx = x - bow;
+          const d = `M ${x} ${y1} C ${cx} ${y1}, ${cx} ${y2}, ${x} ${y2}`;
+          const active = (selected && selected.type === 'link' && selected.sourceId === srcId && selected.targetId === target.id) || hover === key;
+          const mx = cubicMid(x, cx, cx, x);
+          const my = cubicMid(y1, y1, y2, y2);
           return (
-            <g key={`l-${target.id}-${srcId}`} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'link', sourceId: srcId, targetId: target.id })}>
-              <path d={d} fill="none" stroke="transparent" strokeWidth="14" />
-              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} strokeDasharray="4 3" opacity={sel ? 1 : 0.7} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} />
+            <g key={key} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'link', sourceId: srcId, targetId: target.id })}
+              onMouseEnter={() => setHover(key)} onMouseLeave={() => setHover((h) => (h === key ? null : h))}>
+              <path d={d} fill="none" stroke="transparent" strokeWidth="16" />
+              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} strokeDasharray="5 4" opacity={active ? 1 : 0.6} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
+              {active && <WireBadge x={mx} y={my} w={w} />}
             </g>
           );
         }))}
@@ -473,12 +522,15 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const y = inputY[s.id];
           const effVal = eff[s.id];
           const coupled = effVal !== undefined && effVal !== s.value;
+          const sel = isSel({ kind: 'slider', id: s.id });
           return (
             <g key={`n-${s.id}`} style={{ cursor: 'pointer' }} onClick={() => handleNodeClick('slider', s.id)}>
-              <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="8"
-                fill={isSel({ kind: 'slider', id: s.id }) ? '#4fd1c5' : '#1b2433'} stroke="rgba(255,255,255,0.25)" />
-              <text x={inputX} y={y - 1} fontSize="11" textAnchor="middle" fill={isSel({ kind: 'slider', id: s.id }) ? '#0b0e14' : '#e6edf3'}>{s.label}</text>
-              <text x={inputX} y={y + 10} fontSize="9" textAnchor="middle" fill={isSel({ kind: 'slider', id: s.id }) ? '#0b0e14' : '#b794f4'}>
+              <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="10"
+                fill="url(#gIn)" stroke={sel ? '#4fd1c5' : 'rgba(255,255,255,0.18)'} strokeWidth={sel ? 2 : 1} filter="url(#nodeShadow)" />
+              <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width="4" height={nodeH} rx="2" fill="#4fd1c5" />
+              <circle cx={inputX + nodeW / 2} cy={y} r="3" fill="#4fd1c5" />
+              <text x={inputX + 3} y={y - 2} fontSize="11.5" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(s.label, 16)}</text>
+              <text x={inputX + 3} y={y + 11} fontSize="9.5" textAnchor="middle" fill={coupled ? '#c4b5fd' : 'rgba(255,255,255,0.55)'}>
                 {s.value}{coupled ? ` → ${effVal}` : ''}
               </text>
             </g>
@@ -488,33 +540,54 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
         {/* outcome nodes */}
         {outcomes.map((o) => {
           const y = outcomeY[o.id];
+          const sel = isSel({ kind: 'outcome', id: o.id });
           return (
             <g key={`o-${o.id}`} style={{ cursor: 'pointer' }} onClick={() => handleNodeClick('outcome', o.id)}>
-              <rect x={outcomeX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="8"
-                fill={isSel({ kind: 'outcome', id: o.id }) ? '#4fd1c5' : '#15202e'} stroke={o.color} />
-              <text x={outcomeX} y={y - 1} fontSize="11" textAnchor="middle" fill="#e6edf3">{o.label}</text>
-              <text x={outcomeX} y={y + 10} fontSize="9" textAnchor="middle" fill={o.color}>{o.value}</text>
+              <rect x={outcomeX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="10"
+                fill="url(#gOut)" stroke={sel ? '#4fd1c5' : o.color} strokeWidth={sel ? 2 : 1.5} filter="url(#nodeShadow)" />
+              <circle cx={outcomeX - nodeW / 2} cy={y} r="3" fill={o.color} />
+              <text x={outcomeX - 12} y={y + 4} fontSize="11.5" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(o.label, 13)}</text>
+              <g>
+                <rect x={outcomeX + nodeW / 2 - 34} y={y - 11} width="28" height="22" rx="6" fill={o.color} />
+                <text x={outcomeX + nodeW / 2 - 20} y={y + 4} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#0b0e14">{o.value}</text>
+              </g>
             </g>
           );
         })}
       </svg>
 
+      {/* legend */}
+      <div style={{ fontSize: '10px', opacity: 0.6, textAlign: 'center', marginTop: '2px' }}>
+        {t('modelLab.legend', 'Solid: input → outcome · Dashed: input → input · green +, red −')}
+      </div>
+
       {/* selected wire editor */}
       {selected && (
-        <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', background: 'rgba(255,255,255,0.04)', borderRadius: '8px', padding: '8px 10px' }}>
+        <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', background: 'rgba(79,209,197,0.08)', border: '1px solid rgba(79,209,197,0.25)', borderRadius: '8px', padding: '8px 12px' }}>
           <span style={{ fontSize: '12px' }}>
             <strong>{selected.type === 'weight' ? labelOf('slider', selected.sliderId) : labelOf('slider', selected.sourceId)}</strong>
             {' → '}
             <strong>{selected.type === 'weight' ? labelOf('outcome', selected.outcomeId) : labelOf('slider', selected.targetId)}</strong>
           </span>
-          <input type="range" min="-1" max="1" step="0.05" value={selectedValue} onChange={(e) => applySelected(Number(e.target.value))} style={{ flex: 1, minWidth: 120, accentColor: selectedValue >= 0 ? '#9ae6b4' : '#fc8181' }} />
-          <span style={{ width: 38, textAlign: 'right', fontSize: '12px', color: selectedValue > 0 ? '#9ae6b4' : selectedValue < 0 ? '#fc8181' : 'rgba(255,255,255,0.6)' }}>
+          <input type="range" min="-1" max="1" step="0.05" value={selectedValue} onChange={(e) => applySelected(Number(e.target.value))} style={{ flex: 1, minWidth: 120, accentColor: selectedValue >= 0 ? '#6ee7b7' : '#fca5a5' }} />
+          <span style={{ width: 40, textAlign: 'right', fontSize: '12px', fontWeight: 'bold', color: selectedValue > 0 ? '#6ee7b7' : selectedValue < 0 ? '#fca5a5' : 'rgba(255,255,255,0.6)' }}>
             {selectedValue > 0 ? '+' : ''}{selectedValue.toFixed(2)}
           </span>
           <button onClick={() => { applySelected(0); setSelected(null); }} style={btnDangerLink}>{t('modelLab.remove', 'remove')}</button>
         </div>
       )}
     </div>
+  );
+}
+
+function WireBadge({ x, y, w }) {
+  const label = `${w > 0 ? '+' : ''}${w.toFixed(2)}`;
+  const col = w > 0 ? '#6ee7b7' : '#fca5a5';
+  return (
+    <g pointerEvents="none">
+      <rect x={x - 17} y={y - 9} width="34" height="18" rx="9" fill="#0b0e14" stroke={col} strokeWidth="1" />
+      <text x={x} y={y + 4} fontSize="10" fontWeight="bold" textAnchor="middle" fill={col}>{label}</text>
+    </g>
   );
 }
 
