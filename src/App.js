@@ -166,6 +166,11 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
   // Mobile detection state
   const [isMobile, setIsMobile] = useState(isMobileDevice());
 
+  // Phone scale-to-fit: render the MATB grid at a fixed design size and
+  // uniformly scale it to fit the screen, so every element (buttons, gauges,
+  // pumps, text) shrinks together. Null on desktop/tablet (no scaling).
+  const [matbGridStyle, setMatbGridStyle] = useState(null);
+
   // Add state for custom game configuration - initialize from start params if they exist
   const [customGameConfig, setCustomGameConfig] = useState(initialParams?.taskConfig || null);
 
@@ -609,6 +614,78 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
     }
   }, [isMobile]);
 
+  // Compute a fit-to-screen transform for the MATB grid on phones.
+  // We lay the dashboard out at a generous fixed design size (so fixed/vh-based
+  // inner elements have room and don't overlap), then scale it down to fit the
+  // viewport. Recomputed on resize / orientation change.
+  useEffect(() => {
+    const portraitQ = window.matchMedia('(max-width: 600px) and (orientation: portrait)');
+    const landscapeQ = window.matchMedia('(orientation: landscape) and (max-height: 600px)');
+
+    const computeScale = () => {
+      const isPortrait = portraitQ.matches;
+      const isLandscape = landscapeQ.matches;
+
+      // Not a phone layout -> let desktop inline styles apply.
+      if (!isPortrait && !isLandscape) {
+        setMatbGridStyle(null);
+        return;
+      }
+
+      const design = isLandscape ? { w: 1300, h: 560 } : { w: 700, h: 1500 };
+      const reservedTop = 44; // clearance for the fixed game HUD
+      const availW = window.innerWidth;
+      const availH = Math.max(1, window.innerHeight - reservedTop);
+      const scale = Math.min(availW / design.w, availH / design.h);
+      const left = Math.max(0, (availW - design.w * scale) / 2);
+      const top = reservedTop + Math.max(0, (availH - design.h * scale) / 2);
+
+      setMatbGridStyle({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: `${design.w}px`,
+        height: `${design.h}px`,
+        transformOrigin: 'top left',
+        transform: `translate(${left}px, ${top}px) scale(${scale})`
+      });
+    };
+
+    computeScale();
+    window.addEventListener('resize', computeScale);
+    window.addEventListener('orientationchange', computeScale);
+    portraitQ.addEventListener?.('change', computeScale);
+    landscapeQ.addEventListener?.('change', computeScale);
+
+    return () => {
+      window.removeEventListener('resize', computeScale);
+      window.removeEventListener('orientationchange', computeScale);
+      portraitQ.removeEventListener?.('change', computeScale);
+      landscapeQ.removeEventListener?.('change', computeScale);
+    };
+  }, []);
+
+  // Cross-browser fullscreen toggle (no-op on iOS Safari, which lacks the API).
+  const toggleFullscreen = useCallback(() => {
+    const doc = document;
+    const el = doc.documentElement;
+    const isFs = doc.fullscreenElement || doc.webkitFullscreenElement || doc.msFullscreenElement;
+    try {
+      if (!isFs) {
+        const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+        if (req) {
+          const result = req.call(el);
+          if (result && typeof result.catch === 'function') result.catch(() => {});
+        }
+      } else {
+        const exit = doc.exitFullscreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+        if (exit) exit.call(doc);
+      }
+    } catch (e) {
+      // Ignore: some browsers (notably iOS Safari) don't support element fullscreen.
+    }
+  }, []);
+
   // Add effect to detect mobile and initialize tracking input mode on component mount
   useEffect(() => {
     const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
@@ -747,6 +824,34 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
     <div className="app-container" style={{ height: '100vh', overflow: 'hidden' }}>
       <div className="main-container" style={{ position: 'relative', height: '100%' }}>
 
+        {/* Fullscreen toggle (works on Chrome/Android/desktop; iOS Safari ignores it) */}
+        <button
+          onClick={toggleFullscreen}
+          title={t('common.fullscreen', 'Fullscreen')}
+          aria-label="Toggle fullscreen"
+          style={{
+            position: 'fixed',
+            bottom: '10px',
+            left: '10px',
+            zIndex: 100001,
+            width: '40px',
+            height: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'rgba(0, 0, 0, 0.55)',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '20px',
+            lineHeight: 1,
+            cursor: 'pointer',
+            pointerEvents: 'auto'
+          }}
+        >
+          &#9974;
+        </button>
+
 
         <div className={`main-content ${isEventSidebarOpen && currentGameMode === 'testing' ? 'sidebar-open' : ''}`}>
           <div style={{
@@ -765,7 +870,8 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
                   gap: '1rem',
                   height: '100vh',
                   padding: '5%',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  ...(matbGridStyle || {})
                 }}>
                   {/* Top Left - System Monitoring */}
                   <div className="matb-cell matb-cell--monitoring" style={{

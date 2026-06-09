@@ -154,9 +154,12 @@ function ResourceManagementTaskComponent({
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const container = containerRef.current.getBoundingClientRect();
-    const contentWidth = container.width;
-    const contentHeight = container.height - 40; // Account for title bar
+    // Use offset dimensions (layout px) rather than getBoundingClientRect:
+    // these are unaffected by any CSS transform/scale applied to ancestors
+    // (e.g. the phone fit-to-screen scaling), keeping tank/pump positions
+    // correct. On desktop (no transform) the values are identical.
+    const contentWidth = containerRef.current.offsetWidth;
+    const contentHeight = containerRef.current.offsetHeight - 40; // Account for title bar
 
     // Base positions as percentages (adjusted for better spacing)
     const basePositions = {

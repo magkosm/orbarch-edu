@@ -242,12 +242,11 @@
    !important only on phones; desktop/tablet stay as-is.
    ========================================================= */
 
-/* ---- Shared phone base: bound the layout to exactly one viewport ----
-   The task area sits in a nested flex chain ending in
-   `.app-container { height:100vh; overflow:hidden }`. Giving the chain a
-   real bounded height (and min-height:0) lets the grid fill exactly the
-   visible area. We keep overflow hidden everywhere so nothing scrolls;
-   the grid simply divides the available height between the tasks. */
+/* ---- Shared phone base ----
+   The dashboard is laid out at a fixed design size (set inline by JS) and
+   uniformly scaled with a transform to fit the screen, so every element
+   scales together with no overlap. The scroll area is just a clipped,
+   centered stage; nothing scrolls. */
 @media (max-width: 600px) and (orientation: portrait),
        (orientation: landscape) and (max-height: 600px) {
   .app-container {
@@ -268,19 +267,17 @@
   }
 
   .matb-scroll-area {
+    position: relative !important;
     min-height: 0 !important;
     overflow: hidden !important;
-    padding: 0.4rem !important;
-    /* Clear the fixed game HUD (Time / Score / Quit) pinned to the top. */
-    padding-top: 2.75rem !important;
+    padding: 0 !important;
+    background: #14161b; /* letterbox backdrop around the scaled stage */
   }
 
+  /* Position / width / height / transform are supplied inline by JS. */
   .matb-grid {
-    height: 100% !important;
-    min-height: 0 !important;
+    gap: 0.6rem !important;
     padding: 0 !important;
-    gap: 0.4rem !important;
-    overflow: hidden !important;
   }
 
   .matb-cell {
@@ -289,7 +286,7 @@
   }
 }
 
-/* ---- Phones in PORTRAIT: compact fit-to-screen grid ----
+/* ---- Phones in PORTRAIT: compact arrangement inside the design canvas ----
    Row 1: Monitoring (wide) + System Health (narrow)
    Row 2: Tracking (full width, tallest)
    Row 3: Communications (full width)
@@ -297,7 +294,7 @@
 @media (max-width: 600px) and (orientation: portrait) {
   .matb-grid {
     grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: 1.15fr 1.8fr 1fr 1.7fr !important;
+    grid-template-rows: 1.2fr 1.9fr 1.05fr 1.75fr !important;
   }
 
   .matb-cell--monitoring {
@@ -327,8 +324,7 @@
 }
 
 /* ---- Phones in LANDSCAPE: keep the familiar 6x2 layout, scaled ----
-   The inline grid placement (6 columns, 2 rows) is preserved; the
-   shared base above just fits it to the viewport with no scroll. */
+   The inline grid placement (6 columns, 2 rows) is preserved. */
 @media (orientation: landscape) and (max-height: 600px) {
   .matb-grid {
     grid-template-columns: repeat(6, 1fr) !important;
