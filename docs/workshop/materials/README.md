@@ -7,7 +7,7 @@ use as-is.
 
 | File | Format | What it is |
 | --- | --- | --- |
-| [`qr-codes.html`](./qr-codes.html) | **A4** | Printable QR sheet (one page per language) using the local images in [`qr/`](./qr). Open → Print. |
+| [`qr-codes.html`](./qr-codes.html) | **A4** | Printable QR sheet — **one big QR per page**, with a language picker (EN/SV/EL), using the local images in [`qr/`](./qr). Pick a language → Print. |
 | [`handout-en.html`](./handout-en.html) · [`handout-sv.html`](./handout-sv.html) · [`handout-el.html`](./handout-el.html) | **A3** | Student worksheet (scores, mission checklist, big sketch box, pitch, exit ticket). Open → Print A3. |
 
 > Open the HTML files in any browser and use the **Print** button (page sizes are
