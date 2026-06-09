@@ -353,6 +353,8 @@
     "base": "Bas",
     "color": "Färg",
     "weightHint": "Grön = positiv interaktion, röd = negativ. Effekten är linjär med varje reglage.",
+    "links": "interaktioner",
+    "linksHint": "Hur andra indata trycker detta indata upp eller ner (linjärt).",
     "note": "Din modell sparas på den här enheten. Illustrativt utbildningsverktyg.",
     "resetExample": "Återställ till exempel",
     "confirmReset": "Återställa till exempelmodellen? Dina ändringar går förlorade.",

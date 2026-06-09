@@ -27,10 +27,12 @@ const uid = (prefix) => `${prefix}_${Date.now().toString(36)}_${Math.random().to
 function buildDefaultConfig(t) {
   return {
     sliders: [
-      { id: 'noise', label: t('simulator.sliders.noise', 'Noise'), value: 40, min: 0, max: 100 },
-      { id: 'biophilia', label: t('simulator.sliders.biophilia', 'Biophilia'), value: 55, min: 0, max: 100 },
-      { id: 'clutter', label: t('simulator.sliders.clutter', 'Clutter'), value: 35, min: 0, max: 100 },
-      { id: 'lighting', label: t('simulator.sliders.lighting', 'Lighting'), value: 60, min: 0, max: 100 }
+      // `links` describe how OTHER inputs push this input up/down (slider-to-slider
+      // coupling). Example: biophilia adds some clutter and a little noise.
+      { id: 'noise', label: t('simulator.sliders.noise', 'Noise'), value: 40, min: 0, max: 100, links: { biophilia: 0.15 } },
+      { id: 'biophilia', label: t('simulator.sliders.biophilia', 'Biophilia'), value: 55, min: 0, max: 100, links: {} },
+      { id: 'clutter', label: t('simulator.sliders.clutter', 'Clutter'), value: 35, min: 0, max: 100, links: { biophilia: 0.25 } },
+      { id: 'lighting', label: t('simulator.sliders.lighting', 'Lighting'), value: 60, min: 0, max: 100, links: {} }
     ],
     outcomes: [
       { id: 'attention', label: t('simulator.metrics.attention', 'Attention'), base: 55, color: '#4fd1c5', weights: { noise: -0.35, biophilia: 0.20, clutter: -0.25, lighting: 0.30 } },
@@ -40,12 +42,35 @@ function buildDefaultConfig(t) {
   };
 }
 
-function computeOutcomeValue(outcome, sliders) {
+// Resolve each slider's EFFECTIVE value by applying slider-to-slider coupling.
+// One pass over the user-set (base) values, so there are no feedback loops.
+function effectiveValues(sliders) {
+  const baseNorm = {};
+  sliders.forEach((s) => {
+    const span = (s.max - s.min) || 1;
+    baseNorm[s.id] = (s.value - s.min) / span; // 0..1
+  });
+  const eff = {};
+  sliders.forEach((s) => {
+    let v = s.value;
+    const links = s.links || {};
+    Object.entries(links).forEach(([srcId, w]) => {
+      if (srcId === s.id) return;
+      const xn = baseNorm[srcId];
+      if (xn === undefined) return;
+      v += w * 100 * xn;
+    });
+    eff[s.id] = Math.round(clamp(v, s.min, s.max));
+  });
+  return eff;
+}
+
+function computeOutcomeValue(outcome, sliders, eff) {
   let v = outcome.base;
   sliders.forEach((s) => {
     const w = outcome.weights[s.id] || 0;
     const span = (s.max - s.min) || 1;
-    const x = (s.value - s.min) / span; // 0..1
+    const x = (eff[s.id] - s.min) / span; // 0..1, from the effective value
     v += w * 100 * x;
   });
   return Math.round(clamp(v));
@@ -77,6 +102,7 @@ function ConfigurableSimulator() {
   }, [config]);
 
   const [editingOutcomeId, setEditingOutcomeId] = useState(null);
+  const [editingSliderId, setEditingSliderId] = useState(null);
   const [showAddSlider, setShowAddSlider] = useState(false);
   const [showAddOutcome, setShowAddOutcome] = useState(false);
 
@@ -92,11 +118,22 @@ function ConfigurableSimulator() {
   const removeSlider = useCallback((id) => {
     setConfig((c) => ({
       ...c,
-      sliders: c.sliders.filter((s) => s.id !== id),
+      sliders: c.sliders.filter((s) => s.id !== id).map((s) => {
+        if (!s.links || !(id in s.links)) return s;
+        const { [id]: _r, ...rest } = s.links;
+        return { ...s, links: rest };
+      }),
       outcomes: c.outcomes.map((o) => {
         const { [id]: _removed, ...rest } = o.weights;
         return { ...o, weights: rest };
       })
+    }));
+  }, []);
+
+  const setLink = useCallback((targetId, sourceId, w) => {
+    setConfig((c) => ({
+      ...c,
+      sliders: c.sliders.map((s) => (s.id === targetId ? { ...s, links: { ...(s.links || {}), [sourceId]: Number(w) } } : s))
     }));
   }, []);
 
@@ -129,10 +166,12 @@ function ConfigurableSimulator() {
     }
   }, [t]);
 
+  const eff = useMemo(() => (config ? effectiveValues(config.sliders) : {}), [config]);
+
   const computed = useMemo(() => {
     if (!config) return [];
-    return config.outcomes.map((o) => ({ ...o, value: computeOutcomeValue(o, config.sliders) }));
-  }, [config]);
+    return config.outcomes.map((o) => ({ ...o, value: computeOutcomeValue(o, config.sliders, eff) }));
+  }, [config, eff]);
 
   if (!config) return null;
 
@@ -153,20 +192,52 @@ function ConfigurableSimulator() {
               <h2 style={{ fontSize: '16px', margin: 0 }}>{t('modelLab.inputs', 'Inputs (sliders)')}</h2>
               <button onClick={() => setShowAddSlider(true)} style={btnSmallPrimary}>+ {t('modelLab.addSlider', 'Add slider')}</button>
             </div>
-            {config.sliders.map((s) => (
-              <div key={s.id} style={card}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <input value={s.label} onChange={(e) => updateSlider(s.id, { label: e.target.value })} style={inlineLabelInput} />
-                  <span style={{ fontSize: '13px', opacity: 0.85, fontVariantNumeric: 'tabular-nums' }}>{s.value}</span>
+            {config.sliders.map((s) => {
+              const effVal = eff[s.id];
+              const coupled = effVal !== undefined && effVal !== s.value;
+              const otherSliders = config.sliders.filter((o) => o.id !== s.id);
+              return (
+                <div key={s.id} style={card}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <input value={s.label} onChange={(e) => updateSlider(s.id, { label: e.target.value })} style={inlineLabelInput} />
+                    <span style={{ fontSize: '13px', opacity: 0.85, fontVariantNumeric: 'tabular-nums' }}>
+                      {s.value}
+                      {coupled && <span style={{ color: '#b794f4' }}> → {effVal}</span>}
+                    </span>
+                  </div>
+                  <input type="range" min={s.min} max={s.max} value={s.value} onChange={(e) => setSliderValue(s.id, e.target.value)} style={{ width: '100%', accentColor: '#4fd1c5', cursor: 'pointer' }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', opacity: 0.7 }}>
+                    <label>min <input type="number" value={s.min} onChange={(e) => updateSlider(s.id, { min: Number(e.target.value) })} style={miniNum} /></label>
+                    <label>max <input type="number" value={s.max} onChange={(e) => updateSlider(s.id, { max: Number(e.target.value) })} style={miniNum} /></label>
+                    <button onClick={() => setEditingSliderId(editingSliderId === s.id ? null : s.id)} style={btnDangerLink}>
+                      {editingSliderId === s.id ? t('modelLab.done', 'done') : t('modelLab.links', 'interactions')}
+                    </button>
+                    <button onClick={() => removeSlider(s.id)} style={btnDangerLink}>{t('modelLab.remove', 'remove')}</button>
+                  </div>
+
+                  {editingSliderId === s.id && (
+                    <div style={{ marginTop: '10px', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '10px' }}>
+                      {otherSliders.length === 0 && <div style={{ fontSize: '11px', opacity: 0.5 }}>{t('modelLab.noInputs', 'Add some inputs first.')}</div>}
+                      {otherSliders.map((src) => {
+                        const w = (s.links && s.links[src.id]) || 0;
+                        return (
+                          <div key={src.id} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                            <span style={{ width: '38%', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{src.label}</span>
+                            <input type="range" min="-1" max="1" step="0.05" value={w} onChange={(e) => setLink(s.id, src.id, e.target.value)} style={{ flex: 1, accentColor: w >= 0 ? '#9ae6b4' : '#fc8181' }} />
+                            <span style={{ width: 38, textAlign: 'right', fontSize: '12px', color: w > 0 ? '#9ae6b4' : w < 0 ? '#fc8181' : 'rgba(255,255,255,0.6)', fontVariantNumeric: 'tabular-nums' }}>
+                              {w > 0 ? '+' : ''}{w.toFixed(2)}
+                            </span>
+                          </div>
+                        );
+                      })}
+                      <p style={{ fontSize: '10px', opacity: 0.5, margin: '6px 0 0 0' }}>
+                        {t('modelLab.linksHint', 'How other inputs push this input up or down (linear).')}
+                      </p>
+                    </div>
+                  )}
                 </div>
-                <input type="range" min={s.min} max={s.max} value={s.value} onChange={(e) => setSliderValue(s.id, e.target.value)} style={{ width: '100%', accentColor: '#4fd1c5', cursor: 'pointer' }} />
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', opacity: 0.7 }}>
-                  <label>min <input type="number" value={s.min} onChange={(e) => updateSlider(s.id, { min: Number(e.target.value) })} style={miniNum} /></label>
-                  <label>max <input type="number" value={s.max} onChange={(e) => updateSlider(s.id, { max: Number(e.target.value) })} style={miniNum} /></label>
-                  <button onClick={() => removeSlider(s.id)} style={btnDangerLink}>{t('modelLab.remove', 'remove')}</button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* OUTCOMES + chart */}

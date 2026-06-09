@@ -362,6 +362,8 @@
     "base": "Base",
     "color": "Color",
     "weightHint": "Green = positive interaction, red = negative. Effect is linear with each slider.",
+    "links": "interactions",
+    "linksHint": "How other inputs push this input up or down (linear).",
     "note": "Your model is saved on this device. Illustrative educational tool.",
     "resetExample": "Reset to example",
     "confirmReset": "Reset to the example model? Your changes will be lost.",
