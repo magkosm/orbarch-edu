@@ -24,5 +24,6 @@ yarn-error.log*
 
 # documentation
 API KEY/
-docs/
-!docs/*
+docs/*
+!docs/workshop/
+!docs/workshop/**
