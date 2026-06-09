@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/orbarch-edu/static/css/main.c2ac727f.css",
-    "main.js": "/orbarch-edu/static/js/main.a6294fdf.js",
+    "main.js": "/orbarch-edu/static/js/main.5522e298.js",
     "static/js/453.4c1b0762.chunk.js": "/orbarch-edu/static/js/453.4c1b0762.chunk.js",
     "static/media/Cupola.jpg": "/orbarch-edu/static/media/Cupola.0a88fc15ed01ab77e1b4.jpg",
     "static/media/OTHER_COM2_126-025.wav": "/orbarch-edu/static/media/OTHER_COM2_126-025.4f652a80024009e33da6.wav",
@@ -96,11 +96,11 @@
     "static/media/R.wav": "/orbarch-edu/static/media/R.c981836b18486cd2ff24.wav",
     "index.html": "/orbarch-edu/index.html",
     "main.c2ac727f.css.map": "/orbarch-edu/static/css/main.c2ac727f.css.map",
-    "main.a6294fdf.js.map": "/orbarch-edu/static/js/main.a6294fdf.js.map",
+    "main.5522e298.js.map": "/orbarch-edu/static/js/main.5522e298.js.map",
     "453.4c1b0762.chunk.js.map": "/orbarch-edu/static/js/453.4c1b0762.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c2ac727f.css",
-    "static/js/main.a6294fdf.js"
+    "static/js/main.5522e298.js"
   ]
 }
