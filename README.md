@@ -16,6 +16,8 @@ Desert Research Station (MDRS)** in Utah — crews **MDRS 275, 293, 311 and 330*
 
 **Live app:** https://magkosm.github.io/orbarch-edu
 
+**Status:** Operational · **Version:** 2.0.0
+
 ---
 
 ## What's inside
@@ -33,10 +35,25 @@ The battery bundles three families of tasks:
 - **N-Back (2-Back) Memory** — indicate when the current stimulus matches the one
   shown two steps earlier.
 
+It also includes an **education & design layer** (added in v2) for workshops:
+
+- **Space Architecture Simulator** — sliders (Noise, Biophilia, Clutter, Lighting)
+  with a live cognitive read-out.
+- **Habitat Blueprint Designer** — lay out a station module; the design drives crew
+  cognition *and* mission value (Science / Health / Life Support), combined into a
+  Mission Success score, with a starting scenario, mission brief, and an entrance
+  access rule.
+- **Condition Lab** — an in-browser cabin-noise stressor and a baseline-vs-stressed
+  comparison to quantify how environment affects performance.
+- **Model Lab** — build your own simulator: custom inputs and outcomes wired with
+  positive/negative linear interactions (and input-to-input coupling), shown as an
+  interactive wire/node interaction map.
+
 Modes include Normal (timed), Infinite, Custom, single-task Training presets, and a
 Suite mode that chains several tests together. The UI is fully internationalised
 (English / Swedish / Greek), supports selectable environment backgrounds (Cupola,
-Columbus, CASA), and is responsive for phones in both portrait and landscape.
+Columbus, CASA), is responsive for phones in both portrait and landscape, and is
+installable as a fullscreen web app.
 
 ---
 
@@ -59,6 +76,10 @@ in instructions). Append `?lng=sv` or `?lng=el` to force a language.
 | `/nback` | N-Back (with config screen) |
 | `/nbackdefault` | N-Back (quick start, default params) |
 | `/suite` | Suite manager (chained tests) |
+| `/simulator` | Space Architecture Simulator |
+| `/blueprint` | Habitat Blueprint Designer |
+| `/condition-lab` | Condition Lab (baseline vs. noise) |
+| `/model-lab` | Model Lab (build-your-own simulator) |
 
 ---
 

@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2026-06-09
+Official v2 release — **operational**. Adds an interactive education layer on top
+of the assessment battery and a fully responsive, installable mobile experience.
+
+### Added
+- **Space Architecture & Cognitive Performance Simulator** (`/simulator`): sliders
+  for Noise / Biophilia / Clutter / Lighting with a live cognitive read-out.
+- **Habitat Blueprint Designer** (`/blueprint`): place architectural features on a
+  7×5 module grid that drives both **crew cognition** and **mission value**
+  (Science / Health / Life Support), combined into a **Mission Success** score.
+  Includes a starting scenario with a live mission-brief checklist, an entrance
+  **access rule** (every module needs a clear corridor to the mid-left entrance),
+  hover descriptions, and a simulated reaction-time read-out.
+- **Condition Lab** (`/condition-lab`): a self-contained Web Audio cabin-noise
+  stressor plus a baseline-vs-stressed MATB comparison to quantify the effect of
+  environment on performance.
+- **Model Lab** (`/model-lab`): build your own simulator — define custom inputs and
+  outcomes wired with positive/negative **linear interactions**, including
+  **input-to-input coupling**. Features an interactive, toggleable wire/node
+  **interaction map** (value sliders on nodes, relative wire thickness,
+  good/bad effect colouring, low-value/high-value warnings, relationship
+  highlighting), good/bad polarity per input & outcome, and localStorage persistence.
+- **Fullscreen toggle** plus web-app meta tags for an installable, chrome-less
+  experience on Android/desktop and "Add to Home Screen" on iOS.
+- **MIT License** (KTH / ESERO Sweden / Michail Magkos) and full project
+  documentation, including related-project links surfaced in the main menu.
+
+### Changed
+- **Responsive MATB on phones**: the task grid is now uniformly scaled to fit the
+  screen (portrait and landscape) so every control stays usable.
+- **Project / deployment renamed** to `orbarch-edu`
+  (https://magkosm.github.io/orbarch-edu), with redirects preserving old links.
+- New strings localised across English, Swedish and Greek.
+
+
 ## [1.0.2] - 2026-01-28
 ### Fixed
 - **Deep Linking Isolation**: Fixed an issue where task-specific links (e.g., `/comms`, `/tracking`) were activating all tasks. These links now correctly isolate the intended task with matched training presets (3m duration, difficulty 6, and instruction overlays).
