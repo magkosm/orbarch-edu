@@ -27,3 +27,5 @@ API KEY/
 docs/*
 !docs/workshop/
 !docs/workshop/**
+# keep macOS cruft out of the tracked workshop folder
+docs/workshop/**/.DS_Store
