@@ -316,18 +316,56 @@
     "menuButton": "Blueprint Designer",
     "title": "Habitat Blueprint Designer",
     "subtitle": "Lay out your module. Each feature changes the crew's cognitive baseline.",
+    "subtitle2": "Balance crew cognition against mission value. Equipment boosts the mission but can hurt focus — design wisely.",
     "erase": "Erase",
     "clear": "Clear module",
+    "loadScenario": "Load scenario",
     "reactionTime": "Simulated reaction time",
     "rescued": "Rescued by {{ms}} ms vs. a neutral cabin",
     "slower": "{{ms}} ms slower than a neutral cabin",
+    "missionSuccess": "Mission success",
+    "cognition": "Crew cognition",
+    "missionValue": "Mission value",
+    "brief": "Mission brief",
+    "hoverHint": "Hover a feature to see what it does, then click the grid to place it.",
+    "metricsV": {
+      "science": "Science",
+      "health": "Health",
+      "lifeSupport": "Life support"
+    },
+    "req": {
+      "lifeSupport": "Keep at least 1 life-support unit",
+      "stowage": "Add at least 2 stowage units",
+      "sleep": "Add sleeping quarters",
+      "success": "Reach Mission Success ≥ 70"
+    },
     "features": {
       "acousticZone": "Acoustic zone",
       "plantWall": "Plant wall",
       "virtualWindow": "Virtual window",
       "stowage": "Stowage",
       "circadianLight": "Circadian light",
-      "noisyEquipment": "Noisy equipment"
+      "sleepingQuarters": "Sleeping quarters",
+      "noisyEquipment": "Life support",
+      "scienceRack": "Science rack",
+      "exerciseBike": "Exercise bike",
+      "workstation": "Workstation",
+      "medbay": "Med bay",
+      "greenhouse": "Greenhouse"
+    },
+    "desc": {
+      "acousticZone": "Lowers noise — great for focus.",
+      "stowage": "Cuts clutter by keeping the module tidy.",
+      "plantWall": "Boosts biophilia, health and life support; adds a little clutter.",
+      "virtualWindow": "Adds light and biophilia; small health boost.",
+      "circadianLight": "Tunes lighting to the body clock; small health boost.",
+      "sleepingQuarters": "Quiet rest area: lowers noise and lifts health.",
+      "noisyEquipment": "Vital life support, but noisy and bulky.",
+      "scienceRack": "High science value, but adds clutter and some noise.",
+      "exerciseBike": "Keeps the crew healthy, but noisy and bulky.",
+      "workstation": "Adds science and light; takes up space (clutter).",
+      "medbay": "Improves health and some science; adds clutter.",
+      "greenhouse": "Strong life support and health, more biophilia; adds clutter and noise."
     }
   },
   "conditionLab": {

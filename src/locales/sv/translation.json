@@ -307,18 +307,56 @@
     "menuButton": "Ritningsdesigner",
     "title": "Habitatets ritningsdesigner",
     "subtitle": "Planera din modul. Varje funktion ändrar besättningens kognitiva baslinje.",
+    "subtitle2": "Balansera besättningens kognition mot uppdragsvärde. Utrustning gynnar uppdraget men kan skada fokus — designa klokt.",
     "erase": "Sudda",
     "clear": "Rensa modul",
+    "loadScenario": "Ladda scenario",
     "reactionTime": "Simulerad reaktionstid",
     "rescued": "Räddade {{ms}} ms jämfört med en neutral kabin",
     "slower": "{{ms}} ms långsammare än en neutral kabin",
+    "missionSuccess": "Uppdragsframgång",
+    "cognition": "Besättningens kognition",
+    "missionValue": "Uppdragsvärde",
+    "brief": "Uppdragsbeskrivning",
+    "hoverHint": "Håll muspekaren över en funktion för att se vad den gör, klicka sedan på rutnätet för att placera den.",
+    "metricsV": {
+      "science": "Vetenskap",
+      "health": "Hälsa",
+      "lifeSupport": "Livsuppehållande"
+    },
+    "req": {
+      "lifeSupport": "Behåll minst 1 livsuppehållande enhet",
+      "stowage": "Lägg till minst 2 förvaringsenheter",
+      "sleep": "Lägg till sovutrymme",
+      "success": "Nå Uppdragsframgång ≥ 70"
+    },
     "features": {
       "acousticZone": "Akustisk zon",
       "plantWall": "Växtvägg",
       "virtualWindow": "Virtuellt fönster",
       "stowage": "Förvaring",
       "circadianLight": "Dygnsrytmsljus",
-      "noisyEquipment": "Bullrig utrustning"
+      "sleepingQuarters": "Sovutrymme",
+      "noisyEquipment": "Livsuppehållande",
+      "scienceRack": "Vetenskapsrack",
+      "exerciseBike": "Träningscykel",
+      "workstation": "Arbetsstation",
+      "medbay": "Sjukvård",
+      "greenhouse": "Växthus"
+    },
+    "desc": {
+      "acousticZone": "Sänker buller — bra för fokus.",
+      "stowage": "Minskar röran genom att hålla modulen städad.",
+      "plantWall": "Ökar biofili, hälsa och livsuppehållande; lite mer röra.",
+      "virtualWindow": "Ger ljus och biofili; liten hälsoökning.",
+      "circadianLight": "Anpassar ljuset till dygnsrytmen; liten hälsoökning.",
+      "sleepingQuarters": "Lugn viloplats: sänker buller och höjer hälsan.",
+      "noisyEquipment": "Livsviktigt livsuppehållande, men bullrigt och skrymmande.",
+      "scienceRack": "Högt vetenskapsvärde, men ökar röra och visst buller.",
+      "exerciseBike": "Håller besättningen frisk, men bullrig och skrymmande.",
+      "workstation": "Ger vetenskap och ljus; tar plats (röra).",
+      "medbay": "Förbättrar hälsa och viss vetenskap; ökar röra.",
+      "greenhouse": "Starkt livsuppehållande och hälsa, mer biofili; ökar röra och buller."
     }
   },
   "conditionLab": {
