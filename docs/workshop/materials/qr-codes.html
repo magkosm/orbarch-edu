@@ -82,7 +82,9 @@
     document.querySelectorAll('.langbtn').forEach(function (b) {
       b.addEventListener('click', function () { render(b.getAttribute('data-lang')); });
     });
-    render('en');
+    var initial = new URLSearchParams(location.search).get('lng');
+    if (['en', 'sv', 'el'].indexOf(initial) === -1) initial = 'en';
+    render(initial);
   </script>
 </body>
 </html>

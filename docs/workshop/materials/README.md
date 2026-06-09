@@ -3,6 +3,17 @@
 Print-and-go resources for the [workshop](../README.md). Most files are ready to
 use as-is.
 
+## Ready-made PDFs (no print menu needed) → [`pdf/`](./pdf)
+
+Pre-rendered so you can just open and print/AirPrint at 100%:
+
+- **A3 landscape handouts:** `pdf/handout-en.pdf` · `pdf/handout-sv.pdf` · `pdf/handout-el.pdf`
+- **A4 QR sheets (one QR per page):** `pdf/qr-en.pdf` · `pdf/qr-sv.pdf` · `pdf/qr-el.pdf`
+
+> In the macOS print dialog just pick the printer and **Print** — the page size
+> (A3 landscape / A4) is baked into each PDF, so you don't need to fiddle with
+> paper size or orientation. Regenerate with the commands at the bottom.
+
 ## Print these
 
 | File | Format | What it is |
@@ -39,6 +50,25 @@ npm i qrcode --no-save && node docs/workshop/materials/gen-qr.js
 - [ ] Slides on the projector.
 - [ ] A3 paper, rulers, markers for sketching (or just use the A3 handout's box).
 - [ ] Room speakers tested (the Condition Lab also makes noise in-browser).
+
+## Regenerate the PDFs
+
+The PDFs in `pdf/` are rendered from the HTML with headless Chrome (page sizes
+come from each file's `@page` CSS — A3 landscape for handouts, A4 for QR):
+
+```bash
+CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# Handouts (A3 landscape)
+for l in en sv el; do "$CHROME" --headless=new --no-pdf-header-footer \
+  --user-data-dir=/tmp/c-$l \
+  --print-to-pdf="docs/workshop/materials/pdf/handout-$l.pdf" \
+  "file://$PWD/docs/workshop/materials/handout-$l.html"; done
+# QR sheets (A4, one per page)
+for l in en sv el; do "$CHROME" --headless=new --no-pdf-header-footer \
+  --user-data-dir=/tmp/cq-$l \
+  --print-to-pdf="docs/workshop/materials/pdf/qr-$l.pdf" \
+  "file://$PWD/docs/workshop/materials/qr-codes.html?lng=$l"; done
+```
 
 ## Optional extras (placeholders)
 
