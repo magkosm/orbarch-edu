@@ -665,24 +665,35 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
     };
   }, []);
 
-  // Cross-browser fullscreen toggle (no-op on iOS Safari, which lacks the API).
+  // Cross-browser fullscreen toggle. iOS Safari has no element Fullscreen API,
+  // so there we surface a hint to install via "Add to Home Screen" instead.
+  const [showFullscreenHint, setShowFullscreenHint] = useState(false);
+  const fullscreenHintTimerRef = useRef(null);
+
   const toggleFullscreen = useCallback(() => {
     const doc = document;
     const el = doc.documentElement;
+    const request = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+    const exit = doc.exitFullscreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
     const isFs = doc.fullscreenElement || doc.webkitFullscreenElement || doc.msFullscreenElement;
+
+    // Unsupported (notably iOS Safari): show a brief install hint.
+    if (!request) {
+      setShowFullscreenHint(true);
+      if (fullscreenHintTimerRef.current) clearTimeout(fullscreenHintTimerRef.current);
+      fullscreenHintTimerRef.current = setTimeout(() => setShowFullscreenHint(false), 6000);
+      return;
+    }
+
     try {
       if (!isFs) {
-        const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
-        if (req) {
-          const result = req.call(el);
-          if (result && typeof result.catch === 'function') result.catch(() => {});
-        }
-      } else {
-        const exit = doc.exitFullscreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-        if (exit) exit.call(doc);
+        const result = request.call(el);
+        if (result && typeof result.catch === 'function') result.catch(() => {});
+      } else if (exit) {
+        exit.call(doc);
       }
     } catch (e) {
-      // Ignore: some browsers (notably iOS Safari) don't support element fullscreen.
+      // Ignore unexpected fullscreen errors.
     }
   }, []);
 
@@ -851,6 +862,34 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
         >
           &#9974;
         </button>
+
+        {/* Fullscreen not supported (iOS Safari): guide the user to install the web app */}
+        {showFullscreenHint && (
+          <div
+            onClick={() => setShowFullscreenHint(false)}
+            style={{
+              position: 'fixed',
+              bottom: '58px',
+              left: '10px',
+              maxWidth: 'min(360px, calc(100vw - 20px))',
+              zIndex: 100002,
+              background: 'rgba(0, 0, 0, 0.88)',
+              color: '#fff',
+              padding: '12px 14px',
+              borderRadius: '8px',
+              fontSize: '13px',
+              lineHeight: 1.45,
+              boxShadow: '0 2px 10px rgba(0,0,0,0.4)',
+              pointerEvents: 'auto',
+              cursor: 'pointer'
+            }}
+          >
+            {t(
+              'common.fullscreenHint',
+              'Fullscreen isn\u2019t available in this browser. On iPhone: tap the Share button, then \u201CAdd to Home Screen\u201D, and open it from the new icon for a fullscreen experience.'
+            )}
+          </div>
+        )}
 
 
         <div className={`main-content ${isEventSidebarOpen && currentGameMode === 'testing' ? 'sidebar-open' : ''}`}>
