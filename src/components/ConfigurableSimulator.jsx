@@ -29,15 +29,15 @@ function buildDefaultConfig(t) {
     sliders: [
       // `links` describe how OTHER inputs push this input up/down (slider-to-slider
       // coupling). Example: biophilia adds some clutter and a little noise.
-      { id: 'noise', label: t('simulator.sliders.noise', 'Noise'), value: 40, min: 0, max: 100, links: { biophilia: 0.15 } },
-      { id: 'biophilia', label: t('simulator.sliders.biophilia', 'Biophilia'), value: 55, min: 0, max: 100, links: {} },
-      { id: 'clutter', label: t('simulator.sliders.clutter', 'Clutter'), value: 35, min: 0, max: 100, links: { biophilia: 0.25 } },
-      { id: 'lighting', label: t('simulator.sliders.lighting', 'Lighting'), value: 60, min: 0, max: 100, links: {} }
+      { id: 'noise', label: t('simulator.sliders.noise', 'Noise'), value: 40, min: 0, max: 100, bad: true, links: { biophilia: 0.15 } },
+      { id: 'biophilia', label: t('simulator.sliders.biophilia', 'Biophilia'), value: 55, min: 0, max: 100, bad: false, links: {} },
+      { id: 'clutter', label: t('simulator.sliders.clutter', 'Clutter'), value: 35, min: 0, max: 100, bad: true, links: { biophilia: 0.25 } },
+      { id: 'lighting', label: t('simulator.sliders.lighting', 'Lighting'), value: 60, min: 0, max: 100, bad: false, links: {} }
     ],
     outcomes: [
-      { id: 'attention', label: t('simulator.metrics.attention', 'Attention'), base: 55, color: '#4fd1c5', weights: { noise: -0.35, biophilia: 0.20, clutter: -0.25, lighting: 0.30 } },
-      { id: 'memory', label: t('simulator.metrics.memory', 'Working Memory'), base: 55, color: '#63b3ed', weights: { noise: -0.30, biophilia: 0.25, clutter: -0.30, lighting: 0.20 } },
-      { id: 'stress', label: t('simulator.metrics.stress', 'Stress'), base: 30, color: '#f6ad55', weights: { noise: 0.40, biophilia: -0.20, clutter: 0.30, lighting: -0.15 } }
+      { id: 'attention', label: t('simulator.metrics.attention', 'Attention'), base: 55, color: '#4fd1c5', bad: false, weights: { noise: -0.35, biophilia: 0.20, clutter: -0.25, lighting: 0.30 } },
+      { id: 'memory', label: t('simulator.metrics.memory', 'Working Memory'), base: 55, color: '#63b3ed', bad: false, weights: { noise: -0.30, biophilia: 0.25, clutter: -0.30, lighting: 0.20 } },
+      { id: 'stress', label: t('simulator.metrics.stress', 'Stress'), base: 30, color: '#f6ad55', bad: true, weights: { noise: 0.40, biophilia: -0.20, clutter: 0.30, lighting: -0.15 } }
     ]
   };
 }
@@ -104,6 +104,7 @@ function ConfigurableSimulator() {
   const [editingOutcomeId, setEditingOutcomeId] = useState(null);
   const [editingSliderId, setEditingSliderId] = useState(null);
   const [showGraph, setShowGraph] = useState(false);
+  const [showPanels, setShowPanels] = useState(true);
   const [showAddSlider, setShowAddSlider] = useState(false);
   const [showAddOutcome, setShowAddOutcome] = useState(false);
 
@@ -186,24 +187,12 @@ function ConfigurableSimulator() {
           {t('modelLab.subtitle', 'Define inputs and outcomes, then wire them with positive/negative linear interactions.')}
         </p>
 
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: showGraph ? '14px' : '4px' }}>
-          <button
-            onClick={() => setShowGraph((v) => !v)}
-            style={{
-              padding: '8px 18px',
-              background: showGraph ? 'rgba(255,255,255,0.08)' : '#6f42c1',
-              color: '#fff',
-              border: '1px solid rgba(255,255,255,0.18)',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontSize: '13px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>🪢</span>
-            {showGraph ? t('modelLab.hideMap', 'Hide interaction map') : t('modelLab.showMap', 'Show interaction map')}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
+          <button onClick={() => setShowGraph((v) => !v)} style={pillStyle(showGraph)}>
+            🪢 {showGraph ? t('modelLab.hideMap', 'Hide interaction map') : t('modelLab.showMap', 'Show interaction map')}
+          </button>
+          <button onClick={() => setShowPanels((v) => !v)} style={pillStyle(showPanels)}>
+            🎚️ {showPanels ? t('modelLab.hidePanels', 'Hide sliders') : t('modelLab.showPanels', 'Show sliders')}
           </button>
         </div>
 
@@ -214,9 +203,11 @@ function ConfigurableSimulator() {
             eff={eff}
             onSetWeight={setWeight}
             onSetLink={setLink}
+            onSetValue={setSliderValue}
           />
         )}
 
+        {showPanels && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', alignItems: 'start', marginTop: '20px' }}>
           {/* INPUTS */}
           <div>
@@ -238,9 +229,15 @@ function ConfigurableSimulator() {
                     </span>
                   </div>
                   <input type="range" min={s.min} max={s.max} value={s.value} onChange={(e) => setSliderValue(s.id, e.target.value)} style={{ width: '100%', accentColor: '#4fd1c5', cursor: 'pointer' }} />
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', opacity: 0.7 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', opacity: 0.7, flexWrap: 'wrap' }}>
                     <label>min <input type="number" value={s.min} onChange={(e) => updateSlider(s.id, { min: Number(e.target.value) })} style={miniNum} /></label>
                     <label>max <input type="number" value={s.max} onChange={(e) => updateSlider(s.id, { max: Number(e.target.value) })} style={miniNum} /></label>
+                    <label>{t('modelLab.higherIs', 'Higher is')}
+                      <select value={s.bad ? 'bad' : 'good'} onChange={(e) => updateSlider(s.id, { bad: e.target.value === 'bad' })} style={miniSelect}>
+                        <option value="good">{t('modelLab.good', 'good')}</option>
+                        <option value="bad">{t('modelLab.bad', 'bad')}</option>
+                      </select>
+                    </label>
                     <button onClick={() => setEditingSliderId(editingSliderId === s.id ? null : s.id)} style={btnDangerLink}>
                       {editingSliderId === s.id ? t('modelLab.done', 'done') : t('modelLab.links', 'interactions')}
                     </button>
@@ -285,10 +282,11 @@ function ConfigurableSimulator() {
                 const h = (o.value / 100) * 160;
                 const x = i * slotW + (slotW - barW) / 2;
                 const y = 188 - h;
+                const warn = o.bad ? o.value > 70 : o.value < 30;
                 return (
                   <g key={o.id}>
-                    <rect x={x} y={y} width={barW} height={h} rx="4" fill={o.color} />
-                    <text x={x + barW / 2} y={y - 5} fontSize="12" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{o.value}</text>
+                    <rect x={x} y={y} width={barW} height={h} rx="4" fill={warn ? '#f56565' : o.color} />
+                    <text x={x + barW / 2} y={y - 5} fontSize="12" fontWeight="bold" textAnchor="middle" fill={warn ? '#f56565' : '#e6edf3'}>{warn ? '⚠ ' : ''}{o.value}</text>
                     <text x={x + barW / 2} y={204} fontSize="9" textAnchor="middle" fill="rgba(255,255,255,0.75)">{o.label}</text>
                   </g>
                 );
@@ -316,6 +314,12 @@ function ConfigurableSimulator() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', marginBottom: '8px' }}>
                       <label>{t('modelLab.base', 'Base')} <input type="number" value={o.base} onChange={(e) => updateOutcome(o.id, { base: Number(e.target.value) })} style={miniNum} /></label>
                       <label>{t('modelLab.color', 'Color')} <input type="color" value={o.color} onChange={(e) => updateOutcome(o.id, { color: e.target.value })} style={{ verticalAlign: 'middle', width: 28, height: 22, border: 'none', background: 'none' }} /></label>
+                      <label>{t('modelLab.higherIs', 'Higher is')}
+                        <select value={o.bad ? 'bad' : 'good'} onChange={(e) => updateOutcome(o.id, { bad: e.target.value === 'bad' })} style={miniSelect}>
+                          <option value="good">{t('modelLab.good', 'good')}</option>
+                          <option value="bad">{t('modelLab.bad', 'bad')}</option>
+                        </select>
+                      </label>
                     </div>
                     {config.sliders.map((s) => {
                       const w = o.weights[s.id] || 0;
@@ -338,6 +342,8 @@ function ConfigurableSimulator() {
             ))}
           </div>
         </div>
+
+        )}
 
         <p style={{ fontSize: '11px', opacity: 0.5, marginTop: '16px', textAlign: 'center' }}>
           {t('modelLab.note', 'Your model is saved on this device. Illustrative educational tool.')}
@@ -376,16 +382,21 @@ function ConfigurableSimulator() {
 // wires. Slider->outcome wires AND slider->slider coupling wires. Click a node
 // then another to connect them; click a wire to adjust its weight.
 // ---------------------------------------------------------------------------
-function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
+function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink, onSetValue }) {
   const { t } = useTranslation();
   const [connectSource, setConnectSource] = useState(null);
   const [selected, setSelected] = useState(null);
   const [hover, setHover] = useState(null);
 
+  const sliderBad = {};
+  sliders.forEach((s) => { sliderBad[s.id] = !!s.bad; });
+  const outcomeBad = {};
+  outcomes.forEach((o) => { outcomeBad[o.id] = !!o.bad; });
+
   const W = 480;
   const nodeW = 132;
-  const nodeH = 38;
-  const rowH = 64;
+  const nodeH = 48;
+  const rowH = 74;
   const topPad = 50;
   const rows = Math.max(sliders.length, outcomes.length, 1);
   const H = topPad + rows * rowH + 16;
@@ -401,8 +412,18 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
   const outcomeY = {};
   outcomes.forEach((o, i) => { outcomeY[o.id] = yAt(i); });
 
-  const wireColor = (w) => (w > 0 ? '#6ee7b7' : '#fca5a5');
-  const wireWidth = (w) => 1.5 + Math.min(Math.abs(w), 1) * 4.5;
+  // Largest magnitude in the whole model, so thickness is RELATIVE to it.
+  let maxAbs = 0.0001;
+  outcomes.forEach((o) => Object.values(o.weights || {}).forEach((w) => { if (Math.abs(w) > maxAbs) maxAbs = Math.abs(w); }));
+  sliders.forEach((s) => Object.values(s.links || {}).forEach((w) => { if (Math.abs(w) > maxAbs) maxAbs = Math.abs(w); }));
+
+  const GOOD = '#6ee7b7';
+  const BAD = '#fca5a5';
+  // Green when the effect is beneficial: raising a "good" target, or lowering a
+  // "bad" target (e.g. reducing stress). Red when harmful.
+  const isGood = (w, targetBad) => (w > 0) !== Boolean(targetBad);
+  const wireColor = (w, targetBad) => (isGood(w, targetBad) ? GOOD : BAD);
+  const wireWidth = (w) => 1.2 + (Math.abs(w) / maxAbs) * 5;
   const cubicMid = (p0, p1, p2, p3) => 0.125 * p0 + 0.375 * p1 + 0.375 * p2 + 0.125 * p3;
 
   const handleNodeClick = (kind, id) => {
@@ -540,12 +561,13 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const mx = cubicMid(x1, c1x, c2x, x2);
           const my = cubicMid(y1, y1, y2, y2);
           const op = wireOpacity(key, active ? 1 : 0.6);
+          const good = isGood(w, outcomeBad[o.id]);
           return (
             <g key={key} style={{ cursor: 'pointer' }} onClick={() => { setSelected({ type: 'weight', sliderId: s.id, outcomeId: o.id }); setConnectSource(null); }}
               onMouseEnter={() => setHover(key)} onMouseLeave={() => setHover((h) => (h === key ? null : h))}>
               <path d={d} fill="none" stroke="transparent" strokeWidth="16" />
-              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} opacity={op} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
-              {active && <WireBadge x={mx} y={my} w={w} />}
+              <path d={d} fill="none" stroke={good ? GOOD : BAD} strokeWidth={wireWidth(w)} opacity={op} markerEnd={`url(#${good ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
+              {active && <WireBadge x={mx} y={my} w={w} col={good ? GOOD : BAD} />}
             </g>
           );
         }))}
@@ -564,12 +586,13 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const mx = cubicMid(x, cx, cx, x);
           const my = cubicMid(y1, y1, y2, y2);
           const op = wireOpacity(key, active ? 1 : 0.6);
+          const good = isGood(w, sliderBad[target.id]);
           return (
             <g key={key} style={{ cursor: 'pointer' }} onClick={() => { setSelected({ type: 'link', sourceId: srcId, targetId: target.id }); setConnectSource(null); }}
               onMouseEnter={() => setHover(key)} onMouseLeave={() => setHover((h) => (h === key ? null : h))}>
               <path d={d} fill="none" stroke="transparent" strokeWidth="16" />
-              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} strokeDasharray="5 4" opacity={op} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
-              {active && <WireBadge x={mx} y={my} w={w} />}
+              <path d={d} fill="none" stroke={good ? GOOD : BAD} strokeWidth={wireWidth(w)} strokeDasharray="5 4" opacity={op} markerEnd={`url(#${good ? 'arrowG' : 'arrowR'})`} filter={active ? 'url(#wireGlow)' : undefined} />
+              {active && <WireBadge x={mx} y={my} w={w} col={good ? GOOD : BAD} />}
             </g>
           );
         }))}
@@ -586,12 +609,25 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
             <g key={`n-${s.id}`} style={{ cursor: 'pointer' }} opacity={nodeOpacity(nKey)} onClick={() => handleNodeClick('slider', s.id)}>
               <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="10"
                 fill="url(#gIn)" stroke={sel ? '#4fd1c5' : hi ? '#cbd5e1' : 'rgba(255,255,255,0.18)'} strokeWidth={sel || hi ? 2 : 1} filter="url(#nodeShadow)" />
-              <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width="4" height={nodeH} rx="2" fill="#4fd1c5" />
+              <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width="4" height={nodeH} rx="2" fill={s.bad ? BAD : '#4fd1c5'} />
               <circle cx={inputX + nodeW / 2} cy={y} r="3" fill="#4fd1c5" />
-              <text x={inputX + 3} y={y - 2} fontSize="11.5" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(s.label, 16)}</text>
-              <text x={inputX + 3} y={y + 11} fontSize="9.5" textAnchor="middle" fill={coupled ? '#c4b5fd' : 'rgba(255,255,255,0.55)'}>
+              <text x={inputX + 6} y={y - 10} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(s.label, 16)}</text>
+              <text x={inputX + 6} y={y + 1} fontSize="9" textAnchor="middle" fill={coupled ? '#c4b5fd' : 'rgba(255,255,255,0.55)'}>
                 {s.value}{coupled ? ` → ${effVal}` : ''}
               </text>
+              <foreignObject x={inputX - nodeW / 2 + 8} y={y + nodeH / 2 - 16} width={nodeW - 16} height="15">
+                <input
+                  type="range"
+                  min={s.min}
+                  max={s.max}
+                  value={s.value}
+                  onChange={(e) => onSetValue(s.id, e.target.value)}
+                  onClick={(e) => e.stopPropagation()}
+                  onMouseDown={(e) => e.stopPropagation()}
+                  onTouchStart={(e) => e.stopPropagation()}
+                  style={{ width: '100%', height: '12px', margin: 0, accentColor: '#4fd1c5', cursor: 'pointer' }}
+                />
+              </foreignObject>
             </g>
           );
         })}
@@ -602,14 +638,17 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
           const sel = isSel({ kind: 'outcome', id: o.id });
           const nKey = `outcome:${o.id}`;
           const hi = nodeHi(nKey);
+          const warn = o.bad ? o.value > 70 : o.value < 30;
           return (
             <g key={`o-${o.id}`} style={{ cursor: 'pointer' }} opacity={nodeOpacity(nKey)} onClick={() => handleNodeClick('outcome', o.id)}>
               <rect x={outcomeX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="10"
-                fill="url(#gOut)" stroke={sel ? '#4fd1c5' : hi ? '#cbd5e1' : o.color} strokeWidth={sel || hi ? 2 : 1.5} filter="url(#nodeShadow)" />
+                fill="url(#gOut)" stroke={sel ? '#4fd1c5' : warn ? '#f56565' : hi ? '#cbd5e1' : o.color} strokeWidth={sel || hi || warn ? 2 : 1.5} filter="url(#nodeShadow)" />
+              <rect x={outcomeX - nodeW / 2} y={y - nodeH / 2} width="4" height={nodeH} rx="2" fill={o.bad ? BAD : GOOD} />
               <circle cx={outcomeX - nodeW / 2} cy={y} r="3" fill={o.color} />
-              <text x={outcomeX - 12} y={y + 4} fontSize="11.5" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(o.label, 13)}</text>
+              <text x={outcomeX - 8} y={y + 4} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(o.label, 12)}</text>
+              {warn && <text x={outcomeX + nodeW / 2 - 48} y={y + 5} fontSize="13" textAnchor="middle">⚠️</text>}
               <g>
-                <rect x={outcomeX + nodeW / 2 - 34} y={y - 11} width="28" height="22" rx="6" fill={o.color} />
+                <rect x={outcomeX + nodeW / 2 - 34} y={y - 11} width="28" height="22" rx="6" fill={warn ? '#f56565' : o.color} />
                 <text x={outcomeX + nodeW / 2 - 20} y={y + 4} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#0b0e14">{o.value}</text>
               </g>
             </g>
@@ -619,7 +658,7 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
 
       {/* legend */}
       <div style={{ fontSize: '10px', opacity: 0.6, textAlign: 'center', marginTop: '2px' }}>
-        {t('modelLab.legend', 'Solid: input → outcome · Dashed: input → input · green +, red −')}
+        {t('modelLab.legend', 'Solid: input → outcome · Dashed: input → input · green = good, red = bad')}
       </div>
 
       {/* selected wire editor */}
@@ -641,9 +680,8 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
   );
 }
 
-function WireBadge({ x, y, w }) {
+function WireBadge({ x, y, w, col = '#6ee7b7' }) {
   const label = `${w > 0 ? '+' : ''}${w.toFixed(2)}`;
-  const col = w > 0 ? '#6ee7b7' : '#fca5a5';
   return (
     <g pointerEvents="none">
       <rect x={x - 17} y={y - 9} width="34" height="18" rx="9" fill="#0b0e14" stroke={col} strokeWidth="1" />
@@ -672,10 +710,11 @@ function AddSliderModal({ onAdd, onCancel }) {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(100);
   const [value, setValue] = useState(50);
+  const [bad, setBad] = useState(false);
 
   const submit = () => {
     const name = label.trim() || t('modelLab.newInput', 'New input');
-    onAdd({ id: uid('s'), label: name, min: Number(min), max: Number(max), value: Number(value) });
+    onAdd({ id: uid('s'), label: name, min: Number(min), max: Number(max), value: Number(value), bad, links: {} });
   };
 
   return (
@@ -688,6 +727,12 @@ function AddSliderModal({ onAdd, onCancel }) {
         <Field label={t('modelLab.max', 'Max')}><input type="number" value={max} onChange={(e) => setMax(e.target.value)} style={modalInput} /></Field>
         <Field label={t('modelLab.initial', 'Start')}><input type="number" value={value} onChange={(e) => setValue(e.target.value)} style={modalInput} /></Field>
       </div>
+      <Field label={t('modelLab.higherIs', 'Higher is')}>
+        <select value={bad ? 'bad' : 'good'} onChange={(e) => setBad(e.target.value === 'bad')} style={modalInput}>
+          <option value="good">{t('modelLab.good', 'good')}</option>
+          <option value="bad">{t('modelLab.bad', 'bad')}</option>
+        </select>
+      </Field>
       <ModalActions onCancel={onCancel} onConfirm={submit} confirmLabel={t('modelLab.add', 'Add')} />
     </ModalShell>
   );
@@ -698,11 +743,12 @@ function AddOutcomeModal({ sliders, colorSeed, onAdd, onCancel }) {
   const [label, setLabel] = useState('');
   const [base, setBase] = useState(50);
   const [color, setColor] = useState(PALETTE[colorSeed % PALETTE.length]);
+  const [bad, setBad] = useState(false);
   const [weights, setWeights] = useState(() => sliders.reduce((acc, s) => ({ ...acc, [s.id]: 0 }), {}));
 
   const submit = () => {
     const name = label.trim() || t('modelLab.newOutcome', 'New outcome');
-    onAdd({ id: uid('o'), label: name, base: Number(base), color, weights });
+    onAdd({ id: uid('o'), label: name, base: Number(base), color, bad, weights });
   };
 
   return (
@@ -713,6 +759,12 @@ function AddOutcomeModal({ sliders, colorSeed, onAdd, onCancel }) {
       <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-end' }}>
         <Field label={t('modelLab.base', 'Base')}><input type="number" value={base} onChange={(e) => setBase(e.target.value)} style={modalInput} /></Field>
         <Field label={t('modelLab.color', 'Color')}><input type="color" value={color} onChange={(e) => setColor(e.target.value)} style={{ width: 44, height: 34, border: 'none', background: 'none' }} /></Field>
+        <Field label={t('modelLab.higherIs', 'Higher is')}>
+          <select value={bad ? 'bad' : 'good'} onChange={(e) => setBad(e.target.value === 'bad')} style={modalInput}>
+            <option value="good">{t('modelLab.good', 'good')}</option>
+            <option value="bad">{t('modelLab.bad', 'bad')}</option>
+          </select>
+        </Field>
       </div>
       <div style={{ marginTop: '8px' }}>
         <div style={{ fontSize: '12px', opacity: 0.75, marginBottom: '6px' }}>{t('modelLab.interactions', 'Interactions with inputs')}</div>
@@ -761,5 +813,15 @@ const btnDangerLink = { background: 'none', border: 'none', color: 'rgba(255,255
 const modalBackdrop = { position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 3000, padding: '16px' };
 const modalBox = { background: '#1a2233', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '12px', padding: '20px', width: '100%', maxWidth: '440px', color: '#e6edf3', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' };
 const modalInput = { width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(0,0,0,0.3)', color: '#fff', boxSizing: 'border-box' };
+const miniSelect = { marginLeft: 4, padding: '2px 4px', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(0,0,0,0.3)', color: '#fff' };
+const pillStyle = (on) => ({
+  padding: '8px 16px',
+  background: on ? 'rgba(255,255,255,0.10)' : '#6f42c1',
+  color: '#fff',
+  border: '1px solid rgba(255,255,255,0.18)',
+  borderRadius: '20px',
+  cursor: 'pointer',
+  fontSize: '13px'
+});
 
 export default ConfigurableSimulator;
