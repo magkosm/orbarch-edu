@@ -14,7 +14,7 @@ during the ESA project astronaut mission **Muninn** (aboard the International Sp
 Station, January 2024), and in the **ISAE-SUPAERO** analog missions to the **Mars
 Desert Research Station (MDRS)** in Utah — crews **MDRS 275, 293, 311 and 330**.
 
-**Live app:** https://magkosm.github.io/matb-web-test
+**Live app:** https://magkosm.github.io/orbarch-edu
 
 ---
 

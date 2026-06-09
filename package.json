@@ -1,6 +1,6 @@
 {
   "name": "OrbAch Web Assessments",
-"homepage": "https://magkosm.github.io/orbarch-edu",
+  "homepage": "https://magkosm.github.io/orbarch-edu",
   "version": "1.0.2",
   "private": true,
   "description": "Orbital Architecture web assessment battery: MATB-II multitasking, Reaction Time, and N-Back cognitive tests used in KTH/ESERO research on stress and cognition in confined environments.",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://magkosm.github.io/orbarch-edu"
+    "url": "https://github.com/magkosm/orbarch-edu"
   },
   "keywords": [
     "matb",
