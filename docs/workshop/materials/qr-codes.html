@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orbital Architecture — Workshop QR Codes (printable)</title>
+  <style>
+    :root { --ink: #111; --muted: #555; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--ink); margin: 24px; }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .controls { margin-bottom: 18px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; font-size: 13px; }
+    section { break-inside: avoid; margin-bottom: 22px; }
+    h2 { font-size: 16px; border-bottom: 2px solid #111; padding-bottom: 4px; margin: 18px 0 12px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; break-inside: avoid; }
+    .card img { width: 100%; max-width: 200px; height: auto; }
+    .card .name { font-weight: bold; font-size: 13px; margin-top: 6px; }
+    .card .url { font-size: 10px; color: var(--muted); word-break: break-all; margin-top: 2px; }
+    @media print {
+      .controls { display: none; }
+      body { margin: 10mm; }
+      a[href]:after { content: ""; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Orbital Architecture — Workshop QR Codes</h1>
+  <div class="sub">Scan with a phone camera. Print the language section(s) you need. (Needs internet when first opened to fetch the QR images.)</div>
+  <div class="controls"><button onclick="window.print()">🖨️ Print</button></div>
+  <div id="root"></div>
+
+  <script>
+    var BASE = 'https://magkosm.github.io/orbarch-edu';
+    var LANGS = [
+      { code: 'en', name: 'English' },
+      { code: 'sv', name: 'Svenska' },
+      { code: 'el', name: 'Ελληνικά' }
+    ];
+    var TOOLS = [
+      { path: '/reaction-default', label: { en: 'Reaction Time', sv: 'Reaktionstid', el: 'Χρόνος αντίδρασης' } },
+      { path: '/2min',            label: { en: 'MATB (2-min)', sv: 'MATB (2 min)', el: 'MATB (2 λεπτά)' } },
+      { path: '/condition-lab',   label: { en: 'Condition Lab', sv: 'Förhållandelabb', el: 'Εργαστήριο Συνθηκών' } },
+      { path: '/simulator',       label: { en: 'Simulator', sv: 'Simulator', el: 'Προσομοιωτής' } },
+      { path: '/blueprint',       label: { en: 'Blueprint Designer', sv: 'Ritningsdesigner', el: 'Σχεδιαστής Κάτοψης' } },
+      { path: '/model-lab',       label: { en: 'Model Lab', sv: 'Modellabb', el: 'Εργαστήριο Μοντέλου' } },
+      { path: '/',                label: { en: 'Main hub', sv: 'Startmeny', el: 'Κύριο μενού' } }
+    ];
+
+    var root = document.getElementById('root');
+    LANGS.forEach(function (lang) {
+      var section = document.createElement('section');
+      var h2 = document.createElement('h2');
+      h2.textContent = lang.name + '  (?lng=' + lang.code + ')';
+      section.appendChild(h2);
+      var grid = document.createElement('div');
+      grid.className = 'grid';
+      TOOLS.forEach(function (tool) {
+        var url = BASE + tool.path + '?lng=' + lang.code;
+        var qr = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&data=' + encodeURIComponent(url);
+        var card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML =
+          '<img alt="QR" src="' + qr + '">' +
+          '<div class="name">' + tool.label[lang.code] + '</div>' +
+          '<div class="url">' + url + '</div>';
+        grid.appendChild(card);
+      });
+      section.appendChild(grid);
+      root.appendChild(section);
+    });
+  </script>
+</body>
+</html>

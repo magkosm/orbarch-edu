@@ -10,6 +10,10 @@ needs a **projector**. The same activities are provided in three languages.
 | Svenska | [workshop-sv.md](./workshop-sv.md) |
 | Ελληνικά | [workshop-el.md](./workshop-el.md) |
 
+**Print-and-go materials:** see [`materials/`](./materials/) — a printable QR sheet
+([`qr-codes.html`](./materials/qr-codes.html)), a [slide outline](./materials/slides-outline.md),
+and a [student handout](./materials/student-handout.md).
+
 ## At a glance
 
 - **Theme:** space-station architecture and its effect on crew cognition.
