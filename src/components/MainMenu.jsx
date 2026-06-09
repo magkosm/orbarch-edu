@@ -875,7 +875,13 @@ const MainMenu = ({ onStartGame, onExitApp, gameResults }) => {
         <div style={{ marginTop: '10px', opacity: 0.7 }}>
           {t(
             'mainMenu.credits',
-            'KTH Royal Institute of Technology \u00B7 ESERO Sweden \u00B7 Michail Magkos \u2014 MIT License'
+            'Led by Michail Magkos, KTH \u00B7 in collaboration with ESERO Sweden \u00B7 MIT License'
+          )}
+        </div>
+        <div style={{ marginTop: '4px', opacity: 0.6 }}>
+          {t(
+            'mainMenu.usage',
+            'Flown on ESA mission Muninn (ISS) \u00B7 ISAE-SUPAERO MDRS 275, 293, 311 & 330'
           )}
         </div>
       </div>

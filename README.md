@@ -5,10 +5,14 @@ A browser-based suite of cognitive and multitasking assessments built for the
 confined, high-stress environments (space stations, submarines, Arctic stations,
 offshore platforms) affects human stress, cognition and performance.
 
-These are the same tests that ESA astronaut **Marcus Wandt** performed aboard the
-International Space Station in January 2024 as part of the project, led by
-researchers at **KTH Royal Institute of Technology** in collaboration with
-**ESERO Sweden**.
+The project is led by **Michail Magkos** at **KTH Royal Institute of Technology**,
+with **ESERO Sweden** as a collaborator in the development and funding of this
+web-based educational tool.
+
+These same tests have been used **in space** by ESA astronaut **Marcus Wandt**
+during the ESA project astronaut mission **Muninn** (aboard the International Space
+Station, January 2024), and in the **ISAE-SUPAERO** analog missions to the **Mars
+Desert Research Station (MDRS)** in Utah — crews **MDRS 275, 293, 311 and 330**.
 
 **Live app:** https://magkosm.github.io/matb-web-test
 
@@ -123,14 +127,21 @@ src/
 
 Developed for the Orbital Architecture research project.
 
-- **KTH Royal Institute of Technology** — Department of Ergonomics (project lead
-  Mikael Forsman; researcher Michail Magkos)
-- **ESERO Sweden** — educational outreach
-- **Michail Magkos** — development
+- **KTH Royal Institute of Technology** — project lead **Michail Magkos**
+  (Department of Ergonomics).
+- **ESERO Sweden** — collaborator in the development and funding of this
+  web-based educational tool.
 
-Funded by **Rymdstyrelsen** (the Swedish National Space Agency).
+The underlying research project is supported by **Rymdstyrelsen** (the Swedish
+National Space Agency). The MATB-II paradigm is based on NASA's Multi-Attribute
+Task Battery.
 
-The MATB-II paradigm is based on NASA's Multi-Attribute Task Battery.
+### Where it has been used
+
+- **In space:** ESA project astronaut mission **Muninn** (Marcus Wandt, ISS,
+  January 2024).
+- **Analog missions:** ISAE-SUPAERO crews at the **Mars Desert Research Station
+  (MDRS)**, Utah — **MDRS 275, 293, 311 and 330**.
 
 ---
 
