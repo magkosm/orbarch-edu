@@ -3,6 +3,29 @@
   "homepage": "https://magkosm.github.io/matb-web-test",
   "version": "1.0.2",
   "private": true,
+  "description": "Orbital Architecture web assessment battery: MATB-II multitasking, Reaction Time, and N-Back cognitive tests used in KTH/ESERO research on stress and cognition in confined environments.",
+  "author": "Michail Magkos <magkos@kth.se>",
+  "contributors": [
+    "KTH Royal Institute of Technology",
+    "ESERO Sweden",
+    "Michail Magkos <magkos@kth.se>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/magkosm/matb-web-test"
+  },
+  "keywords": [
+    "matb",
+    "matb-ii",
+    "cognitive-testing",
+    "n-back",
+    "reaction-time",
+    "orbital-architecture",
+    "kth",
+    "esero",
+    "human-factors"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^16.0.0",

@@ -1,6 +1,14 @@
 import { useRef } from 'react';
 
-// EventService - Centralized service for managing MATB task events
+/**
+ * EventService — centralized scheduler for MATB task events.
+ *
+ * Holds references to the four task components and drives them at their
+ * configured events-per-minute / difficulty, and exposes pause / resume / stop
+ * controls used by the game-mode components (normal / infinite / custom / suite).
+ *
+ * Part of the Orbital Architecture project. MIT License — see LICENSE.
+ */
 class EventService {
   constructor() {
     // References to task components

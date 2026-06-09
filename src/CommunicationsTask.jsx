@@ -1,3 +1,12 @@
+/**
+ * CommunicationsTask — the Communications task of MATB-II.
+ *
+ * Plays radio call-outs; the operator must act only on messages addressed to
+ * their own callsign by tuning the requested radio to the requested frequency.
+ * Correct/incorrect/missed responses feed the shared System Health gauge.
+ *
+ * Part of the Orbital Architecture project. MIT License — see LICENSE.
+ */
 import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAutoScroll } from './hooks/useAutoScroll';

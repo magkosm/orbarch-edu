@@ -1,3 +1,12 @@
+/**
+ * TrackingTask — the compensatory Tracking task of MATB-II.
+ *
+ * The operator keeps a drifting cursor inside the centre target box during
+ * manual periods (keyboard, touch, or gamepad); between events the task runs in
+ * AUTO. Time-in-box vs. out-of-box drives the shared System Health gauge.
+ *
+ * Part of the Orbital Architecture project. MIT License — see LICENSE.
+ */
 import React, { useState, useEffect, useRef, useCallback, useImperativeHandle, forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import TrackingDisplay from './components/TrackingDisplay';

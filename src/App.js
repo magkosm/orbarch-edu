@@ -1,4 +1,15 @@
-// src/App.js
+/**
+ * App — main shell for the MATB-II (Multi-Attribute Task Battery) simulation.
+ *
+ * Renders the four concurrent tasks (System Monitoring, Tracking,
+ * Communications, Resource Management) in a responsive grid alongside the
+ * System Health gauge, and orchestrates the game modes (testing / normal /
+ * infinite / custom) and Suite integration. On phones the whole task grid is
+ * uniformly scaled to fit the screen (see the `matbGridStyle` effect).
+ *
+ * Part of the Orbital Architecture project. Licensed under the MIT License
+ * (KTH Royal Institute of Technology, ESERO Sweden, Michail Magkos) — see LICENSE.
+ */
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import MonitoringTask from './MonitoringTask';
 import CommunicationsTask from './CommunicationsTask';

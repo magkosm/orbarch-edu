@@ -1,3 +1,12 @@
+/**
+ * MonitoringTask — the System Monitoring task of MATB-II.
+ *
+ * Presents warning lights (F1/F2) and gauges (F3-F6); the operator must detect
+ * abnormal states and respond (keyboard F1-F6 or click/tap). Misses and false
+ * alarms feed the shared System Health gauge via onPenalty / onMetricsUpdate.
+ *
+ * Part of the Orbital Architecture project. MIT License — see LICENSE.
+ */
 import React, { useState, useEffect, useRef, useImperativeHandle, forwardRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAutoScroll } from './hooks/useAutoScroll';

@@ -837,6 +837,49 @@ const MainMenu = ({ onStartGame, onExitApp, gameResults }) => {
         <BackgroundSelector small={true} />
       </div>
 
+      {/* Related projects & credits footer */}
+      <div
+        style={{
+          marginTop: '30px',
+          maxWidth: '640px',
+          width: '90%',
+          textAlign: 'center',
+          fontSize: '12px',
+          opacity: 0.85,
+          lineHeight: 1.6
+        }}
+      >
+        <div style={{ marginBottom: '8px', fontWeight: 'bold', opacity: 0.9 }}>
+          {t('mainMenu.relatedProjects', 'Orbital Architecture — related projects')}
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '6px 14px' }}>
+          {[
+            { label: 'ESERO Sweden', url: 'https://www.esero.se/orbital-architecture/' },
+            { label: 'KTH (EN)', url: 'https://www.kth.se/en/om/nyheter/centrala-nyheter/svensk-astronaut-deltar-i-kth-forskning-i-rymden-1.1300047' },
+            { label: 'KTH (SV)', url: 'https://www.kth.se/om/nyheter/centrala-nyheter/svensk-astronaut-deltar-i-kth-forskning-i-rymden-1.1300047' },
+            { label: 'KTH Ergonomics', url: 'https://www.kth.se/mth/ergonomi/forskning/architectural-properties-impact-on-stress-and-cognition-1.1302002' },
+            { label: 'ESA blog', url: 'https://blogs.esa.int/exploration/i-need-more-space/' },
+            { label: 'NASA ISS Research', url: 'https://www.nasa.gov/mission/station/research-explorer/investigation/?#id=9082' }
+          ].map((link) => (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#8ec5ff', textDecoration: 'none' }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <div style={{ marginTop: '10px', opacity: 0.7 }}>
+          {t(
+            'mainMenu.credits',
+            'KTH Royal Institute of Technology \u00B7 ESERO Sweden \u00B7 Michail Magkos \u2014 MIT License'
+          )}
+        </div>
+      </div>
+
       {gameResults && (
         <div style={{
           marginTop: '30px',

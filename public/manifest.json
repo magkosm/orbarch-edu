@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Orbital Arch",
+  "name": "Orbital Architecture — Web Assessment Battery",
+  "description": "MATB-II multitasking, Reaction Time and N-Back cognitive tests for the Orbital Architecture research project (KTH / ESERO Sweden).",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +20,8 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "fullscreen",
+  "orientation": "any",
+  "theme_color": "#1a2a3a",
+  "background_color": "#14161b"
 }

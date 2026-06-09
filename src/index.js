@@ -1,3 +1,15 @@
+/**
+ * Application entry point and route table for the Orbital Architecture
+ * web assessment battery (KTH / ESERO Sweden research project).
+ *
+ * Defines every public route, including the deep links that launch a single
+ * test directly (e.g. /monitoring, /tracking, /comms, /resource, /reaction,
+ * /nback) by seeding `matb_start_params` in localStorage before App mounts.
+ * Append ?lng=sv or ?lng=el to any route to force a language.
+ *
+ * Part of the Orbital Architecture project. Licensed under the MIT License
+ * (KTH Royal Institute of Technology, ESERO Sweden, Michail Magkos) — see LICENSE.
+ */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';

@@ -1,3 +1,12 @@
+/**
+ * ResourceManagementTask — the Resource Management task of MATB-II.
+ *
+ * The operator keeps the two main tanks (A/B) within tolerance by toggling
+ * pumps that transfer fuel between tanks, while pumps occasionally fail.
+ * Deviation from target levels drives the shared System Health gauge.
+ *
+ * Part of the Orbital Architecture project. MIT License — see LICENSE.
+ */
 import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import Tank from './components/Tank';
