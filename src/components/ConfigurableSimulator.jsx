@@ -181,11 +181,19 @@ function ConfigurableSimulator() {
         <h1 style={{ fontSize: '24px', margin: '0 0 6px 0', textAlign: 'center' }}>
           {t('modelLab.title', 'Model Lab \u2014 Build Your Own Simulator')}
         </h1>
-        <p style={{ fontSize: '14px', opacity: 0.8, margin: '0 0 22px 0', textAlign: 'center' }}>
+        <p style={{ fontSize: '14px', opacity: 0.8, margin: '0 0 18px 0', textAlign: 'center' }}>
           {t('modelLab.subtitle', 'Define inputs and outcomes, then wire them with positive/negative linear interactions.')}
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', alignItems: 'start' }}>
+        <InteractionGraph
+          sliders={config.sliders}
+          outcomes={computed}
+          eff={eff}
+          onSetWeight={setWeight}
+          onSetLink={setLink}
+        />
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', alignItems: 'start', marginTop: '20px' }}>
           {/* INPUTS */}
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
@@ -334,6 +342,177 @@ function ConfigurableSimulator() {
           onCancel={() => setShowAddOutcome(false)}
           onAdd={(outcome) => { addOutcome(outcome); setShowAddOutcome(false); }}
         />
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Interaction graph: nodes (inputs left, outcomes right) joined by editable
+// wires. Slider->outcome wires AND slider->slider coupling wires. Click a node
+// then another to connect them; click a wire to adjust its weight.
+// ---------------------------------------------------------------------------
+function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink }) {
+  const { t } = useTranslation();
+  const [connectSource, setConnectSource] = useState(null);
+  const [selected, setSelected] = useState(null);
+
+  const W = 460;
+  const nodeW = 120;
+  const nodeH = 30;
+  const rowH = 50;
+  const topPad = 26;
+  const rows = Math.max(sliders.length, outcomes.length, 1);
+  const H = topPad * 2 + rows * rowH;
+  const inputX = 85;
+  const outcomeX = W - 85;
+  const yAt = (i) => topPad + rowH / 2 + i * rowH;
+
+  const inputY = {};
+  sliders.forEach((s, i) => { inputY[s.id] = yAt(i); });
+  const outcomeY = {};
+  outcomes.forEach((o, i) => { outcomeY[o.id] = yAt(i); });
+
+  const wireColor = (w) => (w > 0 ? '#9ae6b4' : '#fc8181');
+  const wireWidth = (w) => 1 + Math.min(Math.abs(w), 1) * 4;
+
+  const handleNodeClick = (kind, id) => {
+    if (!connectSource) { setConnectSource({ kind, id }); setSelected(null); return; }
+    if (connectSource.kind === kind && connectSource.id === id) { setConnectSource(null); return; }
+    const a = connectSource;
+    const b = { kind, id };
+    setConnectSource(null);
+    if (a.kind === 'slider' && b.kind === 'outcome') {
+      const cur = (outcomes.find((o) => o.id === b.id)?.weights || {})[a.id] || 0;
+      onSetWeight(b.id, a.id, cur || 0.3);
+      setSelected({ type: 'weight', sliderId: a.id, outcomeId: b.id });
+    } else if (a.kind === 'outcome' && b.kind === 'slider') {
+      const cur = (outcomes.find((o) => o.id === a.id)?.weights || {})[b.id] || 0;
+      onSetWeight(a.id, b.id, cur || 0.3);
+      setSelected({ type: 'weight', sliderId: b.id, outcomeId: a.id });
+    } else if (a.kind === 'slider' && b.kind === 'slider') {
+      const cur = (sliders.find((s) => s.id === b.id)?.links || {})[a.id] || 0;
+      onSetLink(b.id, a.id, cur || 0.3);
+      setSelected({ type: 'link', sourceId: a.id, targetId: b.id });
+    }
+  };
+
+  const selectedValue = (() => {
+    if (!selected) return 0;
+    if (selected.type === 'weight') return (outcomes.find((o) => o.id === selected.outcomeId)?.weights || {})[selected.sliderId] || 0;
+    return (sliders.find((s) => s.id === selected.targetId)?.links || {})[selected.sourceId] || 0;
+  })();
+
+  const applySelected = (w) => {
+    if (selected.type === 'weight') onSetWeight(selected.outcomeId, selected.sliderId, w);
+    else onSetLink(selected.targetId, selected.sourceId, w);
+  };
+
+  const labelOf = (kind, id) => (kind === 'slider'
+    ? (sliders.find((s) => s.id === id)?.label || id)
+    : (outcomes.find((o) => o.id === id)?.label || id));
+
+  const isSel = (node) => connectSource && connectSource.kind === node.kind && connectSource.id === node.id;
+
+  return (
+    <div style={{ ...card, padding: '14px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+        <h2 style={{ fontSize: '16px', margin: 0 }}>{t('modelLab.graphTitle', 'Interaction map')}</h2>
+        <span style={{ fontSize: '11px', opacity: 0.6 }}>
+          {connectSource ? t('modelLab.connectHint', 'Now click a target node\u2026') : t('modelLab.graphHint', 'Click a node, then another, to connect. Click a wire to adjust.')}
+        </span>
+      </div>
+
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: 'block' }}>
+        <defs>
+          <marker id="arrowG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#9ae6b4" />
+          </marker>
+          <marker id="arrowR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#fc8181" />
+          </marker>
+        </defs>
+
+        {/* slider -> outcome wires */}
+        {outcomes.map((o) => sliders.map((s) => {
+          const w = (o.weights || {})[s.id] || 0;
+          if (!w) return null;
+          const x1 = inputX + nodeW / 2;
+          const y1 = inputY[s.id];
+          const x2 = outcomeX - nodeW / 2;
+          const y2 = outcomeY[o.id];
+          const d = `M ${x1} ${y1} C ${x1 + 55} ${y1}, ${x2 - 55} ${y2}, ${x2} ${y2}`;
+          const sel = selected && selected.type === 'weight' && selected.sliderId === s.id && selected.outcomeId === o.id;
+          return (
+            <g key={`w-${o.id}-${s.id}`} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'weight', sliderId: s.id, outcomeId: o.id })}>
+              <path d={d} fill="none" stroke="transparent" strokeWidth="14" />
+              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} opacity={sel ? 1 : 0.75} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} />
+            </g>
+          );
+        }))}
+
+        {/* slider -> slider coupling wires (bow to the left) */}
+        {sliders.map((target) => Object.entries(target.links || {}).map(([srcId, w]) => {
+          if (!w || inputY[srcId] === undefined) return null;
+          const x = inputX - nodeW / 2;
+          const y1 = inputY[srcId];
+          const y2 = inputY[target.id];
+          const bow = 55 + Math.abs(y2 - y1) * 0.15;
+          const d = `M ${x} ${y1} C ${x - bow} ${y1}, ${x - bow} ${y2}, ${x} ${y2}`;
+          const sel = selected && selected.type === 'link' && selected.sourceId === srcId && selected.targetId === target.id;
+          return (
+            <g key={`l-${target.id}-${srcId}`} style={{ cursor: 'pointer' }} onClick={() => setSelected({ type: 'link', sourceId: srcId, targetId: target.id })}>
+              <path d={d} fill="none" stroke="transparent" strokeWidth="14" />
+              <path d={d} fill="none" stroke={wireColor(w)} strokeWidth={wireWidth(w)} strokeDasharray="4 3" opacity={sel ? 1 : 0.7} markerEnd={`url(#${w > 0 ? 'arrowG' : 'arrowR'})`} />
+            </g>
+          );
+        }))}
+
+        {/* input nodes */}
+        {sliders.map((s) => {
+          const y = inputY[s.id];
+          const effVal = eff[s.id];
+          const coupled = effVal !== undefined && effVal !== s.value;
+          return (
+            <g key={`n-${s.id}`} style={{ cursor: 'pointer' }} onClick={() => handleNodeClick('slider', s.id)}>
+              <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="8"
+                fill={isSel({ kind: 'slider', id: s.id }) ? '#4fd1c5' : '#1b2433'} stroke="rgba(255,255,255,0.25)" />
+              <text x={inputX} y={y - 1} fontSize="11" textAnchor="middle" fill={isSel({ kind: 'slider', id: s.id }) ? '#0b0e14' : '#e6edf3'}>{s.label}</text>
+              <text x={inputX} y={y + 10} fontSize="9" textAnchor="middle" fill={isSel({ kind: 'slider', id: s.id }) ? '#0b0e14' : '#b794f4'}>
+                {s.value}{coupled ? ` → ${effVal}` : ''}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* outcome nodes */}
+        {outcomes.map((o) => {
+          const y = outcomeY[o.id];
+          return (
+            <g key={`o-${o.id}`} style={{ cursor: 'pointer' }} onClick={() => handleNodeClick('outcome', o.id)}>
+              <rect x={outcomeX - nodeW / 2} y={y - nodeH / 2} width={nodeW} height={nodeH} rx="8"
+                fill={isSel({ kind: 'outcome', id: o.id }) ? '#4fd1c5' : '#15202e'} stroke={o.color} />
+              <text x={outcomeX} y={y - 1} fontSize="11" textAnchor="middle" fill="#e6edf3">{o.label}</text>
+              <text x={outcomeX} y={y + 10} fontSize="9" textAnchor="middle" fill={o.color}>{o.value}</text>
+            </g>
+          );
+        })}
+      </svg>
+
+      {/* selected wire editor */}
+      {selected && (
+        <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', background: 'rgba(255,255,255,0.04)', borderRadius: '8px', padding: '8px 10px' }}>
+          <span style={{ fontSize: '12px' }}>
+            <strong>{selected.type === 'weight' ? labelOf('slider', selected.sliderId) : labelOf('slider', selected.sourceId)}</strong>
+            {' → '}
+            <strong>{selected.type === 'weight' ? labelOf('outcome', selected.outcomeId) : labelOf('slider', selected.targetId)}</strong>
+          </span>
+          <input type="range" min="-1" max="1" step="0.05" value={selectedValue} onChange={(e) => applySelected(Number(e.target.value))} style={{ flex: 1, minWidth: 120, accentColor: selectedValue >= 0 ? '#9ae6b4' : '#fc8181' }} />
+          <span style={{ width: 38, textAlign: 'right', fontSize: '12px', color: selectedValue > 0 ? '#9ae6b4' : selectedValue < 0 ? '#fc8181' : 'rgba(255,255,255,0.6)' }}>
+            {selectedValue > 0 ? '+' : ''}{selectedValue.toFixed(2)}
+          </span>
+          <button onClick={() => { applySelected(0); setSelected(null); }} style={btnDangerLink}>{t('modelLab.remove', 'remove')}</button>
+        </div>
       )}
     </div>
   );
