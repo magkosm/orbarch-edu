@@ -34,7 +34,7 @@ when discussed as a class.
 
 ### Overall flow
 
-Running the full 75-minute flow on phones in a classroom setting is **viable at scale**
+Running the full ~90–120 minute flow on phones in a classroom setting is **viable at scale**
 (three back-to-back groups of 20).
 
 ---
@@ -120,10 +120,11 @@ report reach and standardise facilitation.
 
 ## Revision checklist (materials)
 
-When updating workshop docs after this debrief:
-
-- [ ] Teacher notes: Safari tip, MATB projector demo before student QR, **repeat corridor-to-entrance rule**
-- [ ] Slides: full deck per [`slides-outline.md`](./slides-outline.md) (history, Wandt photo, whiteboard prompts)
+- [x] Teacher notes: Safari tip, MATB projector demo before student QR, **repeat corridor-to-entrance rule**
+- [x] Slides: full deck per [`slides-outline.md`](./slides-outline.md) (history, Wandt photo, whiteboard prompts)
+- [x] Workshop overview PDF for coordinators / schools (`workshop-overview-*.html`)
 - [ ] Train-the-trainer one-pager for ESERO Greece deployment
+- [x] Regenerate stale PDFs: `teacher-notes-sv.pdf`, `teacher-notes-el.pdf`, `handout-el.pdf`
 - [ ] Product: pathway-access UX in Blueprint Designer
 - [ ] Product: teacher portal (goals, school signup, map) — spec TBD
+- [ ] Finished slide decks: `slides-en.pptx`, `slides-sv.pptx`, `slides-el.pptx` (still placeholders)

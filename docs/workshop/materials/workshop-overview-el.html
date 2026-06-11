@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <title>Επισκόπηση εργαστηρίου (A4) — Το μυαλό του αρχιτέκτονα σε τροχιά</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 14mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.4;
+    }
+    .sheet { background: #fff; padding: 14mm; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 19px; margin: 0 0 4px; }
+    .sub { color: #444; font-size: 12px; margin-bottom: 12px; }
+    h2 { font-size: 13px; margin: 14px 0 6px; border-bottom: 2px solid #111; padding-bottom: 3px; }
+    p, li { margin: 4px 0; }
+    ul { margin: 4px 0; padding-left: 18px; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 10.5px; }
+    td, th { border: 1px solid #aaa; padding: 5px 7px; vertical-align: top; text-align: left; }
+    th { background: #f0f0f0; }
+    .box { background: #f8f8f8; border: 1px solid #ccc; border-radius: 6px; padding: 8px 10px; margin: 8px 0; }
+    .footer { margin-top: 16px; font-size: 9px; color: #666; text-align: center; }
+    @media print { html { background: none; } .controls { display: none; } body { width: auto; } .sheet { box-shadow: none; padding: 0; } }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Εκτύπωση A4 κατακόρυφα</button></div>
+
+  <h1>Το μυαλό του αρχιτέκτονα σε τροχιά</h1>
+  <div class="sub">Εργαστήριο τάξης · Orbital Architecture · KTH &amp; ESERO · v2.1.1</div>
+
+  <div class="box">
+    <b>Για εκπαιδευτικούς την ημέρα:</b> χρησιμοποιήστε <i>teacher-notes-el.pdf</i>.
+    Αυτό το φύλλο είναι για συντονιστές, σχολεία και train-the-trainer.
+  </div>
+
+  <h2>Περίληψη</h2>
+  <p>Εργαστήριο <b>~90–120 λεπτών</b> για <b>ηλικίες 12–18</b> (πιλοτικό: Γ' Γυμνασίου).
+  Οι μαθητές με <b>δικά τους κινητά</b>· ο εκπαιδευτικός χρειάζεται <b>προβολέα</b> και <b>πίνακα</b>.
+  Θέμα: πώς η <b>αρχιτεκτονική</b> σταθμού επηρεάζει τη <b>γνώση</b> — με τα ίδια εργαλεία έρευνας
+  στο ISS και σε αναλόγες αποστολές στον Άρη.</p>
+  <p><b>Εφαρμογή:</b> magkosm.github.io/orbarch-edu · Γλώσσες: EN / SV / EL (<code>?lng=el</code>)</p>
+
+  <h2>Μαθησιακοί στόχοι</h2>
+  <ul>
+    <li>Ονομασία παραγόντων στρες στο διάστημα και στην καθημερινότητα.</li>
+    <li>Εξήγηση μέτρησης γνώσης και σύγκρισης συνθηκών.</li>
+    <li>Εφαρμογή συμβιβασμών σχεδιασμού: γνώση πληρώματος vs. μηχανική/επιστήμη.</li>
+  </ul>
+
+  <h2>Ροή</h2>
+  <table>
+    <tr><th>Μπλοκ</th><th>Χρόνος</th><th>Περιεχόμενο</th></tr>
+    <tr><td><b>A · Παρουσίαση</b></td><td>~35–45 λ</td><td>Ιστορία, ISS (Wandt/Columbus), πίνακας στρες, γνωστική σύνδεση, τεστ, MDRS &amp; ISS (Golemis, Magkos).</td></tr>
+    <tr><td><b>B · Πειράματα</b></td><td>~35–45 λ</td><td>RT → MATB στον προβολέα → δοκιμή → Συνθήκες → μάθηση.</td></tr>
+    <tr><td><b>C · Σχεδίαση</b></td><td>~20–30 λ</td><td>Προσομοιωτής → Κάτοψη (συμβιβασμοί, διαδρομός εισόδου) → προαιρετικό Μοντέλο ή A3.</td></tr>
+    <tr><td><b>D · Κλείσιμο</b></td><td>~5 λ</td><td>Δύο post-it · κλείσιμο · ευχαριστίες.</td></tr>
+  </table>
+
+  <h2>Απαιτήσεις</h2>
+  <ul>
+    <li>Προβολέας + διαφάνειες · Wi-Fi · κινητά (Chrome αν Safari αποτυγχάνει)</li>
+    <li>QR — <b>μία κωδικοποίηση τη φορά</b></li>
+    <li>Φύλλα A3, 2 post-it ανά μαθητή, μαρκαδόροι πίνακα, ηχεία</li>
+    <li>Laptop για προβολή καλής λύσης Κάτοψης</li>
+  </ul>
+
+  <h2>Εκτυπώσεις (materials/pdf/)</h2>
+  <ul>
+    <li><b>workshop-overview-el.pdf</b> — αυτό το φύλλο</li>
+    <li><b>teacher-notes-el.pdf</b> — ροή ημέρας</li>
+    <li><b>handout-el.pdf</b> — φύλλο μαθητή (A3)</li>
+    <li><b>qr-el.pdf</b> — QR (A4)</li>
+  </ul>
+
+  <h2>Κλείσιμο</h2>
+  <ul>
+    <li><b>Το διάστημα είναι για όλους.</b></li>
+    <li><b>Η αρχιτεκτονική αφορά τους ανθρώπους.</b></li>
+    <li><b>Ο σχεδιασμός είναι μια σειρά συμβιβασμών.</b></li>
+    <li><b>Εσείς είστε το μέλλον της διαστημικής εξερεύνησης.</b></li>
+  </ul>
+
+  <p><b>Πλήρες σχέδιο:</b> docs/workshop/workshop-el.md · <b>Πιλοτικό:</b> docs/workshop/workshop-feedback.md</p>
+
+  <div class="footer">Orbital Architecture workshop · v2.1.1 · orbarch-edu · ESERO · KTH</div>
+  </div>
+</body>
+</html>

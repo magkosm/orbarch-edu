@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Workshop Overview (A4) — The Architect's Mind in Orbit</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 14mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.4;
+    }
+    .sheet { background: #fff; padding: 14mm; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    .sub { color: #444; font-size: 12px; margin-bottom: 12px; }
+    h2 { font-size: 13px; margin: 14px 0 6px; border-bottom: 2px solid #111; padding-bottom: 3px; }
+    p, li { margin: 4px 0; }
+    ul { margin: 4px 0; padding-left: 18px; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 10.5px; }
+    td, th { border: 1px solid #aaa; padding: 5px 7px; vertical-align: top; text-align: left; }
+    th { background: #f0f0f0; }
+    .box { background: #f8f8f8; border: 1px solid #ccc; border-radius: 6px; padding: 8px 10px; margin: 8px 0; }
+    .footer { margin-top: 16px; font-size: 9px; color: #666; text-align: center; }
+    @media print { html { background: none; } .controls { display: none; } body { width: auto; } .sheet { box-shadow: none; padding: 0; } }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Print A4 portrait</button></div>
+
+  <h1>The Architect's Mind in Orbit</h1>
+  <div class="sub">Classroom workshop · Orbital Architecture · KTH &amp; ESERO · v2.1.1</div>
+
+  <div class="box">
+    <b>For educators running the session:</b> use <i>teacher-notes-en.pdf</i> on the day.
+    This sheet is for coordinators, schools, and train-the-trainer briefings.
+  </div>
+
+  <h2>Summary</h2>
+  <p>A <b>~90–120 minute</b> hands-on workshop for <b>ages 12–18</b> (pilot: Grade 8/9).
+  Students use <b>their own phones</b>; the teacher needs a <b>projector</b> and <b>whiteboard</b>.
+  The theme is how space-station <b>architecture</b> affects crew <b>cognition</b> — measured with
+  the same research tools used on the ISS and at Mars analog missions.</p>
+  <p><b>Live app:</b> magkosm.github.io/orbarch-edu · Languages: EN / SV / EL (<code>?lng=sv</code> / <code>?lng=el</code>)</p>
+
+  <h2>Learning objectives</h2>
+  <ul>
+    <li>Name environmental factors that raise or lower stress — in space and in everyday life.</li>
+    <li>Explain how scientists measure cognition and compare conditions (baseline vs. stressor).</li>
+    <li>Apply design trade-offs: crew cognition vs. mission science and engineering.</li>
+  </ul>
+
+  <h2>Session flow</h2>
+  <table>
+    <tr><th>Block</th><th>Time</th><th>What happens</th></tr>
+    <tr><td><b>A · Presentation</b></td><td>~35–45 min</td><td>Station history, ISS reality (Wandt/Columbus photo), whiteboard stress discussion, cognitive link, how we test cognition, MDRS &amp; ISS research context.</td></tr>
+    <tr><td><b>B · Experiments</b></td><td>~35–45 min</td><td>Reaction Time warm-up → MATB taught on projector → student dry run → Condition Lab (quiet vs. noise) → learning-effect discussion.</td></tr>
+    <tr><td><b>C · Design studio</b></td><td>~20–30 min</td><td>Architecture Simulator → Habitat Blueprint Designer (trade-offs, corridor-to-entrance rule) → optional Model Lab or A3 sketch.</td></tr>
+    <tr><td><b>D · Close</b></td><td>~5 min</td><td>Two sticky notes per student (helps / hurts cognition) · closing slide · thanks.</td></tr>
+  </table>
+
+  <h2>What you need</h2>
+  <ul>
+    <li>Projector + slide deck (from <i>slides-outline.md</i>)</li>
+    <li>Wi-Fi; student phones (Chrome preferred over Safari)</li>
+    <li>Printed QR sheet — <b>one QR on screen at a time</b></li>
+    <li>A3 handouts (1 per student), 2 sticky notes each, whiteboard markers</li>
+    <li>Room speakers for cabin noise (or in-app noise in Condition Lab)</li>
+    <li>Teacher laptop to mirror a high-scoring Blueprint layout</li>
+  </ul>
+
+  <h2>Print materials (materials/pdf/)</h2>
+  <ul>
+    <li><b>workshop-overview-en.pdf</b> — this sheet</li>
+    <li><b>teacher-notes-en.pdf</b> — day-of run sheet</li>
+    <li><b>handout-en.pdf</b> — student worksheet (A3)</li>
+    <li><b>qr-en.pdf</b> — tool QR codes (A4)</li>
+  </ul>
+
+  <h2>Closing messages</h2>
+  <ul>
+    <li><b>Space is for everyone.</b></li>
+    <li><b>Architecture is about people.</b></li>
+    <li><b>Design is a series of trade-offs.</b></li>
+    <li><b>You are the future of space exploration.</b></li>
+  </ul>
+
+  <p><b>Full plan:</b> docs/workshop/workshop-en.md · <b>Pilot feedback:</b> docs/workshop/workshop-feedback.md</p>
+
+  <div class="footer">Orbital Architecture workshop · v2.1.1 · orbarch-edu · ESERO · KTH</div>
+  </div>
+</body>
+</html>

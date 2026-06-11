@@ -1,5 +1,11 @@
 # Orbital Architecture — Web Assessment Battery
 
+## EDUCATORS HERE
+
+**→ [Workshop hub](./docs/workshop/README.md)**
+
+---
+
 A browser-based suite of cognitive and multitasking assessments built for the
 **Orbital Architecture** research project. The project studies how the design of
 confined, high-stress environments (space stations, submarines, Arctic stations,
@@ -16,7 +22,7 @@ Desert Research Station (MDRS)** in Utah — crews **MDRS 275, 293, 311 and 330*
 
 **Live app:** https://magkosm.github.io/orbarch-edu
 
-**Status:** Operational · **Version:** 2.1.0
+**Status:** Operational · **Version:** 2.1.1
 
 ---
 
@@ -130,26 +136,6 @@ src/
   config/               Simulation tuning (simulationConfig.js)
   i18n.js               Localisation setup and translation strings
 ```
-
----
-
-## Workshop
-
-### For educators
-
-Ready-to-run classroom workshop (**~90–120 min**, ages 12–18) — plans, slides, handouts,
-and teacher notes in **English, Swedish, and Greek**:
-
-**→ [Workshop hub — start here](./docs/workshop/README.md)**
-
-| | |
-| --- | --- |
-| [English plan](./docs/workshop/workshop-en.md) | [Print materials](./docs/workshop/materials/) |
-| [Svenska](./docs/workshop/workshop-sv.md) | [Pilot feedback](./docs/workshop/workshop-feedback.md) |
-| [Ελληνικά](./docs/workshop/workshop-el.md) | |
-
-The workshop uses Reaction Time, MATB, Condition Lab, Simulator, and Blueprint Designer
-from the live app above.
 
 ---
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <title>Workshopöversikt (A4) — Arkitektens sinne i omloppsbana</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 14mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.4;
+    }
+    .sheet { background: #fff; padding: 14mm; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    .sub { color: #444; font-size: 12px; margin-bottom: 12px; }
+    h2 { font-size: 13px; margin: 14px 0 6px; border-bottom: 2px solid #111; padding-bottom: 3px; }
+    p, li { margin: 4px 0; }
+    ul { margin: 4px 0; padding-left: 18px; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 10.5px; }
+    td, th { border: 1px solid #aaa; padding: 5px 7px; vertical-align: top; text-align: left; }
+    th { background: #f0f0f0; }
+    .box { background: #f8f8f8; border: 1px solid #ccc; border-radius: 6px; padding: 8px 10px; margin: 8px 0; }
+    .footer { margin-top: 16px; font-size: 9px; color: #666; text-align: center; }
+    @media print { html { background: none; } .controls { display: none; } body { width: auto; } .sheet { box-shadow: none; padding: 0; } }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Skriv ut A4 stående</button></div>
+
+  <h1>Arkitektens sinne i omloppsbana</h1>
+  <div class="sub">Klassrumsworkshop · Orbital Architecture · KTH &amp; ESERO · v2.1.1</div>
+
+  <div class="box">
+    <b>För lärare som kör passet:</b> använd <i>teacher-notes-sv.pdf</i> på plats.
+    Detta blad är för samordnare, skolor och train-the-trainer.
+  </div>
+
+  <h2>Sammanfattning</h2>
+  <p>Ett <b>~90–120 minuters</b> praktiskt pass för <b>12–18 år</b> (pilot: åk 8/9).
+  Eleverna använder <b>egna mobiler</b>; läraren behöver <b>projektor</b> och <b>whiteboard</b>.
+  Temat är hur rymdstations<b>arkitektur</b> påverkar besättningens <b>kognition</b> — mätt med
+  samma forskningsverktyg som på ISS och vid Mars-analoger.</p>
+  <p><b>App:</b> magkosm.github.io/orbarch-edu · Språk: EN / SV / EL (<code>?lng=sv</code>)</p>
+
+  <h2>Lärandemål</h2>
+  <ul>
+    <li>Nämn miljöfaktorer som ökar eller minskar stress — i rymden och i vardagen.</li>
+    <li>Förklara hur forskare mäter kognition och jämför förhållanden.</li>
+    <li>Tillämpa designavvägningar: besättningens kognition vs. teknik och vetenskap.</li>
+  </ul>
+
+  <h2>Passets upplägg</h2>
+  <table>
+    <tr><th>Block</th><th>Tid</th><th>Innehåll</th></tr>
+    <tr><td><b>A · Presentation</b></td><td>~35–45 min</td><td>Historia, ISS (Wandt/Columbus), whiteboard om stress, kognitiv länk, tester, MDRS &amp; ISS (Fuglesang, Wandt).</td></tr>
+    <tr><td><b>B · Experiment</b></td><td>~35–45 min</td><td>Reaktionstid → MATB på projektor → provkörning → Förhållandelabb → inlärningseffekt.</td></tr>
+    <tr><td><b>C · Design</b></td><td>~20–30 min</td><td>Simulator → Ritningsdesigner (avvägningar, korridor till ingång) → valfritt Modellabb eller A3.</td></tr>
+    <tr><td><b>D · Avslut</b></td><td>~5 min</td><td>Två post-it per elev · avslutande bild · tack.</td></tr>
+  </table>
+
+  <h2>Det behövs</h2>
+  <ul>
+    <li>Projektor + bildspel · Wi-Fi · elevmobiler (Chrome vid Safari-strul)</li>
+    <li>QR-blad — <b>en QR på skärmen i taget</b></li>
+    <li>A3-elevblad, 2 post-it per elev, whiteboardpennor, högtalare för kabinbuller</li>
+    <li>Lärardator för att spegla en bra ritningslösning</li>
+  </ul>
+
+  <h2>Utskrifter (materials/pdf/)</h2>
+  <ul>
+    <li><b>workshop-overview-sv.pdf</b> — detta blad</li>
+    <li><b>teacher-notes-sv.pdf</b> — körschema</li>
+    <li><b>handout-sv.pdf</b> — elevblad (A3)</li>
+    <li><b>qr-sv.pdf</b> — QR-koder (A4)</li>
+  </ul>
+
+  <h2>Avslutande budskap</h2>
+  <ul>
+    <li><b>Rymden är för alla.</b></li>
+    <li><b>Arkitektur handlar om människor.</b></li>
+    <li><b>Design är en serie avvägningar.</b></li>
+    <li><b>Ni är framtiden för rymdutforskning.</b></li>
+  </ul>
+
+  <p><b>Full plan:</b> docs/workshop/workshop-sv.md · <b>Pilot:</b> docs/workshop/workshop-feedback.md</p>
+
+  <div class="footer">Orbital Architecture workshop · v2.1.1 · orbarch-edu · ESERO · KTH</div>
+  </div>
+</body>
+</html>

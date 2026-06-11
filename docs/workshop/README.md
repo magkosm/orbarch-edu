@@ -1,7 +1,6 @@
 # Workshop: The Architect's Mind in Orbit
 
-> **Educators:** this folder is the workshop hub. The main project README links here:
-> [github.com/…/README.md#for-educators](../../README.md#for-educators)
+> Linked from the top of the [main README](../../README.md#educators-here).
 
 A ready-to-run **~90–120 minute** workshop for **ages 12–18** (core pilot: Grade 8/9)
 built on the Orbital Architecture tools. Students use **their own mobile phones**; the
@@ -13,9 +12,9 @@ teacher needs a **projector** and **whiteboard**. Materials in three languages.
 | Svenska | [workshop-sv.md](./workshop-sv.md) |
 | Ελληνικά | [workshop-el.md](./workshop-el.md) |
 
-**Print-and-go materials:** [`materials/`](./materials/) — QR sheet
-([`qr-codes.html`](./materials/qr-codes.html)), [slide outline](./materials/slides-outline.md),
-and [student handouts](./materials/handout-en.html) (EN/SV/EL).
+**Print-and-go materials:** [`materials/`](./materials/) — [workshop overview PDF](./materials/workshop-overview-en.html),
+QR sheet ([`qr-codes.html`](./materials/qr-codes.html)), [slide outline](./materials/slides-outline.md),
+teacher notes, and [student handouts](./materials/handout-en.html) (EN/SV/EL).
 
 **Pilot feedback & backlog:** [workshop-feedback.md](./workshop-feedback.md)
 

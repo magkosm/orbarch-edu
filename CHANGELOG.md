@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.1] - 2026-06-11
+
+Minor workshop documentation fixes and refreshed print PDFs.
+
+### Added
+- **Workshop overview sheets (EN / SV / EL)** — A4 coordinator-facing description
+  (`workshop-overview-*.html` + PDFs): summary, objectives, session flow, materials
+  list, and closing messages. Distinct from the day-of teacher run-sheet.
+
+### Changed
+- **Main README** — **EDUCATORS HERE** link moved to the top; removed duplicate
+  workshop section at the bottom.
+- **Refreshed PDFs:** `handout-el.pdf`, `teacher-notes-sv.pdf`, `teacher-notes-el.pdf`
+  (aligned with Jun 11 HTML updates).
+
+### Fixed
+- **`workshop-feedback.md`** — duration corrected to ~90–120 min; revision checklist
+  updated to reflect completed materials work.
+
 ## [2.1.0] - 2026-06-10
 
 Workshop documentation release — integrates the **first large-scale classroom pilot**
