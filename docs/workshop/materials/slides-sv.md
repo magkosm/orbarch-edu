@@ -1,80 +1,78 @@
 # Bilder (SV) — Arkitektens sinne i omloppsbana
 
-Färdig bildtext. Klistra in varje bild i ditt bildspel; ersätt bara
-`[BILD…]/[QR…]/[DIAGRAM…]`-platshållarna (QR-PNG finns i `./qr/`). Talnoteringarna
-är förslag.
+Klistra in varje bild. Ersätt `[BILD…]/[QR…]`. QR i `./qr/`.
+**Visa en QR i taget** i block B & C. Struktur: [`slides-outline.md`](./slides-outline.md).
 
 ---
 
 ### Bild 1 — Titel
 **Arkitektens sinne i omloppsbana**
-*Hur en rymdstations design formar besättningens sinne.*
-`[BILD: ISS / habitat]`  ·  `[LOGGOR: ESERO + KTH]`
-> Not: Välkomna — idag är ni rymdarkitekter. Skulle ni kunna bo och arbeta i en
-> liten, bullrig kapsel i sex månader? Vi ska ta reda på vad som gör det uthärdligt.
+`[BILD: ISS]` · `[LOGGOR: ESERO + KTH]`
+> Presentera talaren.
 
-### Bild 2 — Från kapslar till habitat
-- Tidiga stationer: trånga, bullriga, utrustning på varje vägg.
-- Nya moduler: dagsljus, ordning, till och med växter.
-`[BILD: tidig station]`  `[BILD: modern modul]`
-> Not: Vad är skillnaden? Fönster, ordning och grönska är inte lyx — de är verktyg
-> för hjärnan.
+### Bild 2 — Vad är en rymdstation?
+- Vistelse **≥ ~15 dagar** (ofta månader)
 
-### Bild 3 — Vad gör ett utrymme stressigt?
-- Konstant buller
-- Röra och inget utrymme att röra sig
-- Inget dagsljus
-- Ingen natur
-`[IKONER]`
-> Not: Astronauter möter detta i månader; kronisk stress skadar tänkande, sömn och humör.
+### Bild 3 — Historia
+**Salyut · Skylab · Mir · ISS · Tiangong** — var byggdes de?
+> Rörig, maskincentrerad utveckling.
 
-### Bild 4 — Din omgivning ändrar hur din hjärna fungerar
-- Tystnad + ordning → fokus
-- Dagsljus → bättre sömn och vakenhet
-- Växter och utsikt (biofili) → återhämtning från stress
-`[DIAGRAM: miljö → stress → kognition]`
-> Not: Detta är kärnfrågan i KTH/ESERO-forskningen "Orbital Architecture".
+### Bild 4 — Maskincentrerad design
+Kablar · trångt · högt · komplext
 
-### Bild 5 — Mät sinnet: MATB-testet
-- Fyra uppgifter samtidigt: spårning, övervakning, kommunikation, bränsle.
-- Systemhälsomätaren visar hur väl du klarar det.
-`[SKÄRMDUMP: MATB på en mobil]`  ·  `[QR: qr/matb-2min-sv.png]`
-> Not: Skanna och gör en 2-minutersomgång. Det känns svårt — det är poängen: det
-> mäter multitasking under belastning. Notera din poäng.
+### Bild 5 — Sverige & ISS
+- **ESA-medlem**
+- **Christer Fuglesang** — byggde ISS (tidigt 2000-tal)
+- **Marcus Wandt** — Project Astronaut, 2024
 
-### Bild 6 — Experimentet: tyst vs. buller
-- Omgång 1 — tyst (din baslinje).
-- Omgång 2 — med kabinbuller.
-- Jämför de två poängen.
-`[QR: qr/condition-lab-sv.png]`  ·  `[DIAGRAM: % minskning under buller]`
-> Not: Vi spelar kabinbuller. Skriv båda poängen i Förhållandelabben och på ditt
-> blad — hur mycket sänkte bullret dig?
+### Bild 6 — State of the art idag
+**Foto: Marcus Wandt, Columbus** — kablar överallt
 
-### Bild 7 — Designa nu en bättre modul
-- Behåll livsuppehållande · lägg till förvaring · lägg till sovutrymme
-- Ge varje modul en fri väg till entrén
-- Nå **Uppdragsframgång ≥ 70**
-`[QR: qr/blueprint-sv.png]`  ·  `[SKÄRMDUMP: ritningsrutnät]`
-> Not: Balansera besättningens kognition *och* uppdragsvärde. Gör varje ruta grön.
+### Bild 7 — Vad gör rymden stressig?
+Samma foto + **"Vad gör rymden stressig?"**
+> Whiteboard: rymd → skola → hem → slappna av. **Tavlan stannar.**
 
-### Bild 8 — Varje val är en avvägning
-- Grön tråd = bra effekt
-- Röd tråd = skadlig (t.ex. mer buller → mer stress)
-`[SKÄRMDUMP: interaktionskarta]`
-> Not: Mer utrustning hjälper uppdraget men ökar buller och röra. Bra design skyddar
-> hjärnan ändå.
+### Bild 8 — Den kognitiva länken
+[`slides/slide-04-sv.png`](./slides/slide-04-sv.png)
 
-### Bild 9 — Kvadrat & dela
-- Arbeta **ensam** → jämför i **par** → slå ihop till **fyra** → **dela** med klassen.
-`[IKON: 1 → 2 → 4 → klass]`
-> Not: Skissa din egen först; varje fyra väljer en design att presentera.
+### Bild 9–12 — Varför · Nu · Framtid (Guidice) · Små steg idag
+*(se slides-en.md för talnoteringar — översätt fria)*
 
-### Bild 10 — Den stora idén
-**Bra arkitektur är mätbar — design ändrar hur väl en hjärna fungerar.**
-> Not: Ni mätte det och designade sedan för det — precis som rymdforskare gör.
+### Bild 13 — Hur vi testar kognition
+PVT · N-Back (gymnasium) · MATB (högstadium)
 
-### Bild 11 — Tack & prova allt
-- **magkosm.github.io/orbarch-edu**
-- ESERO Sverige · KTH
-`[QR: qr/hub-sv.png]`
-> Not: Tack, rymdarkitekter!
+### Bild 14 — Var forskningen körts
+**MDRS + ISAE-SUPAERO** · **ISS + Marcus Wandt (2024)**
+
+### Bild 15 — Reaktionstid
+`[QR: reaction-default]`
+
+### Bild 16 — MATB (lärardemo)
+Fyra uppgifter · Förinställningar — **ingen elev-QR än**
+
+### Bild 17 — Förhållandelabb
+`[QR: 2min]` sedan `[QR: condition-lab]`
+
+### Bild 18 — Inlärning & platå
+Idrottsanalogi på whiteboarden
+
+### Bild 19 — Simulator
+`[QR: simulator]`
+
+### Bild 20 — Ritningsbrief
+`[QR: blueprint]`
+
+### Bild 21 — Modellabb *(valfritt)*
+`[QR: model-lab]`
+
+### Bild 22 — Utgångsbiljett
+**Två post-it** (namn på varje)
+
+### Bild 23 — Avslutande budskap
+- **Rymden är för alla.**
+- **Arkitektur handlar om människor.**
+- **Design är en serie avvägningar.**
+- **Ni är framtiden för rymdutforskning.**
+
+### Bild 24 — Tack
+**magkosm.github.io/orbarch-edu** · ESERO · KTH

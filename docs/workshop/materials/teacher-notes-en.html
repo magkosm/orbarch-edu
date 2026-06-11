@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Teacher Notes (A4) — The Architect's Mind in Orbit</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 12mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.32;
+    }
+    .sheet {
+      background: #fff; min-height: 297mm; padding: 12mm;
+      box-shadow: 0 1px 6px rgba(0,0,0,.12);
+    }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 17px; margin: 0; line-height: 1.2; }
+    .facts { color: #333; font-size: 10.5px; margin: 4px 0 8px; }
+    h2 { font-size: 12px; margin: 10px 0 4px; border-bottom: 2px solid #111; padding-bottom: 2px; }
+    table { width: 100%; border-collapse: collapse; margin: 5px 0; table-layout: fixed; font-size: 10px; }
+    td, th { border: 1px solid #aaa; padding: 3px 5px; vertical-align: top; text-align: left; word-wrap: break-word; }
+    th { background: #f0f0f0; }
+    th:nth-child(1), td:nth-child(1) { width: 16%; }
+    th:nth-child(2), td:nth-child(2) { width: 42%; }
+    th:nth-child(3), td:nth-child(3) { width: 42%; }
+    .phase { font-weight: bold; }
+    ul { margin: 3px 0; padding-left: 16px; }
+    li { margin: 1px 0; }
+    .say { color: #1a4f8a; font-style: italic; }
+    .tag { display: inline-block; background: #eef; border: 1px solid #ccd; border-radius: 4px; padding: 0 4px; font-size: 9px; }
+    @media print {
+      html { background: none; }
+      .controls { display: none; }
+      body { width: auto; }
+      .sheet { box-shadow: none; padding: 0; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Print A4 portrait</button></div>
+
+  <h1>Teacher Notes — The Architect's Mind in Orbit</h1>
+  <div class="facts"><b>~90–120 min · ages 12–18 · phones + projector + whiteboard · one QR at a time</b> · Full plan: <span class="tag">workshop-en.md</span></div>
+
+  <h2>Before the session</h2>
+  <ul>
+    <li>Slides from <span class="tag">slides-outline.md</span>; whiteboard markers; cabin noise on speakers.</li>
+    <li>QR PDF — show <b>one code at a time</b> on projector (<span class="tag">qr-en.pdf</span>).</li>
+    <li>Handouts A3 (<span class="tag">handout-en.pdf</span>); <b>2 sticky notes per student</b> (name on each).</li>
+    <li>Teacher laptop ready to mirror a student's Blueprint. Presets on hub: /comms /monitoring /tracking /resource.</li>
+  </ul>
+
+  <h2>Run sheet</h2>
+  <table>
+    <tr><th>Block</th><th>You do</th><th>Students do</th></tr>
+    <tr>
+      <td class="phase">A · Present<br>~35–45 m</td>
+      <td>Intro speaker · slide 1 · station history (Salyut→Tiangong) · messy machine-centric design · <b>locale slide</b> (ESA/ISS) · Wandt/Columbus photo · "What makes space stressful?" · <b>whiteboard</b>: space → school → home → relax · cognitive link slide · current vs. Guidice future · small steps · 3 tests + MDRS/ISS · age guide (RT/MATB/N-Back)</td>
+      <td>Discuss; contribute to board (stays up all class).</td>
+    </tr>
+    <tr>
+      <td class="phase">B · Experiment<br>~35–45 m</td>
+      <td><b>QR: RT only</b> — gather spread, confounders, normalization. <b>Projector:</b> MATB all tasks → each Preset → 2-min mode. <b>Then QR: MATB</b> dry run + walkthrough. <b>QR: Condition Lab</b> — quiet vs. noise. Whiteboard: learning curve, plateau, athlete analogy. Real science = repeat until stable.</td>
+      <td>RT one round · MATB practice · Condition Lab · fill <b>handout §1</b>.</td>
+    </tr>
+    <tr>
+      <td class="phase">C · Design<br>~20–30 m</td>
+      <td><b>QR: Simulator</b> — quantify links. <b>QR: Blueprint</b> — brief + trade-offs; repeat 🚪 corridor rule. Mirror high scorer on laptop. <b>Optional:</b> Model Lab (cut if long) · A3 group sketch.</td>
+      <td>Simulator → Blueprint (Mission Success ≥ 70) · handout §2–3.</td>
+    </tr>
+    <tr>
+      <td class="phase">D · Exit<br>~5 m</td>
+      <td>Collect two post-its per student. <b>Closing slide:</b> Space for everyone · Architecture = people · Design = trade-offs · You = future of exploration. Thanks + links.</td>
+      <td>Post-it 1: helps cognition · Post-it 2: hurts cognition (name on each).</td>
+    </tr>
+  </table>
+
+  <h2>Key messages</h2>
+  <ul>
+    <li>Today's ISS is still messy, loud, cramped — design must improve with evidence.</li>
+    <li>Scientists measure, compare conditions, account for learning &amp; confounders.</li>
+    <li>Blueprint trade-offs: crew mind vs. mission science/engineering.</li>
+  </ul>
+
+  <h2>Closing slide (after exit ticket)</h2>
+  <ul>
+    <li><b>Space is for everyone.</b></li>
+    <li><b>Architecture is about people.</b></li>
+    <li><b>Design is a series of trade-offs.</b></li>
+    <li><b>You are the future of space exploration.</b></li>
+  </ul>
+
+  <h2>Pilot learnings <span class="tag">60 · 3×20</span></h2>
+  <ul>
+    <li>Phones mostly OK — try <b>Chrome</b> if Safari glitches.</li>
+    <li>MATB: demo on projector first; pair if needed; mixed scores normal.</li>
+    <li>Blueprint addictive — repeat entrance corridor rule. See <span class="tag">workshop-feedback.md</span>.</li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><b>Running long?</b> Cut Model Lab → A3 sketch → shorten history.</li>
+    <li><b>Too many QRs?</b> One on screen at a time only.</li>
+    <li><b>No sound?</b> Condition Lab noise per phone.</li>
+    <li><b>Wrong language?</b> <span class="tag">?lng=sv</span> or <span class="tag">?lng=el</span></li>
+  </ul>
+
+  <h2>Links</h2>
+  <ul>
+    <li>/reaction-default · Presets: /comms /monitoring /tracking /resource · /2min · /condition-lab</li>
+    <li>/simulator · /blueprint · /model-lab (optional)</li>
+  </ul>
+
+  <p style="margin-top:14px;font-size:9px;color:#666;text-align:center">Orbital Architecture workshop materials · v2.1.0 · orbarch-edu</p>
+  </div>
+</body>
+</html>

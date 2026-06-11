@@ -1,25 +1,27 @@
 # Student Handout — The Architect's Mind in Orbit
 
-> Print one per student (or one per pair). A trilingual version can be made by
-> copying the labels from the [SV](../workshop-sv.md) / [EL](../workshop-el.md) plans.
-> `[SCHOOL / CLASS / DATE: __________________________]`
+> Printable HTML versions: [`handout-en.html`](./handout-en.html) ·
+> [`handout-sv.html`](./handout-sv.html) · [`handout-el.html`](./handout-el.html)
 
-**Name / team:** ______________________________
+**Name / team:** ______________________________ · **Class / date:** ____________________
 
 ---
 
 ## Part 1 — The experiment (measure it!)
 
-Run the MATB test twice and write your final score each time.
+**Reaction Time** (one round): my time ______ ms
 
-| Condition | Final score |
+Run **MATB** — practice dry run, then the Condition Lab comparison.
+
+| Run | Final score |
 | --- | --- |
+| Practice (dry run) | __________ |
 | ① Baseline (quiet) | __________ |
 | ② Stressed (cabin noise) | __________ |
 
 **My change:** the noise made my score go ⬜ down ⬜ up by about ______ %.
 
-**Group (square) average drop:** ______ %.
+*Learning effect:* like a new sport — you improve, then plateau. Sleep & mood still matter.
 
 One sentence on *why* noise changed performance:
 `______________________________________________________________`
@@ -28,42 +30,23 @@ One sentence on *why* noise changed performance:
 
 ## Part 2 — Design your module (Blueprint)
 
-Tick the mission brief as you complete it in the Blueprint Designer:
-
 - ⬜ Kept at least 1 life-support unit
 - ⬜ Added at least 2 stowage units
 - ⬜ Added sleeping quarters
 - ⬜ Every module has a clear path to the entrance
-- ⬜ Mission Success ≥ 70  → **My Mission Success score: ______**
+- ⬜ Mission Success ≥ 70 → **My score: ______**
 
 ---
 
-## Part 3 — Sketch your blueprint
+## Part 3 — Sketch your module *(optional / groups)*
 
-Draw your module. **Label** at least 3 features that protect the crew's mind
-(e.g. acoustic zone, plants/biophilia, virtual window, quiet sleep area) and the
-**entrance + corridors**.
-
-```
-┌───────────────────────────────────────────────┐
-│                                                 │
-│                                                 │
-│                                                 │
-│            [ sketch your module here ]          │
-│                                                 │
-│                                                 │
-│                                                 │
-└───────────────────────────────────────────────┘
-```
-
-**Our pitch (2 sentences):** "We added ____________ to protect ____________,
-and our Mission Success was ______."
+Label at least 3 features that protect the crew's mind and the **entrance + corridors**.
 
 ---
 
-## Exit ticket
+## Exit ticket — two sticky notes
 
-Name **one** design feature that helps cognition, and **one** that hurts it:
+Write your **name** on each post-it:
 
-- Helps: ____________________
-- Hurts: ____________________
+1. One thing in the architectural environment that **helps** cognition: ____________________
+2. One thing that **hurts** it: ____________________

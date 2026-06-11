@@ -1,8 +1,11 @@
 # Workshop: The Architect's Mind in Orbit
 
-A ready-to-run **75-minute** workshop for **14-year-olds** (Grade 8/9) built on the
-Orbital Architecture tools. Students use **their own mobile phones**; the teacher
-needs a **projector**. The same activities are provided in three languages.
+> **Educators:** this folder is the workshop hub. The main project README links here:
+> [github.com/…/README.md#for-educators](../../README.md#for-educators)
+
+A ready-to-run **~90–120 minute** workshop for **ages 12–18** (core pilot: Grade 8/9)
+built on the Orbital Architecture tools. Students use **their own mobile phones**; the
+teacher needs a **projector** and **whiteboard**. Materials in three languages.
 
 | Language | Plan |
 | --- | --- |
@@ -10,28 +13,31 @@ needs a **projector**. The same activities are provided in three languages.
 | Svenska | [workshop-sv.md](./workshop-sv.md) |
 | Ελληνικά | [workshop-el.md](./workshop-el.md) |
 
-**Print-and-go materials:** see [`materials/`](./materials/) — a printable QR sheet
-([`qr-codes.html`](./materials/qr-codes.html)), a [slide outline](./materials/slides-outline.md),
-and a [student handout](./materials/student-handout.md).
+**Print-and-go materials:** [`materials/`](./materials/) — QR sheet
+([`qr-codes.html`](./materials/qr-codes.html)), [slide outline](./materials/slides-outline.md),
+and [student handouts](./materials/handout-en.html) (EN/SV/EL).
+
+**Pilot feedback & backlog:** [workshop-feedback.md](./workshop-feedback.md)
 
 ## At a glance
 
 - **Theme:** space-station architecture and its effect on crew cognition.
-- **Flow:** Exploration (15') → Experiment (25') → Design Studio (30') → Review (5').
-- **Methods:** teacher presentation (projector), hands-on phone tools, and
-  **Square & Share** cooperative learning (individual → pair → group of 4 → class).
-- **Tools (mobile):** Reaction Time, MATB (2-min), Condition Lab, Space Architecture
-  Simulator, Habitat Blueprint Designer, and the Model Lab (teacher demo).
+- **Flow:** Presentation & whiteboard (A) → Experiments (B) → Design studio (C) → Exit ticket (D).
+- **Methods:** teacher-led pitch deck, **student discussion on the whiteboard** (kept all class),
+  phone tools (**one QR at a time**), optional group A3 sketch.
+- **Tools (mobile):** Reaction Time, MATB (Presets + 2-min), Condition Lab, Simulator,
+  Blueprint Designer, optional Model Lab.
+- **Locale hooks:** Sweden — Fuglesang & Wandt / ISS; Greece — Wandt mission, Golemis, Magkos experiment.
 - **Live app:** https://magkosm.github.io/orbarch-edu (add `?lng=sv` or `?lng=el`).
 
 ## How to use
 
-1. Open the plan in your language and load the slide outline into your slides app
-   (placeholders are marked `[SLIDE …]` / `[QR PLACEHOLDER …]`).
-2. Generate QR codes for the tool links (one per slide) so phones can join quickly.
-3. Print A3 paper + markers for the sketching phase (1 set per group of 4).
-4. Have room speakers ready for the cabin-noise stressor in Phase 2.
+1. Open the plan in your language and build slides from [`slides-outline.md`](./materials/slides-outline.md).
+2. Print QR sheet — **reveal one code at a time** on the projector during Blocks B & C.
+3. Print A3 handouts (1 per student); prepare **two sticky notes per student** for exit ticket.
+4. Whiteboard + markers from the stress discussion onward; room speakers for cabin noise.
 
-> Tip for facilitators: in the Simulator and Blueprint, the faint footer text
-> `Config: build_75m_rev2//ID:orbarch-matb-eval` is a hidden link that jumps to the
-> MATB suite — useful to flip from "design" to "test" during the demo.
+> **MATB teaching:** demo all four tasks on the **projector** via Presets (`/comms`, `/monitoring`,
+> `/tracking`, `/resource`) before students scan the 2-min QR.
+
+> **Blueprint highlight:** project a high-scoring student's layout from the teacher laptop.

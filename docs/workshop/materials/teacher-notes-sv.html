@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <title>Läraranteckningar (A4) — Arkitektens sinne i omloppsbana</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 12mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.32;
+    }
+    .sheet {
+      background: #fff; min-height: 297mm; padding: 12mm;
+      box-shadow: 0 1px 6px rgba(0,0,0,.12);
+    }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 17px; margin: 0; line-height: 1.2; }
+    .facts { color: #333; font-size: 10.5px; margin: 4px 0 8px; }
+    h2 { font-size: 12px; margin: 10px 0 4px; border-bottom: 2px solid #111; padding-bottom: 2px; }
+    table { width: 100%; border-collapse: collapse; margin: 5px 0; table-layout: fixed; font-size: 10px; }
+    td, th { border: 1px solid #aaa; padding: 3px 5px; vertical-align: top; text-align: left; word-wrap: break-word; }
+    th { background: #f0f0f0; }
+    th:nth-child(1), td:nth-child(1) { width: 16%; }
+    th:nth-child(2), td:nth-child(2) { width: 42%; }
+    th:nth-child(3), td:nth-child(3) { width: 42%; }
+    .phase { font-weight: bold; }
+    ul { margin: 3px 0; padding-left: 16px; }
+    li { margin: 1px 0; }
+    .tag { display: inline-block; background: #eef; border: 1px solid #ccd; border-radius: 4px; padding: 0 4px; font-size: 9px; }
+    @media print {
+      html { background: none; }
+      .controls { display: none; }
+      body { width: auto; }
+      .sheet { box-shadow: none; padding: 0; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Skriv ut A4 stående</button></div>
+
+  <h1>Läraranteckningar — Arkitektens sinne i omloppsbana</h1>
+  <div class="facts"><b>~90–120 min · åk 6–12 · mobiler + projektor + whiteboard · en QR i taget</b> · Plan: <span class="tag">workshop-sv.md</span></div>
+
+  <h2>Före passet</h2>
+  <ul>
+    <li>Bildspel <span class="tag">slides-outline.md</span>; whiteboard; kabinbuller.</li>
+    <li>QR — visa <b>en kod i taget</b> (<span class="tag">qr-sv.pdf</span>).</li>
+    <li>Elevblad A3; <b>2 post-it per elev</b> (namn på varje).</li>
+    <li>Lärardator för att spegla Ritning. Förinställningar: /comms /monitoring /tracking /resource.</li>
+  </ul>
+
+  <h2>Körschema</h2>
+  <table>
+    <tr><th>Block</th><th>Du gör</th><th>Eleverna gör</th></tr>
+    <tr>
+      <td class="phase">A · Present<br>~35–45 m</td>
+      <td>Presentera talare · bild 1 · historia (Salyut→Tiangong) · rörig maskincentrerad design · <b>Sverige:</b> ESA, Fuglesang (byggde ISS), Wandt 2024 · Wandt/Columbus-foto · "Vad gör rymden stressig?" · <b>whiteboard</b>: rymd → skola → hem → slappna av · kognitiv länk · nu vs. Guidice-framtid · små steg · 3 tester + MDRS/ISS</td>
+      <td>Diskuterar; bidrar till tavlan (stannar hela passet).</td>
+    </tr>
+    <tr>
+      <td class="phase">B · Experiment<br>~35–45 m</td>
+      <td><b>QR: RT</b> — spridning, störande faktorer, normalisering. <b>Projektor:</b> MATB alla uppgifter → varje Förinställning → 2 min. <b>Sedan QR: MATB</b> provkörning. <b>QR: Förhållandelabb</b>. Whiteboard: inlärningskurva, platå, idrottsanalogi.</td>
+      <td>RT en runda · MATB övning · Förhållandelabb · <b>elevblad §1</b>.</td>
+    </tr>
+    <tr>
+      <td class="phase">C · Design<br>~20–30 m</td>
+      <td><b>QR: Simulator</b> · <b>QR: Ritning</b> — brief + avvägningar; upprepa 🚪 korridor. Spegla hög poäng. <b>Valfritt:</b> Modellabb · A3-skiss.</td>
+      <td>Simulator → Ritning (Uppdragsframgång ≥ 70) · elevblad §2–3.</td>
+    </tr>
+    <tr>
+      <td class="phase">D · Avslut<br>~5 m</td>
+      <td>Samla två post-it. <b>Avslutande bild:</b> Rymden för alla · Arkitektur = människor · Design = avvägningar · Ni = framtiden. Tack + länkar.</td>
+      <td>Post-it 1: hjälper · Post-it 2: skadar (namn på varje).</td>
+    </tr>
+  </table>
+
+  <h2>Avslutande bild (efter utgångsbiljett)</h2>
+  <ul>
+    <li><b>Rymden är för alla.</b></li>
+    <li><b>Arkitektur handlar om människor.</b></li>
+    <li><b>Design är en serie avvägningar.</b></li>
+    <li><b>Ni är framtiden för rymdutforskning.</b></li>
+  </ul>
+
+  <h2>Pilot <span class="tag">60 · 3×20</span></h2>
+  <ul>
+    <li>Mobiler OK — prova <b>Chrome</b> vid Safari-strul.</li>
+    <li>MATB: demo på projektor först; para ihop vid behov.</li>
+    <li>Ritning populär — upprepa ingångsregeln. <span class="tag">workshop-feedback.md</span></li>
+  </ul>
+
+  <h2>Felsökning</h2>
+  <ul>
+    <li><b>Tidsbrist?</b> Stryp Modellabb → A3 → korta historien.</li>
+    <li><b>För många QR?</b> Bara en på skärmen.</li>
+    <li><b>Fel språk?</b> <span class="tag">?lng=sv</span></li>
+  </ul>
+
+  <h2>Länkar</h2>
+  <ul>
+    <li>/reaction-default · /comms /monitoring /tracking /resource · /2min · /condition-lab · /simulator · /blueprint · /model-lab</li>
+  </ul>
+
+  <p style="margin-top:14px;font-size:9px;color:#666;text-align:center">Orbital Architecture workshopmaterial · v2.1.0 · orbarch-edu</p>
+  </div>
+</body>
+</html>

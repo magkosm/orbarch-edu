@@ -1,169 +1,241 @@
 # The Architect's Mind in Orbit — Workshop Plan (EN)
 
-**Audience:** 14-year-olds (Grade 8/9) · **Duration:** 75 minutes per group ·
-**Group format:** run sequentially for up to 3 groups.
-**Theme:** Space-station architectural design and how it shapes crew cognitive performance.
+**Audience:** ages 12–18 (adapt depth by age; core pilot: Grade 8/9 / ~14) ·
+**Duration:** ~90–120 minutes (flexible — trim Model Lab or A3 sketch if short on time) ·
+**Group format:** run sequentially for multiple classes (pilot: 3 × ~20 students).
+**Theme:** Space-station architecture and how it shapes crew cognitive performance.
 
 **Devices:** every student uses their **own mobile phone**. The teacher has a
-**projector**. All tools are mobile-friendly and free at
+**projector** and **whiteboard**. All tools are mobile-friendly at
 **https://magkosm.github.io/orbarch-edu**.
 
-> Language: this is the English plan. Same activities in
-> [Swedish](./workshop-sv.md) and [Greek](./workshop-el.md). All tool links below
-> use `?lng=en` — swap to `?lng=sv` / `?lng=el` for the other versions.
+> Language: English plan. Same structure in [Swedish](./workshop-sv.md) and
+> [Greek](./workshop-el.md). Links use `?lng=en` — swap to `?lng=sv` / `?lng=el`.
 
 ---
 
 ## Learning objectives
 
 By the end, students can:
-1. Explain how the built environment (noise, light, plants/biophilia, clutter)
-   affects stress and cognition.
-2. Describe how researchers **measure** cognitive performance and **compare
-   conditions** (baseline vs. stressor).
-3. Apply trade-offs to **design** a habitat module that protects the crew's
-   cognitive baseline while meeting mission needs.
+1. Name environmental factors that raise or lower stress in space **and** in everyday places.
+2. Explain how scientists **measure** cognition (reaction time, working memory, executive function)
+   and **compare conditions** (baseline vs. stressor), including learning effects and normalization.
+3. Apply design **trade-offs** in the Blueprint Designer: crew cognition vs. mission engineering/science.
 
 ---
 
-## Tools used (open on phones)
+## Tools used (phones — one QR at a time)
+
+Show **one QR on the projector** when needed; keep printed QRs handy but reveal step-by-step.
 
 | When | Tool | Link |
 | --- | --- | --- |
-| Warm-up | Reaction Time | https://magkosm.github.io/orbarch-edu/reaction-default?lng=en |
-| Experiment | MATB (2-min) | https://magkosm.github.io/orbarch-edu/2min?lng=en |
-| Experiment | Condition Lab (quiet vs. noise) | https://magkosm.github.io/orbarch-edu/condition-lab?lng=en |
+| Warm-up | Reaction Time (PVT) | https://magkosm.github.io/orbarch-edu/reaction-default?lng=en |
+| Teacher demo | MATB single tasks (Presets) | `/comms` · `/monitoring` · `/tracking` · `/resource` |
+| Practice | MATB (2-min dry run) | https://magkosm.github.io/orbarch-edu/2min?lng=en |
+| Experiment | Condition Lab | https://magkosm.github.io/orbarch-edu/condition-lab?lng=en |
 | Design | Space Architecture Simulator | https://magkosm.github.io/orbarch-edu/simulator?lng=en |
 | Design | Habitat Blueprint Designer | https://magkosm.github.io/orbarch-edu/blueprint?lng=en |
-| Teacher demo | Model Lab (interaction map) | https://magkosm.github.io/orbarch-edu/model-lab?lng=en |
-
-> **Tip:** put a **QR code** for each link on a slide so phones can join fast.
-> `[QR PLACEHOLDER — Reaction]` `[QR PLACEHOLDER — MATB 2-min]`
-> `[QR PLACEHOLDER — Condition Lab]` `[QR PLACEHOLDER — Simulator]`
-> `[QR PLACEHOLDER — Blueprint]`
+| Optional | Model Lab | https://magkosm.github.io/orbarch-edu/model-lab?lng=en |
+| Reference (older students) | N-Back | https://magkosm.github.io/orbarch-edu/nbackdefault?lng=en |
 
 ---
 
 ## Teacher prep checklist
 
-- [ ] Projector + slides loaded (see "Presentation outline" below).
-- [ ] Room speakers ready to play ambient cabin/fan noise (the stressor).
-- [ ] Wi-Fi tested; QR codes printed/on slides.
-- [ ] A3 paper, rulers, markers for sketching (1 set per group of 4).
-- [ ] Try each tool once on a phone beforehand.
-- [ ] (Optional) know the **hidden demo**: in the Simulator/Blueprint, the faint
-      footer text `Config: build_75m_rev2//ID:orbarch-matb-eval` is a hidden link
-      that jumps to the MATB suite — handy to flip from "design" to "test" live.
+- [ ] Projector + full slide deck (see [`materials/slides-outline.md`](./materials/slides-outline.md)).
+- [ ] Whiteboard markers — board stays live from the stress discussion onward.
+- [ ] Room speakers for cabin noise (or in-app noise in Condition Lab).
+- [ ] QR sheet printed ([`qr-codes.html`](./materials/qr-codes.html)) — **reveal one code at a time**.
+- [ ] Handouts A3 ([`handout-en.html`](./materials/handout-en.html)), 1 per student; extra A3 + markers for optional group sketch.
+- [ ] **Two sticky notes per student** for the exit ticket (name on each).
+- [ ] Teacher laptop ready to mirror a student's Blueprint solution to the projector.
+- [ ] Try each tool once beforehand. Presets page on hub: open `/` → scroll to **Presets**.
 
 ---
 
 ## Timeline at a glance
 
-| Phase | Time | Focus | Method |
-| --- | --- | --- | --- |
-| 1. Exploration | 15 min | Why surroundings matter | Presentation + discussion + phone warm-up |
-| 2. The experiment | 25 min | Measure & compare conditions | Phones + Square & Share |
-| 3. Design studio | 30 min | Design a better module | Phones + paper + Square & Share |
-| 4. Creative review | 5 min | Pitch & wrap | Group share-out |
-
-**Square & Share** (used in phases 2 & 3): each student works **alone**, then
-compares in a **pair**, then joins another pair to make a **square (group of 4)**
-and agrees on one result, then a square **shares** with the class.
+| Block | Time (guide) | Focus |
+| --- | --- | --- |
+| A. Presentation & discussion | ~35–45 min | History, stress factors, cognitive link, tests, research sites |
+| B. Interactive experiments | ~35–45 min | RT → MATB demo → dry run → Condition Lab → learning effects |
+| C. Design studio | ~20–30 min | Simulator → Blueprint → optional Model Lab |
+| D. Exit ticket | ~5 min | Two post-its per student |
 
 ---
 
-## Phase 1 — Exploration & Environmental Discovery (15 min)
+## Block A — Presentation & whiteboard discussion (~35–45 min)
 
-**Goal:** hook students and build the cognition–environment link.
+### A1 · Opening (5 min)
 
-1. **(6 min) The hook — presentation (projector).** Show real habitats: cramped
-   early stations vs. modern modules with windows and greenery. Ask: *"Where would
-   you rather work for 6 months — and why?"*
-   > `[SLIDE 1 — Title: The Architect's Mind in Orbit]`
-   > `[SLIDE 2 — Then vs. now: cramped station vs. modern module]`
-   > `[SLIDE 3 — What makes a space stressful? noise, clutter, no daylight, no nature]`
-2. **(5 min) The cognitive link — discussion.** Draw out: noisy gear vs. quiet
-   zones; how windows and plants (biophilia) help the brain recover from chronic
-   stress. Capture words on the board.
-   > `[SLIDE 4 — Biophilia, daylight, acoustics, order → calmer, sharper brain]`
-3. **(4 min) Phone warm-up.** Everyone opens **Reaction Time** and does one quick
-   run. *"This is the kind of quick test scientists use — remember your number."*
+1. **Introduce the speaker.**
+2. **Slide 1** — title slide from the pitch deck (*The Architect's Mind in Orbit*).
 
----
+### A2 · What is a space station? History (~8 min)
 
-## Phase 2 — Testing in Practice: The Experiment (25 min)
+- **Definition:** a habitat for stays of **at least ~15 days** (often months), not a brief visit.
+- **History arc** (name each and **where it was built**):
+  - **Salyut** (USSR/Russia) · **Skylab** (USA) · **Mir** (USSR/Russia) · **ISS** (international) · **Tiangong** (China)
+- **Design thread:** stations were often **messy and machine-centric** — equipment first, humans adapting later.
 
-**Goal:** experience cognitive load and **quantify** how environment changes performance.
+> **English / international cohort:** mention ESA membership and astronaut participation on the ISS where relevant.
 
-1. **(8 min) Baseline run.** On phones, open **MATB (2-min)**. Students try the
-   multitasking battery (tracking + monitoring + resource) in a **quiet** room.
-   They note their **final score** (the baseline).
-   > `[SLIDE 5 — How to read the MATB: the four tasks + System Health]`
-2. **(9 min) Stressed run with the Condition Lab.** Open **Condition Lab**. The
-   teacher plays **cabin noise on the room speakers** (and/or the in-app noise).
-   Students run the MATB again **under noise**, then enter **baseline** and
-   **stressed** scores into the Condition Lab to see the comparison and the
-   **% drop**.
-   > `[SLIDE 6 — Baseline vs. stressed: what changed, and by how much?]`
-3. **(8 min) Square & Share.** Alone: write your % change. Pair: compare. Square
-   (4): compute the group's **average drop** and one sentence on *why*. A couple of
-   squares share to the class.
+### A3 · State of the art — messy reality (~5 min)
 
-**Key idea to land:** scientists detect and quantify performance differences
-between environments — exactly the Orbital Architecture research question.
+- Show **Marcus Wandt's photo from Columbus** (ISS): cables everywhere, cramped, utilitarian.
+- Land the point: this is **almost state of the art today** — messy, cables, **loud**, poor lighting, cramped, complex and convoluted.
+- **Same photo + text box:** *"What makes space stressful?"*
 
----
+### A4 · Student discussion on the whiteboard (~10 min)
 
-## Phase 3 — Design Studio & Simulator (30 min)
+Open the floor. **Prompt in three passes** (capture everything on the board — it stays up all class):
 
-**Goal:** turn insight into a **design** that protects cognition while meeting the mission.
+1. **Space:** what would stress you in orbit?
+2. **School / classroom / home:** same questions — transfer the idea.
+3. **Recovery:** what helps you **relax** in your environment?
 
-1. **(6 min) Explore the model — Simulator.** On phones, open the **Space
-   Architecture Simulator**. Slide Noise/Biophilia/Clutter/Lighting and watch the
-   cognitive scores react. *"Find the settings that keep the crew sharp."*
-2. **(12 min) Solve the scenario — Blueprint Designer.** Open the **Habitat
-   Blueprint Designer**. It starts in a noisy, cluttered, under-equipped module.
-   Students place features to satisfy the **Mission Brief** (keep life support,
-   add stowage, add sleeping quarters, give every module a clear path to the
-   **entrance**, and reach **Mission Success ≥ 70**). They balance **crew
-   cognition** against **mission value** (Science / Health / Life Support).
-   > `[SLIDE 7 — Your mission brief: the checklist to turn all ✅]`
-3. **(8 min) Sketch it — A3 paper.** Each student sketches their module blueprint
-   and **labels** the key features (acoustic zoning, biophilic planting, virtual
-   windows, quiet sleep area, clear corridors to the entrance).
-4. **(4 min) Teacher demo (projector) — the trade-off, made visible.** Show the
-   **Model Lab** interaction map: green wires = good effects, red = harmful (e.g.
-   raising Stress). Optionally use the hidden footer link to flip to the MATB suite
-   and show how better design "rescues" reaction time.
-   > `[SLIDE 8 — Interaction map: good vs. bad effects, the wires]`
+**Seed ideas if needed:** adaptation sickness · new frame of reference · lack of gravity · atmosphere change · schedule · risk · affordances · diet · food/water quality and quantity · exercise · muscle and blood issues · windows · natural elements · privacy · clear understanding of the layout · noise · clutter · light · daylight · circadian rhythm · and more.
 
-**Square & Share:** individual sketch → pair feedback → square (4) picks the
-**best design** to present.
+**Guide toward three cognitive-link elements** through questions (attention, stress/recovery, performance), then show:
+
+> `[SLIDE — The cognitive link]` (biophilia, daylight, acoustics, order → calmer, sharper brain)
+
+### A5 · Why we care & the long view (~8 min)
+
+1. **Why measure this?** Better stations need evidence, not guesswork.
+2. **Current stations slide** — what we have now (tie back to the photo).
+3. **Future vision slide** — NASA Ames studies, **Rick Guidice** artwork (rotating habitats, greenery, windows).
+4. **Message:** reaching that in 200–300 years takes **small steps today**. Small **quantitative** experiments → **qualitative** differences later. *We are taking those small steps now.*
+
+### A6 · How we test cognition (~8 min)
+
+**School analogy:** *How does your math teacher know if you're good at math?* → **tests**.
+
+**Three research tests** (one sentence each):
+
+| Test | Measures | Workshop use |
+| --- | --- | --- |
+| **PVT / Reaction Time** | Alertness & speed | All ages — warm-up today |
+| **N-Back** | Working memory | Mention; use with **high school** |
+| **MATB (2-min)** | Executive function / multitasking | **Secondary** focus today |
+
+> Younger classes: *"We'll look deeper another time"* — RT for primary, MATB for secondary, N-Back for high school.
+
+**Where this research has run:**
+
+- **MDRS** (Mars Desert Research Station) with **ISAE-SUPAERO**
+- **ISS** with **Marcus Wandt** (2024)
 
 ---
 
-## Phase 4 — Creative Review / Pitch (5 min)
+## Block B — Interactive experiments (~35–45 min)
 
-Each **square** shows its chosen blueprint (paper + their Blueprint score) and
-defends it in **two sentences**: *"We added ___ to protect ___, and our Mission
-Success was ___."* Close with the big idea: **good architecture is measurable —
-design choices change how well a brain works.**
+Use **handout section 1** throughout this block.
 
-> `[SLIDE 9 — Wrap-up: design you can measure]`
-> `[SLIDE 10 — Thanks + links: orbarch-edu, ESERO, KTH]`
+### B1 · Reaction Time — one round (~8 min)
+
+1. Show **QR for Reaction Time only** — students run **one round**.
+2. Gather a few scores aloud — expect **wide spread**.
+3. Explain **confounders:** age, sex, gaming, mood, sleep, food, etc.
+4. **Normalization:** in population science we normalize scores; here we care what difference **conditions we control** (e.g. noise) make **within each person**.
+
+### B2 · MATB taught on the projector (~12 min)
+
+**Do not hand out the MATB QR yet.**
+
+1. On the **projector**, open the hub → **Presets** (or direct links: `/comms`, `/monitoring`, `/tracking`, `/resource`).
+2. Show the **full MATB first** — all four tasks at once. *"Everything must be handled simultaneously."*
+3. Demo **each task alone** using the preset pages, one by one.
+4. Then show **2-min** mode — explain System Health / scoring.
+
+### B3 · MATB dry run (~8 min)
+
+1. Release **MATB 2-min QR**.
+2. Everyone runs a **practice (dry) run** — walk the room; make sure students understand all four tasks.
+3. Note scores on handout if useful (practice row).
+
+### B4 · Condition Lab experiment (~10 min)
+
+1. Explain: quiet baseline vs. **cabin noise** stressed run (room speakers and/or in-app noise).
+2. Show **Condition Lab QR** — students run the comparison, enter scores, read **% change**.
+3. Expect **mixed results** — that's OK.
+
+### B5 · Learning effects & the science (~8 min)
+
+On the **whiteboard**:
+
+1. **Learning effect:** ask a student who plays sports for years — *what happens when you start a **new** sport?* Session-to-session improvement → sketch a **rising curve**.
+2. *Does it rise forever?* → **No** → **performance plateau**, then smaller swings from mood, sleep, food.
+3. Analogy: well-fed, rested pro athlete vs. stressed, tired, hungry — same person, different day.
+4. **Real experiment:** we'd repeat until scores **stabilize**, *then* test conditions. Today is a **taste** of that protocol.
+5. **Advanced teachers:** plot class scores on the board to show trends.
+
+Students complete **handout §1** (scores, % change, short reflection).
+
+---
+
+## Block C — Design studio (~20–30 min)
+
+### C1 · Space Architecture Simulator (~5 min)
+
+- Explain: many experiments like today's help **quantify** links between noise, light, clutter, biophilia and cognitive outputs.
+- Students open **Simulator QR** — slide parameters, watch scores move.
+
+### C2 · Habitat Blueprint Designer (~15 min)
+
+1. Explain the **mission brief**: some features help **crew cognition**, others help **engineering or science** — real trade-offs.
+2. **Corridor rule:** every module needs a clear path to the **entrance (🚪)** — repeat as needed.
+3. Students work on phones; complete **handout §2** checklist.
+4. Find a student with a **high Mission Success** score → copy their layout to the **teacher laptop** and **project** for the class.
+
+### C3 · Optional — Model Lab (~10 min, if time)
+
+- Show how researchers **change the model**: add a new input from the whiteboard list, add a new output, discuss what drives it.
+- Pick one output on the interactive site — *if this matters in a given module, which attributes should we design for?*
+- **Trim this first** if running long.
+
+### C4 · Optional — A3 group sketch (if time)
+
+In groups: design the **interior of a space station** on A3 (use handout §3 or extra paper). Label features tied to the whiteboard.
+
+---
+
+## Block D — Exit ticket (~5 min)
+
+Each student gets **two sticky notes** — **write their name on each**:
+
+1. One thing in the **architectural environment** that **helps** cognition (from today's board or their design).
+2. One thing that **makes it worse**.
+
+Collect for a classroom display or teacher review.
+
+### D2 · Closing slide (~2 min)
+
+Show the final slide — four messages to land before thanks:
+
+- **Space is for everyone.**
+- **Architecture is about people.**
+- **Design is a series of trade-offs.**
+- **You are the future of space exploration.**
+
+> `[SLIDE — Closing messages]` · then `[SLIDE — Thanks & links]`
 
 ---
 
 ## Differentiation & tips
 
-- **Fast finishers:** beat Mission Success 70 → aim for 85; or try the Model Lab
-  and add a new outcome (e.g. "Crew morale").
-- **Struggling:** start from the Simulator (4 sliders) before the Blueprint.
-- **No sound?** the Condition Lab has an in-app noise generator on each phone.
-- **Phones flat/low?** pair up; one device per pair still works.
-- **Keep it calm:** the in-app noise can stay low; the point is the *comparison*.
+- **Primary:** emphasize Reaction Time; mention MATB lightly; skip N-Back detail.
+- **Secondary (~14):** full Block B as written — MATB is the core test.
+- **High school:** add N-Back demo; deeper normalization and Model Lab.
+- **MATB uneven?** Demo on projector first; pair struggling students; near-perfect scores and strugglers can coexist.
+- **Blueprint corridor rule:** repeat entrance-path rule — see [workshop-feedback.md](./workshop-feedback.md).
+- **Safari quirks?** Prefer Chrome on student phones.
+- **Running long?** Cut Model Lab → cut A3 group sketch → shorten history (keep whiteboard discussion).
+- **QR discipline:** one QR on screen at a time reduces confusion (pilot-tested).
 
-## Quick assessment (exit ticket)
+---
 
-One line on a sticky note: *"Name one design feature that helps cognition, and one
-thing that hurts it."*
+## Quick reference — slide list
+
+See [`materials/slides-outline.md`](./materials/slides-outline.md) for the full deck order matching this plan.

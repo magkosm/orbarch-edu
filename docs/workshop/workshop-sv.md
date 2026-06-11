@@ -1,169 +1,235 @@
-# Arkitektens sinne i omloppsbana — Lektionsplan (SV)
+# Arkitektens sinne i omloppsbana — Workshopplan (SV)
 
-**Målgrupp:** 14-åringar (åk 8/9) · **Längd:** 75 minuter per grupp ·
-**Format:** körs i följd för upp till 3 grupper.
-**Tema:** Rymdstationers arkitektur och hur den påverkar besättningens kognitiva prestation.
+**Målgrupp:** åk 6–12 (anpassa djup efter ålder; pilot: åk 8/9 / ~14 år) ·
+**Längd:** ~90–120 min (flexibelt — stryk Modellabb eller A3-skiss vid tidsbrist) ·
+**Format:** flera klasser i följd (pilot: 3 × ~20 elever).
+**Tema:** Rymdstationsarkitektur och hur den påverkar besättningens kognition.
 
-**Enheter:** varje elev använder sin **egen mobiltelefon**. Läraren har en
-**projektor**. Alla verktyg är mobilanpassade och gratis på
-**https://magkosm.github.io/orbarch-edu**.
+**Utrustning:** eleverna använder **egna mobiler**. Läraren har **projektor** och
+**whiteboard**. Alla verktyg finns på **https://magkosm.github.io/orbarch-edu**.
 
-> Språk: detta är den svenska planen. Samma aktiviteter på
-> [engelska](./workshop-en.md) och [grekiska](./workshop-el.md). Alla länkar nedan
-> använder `?lng=sv`.
+> Språk: svensk plan. Samma struktur på [engelska](./workshop-en.md) och
+> [grekiska](./workshop-el.md). Länkar med `?lng=sv`.
 
 ---
 
 ## Lärandemål
 
-I slutet kan eleverna:
-1. Förklara hur den byggda miljön (buller, ljus, växter/biofili, röra) påverkar
-   stress och kognition.
-2. Beskriva hur forskare **mäter** kognitiv prestation och **jämför förhållanden**
-   (baslinje vs. stressfaktor).
-3. Tillämpa avvägningar för att **designa** en habitatmodul som skyddar
-   besättningens kognitiva baslinje samtidigt som uppdragets behov uppfylls.
+Eleverna ska efter passet kunna:
+1. Nämn miljöfaktorer som ökar eller minskar stress i rymden **och** i vardagsmiljöer.
+2. Förklara hur forskare **mäter** kognition (reaktionstid, arbetsminne, exekutiv funktion)
+   och **jämför förhållanden** (baslinje vs. stressor), inkl. inlärningseffekt och normalisering.
+3. Tillämpa design**avvägningar** i Ritningsdesignern: besättningens kognition vs. teknik/vetenskap.
 
 ---
 
-## Verktyg (öppnas på mobilen)
+## Verktyg (mobiler — en QR i taget)
+
+Visa **en QR på projektorn** i taget; ha utskrivna QR-koder redo men ta fram steg för steg.
 
 | När | Verktyg | Länk |
 | --- | --- | --- |
-| Uppvärmning | Reaktionstid | https://magkosm.github.io/orbarch-edu/reaction-default?lng=sv |
-| Experiment | MATB (2 min) | https://magkosm.github.io/orbarch-edu/2min?lng=sv |
-| Experiment | Förhållandelabb (tyst vs. buller) | https://magkosm.github.io/orbarch-edu/condition-lab?lng=sv |
-| Design | Arkitektursimulator | https://magkosm.github.io/orbarch-edu/simulator?lng=sv |
-| Design | Habitatets ritningsdesigner | https://magkosm.github.io/orbarch-edu/blueprint?lng=sv |
-| Lärardemo | Modellabb (interaktionskarta) | https://magkosm.github.io/orbarch-edu/model-lab?lng=sv |
-
-> **Tips:** lägg en **QR-kod** för varje länk på en bild så att mobiler ansluter snabbt.
-> `[QR-PLATSHÅLLARE — Reaktionstid]` `[QR-PLATSHÅLLARE — MATB 2 min]`
-> `[QR-PLATSHÅLLARE — Förhållandelabb]` `[QR-PLATSHÅLLARE — Simulator]`
-> `[QR-PLATSHÅLLARE — Ritningsdesigner]`
+| Uppvärmning | Reaktionstid (PVT) | https://magkosm.github.io/orbarch-edu/reaction-default?lng=sv |
+| Lärardemo | MATB enskilda uppgifter (Förinställningar) | `/comms` · `/monitoring` · `/tracking` · `/resource` |
+| Övning | MATB (2 min, provkörning) | https://magkosm.github.io/orbarch-edu/2min?lng=sv |
+| Experiment | Förhållandelabb | https://magkosm.github.io/orbarch-edu/condition-lab?lng=sv |
+| Design | Rymdarkitektursimulator | https://magkosm.github.io/orbarch-edu/simulator?lng=sv |
+| Design | Habitat-ritningsdesigner | https://magkosm.github.io/orbarch-edu/blueprint?lng=sv |
+| Valfritt | Modellabb | https://magkosm.github.io/orbarch-edu/model-lab?lng=sv |
+| Referens (äldre elever) | N-Back | https://magkosm.github.io/orbarch-edu/nbackdefault?lng=sv |
 
 ---
 
-## Lärarens förberedelsechecklista
+## Förberedelser
 
-- [ ] Projektor + bildspel laddat (se "Bildspelsöversikt" nedan).
-- [ ] Högtalare redo att spela kabin-/fläktbuller (stressfaktorn).
-- [ ] Wi-Fi testat; QR-koder utskrivna/på bilder.
-- [ ] A3-papper, linjaler, pennor för skisser (1 set per grupp om 4).
-- [ ] Testa varje verktyg på en mobil i förväg.
-- [ ] (Valfritt) känn till **den dolda demon**: i Simulatorn/Ritningsdesignern är den
-      svaga texten `Config: build_75m_rev2//ID:orbarch-matb-eval` en dold länk som
-      hoppar till MATB — praktiskt för att växla från "design" till "test" live.
-
----
-
-## Översikt av tidslinjen
-
-| Fas | Tid | Fokus | Metod |
-| --- | --- | --- | --- |
-| 1. Utforskning | 15 min | Varför omgivningen spelar roll | Presentation + diskussion + mobiluppvärmning |
-| 2. Experimentet | 25 min | Mät & jämför förhållanden | Mobiler + Kvadrat & dela |
-| 3. Designstudio | 30 min | Designa en bättre modul | Mobiler + papper + Kvadrat & dela |
-| 4. Kreativ granskning | 5 min | Pitch & avslutning | Gruppredovisning |
-
-**Kvadrat & dela** (används i fas 2 & 3): varje elev arbetar **ensam**, jämför
-sedan i **par**, slår sedan ihop sig med ett annat par till en **kvadrat (grupp om
-4)** och enas om ett resultat, och en kvadrat **delar** med klassen.
+- [ ] Projektor + bildspel (se [`materials/slides-outline.md`](./materials/slides-outline.md)).
+- [ ] Whiteboard — används från stressdiskussionen och framåt.
+- [ ] Högtalare för kabinbuller (eller inbyggt buller i Förhållandelabben).
+- [ ] QR-blad utskrivet — **visa en kod i taget**.
+- [ ] Elevblad A3, 1 per elev; extra A3 + pennor för valfri gruppskiss.
+- [ ] **Två post-it per elev** till utgångsbiljetten (namn på varje).
+- [ ] Lärardator redo för att spegla en elevs ritningslösning.
+- [ ] Testa alla verktyg; Förinställningar på startsidan `/`.
 
 ---
 
-## Fas 1 — Utforskning & miljöupptäckt (15 min)
+## Tidsöversikt
 
-**Mål:** fånga eleverna och bygga kopplingen kognition–miljö.
-
-1. **(6 min) Kroken — presentation (projektor).** Visa riktiga habitat: trånga
-   tidiga stationer vs. moderna moduler med fönster och grönska. Fråga: *"Var skulle
-   du hellre arbeta i 6 månader — och varför?"*
-   > `[BILD 1 — Titel: Arkitektens sinne i omloppsbana]`
-   > `[BILD 2 — Förr vs. nu: trång station vs. modern modul]`
-   > `[BILD 3 — Vad gör ett utrymme stressigt? buller, röra, inget dagsljus, ingen natur]`
-2. **(5 min) Den kognitiva kopplingen — diskussion.** Lyft fram: bullrig utrustning
-   vs. tysta zoner; hur fönster och växter (biofili) hjälper hjärnan att återhämta
-   sig från kronisk stress. Skriv ord på tavlan.
-   > `[BILD 4 — Biofili, dagsljus, akustik, ordning → lugnare, skarpare hjärna]`
-3. **(4 min) Mobiluppvärmning.** Alla öppnar **Reaktionstid** och gör en snabb
-   omgång. *"Det här är den sortens snabbtest forskare använder — kom ihåg ditt tal."*
+| Block | Tid (riktlinje) | Fokus |
+| --- | --- | --- |
+| A. Presentation & diskussion | ~35–45 min | Historia, stress, kognitiv länk, tester, forskningsplatser |
+| B. Interaktiva experiment | ~35–45 min | RT → MATB-demo → provkörning → Förhållandelabb → inlärning |
+| C. Designstudio | ~20–30 min | Simulator → Ritning → valfritt Modellabb |
+| D. Utgångsbiljett | ~5 min | Två post-it per elev |
 
 ---
 
-## Fas 2 — Att testa i praktiken: experimentet (25 min)
+## Block A — Presentation & whiteboard (~35–45 min)
 
-**Mål:** uppleva kognitiv belastning och **kvantifiera** hur miljön ändrar prestationen.
+### A1 · Inledning (5 min)
 
-1. **(8 min) Baslinjeomgång.** Öppna **MATB (2 min)** på mobilen. Eleverna provar
-   multitasking-batteriet (spårning + övervakning + resurser) i ett **tyst** rum.
-   De noterar sin **slutpoäng** (baslinjen).
-   > `[BILD 5 — Så läser du MATB: de fyra uppgifterna + Systemhälsa]`
-2. **(9 min) Stressad omgång med Förhållandelabben.** Öppna **Förhållandelabben**.
-   Läraren spelar **kabinbuller på högtalarna** (och/eller bullret i appen).
-   Eleverna kör MATB igen **under buller** och matar sedan in **baslinje-** och
-   **stress**poäng i Förhållandelabben för att se jämförelsen och **% minskning**.
-   > `[BILD 6 — Baslinje vs. stressad: vad ändrades, och hur mycket?]`
-3. **(8 min) Kvadrat & dela.** Ensam: skriv din % förändring. Par: jämför. Kvadrat
-   (4): räkna ut gruppens **genomsnittliga minskning** och en mening om *varför*.
-   Ett par kvadrater delar med klassen.
+1. **Presentera föreläsaren.**
+2. **Bild 1** — titelbild (*Arkitektens sinne i omloppsbana*).
 
-**Nyckelidé:** forskare upptäcker och kvantifierar skillnader i prestation mellan
-miljöer — precis Orbital Architecture-projektets forskningsfråga.
+### A2 · Vad är en rymdstation? Historia (~8 min)
+
+- **Definition:** vistelse **minst ~15 dagar** (ofta månader), inte ett kort besök.
+- **Historik** (nämn **var de byggdes**):
+  - **Salyut** ( Sovjet/Ryssland) · **Skylab** (USA) · **Mir** (Sovjet/Ryssland) · **ISS** (internationell) · **Tiangong** (Kina)
+- **Designtrend:** ofta **rörigt och maskincentrerat** — utrustning först, människan anpassar sig.
+
+### A2b · Sverige & ISS (~3 min) — **svensk kontext**
+
+- Sverige har bidragit som **ESA-medlem** och med **två astronauter** på ISS:
+  - **Christer Fuglesang** — hjälpte **bygga stationen** i början av 2000-talet.
+  - **Marcus Wandt** — **Project Astronaut**, flög 2024.
+- Koppla till dagens experiment och verktyg.
+
+### A3 · Dagens state of the art (~5 min)
+
+- Visa **Marcus Wandts foto från Columbus** (ISS): kablar överallt, trångt, funktionellt.
+- Poängen: det här är **nästan state of the art** — rörigt, kablar, **högt**, dålig belysning, trångt, komplext.
+- **Samma bild + textruta:** *"Vad gör rymden stressig?"*
+
+### A4 · Elevdiskussion på whiteboarden (~10 min)
+
+Tre varv (allt stannar på tavlan):
+
+1. **Rymden:** vad skulle stressa dig?
+2. **Skola / klassrum / hem:** samma frågor.
+3. **Återhämtning:** vad hjälper dig **slappna av**?
+
+**Exempel att vägleda med:** rörelsesjuka · ny referensram · tyngdlöshet · atmosfär · schema · risk · affordances · kost · mat/vatten · träning · muskler/blod · fönster · natur · integritet · orientering · buller · röra · ljus · dagsljus · dygnsrytm · m.m.
+
+Led eleverna till **tre delar av den kognitiva länken** via frågor, visa sedan:
+
+> `[BILD — Den kognitiva länken]`
+
+### A5 · Varför det spelar roll & långsiktig vision (~8 min)
+
+1. Bättre stationer kräver **evidence**, inte gissningar.
+2. **Nuvarande stationer** — koppla till fotot.
+3. **Framtidsbild** — NASA Ames, **Rick Guidice** (roterande habitat, grönska, fönster).
+4. **Budskap:** små **kvantitativa** steg idag → **kvalitativa** skillnader om 200–300 år. *Det är de stegen vi tar nu.*
+
+### A6 · Hur vi testar kognition (~8 min)
+
+**Skolanalogi:** *Hur vet matteläraren om du är bra på matte?* → **prov**.
+
+| Test | Mäter | I workshopen |
+| --- | --- | --- |
+| **PVT / Reaktionstid** | Alerthet & hastighet | Alla — uppvärmning |
+| **N-Back** | Arbetsminne | Nämn; **gymnasium** |
+| **MATB (2 min)** | Exekutiv funktion / multitasking | **Högstadium** idag |
+
+**Var forskningen körts:**
+
+- **MDRS** med **ISAE-SUPAERO**
+- **ISS** med **Marcus Wandt** (2024)
 
 ---
 
-## Fas 3 — Designstudio & Simulator (30 min)
+## Block B — Interaktiva experiment (~35–45 min)
 
-**Mål:** omvandla insikt till en **design** som skyddar kognitionen och uppfyller uppdraget.
+Använd **elevblad avsnitt 1**.
 
-1. **(6 min) Utforska modellen — Simulatorn.** Öppna **Arkitektursimulatorn** på
-   mobilen. Dra i Buller/Biofili/Röra/Belysning och se hur de kognitiva poängen
-   reagerar. *"Hitta inställningarna som håller besättningen skarp."*
-2. **(12 min) Lös scenariot — Ritningsdesignern.** Öppna **Habitatets
-   ritningsdesigner**. Den startar i en bullrig, rörig och underutrustad modul.
-   Eleverna placerar funktioner för att uppfylla **Uppdragsbeskrivningen** (behåll
-   livsuppehållande, lägg till förvaring, lägg till sovutrymme, ge varje modul en
-   fri väg till **entrén**, och nå **Uppdragsframgång ≥ 70**). De balanserar
-   **besättningens kognition** mot **uppdragsvärde** (Vetenskap / Hälsa /
-   Livsuppehållande).
-   > `[BILD 7 — Din uppdragsbeskrivning: checklistan att göra grön ✅]`
-3. **(8 min) Skissa — A3-papper.** Varje elev skissar sin modulritning och
-   **märker** nyckelfunktionerna (akustiska zoner, biofila växter, virtuella
-   fönster, tyst sovplats, fria korridorer till entrén).
-4. **(4 min) Lärardemo (projektor) — avvägningen, synliggjord.** Visa **Modellabbens**
-   interaktionskarta: gröna trådar = bra effekter, röda = skadliga (t.ex. höjd
-   stress). Använd eventuellt den dolda länken för att växla till MATB och visa hur
-   bättre design "räddar" reaktionstiden.
-   > `[BILD 8 — Interaktionskarta: bra vs. dåliga effekter, trådarna]`
+### B1 · Reaktionstid — en runda (~8 min)
 
-**Kvadrat & dela:** egen skiss → återkoppling i par → kvadrat (4) väljer den
-**bästa designen** att presentera.
+1. Visa **endast RT-QR** — eleverna kör **en runda**.
+2. Samla några resultat — förvänta **stor spridning**.
+3. **Störande faktorer:** ålder, kön, spel, humör, sömn, mat m.m.
+4. **Normalisering:** i populationsstudier normaliserar vi; här bryr vi oss om skillnaden mellan **förhållanden vi kontrollerar** (t.ex. buller) **inom varje person**.
+
+### B2 · MATB på projektorn (~12 min)
+
+**Dela inte ut MATB-QR än.**
+
+1. Öppna **Förinställningar** på projektorn (`/comms`, `/monitoring`, `/tracking`, `/resource`).
+2. Visa **hela MATB** — alla fyra samtidigt.
+3. Demo **varje uppgift för sig**.
+4. Visa **2-min-läge** och poängsättning.
+
+### B3 · MATB provkörning (~8 min)
+
+1. Visa **MATB 2-min QR**.
+2. **Provkörning** — gå runt i klassen.
+3. Notera ev. på elevbladet.
+
+### B4 · Förhållandelabb (~10 min)
+
+1. Förklara: tyst baslinje vs. **kabinbuller**.
+2. **Förhållandelabb-QR** — eleverna jämför och läser **% förändring**.
+3. **Blandade resultat** är förväntade.
+
+### B5 · Inlärningseffekt (~8 min)
+
+På **whiteboarden**:
+
+1. Fråga en idrottande elev — *ny sport?* förbättring per pass → **kurva uppåt**.
+2. *För alltid?* → **platå**; humör, sömn, mat ger små avvikelser.
+3. Proffsidrottare utvilad vs. stressad och hungrig.
+4. **Riktigt experiment:** upprepa tills det ** stabiliserats**, *sedan* testa förhållanden.
+5. **Avancerat:** rita klassens poäng på tavlan.
+
+Eleverna fyller i **elevblad §1**.
 
 ---
 
-## Fas 4 — Kreativ granskning / pitch (5 min)
+## Block C — Designstudio (~20–30 min)
 
-Varje **kvadrat** visar sin valda ritning (papper + sin poäng i Ritningsdesignern)
-och försvarar den i **två meningar**: *"Vi lade till ___ för att skydda ___, och vår
-Uppdragsframgång blev ___."* Avsluta med den stora idén: **bra arkitektur är
-mätbar — designval ändrar hur väl en hjärna fungerar.**
+### C1 · Simulator (~5 min)
 
-> `[BILD 9 — Avslutning: design du kan mäta]`
-> `[BILD 10 — Tack + länkar: orbarch-edu, ESERO, KTH]`
+- Förklara: experiment kvantifierar samband mellan buller, ljus, röra, biophilia och kognition.
+- **Simulator-QR** — eleverna skjuter reglage.
+
+### C2 · Ritningsdesigner (~15 min)
+
+1. **Uppdragsbrief:** vissa saker hjälper **besättningen**, andra **teknik/vetenskap**.
+2. **Korridorsregel:** fri väg till **ingången (🚪)** — upprepa.
+3. Eleverna arbetar; **elevblad §2**.
+4. Hitta hög **Uppdragsframgång** → spegla på **lärardatorn**.
+
+### C3 · Valfritt — Modellabb (~10 min)
+
+- Lägg till ny input/output; koppla till tavlan.
+- **Stryk först** vid tidsbrist.
+
+### C4 · Valfritt — A3-gruppskiss
+
+Grupper ritar **stationens interiör** på A3 (elevblad §3).
+
+---
+
+## Block D — Utgångsbiljett (~5 min)
+
+**Två post-it per elev** — **namn på varje**:
+
+1. Något i miljön som **hjälper** kognitionen.
+2. Något som **försämrar** den.
+
+### D2 · Avslutande bild (~2 min)
+
+- **Rymden är för alla.**
+- **Arkitektur handlar om människor.**
+- **Design är en serie avvägningar.**
+- **Ni är framtiden för rymdutforskning.**
+
+> `[BILD — Avslutande budskap]` · sedan `[BILD — Tack & länkar]`
 
 ---
 
 ## Differentiering & tips
 
-- **Snabba elever:** slå Uppdragsframgång 70 → sikta på 85; eller prova Modellabben
-  och lägg till ett nytt utfall (t.ex. "Besättningens moral").
-- **De som kämpar:** börja i Simulatorn (4 reglage) före Ritningsdesignern.
-- **Inget ljud?** Förhållandelabben har en inbyggd bullergenerator på varje mobil.
-- **Tomma batterier?** Para ihop; en enhet per par fungerar.
-- **Håll det lugnt:** bullret i appen kan vara lågt; poängen är *jämförelsen*.
+- **Lågstadium:** fokus Reaktionstid; nämn MATB kort.
+- **Högstadium (~14):** full Block B.
+- **Gymnasium:** N-Back; djupare normalisering och Modellabb.
+- **MATB ojämnt?** Demo på projektor; para ihop; se [workshop-feedback.md](./workshop-feedback.md).
+- **Safari:** prova Chrome.
+- **Tidsbrist?** Modellabb → A3-skiss → korta historieavsnittet.
+- **En QR i taget** — mindre förvirring (pilot).
 
-## Snabb bedömning (utgångsbiljett)
+---
 
-En rad på en lapp: *"Nämn en designfunktion som hjälper kognitionen, och en sak som
-skadar den."*
+## Bildspelslista
+
+Se [`materials/slides-outline.md`](./materials/slides-outline.md).

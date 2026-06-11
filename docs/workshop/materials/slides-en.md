@@ -1,80 +1,110 @@
 # Slides (EN) — The Architect's Mind in Orbit
 
-Ready-to-use slide text. Paste each slide into your deck; replace only the
-`[IMAGE…]/[QR…]/[CHART…]` placeholders (QR PNGs are in `./qr/`). Speaker notes are
-suggestions — say it your way.
+Paste each slide into your deck. Replace `[IMAGE…]/[QR…]` placeholders. QR PNGs in `./qr/`.
+**Show one QR at a time** during Blocks B & C. Full structure: [`slides-outline.md`](./slides-outline.md).
 
 ---
 
 ### Slide 1 — Title
 **The Architect's Mind in Orbit**
-*How the design of a space station shapes the crew's mind.*
-`[IMAGE: ISS / habitat hero]`  ·  `[LOGOS: ESERO + KTH]`
-> Note: Welcome — today you're space architects. Could you live and work in a tiny,
-> noisy capsule for six months? Let's find out what makes that bearable.
+`[IMAGE: ISS hero]` · `[LOGOS: ESERO + KTH]`
+> Introduce the speaker. Today: how station design shapes the crew's mind.
 
-### Slide 2 — From capsules to habitats
-- Early stations: tight, noisy, equipment on every wall.
-- New modules: daylight, order, even plants.
-`[IMAGE: early station]`  `[IMAGE: modern module]`
-> Note: What's different? Windows, order and greenery aren't luxuries — they're
-> tools for the brain.
+### Slide 2 — What is a space station?
+- Stays of **≥ ~15 days** (often months) — a home and workplace in orbit
+> Not a brief visit; crews live with the design every hour.
 
-### Slide 3 — What makes a space stressful?
-- Constant noise
-- Clutter and no room to move
-- No daylight
-- No nature
-`[ICONS]`
-> Note: Astronauts face this for months; chronic stress hurts thinking, sleep and mood.
+### Slide 3 — History
+**Salyut · Skylab · Mir · ISS · Tiangong** — label where each was built
+`[IMAGE: timeline]`
+> Messy, machine-centric evolution — equipment first, humans adapt.
 
-### Slide 4 — Your surroundings change how your brain works
-- Quiet + order → focus
-- Daylight → better sleep and alertness
-- Plants and views (biophilia) → recovery from stress
-`[DIAGRAM: environment → stress → cognition]`
-> Note: This is the core question of the KTH / ESERO "Orbital Architecture" research.
+### Slide 4 — Machine-centric design
+- Cables · cramped · loud · complex · utilitarian interiors
+> This pattern repeats across decades.
 
-### Slide 5 — Measure the mind: the MATB test
-- Four tasks at once: tracking, monitoring, communications, fuel.
-- The System Health gauge shows how well you cope.
-`[SCREENSHOT: MATB on a phone]`  ·  `[QR: qr/matb-2min-en.png]`
-> Note: Scan and try a 2-minute run. It feels hard — that's the point: it measures
-> multitasking under load. Note your score.
+### Slide 5 — International connection *(generic EN)*
+- ESA · international ISS · research from ground analogues to orbit
+> SV/EL decks: use the national slide from [`slides-outline.md`](./slides-outline.md).
 
-### Slide 6 — The experiment: quiet vs. noise
-- Run 1 — quiet (your baseline).
-- Run 2 — with cabin noise.
-- Compare the two scores.
-`[QR: qr/condition-lab-en.png]`  ·  `[CHART: % drop under noise]`
-> Note: We'll play cabin noise. Record both scores in the Condition Lab and on your
-> handout — by how much did the noise hurt you?
+### Slide 6 — State of the art today
+**Photo: Marcus Wandt, Columbus module** — cables everywhere
+> Almost the best we have *now* — messy, loud, poor light, cramped.
 
-### Slide 7 — Now design a better module
-- Keep life support · add stowage · add sleeping quarters
-- Give every module a clear path to the entrance
-- Reach **Mission Success ≥ 70**
-`[QR: qr/blueprint-en.png]`  ·  `[SCREENSHOT: blueprint grid]`
-> Note: Balance crew cognition *and* mission value. Turn every checkbox green.
+### Slide 7 — What makes space stressful?
+Same photo + prompt: **"What makes space stressful?"**
+> Open floor → whiteboard: space, then school/home, then what helps you relax. **Board stays up.**
 
-### Slide 8 — Every choice is a trade-off
-- Green wire = good effect
-- Red wire = harmful (e.g. more noise → more stress)
-`[SCREENSHOT: interaction map]`
-> Note: More equipment helps the mission but adds noise and clutter. Good design
-> protects the brain anyway.
+### Slide 8 — The cognitive link
+Environment → stress/recovery → cognition
+[`slides/slide-04-en.png`](./slides/slide-04-en.png)
+> Guide students to name three link elements before showing this slide.
 
-### Slide 9 — Square & Share
-- Work **alone** → compare in a **pair** → join into a **four** → **share** with the class.
-`[ICON: 1 → 2 → 4 → class]`
-> Note: Sketch your own first; each four picks one design to present.
+### Slide 9 — Why we care
+Better habitats need **evidence**, not guesswork
+> Tie to whiteboard list.
 
-### Slide 10 — Big idea
-**Good architecture is measurable — design changes how well a brain works.**
-> Note: You measured it, then designed for it — exactly what space researchers do.
+### Slide 10 — Current stations
+What crews live in today
+`[IMAGE: ISS interior]`
 
-### Slide 11 — Thanks & try everything
-- **magkosm.github.io/orbarch-edu**
-- ESERO Sweden · KTH Royal Institute of Technology
-`[QR: qr/hub-en.png]`
-> Note: Thank you, space architects!
+### Slide 11 — Future vision
+**NASA Ames · Rick Guidice** — rotating habitats, greenery, windows
+> Inspiring — but 200–300 years away.
+
+### Slide 12 — Small steps today
+Small **quantitative** experiments → **qualitative** change over time
+> *We are taking those steps now.*
+
+### Slide 13 — How we test cognition
+*"How does your math teacher know if you're good at math?"* → **tests**
+| PVT / Reaction Time | alertness |
+| N-Back | working memory (high school) |
+| MATB | executive function (secondary) |
+
+### Slide 14 — Where research runs
+**MDRS + ISAE-SUPAERO** · **ISS + Marcus Wandt (2024)**
+
+### Slide 15 — Reaction Time
+One round — expect wide spread · confounders · normalization
+`[QR: reaction-default ONLY]`
+> Release QR when ready.
+
+### Slide 16 — MATB (teacher demo — no student QR yet)
+Four tasks at once · then Presets: Comms, Monitoring, Tracking, Resource
+`[SCREENSHOT: MATB + each preset]`
+> Projector only until dry run.
+
+### Slide 17 — Condition Lab
+Quiet baseline → cabin noise → compare · learning effects are real
+`[QR: 2min]` then `[QR: condition-lab]`
+
+### Slide 18 — Learning & plateau *(optional visual)*
+Sports analogy: improve → plateau → daily swings (sleep, mood)
+> Draw on whiteboard; real studies repeat until stable.
+
+### Slide 19 — Simulator
+Sliders link noise, light, clutter, biophilia to cognitive scores
+`[QR: simulator]`
+
+### Slide 20 — Blueprint mission brief
+Crew cognition vs. science/engineering · entrance access · Mission Success ≥ 70
+`[QR: blueprint]`
+
+### Slide 21 — Model Lab *(optional — cut if short)*
+Edit the model — new inputs/outputs · green/red wires
+`[QR: model-lab]`
+
+### Slide 22 — Exit ticket
+**Two sticky notes** (name on each): helps cognition · hurts cognition
+
+### Slide 23 — Closing messages
+- **Space is for everyone.**
+- **Architecture is about people.**
+- **Design is a series of trade-offs.**
+- **You are the future of space exploration.**
+> Land the big ideas from today; thank them as future space architects.
+
+### Slide 24 — Thanks
+**magkosm.github.io/orbarch-edu** · ESERO · KTH
+`[QR: hub]`

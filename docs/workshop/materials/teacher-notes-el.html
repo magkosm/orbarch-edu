@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <title>Σημειώσεις εκπαιδευτικού (A4) — Το μυαλό του αρχιτέκτονα σε τροχιά</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 12mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.32;
+    }
+    .sheet {
+      background: #fff; min-height: 297mm; padding: 12mm;
+      box-shadow: 0 1px 6px rgba(0,0,0,.12);
+    }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 17px; margin: 0; line-height: 1.2; }
+    .facts { color: #333; font-size: 10.5px; margin: 4px 0 8px; }
+    h2 { font-size: 12px; margin: 10px 0 4px; border-bottom: 2px solid #111; padding-bottom: 2px; }
+    table { width: 100%; border-collapse: collapse; margin: 5px 0; table-layout: fixed; font-size: 10px; }
+    td, th { border: 1px solid #aaa; padding: 3px 5px; vertical-align: top; text-align: left; word-wrap: break-word; }
+    th { background: #f0f0f0; }
+    th:nth-child(1), td:nth-child(1) { width: 16%; }
+    th:nth-child(2), td:nth-child(2) { width: 42%; }
+    th:nth-child(3), td:nth-child(3) { width: 42%; }
+    .phase { font-weight: bold; }
+    ul { margin: 3px 0; padding-left: 16px; }
+    li { margin: 1px 0; }
+    .tag { display: inline-block; background: #eef; border: 1px solid #ccd; border-radius: 4px; padding: 0 4px; font-size: 9px; }
+    @media print {
+      html { background: none; }
+      .controls { display: none; }
+      body { width: auto; }
+      .sheet { box-shadow: none; padding: 0; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Εκτύπωση A4 κατακόρυφα</button></div>
+
+  <h1>Σημειώσεις εκπαιδευτικού — Το μυαλό του αρχιτέκτονα σε τροχιά</h1>
+  <div class="facts"><b>~90–120 λεπτά · ηλικίες 12–18 · κινητά + προβολέας + πίνακας · μία QR τη φορά</b> · Σχέδιο: <span class="tag">workshop-el.md</span></div>
+
+  <h2>Πριν το μάθημα</h2>
+  <ul>
+    <li>Διαφάνειες <span class="tag">slides-outline.md</span>; πίνακας; θόρυβος καμπίνας.</li>
+    <li>QR — <b>μία κωδικοποίηση τη φορά</b> (<span class="tag">qr-el.pdf</span>).</li>
+    <li>Φύλλα A3· <b>2 post-it ανά μαθητή</b> (όνομα σε καθένα).</li>
+    <li>Laptop για προβολή Κάτοψης. Προεπιλογές: /comms /monitoring /tracking /resource.</li>
+  </ul>
+
+  <h2>Ροή</h2>
+  <table>
+    <tr><th>Μπλοκ</th><th>Εσείς</th><th>Μαθητές</th></tr>
+    <tr>
+      <td class="phase">A · Παρουσίαση<br>~35–45 λ</td>
+      <td>Ομιλητής · διαφ. 1 · ιστορία (Salyut→Tiangong) · ακαταστασία/μηχανοκεντρικό · <b>Ελλάδα:</b> ISS, Golemis, πείραμα Magkos ~45% Wandt · φωτό Wandt/Columbus · "Τι κάνει το διάστημα stressικό;" · <b>πίνακας</b>: διάστημα → σχολείο → σπίτι → χαλάρωση · γνωστική σύνδεση · σήμερα vs. Guidice · μικρά βήματα · 3 τεστ + MDRS/ISS</td>
+      <td>Συζήτηση· συνεισφορά στον πίνακα (μένει όλη την ώρα).</td>
+    </tr>
+    <tr>
+      <td class="phase">B · Πείραμα<br>~35–45 λ</td>
+      <td><b>QR: RT</b> — διασπορά, confounders, κανονικοποίηση. <b>Προβολέας:</b> MATB όλες → κάθε Προεπιλογή → 2 λεπτά. <b>Μετά QR: MATB</b> δοκιμή. <b>QR: Συνθήκες</b>. Πίνακας: μάθηση, πλατώ, αθλητής.</td>
+      <td>RT μία φορά · MATB εξάσκηση · Συνθήκες · <b>§1 φύλλου</b>.</td>
+    </tr>
+    <tr>
+      <td class="phase">C · Σχεδίαση<br>~20–30 λ</td>
+      <td><b>QR: Προσομοιωτής</b> · <b>QR: Κάτοψη</b> — brief + συμβιβασμοί· επανάληψη 🚪. Προβολή καλής λύσης. <b>Προαιρετικό:</b> Μοντέλο · A3.</td>
+      <td>Προσομοιωτής → Κάτοψη (Επιτυχία ≥ 70) · §2–3.</td>
+    </tr>
+    <tr>
+      <td class="phase">D · Έξοδος<br>~5 λ</td>
+      <td>Συλλογή δύο post-it. <b>Κλείσιμο:</b> Διάστημα για όλους · Αρχιτεκτονική = άνθρωποι · Σχεδιασμός = συμβιβασμοί · Εσείς = μέλλον. Ευχαριστίες.</td>
+      <td>Post-it 1: βοηθά · Post-it 2: βλάπτει (όνομα σε καθένα).</td>
+    </tr>
+  </table>
+
+  <h2>Κλείσιμο (μετά το εισιτήριο εξόδου)</h2>
+  <ul>
+    <li><b>Το διάστημα είναι για όλους.</b></li>
+    <li><b>Η αρχιτεκτονική αφορά τους ανθρώπους.</b></li>
+    <li><b>Ο σχεδιασμός είναι μια σειρά συμβιβασμών.</b></li>
+    <li><b>Εσείς είστε το μέλλον της διαστημικής εξερεύνησης.</b></li>
+  </ul>
+
+  <h2>Πιλοτικό <span class="tag">60 · 3×20</span></h2>
+  <ul>
+    <li>Κινητά OK — δοκιμάστε <b>Chrome</b> αν Safari αποτυγχάνει.</li>
+    <li>MATB: demo στον προβολέα πρώτα· ζευγάρια.</li>
+    <li>Κάτοψη επιτυχία — επαναλάβετε είσοδο. <span class="tag">workshop-feedback.md</span></li>
+  </ul>
+
+  <h2>Επίλυση</h2>
+  <ul>
+    <li><b>Χρόνος;</b> Κόψτε Μοντέλο → A3 → συντόμευση ιστορίας.</li>
+    <li><b>Πολλές QR;</b> Μία στην οθόνη.</li>
+    <li><b>Γλώσσα;</b> <span class="tag">?lng=el</span></li>
+  </ul>
+
+  <h2>Σύνδεσμοι</h2>
+  <ul>
+    <li>/reaction-default · /comms /monitoring /tracking /resource · /2min · /condition-lab · /simulator · /blueprint · /model-lab</li>
+  </ul>
+
+  <p style="margin-top:14px;font-size:9px;color:#666;text-align:center">Υλικό εργαστηρίου Orbital Architecture · v2.1.0 · orbarch-edu</p>
+  </div>
+</body>
+</html>

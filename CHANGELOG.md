@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2026-06-10
+
+Workshop documentation release — integrates the **first large-scale classroom pilot**
+(60 students, 3 × ~20) and follow-up planning from facilitators, ESERO Greece, and
+KTH. No application code changes; the live app remains v2.0.0 feature-complete.
+
+### Added
+- **Teacher notes (EN / SV / EL)** — A4 run-sheets with the revised Blocks A–D flow,
+  pilot learnings, and troubleshooting; pre-rendered PDFs in
+  `docs/workshop/materials/pdf/teacher-notes-*.pdf`.
+- **[`docs/workshop/workshop-feedback.md`](docs/workshop/workshop-feedback.md)** —
+  debrief from the pilot: what worked (Blueprint Designer, phone tools), friction
+  (MATB complexity, Safari, corridor-access rule), ESERO Greece nationwide-deployment
+  needs, and product backlog (pathway-access overlay, hidden teacher portal).
+- **Closing slide copy** (EN / SV / EL): *Space is for everyone · Architecture is
+  about people · Design is a series of trade-offs · You are the future of space
+  exploration.*
+- **Educator entry point** in the main [`README.md`](README.md) — links to the
+  workshop hub, language plans, print materials, and pilot feedback.
+
+### Changed
+- **Workshop structure rewritten** (~90–120 min) to match how the session is
+  actually run: extended presentation (station history, Wandt/Columbus photo,
+  whiteboard stress discussion, cognitive tests, MDRS/ISS context), MATB taught on
+  the **projector via Presets** before student QR codes, learning-effect /
+  plateau discussion on the whiteboard, **one QR at a time**, high-scorer Blueprint
+  mirrored to the class, optional Model Lab, two-post-it exit ticket.
+- **Locale-specific presentation hooks:** Sweden (Fuglesang, Wandt / ESA) and
+  Greece (Golemis, Magkos experiment ~45% of Wandt science time).
+- **Handouts updated** — Reaction Time row, MATB dry-run row, learning-effect note,
+  two sticky-note exit ticket; slide outlines expanded to ~24 slides.
+- **Workshop README** and materials index updated for the new flow and print checklist.
+
+### Pilot feedback captured (for next iteration)
+- Phones mostly worked; **Chrome preferred over Safari** when issues appear.
+- **MATB:** strong for some students, hard for others — demo on projector first.
+- **Blueprint Designer** highly engaging; **entrance corridor rule** must be repeated;
+  pathway-access UX is a priority improvement.
+- **ESERO Greece (11 Jun 2026):** nationwide rollout needs train-the-trainer materials
+  and stronger advance planning.
+
 ## [2.0.0] - 2026-06-09
 Official v2 release — **operational**. Adds an interactive education layer on top
 of the assessment battery and a fully responsive, installable mobile experience.
