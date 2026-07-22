@@ -1,0 +1,24 @@
+---
+description: i18next localization rules — every user-facing string goes through t(), mirror all three locales.
+globs: src/**/*.{js,jsx},src/locales/**/*.json
+alwaysApply: false
+---
+
+# Localization Rules
+
+Three locales are supported: `en` (fallback/source of truth), `sv`, `el`.
+
+Translation files: `src/locales/{en,sv,el}/translation.json`.
+
+## Rules
+
+1. **Never hardcode user-facing English strings.** Use `const { t } = useTranslation()` and `t('namespace.key')`.
+2. **When adding or changing a key, update all three locale files** (`en`, `sv`, `el`) in the same commit.
+3. **Interpolation uses `{{var}}`** — e.g. `t('normal.duration', { duration: 5 })` ↔ `"duration": "{{duration}} min"`.
+4. **Add a new locale** via `scripts/scaffold_new_language.sh` (copies `en` as a starting point).
+   See `ADDING_NEW_LANGUAGE.md`.
+5. **Force a language in dev** with `?lng=sv` or `?lng=el` on any route (handled by `LanguageDetector`).
+6. **Detection order** (see `src/i18n.js`): querystring → cookie (`i18next`) → localStorage (`i18nextLng`) → navigator. Fallback `en`.
+7. **Audio assets are per-language**: `src/assets/sounds/<lang>/` (MATB comms) and
+   `src/assets/nback-sounds/<lang>/` (N-Back letters). Code falls back to `en` if the localized
+   folder is missing — do not assume a locale has audio.

@@ -1,0 +1,48 @@
+---
+description: Create React App safety rules — do not eject, do not force-upgrade react-scripts, pin transitive vulns via overrides only.
+alwaysApply: true
+---
+
+# Create React App Safety
+
+This project is built on **`react-scripts@5.0.1`** (Create React App). CRA pins a large,
+interdependent transitive tree (webpack 5, Babel 7, Jest 27, ESLint 8, Workbox, SVGO).
+
+## Forbidden actions
+
+- ❌ `npm audit fix --force` — it tries to replace `react-scripts` and breaks the build.
+- ❌ `react-scripts eject` — irreversible and unnecessary for any current task.
+- ❌ Migrating to Vite / Next.js / Remix without explicit user approval.
+- ❌ `npm install <transitive-dep>@latest` to "fix" a CVE — use `overrides` instead.
+- ❌ Hand-editing `package-lock.json`.
+
+## Required pattern for transitive vulnerabilities
+
+Edit `package.json`:
+
+```jsonc
+"overrides": {
+  "react-scripts": "5.0.1",
+  "typescript": "^4.9.5",
+  "<vulnerable-transitive-pkg>": "<fixed-version>"
+}
+```
+
+Then:
+
+```bash
+npm install       # regenerate package-lock.json
+npm run build     # MUST still succeed
+npm audit         # confirm targeted advisory cleared
+```
+
+If `npm run build` breaks after adding an override, **revert the override**. CRA compatibility
+wins over silencing a dev-time advisory. Most reported CVEs here are in build/test tooling
+(webpack-dev-server, babel, jest, svgo, workbox) and never reach the shipped GitHub Pages bundle.
+
+## Direct runtime deps that DO ship to users
+
+These are the ones that matter for end-user security — patch with priority:
+
+`react`, `react-dom`, `react-router-dom`, `i18next`, `react-i18next`,
+`i18next-browser-languagedetector`, `chart.js`, `react-chartjs-2`, `web-vitals`.

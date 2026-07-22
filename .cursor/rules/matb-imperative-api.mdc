@@ -1,0 +1,30 @@
+---
+description: Imperative task API contract for MATB components — preserve forwardRef method names used by EventService/App.
+globs: src/{MonitoringTask,TrackingTask,CommunicationsTask,ResourceManagementTask,SystemHealth}.jsx,src/App.js,src/services/EventService.js
+alwaysApply: false
+---
+
+# MATB Imperative Task API Contract
+
+The four MATB tasks and `SystemHealth` are `forwardRef` components that expose imperative methods
+via `useImperativeHandle`. `services/EventService.js` (singleton scheduler) and `src/App.js`
+call these methods by name. **Do not rename or remove them.**
+
+## Required method surface
+
+| Component | Imperative methods |
+|---|---|
+| `MonitoringTask` | `triggerMultipleEvents`, `resetTask`, `togglePause`, `setPause`, `isPaused` |
+| `TrackingTask` | `forceManualControl`, `resetTask` |
+| `CommunicationsTask` | `triggerCall`, `isActiveMessage`, `getActiveMessageAge`, `clearActiveMessage`, `resetTask` |
+| `ResourceManagementTask` | `triggerMultiplePumpFailures`, `setFuelLossRate`, `resetTask` |
+| `SystemHealth` | `getHealth`, `resetHealth`, `applyDiscretePenalty` |
+
+## When editing these files
+
+- Preserve the exact method names and their argument object shape (`{callType, responseWindow, ...}`).
+- If you genuinely need to change a method signature, update **all call sites** in `EventService.js`
+  and `App.js` in the same change and note it in `CHANGELOG.md`.
+- New event types should extend the existing switch/dispatch in `EventService.js`, not bypass it.
+- `resetTask()` must fully restore initial state (tanks, gauges, audio queue, cursor) — it is called
+  on every mode start and on `Ctrl+Q` exit.

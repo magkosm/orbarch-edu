@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.2] - 2026-07-23
+
+### Security
+- **Dependency audit remediation (Dependabot)** — patched 51 of 54 reported vulnerabilities
+  via CRA-safe `overrides` in `package.json`. No `npm audit fix --force` was run and
+  `react-scripts` remains pinned at `5.0.1`. Build, tests, and dev server verified unchanged.
+  - **`react-router-dom` upgraded `7.12.0` → `^7.18.1`** (direct runtime dep that ships to
+    users — addresses CVE-2026-33245, CVE-2026-42211, CVE-2026-42342, CVE-2026-34077 and
+    related high-severity advisories on `react-router`).
+  - **Transitive build/dev tooling patched via overrides:** `nth-check`, `postcss`, `lodash`,
+    `jsonpath`, `qs`, `minimatch`, `rollup`, `serialize-javascript`, `underscore`, `svgo`,
+    `flatted`, `picomatch`, `yaml`, `node-forge`, `brace-expansion`, `path-to-regexp`,
+    `follow-redirects`, `fast-uri`, `@babel/plugin-transform-modules-systemjs`, `@babel/core`,
+    `@tootallnate/once`, `uuid`, `ws`, `shell-quote`, `launch-editor`, `form-data`,
+    `http-proxy-middleware`, `js-yaml`, `websocket-driver`, `sockjs`.
+  - **3 residual moderate advisories remain in `webpack-dev-server@4.15.2`** (GHSA-9jgg-88mc-972h,
+    GHSA-4v9v-hfq4-rm2v, GHSA-79cf-xcqc-c78w, and related). These are **dev-server-only**;
+    `react-scripts@5.0.1` pins `webpack-dev-server@^4`, and forcing v5 breaks the CRA build.
+    No runtime/production exposure — `npm run build` output is unaffected. Tracked as accepted
+    residual risk pending a future migration off Create React App.
+
+### Added
+- **`AGENTS.md`** — project knowledge file for AI coding agents working in this repo
+  (architecture, stack constraints, conventions, dependency policy).
+- **`.cursor/skills/orbarch-maintain/SKILL.md`** — maintenance skill encoding CRA-safe upgrade
+  rules, the imperative task API contract, localization workflow, and smoke-test checklist.
+- **`.cursor/rules/`** — three persistent Cursor rules:
+  - `cra-safety.mdc` (always-on) — forbids eject / `audit fix --force`, mandates `overrides`.
+  - `matb-imperative-api.mdc` — preserves `forwardRef` method names on the four MATB tasks.
+  - `i18n-localization.mdc` — enforces i18next usage and three-locale mirroring.
+- **`src/routing.test.js`** — new Jest suite (7 tests) that exercises client-side routing
+  via `MemoryRouter`. Specifically guards the `react-router-dom` upgrade by asserting each
+  public route reaches its target component and unknown routes redirect to `/`.
+- **`src/setupTests.js`** — extended with the standard jsdom polyfills the app needs to
+  mount under Jest (`matchMedia`, `scrollTo`, `HTMLMediaElement.play`, `TextEncoder`).
+  Plus a Jest `moduleNameMapper` entry in `package.json` to resolve
+  `react-router/dom` (subpath export) under Jest 27, which CRA pins.
+
+### Fixed
+- **`npm test` now passes** (was failing pre-existing). The smoke test in `App.test.js`
+  threw `TypeError: window.matchMedia is not a function` because jsdom does not implement
+  `matchMedia` and `App.js` uses it in a `useEffect` for mobile scaling. Polyfilled in
+  `setupTests.js` per CRA/Testing Library guidance — no application code changed.
+
+### Notes
+- `npm test` previously failed in jsdom on `window.matchMedia is not a function`
+  (pre-existing, unrelated to the dependency changes — `App.js:633` uses matchMedia for
+  mobile scaling). Now fixed via the `setupTests.js` polyfill above.
+- **Runtime parity verified end-to-end** (not just build parity): booted the dev server
+  and drove every public route via JSDOM. `/` renders the MainMenu, `/comms` renders
+  `ESA504` + all four radio channels (NAV1/NAV2/COM1/COM2), `/tracking` renders
+  `TRACKING TASK - AUTO`, `/resource` renders tanks A–F and all 8 pumps, `/monitoring`
+  renders F1–F6, and all 320 audio assets across `en`/`sv`/`el`/`legacy` load successfully.
+  `npm run build` produces a working bundle (271 kB gz, +2 kB from the router upgrade).
+
 ## [2.1.1] - 2026-06-11
 
 Minor workshop documentation fixes and refreshed print PDFs.

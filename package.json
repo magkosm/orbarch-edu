@@ -1,7 +1,7 @@
 {
   "name": "OrbAch Web Assessments",
   "homepage": "https://magkosm.github.io/orbarch-edu",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": true,
   "description": "Orbital Architecture web assessment battery: MATB-II multitasking, Reaction Time, and N-Back cognitive tests used in KTH/ESERO research on stress and cognition in confined environments.",
   "author": "Michail Magkos <magkos@kth.se>",
@@ -38,7 +38,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
-    "react-router-dom": "^7.4.0",
+    "react-router-dom": "^7.18.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -55,6 +55,11 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react-router/dom$": "react-router/dist/development/dom-export.js"
+    }
   },
   "browserslist": {
     "production": [
@@ -73,6 +78,39 @@
     "typescript": "^4.9.5"
   },
   "overrides": {
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "react-scripts": "5.0.1",
+    "@babel/core": "^7.29.6",
+    "@babel/plugin-transform-modules-systemjs": "^7.29.4",
+    "@tootallnate/once": "^2.0.1",
+    "body-parser": "^1.20.6",
+    "brace-expansion": "^2.0.3",
+    "fast-uri": "^3.1.1",
+    "flatted": "^3.4.0",
+    "follow-redirects": "^1.16.0",
+    "form-data": "^3.0.5",
+    "http-proxy-middleware": "^2.0.10",
+    "js-yaml": "^4.2.0",
+    "jsonpath": "^1.2.0",
+    "launch-editor": "^2.14.1",
+    "lodash": "^4.17.23",
+    "minimatch": "^5.1.7",
+    "node-forge": "^1.4.0",
+    "nth-check": "^2.0.1",
+    "path-to-regexp": "^0.1.13",
+    "picomatch": "^4.0.4",
+    "postcss": "^8.5.10",
+    "qs": "^6.14.2",
+    "rollup": "^2.80.0",
+    "serialize-javascript": "^7.0.3",
+    "shell-quote": "^1.8.4",
+    "sockjs": "^0.3.24",
+    "svgo": "^2.8.1",
+    "underscore": "^1.13.8",
+    "uuid": "^11.1.1",
+    "websocket-driver": "^0.7.5",
+    "webpack-dev-server": "^4.15.2",
+    "ws": "^8.20.1",
+    "yaml": "^1.10.3"
   }
 }
