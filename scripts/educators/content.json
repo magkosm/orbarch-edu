@@ -458,6 +458,11 @@
           "sv": "Återkoppling på workshopen — Arkitektens sinne i omloppsbana",
           "el": "Ανατροφοδότηση εργαστηρίου — Το μυαλό του αρχιτέκτονα σε τροχιά"
         }
+      },
+      "deck": {
+        "en": "Slide deck (KTH template, 25 slides)",
+        "sv": "Bildspel (KTH-mall, 25 bilder)",
+        "el": "Παρουσίαση (πρότυπο KTH, 25 διαφάνειες)"
       }
     }
   },

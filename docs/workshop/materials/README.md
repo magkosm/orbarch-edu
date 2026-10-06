@@ -36,8 +36,9 @@ Pre-rendered so you can just open and print/AirPrint at 100%:
 | [`slides-outline.md`](./slides-outline.md) | Slide-by-slide structure (reference). |
 | `slides/` *(files to be added)* | **Slide 8 visual** (16:9) — environment → stress/recovery → cognition diagram, EN/SV/EL. Until the files exist, use the `[IMAGE: …]` placeholder in the slide text. |
 
-Export your finished decks here (binary; add explicitly with `git add -f`):
-`slides-en.pptx` · `slides-sv.pptx` · `slides-el.pptx` · `slides.pdf` — *placeholders*.
+**Ready-made decks on the KTH template** (built from the slide text by `scripts/build_workshop_deck.py`, 25 slides, speaker notes included):
+`slides-en.pptx` / `slides-en.pdf` · `slides-sv.pptx` / `slides-sv.pdf` · `slides-el.pptx` / `slides-el.pdf`.
+Open the .pptx to adapt (every photo, QR and screenshot is a normal slide object); print or share the .pdf as-is.
 
 ## QR images
 

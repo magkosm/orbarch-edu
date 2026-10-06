@@ -70,8 +70,8 @@ def sync_materials():
     dest.mkdir(parents=True)
     skip = {".DS_Store", "gen-qr.js"}
     for src in DOCS.rglob("*"):
-        if src.is_dir() or src.name in skip:
-            continue
+        if src.is_dir() or src.name in skip or src.suffix in (".pptx", ".pdf") and src.name.startswith("slides-"):
+            continue  # decks are linked from the repository instead of copied (size)
         rel = src.relative_to(DOCS)
         target = dest / rel
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -212,6 +212,7 @@ MATERIAL_FILES = [
     ("handout", lambda l: (f"materials/materials/handout-{l}.html", None, f"materials/materials/pdf/handout-{l}.pdf")),
     ("slides", lambda l: (f"view.html?f=materials/slides-{l}.md", f"materials/materials/slides-{l}.md", None)),
     ("qr_sheet", lambda l: (f"materials/materials/qr-codes.html?lng={l}", None, f"materials/materials/pdf/qr-{l}.pdf")),
+    ("deck", lambda l: (f"{site['repo_url']}/raw/master/docs/workshop/materials/slides-{l}.pdf", None, f"{site['repo_url']}/raw/master/docs/workshop/materials/slides-{l}.pptx")),
 ]
 
 
@@ -221,6 +222,10 @@ def materials_cards():
         rows = []
         for key, fn in MATERIAL_FILES:
             view, md, pdf = fn(l)
+            if key == "deck":
+                links = [f'<a href="{view}">{multi(UI["pdf"])}</a>', f'<a href="{pdf}">PPTX</a>']
+                rows.append(f'<div><div>{multi(UI[key])}</div><div class="links">{"".join(links)}</div></div>')
+                continue
             links = [f'<a href="{view}">{multi(UI["view"])}</a>']
             if md:
                 links.append(f'<a href="{md}" download>{multi(UI["markdown"])}</a>')

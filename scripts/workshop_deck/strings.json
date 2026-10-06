@@ -1,0 +1,851 @@
+{
+  "en": {
+    "scan": "Scan to open",
+    "slides": {
+      "1": {
+        "title": "The Architect's Mind in Orbit",
+        "sub": "How space-station design shapes the crew's mind — and how we measure it",
+        "meta": "A classroom workshop · Orbital Architecture · KTH Royal Institute of Technology & ESERO Sweden",
+        "notes": "Introduce the speaker. Today: how station design shapes the crew's mind."
+      },
+      "2": {
+        "title": "What is a space station?",
+        "bullets": [
+          "A spacecraft that stays in orbit so crews can **live and work** there for weeks to months",
+          "A home **and** a workplace — the crew lives with the design every hour of the day",
+          "First station crew (Salyut 1, 1971): 24 days · ISS crews today: about 6 months"
+        ],
+        "notes": "Not a brief visit; crews live with the design every hour. First station crew (Salyut 1, 1971): 24 days; ISS crews: ~6 months."
+      },
+      "3": {
+        "title": "A short history of space stations",
+        "stations": [
+          [
+            "Salyut",
+            "1971",
+            "USSR"
+          ],
+          [
+            "Skylab",
+            "1973",
+            "USA"
+          ],
+          [
+            "Mir",
+            "1986",
+            "USSR / Russia"
+          ],
+          [
+            "ISS",
+            "1998",
+            "international"
+          ],
+          [
+            "Tiangong",
+            "2021",
+            "China"
+          ]
+        ],
+        "sub": "Ask the class where each one was built before revealing the labels.",
+        "notes": "Messy, machine-centric evolution — equipment first, humans adapt."
+      },
+      "4": {
+        "title": "Machine-centric design",
+        "bullets": [
+          "Cables everywhere",
+          "Cramped and loud",
+          "Complex to operate",
+          "Utilitarian interiors — equipment first, people adapt"
+        ],
+        "notes": "This pattern repeats across decades."
+      },
+      "5": {
+        "title": "From the ground to orbit",
+        "captions": [
+          "**The ISS** — the international laboratory where the tools you will use today have flown",
+          "**ESA astronaut Marcus Wandt** ran these tests in orbit on the Muninn mission (2024)",
+          "**Mars analogue missions** — the same tests run in the Utah desert with ISAE-SUPAERO crews"
+        ],
+        "credit": "© NASA / SpaceX · © ESA – M. Wandt · © ISAE-SUPAERO",
+        "notes": "Research runs from ground analogues to orbit. SV/EL decks: use the national-connection slide."
+      },
+      "6": {
+        "title": "The state of the art today",
+        "caption": "ISS interior photographed by Marcus Wandt in the Destiny laboratory — cables everywhere",
+        "notes": "Almost the best we have now — messy, loud, poor light, cramped."
+      },
+      "7": {
+        "prompt": "What makes space stressful?",
+        "sub": "Space first · then school and home · then: what helps you relax?",
+        "notes": "Open floor → whiteboard: space, then school/home, then what helps you relax. The board stays up all class."
+      },
+      "8": {
+        "title": "The cognitive link",
+        "boxes": [
+          [
+            "Environment",
+            "noise · light · clutter · greenery · space"
+          ],
+          [
+            "Stress & recovery",
+            "how the body and mind react"
+          ],
+          [
+            "Cognition",
+            "attention · memory · decisions"
+          ]
+        ],
+        "examples": "Examples from the board: a noisy cabin raises stress and lowers attention; a view of Earth, plants and good light help you recover.",
+        "notes": "Guide students to name three link elements before showing this slide."
+      },
+      "9": {
+        "title": "Better habitats need evidence, not guesswork",
+        "sub": "Opinions differ — measurements settle it. That is why we test.",
+        "notes": "Tie to the whiteboard list."
+      },
+      "10": {
+        "title": "What crews live in today",
+        "captions": [
+          "**The Cupola** — the only window with a real view of Earth",
+          "**Crew sleeping quarters** — a phone-booth-sized private space"
+        ],
+        "notes": "Two real places astronauts spend time: the Cupola window and the phone-booth-sized sleeping quarters. Ask: where would you rather spend six months?"
+      },
+      "11": {
+        "title": "The future vision",
+        "caption": "Rotating habitats with greenery and windows — concept art from the 1970s",
+        "notes": "Inspiring — but perhaps centuries away (the speaker's own estimate)."
+      },
+      "12": {
+        "title": "Small steps today",
+        "left": [
+          "Small quantitative experiments",
+          "measure one thing at a time: noise, light, clutter…"
+        ],
+        "right": [
+          "Qualitative change over time",
+          "better-designed stations, happier and sharper crews"
+        ],
+        "sub": "We are taking those steps now — and today, so are you.",
+        "notes": "We are taking those steps now."
+      },
+      "13": {
+        "title": "How we test cognition",
+        "quote": "“How does your math teacher know if you're good at math?” → tests.",
+        "captions": [
+          "**Reaction Time (PVT-style)** — alertness · everyone, as a warm-up",
+          "**N-Back** — working memory · ages 16–18",
+          "**MATB** — executive function · ages 14–15 focus"
+        ],
+        "notes": "Ask the class the question first. Three tests, three cognitive functions."
+      },
+      "14": {
+        "title": "Where this research runs",
+        "captions": [
+          "**MDRS, Utah** — Mars Desert Research Station with ISAE-SUPAERO crews (MDRS 275, 293, 311, 330)",
+          "**The ISS** — Marcus Wandt, ESA Muninn mission, 2024"
+        ],
+        "notes": "The same tests ran in the Utah desert with analogue crews and on the ISS with Marcus Wandt. Today the class joins that dataset."
+      },
+      "15": {
+        "title": "Reaction Time — one round",
+        "bullets": [
+          "Tap the screen (or press SPACE) as fast as you can when the red dot appears",
+          "One round · 8 dots · about a minute",
+          "Everyone is different — confounders",
+          "**You vs. you**: the Condition Lab later compares you with yourself, as a % of your own score"
+        ],
+        "caption": "Start screen. Write your average and fastest time on the handout.",
+        "notes": "Release the QR when ready. Show ONLY this QR."
+      },
+      "16": {
+        "title": "MATB — four tasks at once (teacher demo)",
+        "sub": "Presets → Training modes: one task at a time on the projector. No student QR yet.",
+        "captions": [
+          "**System Monitoring** — tap the light or gauge that goes wrong",
+          "**Tracking** — keep the cursor in the square when it says MANUAL",
+          "**Communications** — answer only calls for your own callsign",
+          "**Resource Management** — keep tanks A and B at their target level"
+        ],
+        "notes": "Projector only until the dry run. Read each instruction box aloud in your own words."
+      },
+      "17": {
+        "title": "MATB dry run",
+        "bullets": [
+          "Everyone: one practice run (2 minutes)",
+          "Don't quit — let the time run out",
+          "At the end: read the **Final Score** at the top",
+          "If a box asks for a name: tap **Skip** — no real names"
+        ],
+        "caption": "End screen: Final Score at the top; the high-score box can be skipped.",
+        "notes": "Walk the room. Students who freeze usually forgot the AUTO/MANUAL rule or have no sound."
+      },
+      "17b": {
+        "title": "Condition Lab — quiet vs. noise",
+        "bullets": [
+          "① Quiet run — all together, speakers off",
+          "② Cabin-noise run — all together, speakers on",
+          "Type both scores into the Condition Lab",
+          "Read the **% change** and copy it to the handout"
+        ],
+        "caption": "Both scores entered: the comparison and the % change appear.",
+        "notes": "MATB opens in a new tab; come back to this tab to type the score. Expect mixed results — that is the discussion."
+      },
+      "18": {
+        "title": "Learning and plateau",
+        "x": [
+          "Run 1",
+          "Run 2",
+          "Run 3",
+          "Run 4",
+          "Run 5",
+          "Run 6",
+          "Run 7",
+          "Run 8",
+          "Run 9",
+          "Run 10"
+        ],
+        "series": "Score",
+        "y": "Performance",
+        "bullets": [
+          "Like a new sport: you improve fast, then you reach a **plateau**",
+          "Daily swings remain — sleep, mood, food",
+          "Real studies repeat until scores are stable, **then** test conditions",
+          "Today is a taste of that protocol"
+        ],
+        "notes": "Draw on the whiteboard; real studies repeat until stable."
+      },
+      "19": {
+        "title": "Architecture Simulator",
+        "bullets": [
+          "An illustrative model inspired by research",
+          "Sliders: noise · light · clutter · biophilia",
+          "Watch attention, working memory and stress move",
+          "Find the best and the worst cabin"
+        ],
+        "caption": "Drag the sliders; the bars update live.",
+        "notes": "Say clearly: an educational model, not measured data."
+      },
+      "20": {
+        "title": "Blueprint Designer — mission brief",
+        "bullets": [
+          "Design a station module on the grid",
+          "Crew cognition **vs.** science and engineering — every item is a trade-off",
+          "Every module needs a free corridor to the **entrance**",
+          "Target: **Mission Success ≥ 70**"
+        ],
+        "caption": "Load scenario gives a starting layout; the brief checklist turns green as you go.",
+        "notes": "Repeat the corridor-to-entrance rule. Project a high-scoring student's layout."
+      },
+      "21": {
+        "title": "Model Lab (optional)",
+        "bullets": [
+          "Build your own simulator",
+          "Add inputs and outcomes from the whiteboard list",
+          "Green wires help, red wires hurt",
+          "If this outcome matters, what should we design for?"
+        ],
+        "caption": "The interaction map shows every link in the model.",
+        "notes": "Cut this block first if you are running late."
+      },
+      "22": {
+        "title": "Exit ticket",
+        "sub": "Two sticky notes per student — write your name on each.",
+        "notes_cards": [
+          [
+            "① Helps cognition",
+            "something in the architecture that helps the crew's mind"
+          ],
+          [
+            "② Hurts cognition",
+            "something in the architecture that hurts it"
+          ]
+        ],
+        "notes": "Collect the notes for a classroom display or teacher review."
+      },
+      "23": {
+        "title": "Four things to take home",
+        "messages": [
+          "Space is for everyone.",
+          "Architecture is about people.",
+          "Design is a series of trade-offs.",
+          "You are the future of space exploration."
+        ],
+        "notes": "Land the big ideas from today; thank them as future space architects."
+      },
+      "24": {
+        "title": "Thank you",
+        "url": "magkosm.github.io/orbarch-edu",
+        "sub": "Orbital Architecture · KTH Royal Institute of Technology · ESERO Sweden",
+        "scan": "Open the app at home",
+        "notes": "Show the hub QR so students can explore at home."
+      }
+    }
+  },
+  "sv": {
+    "scan": "Skanna för att öppna",
+    "slides": {
+      "1": {
+        "title": "Arkitektens sinne i omloppsbana",
+        "sub": "Hur rymdstationens design formar besättningens sinne — och hur vi mäter det",
+        "meta": "En klassrumsworkshop · Orbital Architecture · KTH Kungliga Tekniska högskolan & ESERO Sverige",
+        "notes": "Presentera föreläsaren. Idag: hur stationens design formar besättningens sinne."
+      },
+      "2": {
+        "title": "Vad är en rymdstation?",
+        "bullets": [
+          "En farkost som stannar i omloppsbana så att besättningar kan **bo och arbeta** där i veckor till månader",
+          "Ett hem **och** en arbetsplats — besättningen lever med designen varje timme på dygnet",
+          "Första stationsbesättningen (Saljut 1, 1971): 24 dagar · ISS-besättningar idag: cirka 6 månader"
+        ],
+        "notes": "Inte ett kort besök; besättningen lever med designen varje timme. Första stationsbesättningen (Saljut 1, 1971): 24 dagar; ISS-besättningar: ~6 månader."
+      },
+      "3": {
+        "title": "Rymdstationernas korta historia",
+        "stations": [
+          [
+            "Saljut",
+            "1971",
+            "Sovjetunionen"
+          ],
+          [
+            "Skylab",
+            "1973",
+            "USA"
+          ],
+          [
+            "Mir",
+            "1986",
+            "Sovjetunionen / Ryssland"
+          ],
+          [
+            "ISS",
+            "1998",
+            "internationell"
+          ],
+          [
+            "Tiangong",
+            "2021",
+            "Kina"
+          ]
+        ],
+        "sub": "Fråga klassen var varje station byggdes innan du visar etiketterna.",
+        "notes": "Rörig, maskincentrerad utveckling — utrustningen först, människan anpassar sig."
+      },
+      "4": {
+        "title": "Maskincentrerad design",
+        "bullets": [
+          "Kablar överallt",
+          "Trångt och bullrigt",
+          "Komplext att hantera",
+          "Funktionella interiörer — utrustningen först, människan anpassar sig"
+        ],
+        "notes": "Mönstret upprepas decennium efter decennium."
+      },
+      "5": {
+        "title": "Sverige & ISS",
+        "captions": [
+          "**Christer Fuglesang** — Sveriges första astronaut; byggde ISS på rymdfärjeuppdragen STS-116 (2006) och STS-128 (2009)",
+          "**ESA-astronauten Marcus Wandt** — projektastronaut som körde dessa tester i omloppsbana under Muninn-uppdraget (2024)",
+          "**Mars-analoger** — samma tester körs på MDRS i Utahöknen med ISAE-SUPAERO-besättningar"
+        ],
+        "credit": "© NASA / SpaceX · © ESA – M. Wandt · © ISAE-SUPAERO",
+        "notes": "Fuglesang var med och byggde stationen; Wandt körde Orbital Architecture-experimentet ombord under Muninn-uppdraget."
+      },
+      "6": {
+        "title": "Läget idag",
+        "caption": "ISS-interiör fotograferad av Marcus Wandt i Destiny-labbet — kablar överallt",
+        "notes": "Nästan det bästa vi har nu — rörigt, bullrigt, dåligt ljus, trångt."
+      },
+      "7": {
+        "prompt": "Vad gör rymden stressig?",
+        "sub": "Rymden först · sedan skola och hem · sedan: vad hjälper dig att slappna av?",
+        "notes": "Öppet ord → whiteboard: rymden, sedan skola/hem, sedan vad som hjälper dig att slappna av. Tavlan står kvar hela lektionen."
+      },
+      "8": {
+        "title": "Den kognitiva länken",
+        "boxes": [
+          [
+            "Miljö",
+            "buller · ljus · röra · grönska · utrymme"
+          ],
+          [
+            "Stress & återhämtning",
+            "hur kropp och sinne reagerar"
+          ],
+          [
+            "Kognition",
+            "uppmärksamhet · minne · beslut"
+          ]
+        ],
+        "examples": "Exempel från tavlan: en bullrig kabin höjer stressen och sänker uppmärksamheten; utsikt över jorden, växter och bra ljus hjälper dig att återhämta dig.",
+        "notes": "Led eleverna till att namnge länkens tre delar innan du visar bilden."
+      },
+      "9": {
+        "title": "Bättre habitat kräver evidens, inte gissningar",
+        "sub": "Åsikter går isär — mätningar avgör. Därför testar vi.",
+        "notes": "Knyt an till listan på whiteboarden."
+      },
+      "10": {
+        "title": "Det besättningar bor i idag",
+        "captions": [
+          "**Cupola** — det enda fönstret med riktig utsikt över jorden",
+          "**Besättningens sovhytter** — ett privat utrymme stort som en telefonkiosk"
+        ],
+        "notes": ""
+      },
+      "11": {
+        "title": "Framtidsvisionen",
+        "caption": "Roterande habitat med grönska och fönster — konceptkonst från 1970-talet",
+        "notes": "Inspirerande — men kanske århundraden bort (föreläsarens egen uppskattning)."
+      },
+      "12": {
+        "title": "Små steg idag",
+        "left": [
+          "Små kvantitativa experiment",
+          "mät en sak i taget: buller, ljus, röra…"
+        ],
+        "right": [
+          "Kvalitativ förändring över tid",
+          "bättre designade stationer, gladare och skarpare besättningar"
+        ],
+        "sub": "Vi tar de stegen nu — och idag gör ni det också.",
+        "notes": "Vi tar de stegen nu."
+      },
+      "13": {
+        "title": "Hur vi testar kognition",
+        "quote": "”Hur vet din mattelärare om du är bra på matte?” → prov.",
+        "captions": [
+          "**Reaktionstid (PVT-typ)** — vakenhet · alla, som uppvärmning",
+          "**N-Back** — arbetsminne · 16–18 år",
+          "**MATB** — exekutiv funktion · fokus 14–15 år"
+        ],
+        "notes": "Ställ frågan till klassen först. Tre test, tre kognitiva funktioner."
+      },
+      "14": {
+        "title": "Var forskningen körs",
+        "captions": [
+          "**MDRS, Utah** — Mars Desert Research Station med ISAE-SUPAERO-besättningar (MDRS 275, 293, 311, 330)",
+          "**ISS** — Marcus Wandt, ESA:s Muninn-uppdrag, 2024"
+        ],
+        "notes": ""
+      },
+      "15": {
+        "title": "Reaktionstid — en runda",
+        "bullets": [
+          "Tryck på skärmen (eller MELLANSLAG) så snabbt du kan när den röda pricken visas",
+          "En runda · 8 prickar · ungefär en minut",
+          "Alla är olika — störfaktorer",
+          "**Du mot dig själv**: Förhållandelabbet jämför dig senare med dig själv, i % av din egen poäng"
+        ],
+        "caption": "Startskärm. Skriv ditt genomsnitt och din snabbaste tid på elevbladet.",
+        "notes": "Släpp QR-koden när ni är redo. Visa ENDAST denna QR."
+      },
+      "16": {
+        "title": "MATB — fyra uppgifter samtidigt (lärardemo)",
+        "sub": "Förinställningar → Träningslägen: en uppgift i taget på projektorn. Ingen elev-QR än.",
+        "captions": [
+          "**Systemövervakning** — tryck på lampan eller mätaren som går fel",
+          "**Spårning** — håll markören i rutan när det står MANUELL",
+          "**Kommunikation** — svara bara på anrop till din egen anropssignal",
+          "**Resurshantering** — håll tank A och B på målnivån"
+        ],
+        "notes": "Bara på projektorn tills provkörningen. Läs varje instruktionsruta högt med egna ord."
+      },
+      "17": {
+        "title": "MATB provkörning",
+        "bullets": [
+          "Alla: en provkörning (2 minuter)",
+          "Avsluta inte — låt tiden gå ut",
+          "I slutet: läs av **Slutpoäng** högst upp",
+          "Om en ruta ber om ett namn: tryck på **Hoppa över** — inga riktiga namn"
+        ],
+        "caption": "Slutskärm: Slutpoäng högst upp; rutan för rekordlistan kan hoppas över.",
+        "notes": "Gå runt i rummet. Elever som fastnar har oftast glömt AUTO/MANUELL-regeln eller saknar ljud."
+      },
+      "17b": {
+        "title": "Förhållandelabb — tyst vs. buller",
+        "bullets": [
+          "① Tyst körning — alla tillsammans, högtalare av",
+          "② Körning med kabinbuller — alla tillsammans, högtalare på",
+          "Skriv in båda poängen i Förhållandelabbet",
+          "Läs av **% förändring** och för över den till elevbladet"
+        ],
+        "caption": "Båda poängen inskrivna: jämförelsen och % förändring visas.",
+        "notes": "MATB öppnas i en ny flik; gå tillbaka till den här fliken för att skriva in poängen. Räkna med blandade resultat — det är diskussionen."
+      },
+      "18": {
+        "title": "Inlärning och platå",
+        "x": [
+          "Runda 1",
+          "Runda 2",
+          "Runda 3",
+          "Runda 4",
+          "Runda 5",
+          "Runda 6",
+          "Runda 7",
+          "Runda 8",
+          "Runda 9",
+          "Runda 10"
+        ],
+        "series": "Poäng",
+        "y": "Prestation",
+        "bullets": [
+          "Som en ny sport: du förbättras snabbt, sedan når du en **platå**",
+          "Dagliga svängningar finns kvar — sömn, humör, mat",
+          "Riktiga studier upprepar tills poängen är stabila, **sedan** testas förhållanden",
+          "Idag får ni ett smakprov på det protokollet"
+        ],
+        "notes": "Rita på whiteboarden; riktiga studier upprepar tills det är stabilt."
+      },
+      "19": {
+        "title": "Arkitektursimulator",
+        "bullets": [
+          "En illustrativ modell inspirerad av forskning",
+          "Reglage: buller · ljus · röra · biofili",
+          "Se uppmärksamhet, arbetsminne och stress förändras",
+          "Hitta den bästa och den sämsta kabinen"
+        ],
+        "caption": "Dra i reglagen; staplarna uppdateras direkt.",
+        "notes": "Säg tydligt: en pedagogisk modell, inte uppmätta data."
+      },
+      "20": {
+        "title": "Ritningsdesigner — uppdragsbeskrivning",
+        "bullets": [
+          "Designa en stationsmodul på rutnätet",
+          "Besättningens kognition **vs.** vetenskap och teknik — varje del är en avvägning",
+          "Varje modul behöver en fri korridor till **entrén**",
+          "Mål: **Uppdragsframgång ≥ 70**"
+        ],
+        "caption": "Ladda scenario ger en startlayout; checklistan i uppdragsbeskrivningen blir grön efter hand.",
+        "notes": "Upprepa regeln om korridor till entrén. Visa en elevs högpoängslayout på projektorn."
+      },
+      "21": {
+        "title": "Modellabb (valfritt)",
+        "bullets": [
+          "Bygg din egen simulator",
+          "Lägg till indata och utfall från whiteboardlistan",
+          "Gröna trådar hjälper, röda trådar skadar",
+          "Om det här utfallet är viktigt — vad ska vi designa för?"
+        ],
+        "caption": "Interaktionskartan visar varje koppling i modellen.",
+        "notes": "Stryk det här blocket först om tiden är knapp."
+      },
+      "22": {
+        "title": "Utgångsbiljett",
+        "sub": "Två post-it-lappar per elev — skriv ditt namn på varje.",
+        "notes_cards": [
+          [
+            "① Hjälper kognitionen",
+            "något i arkitekturen som hjälper besättningens sinne"
+          ],
+          [
+            "② Försämrar kognitionen",
+            "något i arkitekturen som försämrar den"
+          ]
+        ],
+        "notes": "Samla in lapparna till en klassrumsutställning eller lärargenomgång."
+      },
+      "23": {
+        "title": "Fyra saker att ta med hem",
+        "messages": [
+          "Rymden är för alla.",
+          "Arkitektur handlar om människor.",
+          "Design är en serie avvägningar.",
+          "Ni är framtiden för rymdutforskning."
+        ],
+        "notes": "Landa dagens stora idéer; tacka dem som framtidens rymdarkitekter."
+      },
+      "24": {
+        "title": "Tack",
+        "url": "magkosm.github.io/orbarch-edu",
+        "sub": "Orbital Architecture · KTH Kungliga Tekniska högskolan · ESERO Sverige",
+        "scan": "Öppna appen hemma",
+        "notes": "Visa hubbens QR så att eleverna kan utforska hemma."
+      }
+    }
+  },
+  "el": {
+    "scan": "Σαρώστε για άνοιγμα",
+    "slides": {
+      "1": {
+        "title": "Το μυαλό του αρχιτέκτονα σε τροχιά",
+        "sub": "Πώς ο σχεδιασμός του διαστημικού σταθμού διαμορφώνει το μυαλό του πληρώματος — και πώς το μετράμε",
+        "meta": "Εργαστήριο για την τάξη · Orbital Architecture · KTH Βασιλικό Ινστιτούτο Τεχνολογίας & ESERO Σουηδίας",
+        "notes": "Παρουσιάστε τον ομιλητή. Σήμερα: πώς ο σχεδιασμός του σταθμού διαμορφώνει το μυαλό του πληρώματος."
+      },
+      "2": {
+        "title": "Τι είναι διαστημικός σταθμός;",
+        "bullets": [
+          "Ένα διαστημόπλοιο που παραμένει σε τροχιά, ώστε τα πληρώματα να **ζουν και να εργάζονται** εκεί για εβδομάδες έως μήνες",
+          "Σπίτι **και** χώρος εργασίας — το πλήρωμα ζει με τον σχεδιασμό κάθε ώρα της ημέρας",
+          "Πρώτο πλήρωμα σταθμού (Salyut 1, 1971): 24 ημέρες · πληρώματα του ISS σήμερα: περίπου 6 μήνες"
+        ],
+        "notes": "Όχι σύντομη επίσκεψη· τα πληρώματα ζουν με τον σχεδιασμό κάθε ώρα. Πρώτο πλήρωμα σταθμού (Salyut 1, 1971): 24 ημέρες· πληρώματα του ISS: ~6 μήνες."
+      },
+      "3": {
+        "title": "Σύντομη ιστορία των διαστημικών σταθμών",
+        "stations": [
+          [
+            "Salyut",
+            "1971",
+            "ΕΣΣΔ"
+          ],
+          [
+            "Skylab",
+            "1973",
+            "ΗΠΑ"
+          ],
+          [
+            "Mir",
+            "1986",
+            "ΕΣΣΔ / Ρωσία"
+          ],
+          [
+            "ISS",
+            "1998",
+            "διεθνής"
+          ],
+          [
+            "Tiangong",
+            "2021",
+            "Κίνα"
+          ]
+        ],
+        "sub": "Ρωτήστε την τάξη πού κατασκευάστηκε καθένας πριν αποκαλύψετε τις ετικέτες.",
+        "notes": "Ακατάστατη, μηχανοκεντρική εξέλιξη — πρώτα ο εξοπλισμός, οι άνθρωποι προσαρμόζονται."
+      },
+      "4": {
+        "title": "Μηχανοκεντρικός σχεδιασμός",
+        "bullets": [
+          "Καλώδια παντού",
+          "Στενότητα και θόρυβος",
+          "Πολύπλοκος χειρισμός",
+          "Ωφελιμιστικοί εσωτερικοί χώροι — πρώτα ο εξοπλισμός, οι άνθρωποι προσαρμόζονται"
+        ],
+        "notes": "Το μοτίβο επαναλαμβάνεται εδώ και δεκαετίες."
+      },
+      "5": {
+        "title": "Ελλάδα & ISS",
+        "captions": [
+          "**Η αποστολή Muninn (2024)** — ο αστροναύτης της ESA Marcus Wandt έτρεξε αυτές τις δοκιμασίες σε τροχιά",
+          "**Αδριανός Γκολέμης** — ο Έλληνας ιατρός πτήσης της ESA που υποστήριξε την αποστολή",
+          "**Το έμβλημα της αποστολής Muninn** — το πείραμα του Μιχαήλ Μάγκου (KTH) ήταν ένα από τα ~20 πειράματα της αποστολής"
+        ],
+        "credit": "© NASA / SpaceX · © ESA – M. Wandt · © ESA",
+        "notes": "Ο Γκολέμης ήταν ιατρός πτήσης της αποστολής· ο Wandt έτρεξε το πείραμα Orbital Architecture στον σταθμό κατά την αποστολή Muninn."
+      },
+      "6": {
+        "title": "Η σημερινή πραγματικότητα",
+        "caption": "Εσωτερικό του ISS που φωτογράφισε ο Marcus Wandt στο εργαστήριο Destiny — καλώδια παντού",
+        "notes": "Σχεδόν το καλύτερο που έχουμε τώρα — ακαταστασία, θόρυβος, κακός φωτισμός, στενότητα."
+      },
+      "7": {
+        "prompt": "Τι κάνει το διάστημα στρεσογόνο;",
+        "sub": "Πρώτα το διάστημα · μετά σχολείο και σπίτι · μετά: τι σας βοηθά να χαλαρώσετε;",
+        "notes": "Ανοιχτή συζήτηση → πίνακας: διάστημα, μετά σχολείο/σπίτι, μετά τι σας βοηθά να χαλαρώσετε. Ο πίνακας μένει όλη την ώρα."
+      },
+      "8": {
+        "title": "Η γνωστική σύνδεση",
+        "boxes": [
+          [
+            "Περιβάλλον",
+            "θόρυβος · φως · ακαταστασία · πράσινο · χώρος"
+          ],
+          [
+            "Στρες & ανάκαμψη",
+            "πώς αντιδρούν σώμα και νους"
+          ],
+          [
+            "Νόηση",
+            "προσοχή · μνήμη · αποφάσεις"
+          ]
+        ],
+        "examples": "Παραδείγματα από τον πίνακα: μια θορυβώδης καμπίνα αυξάνει το στρες και μειώνει την προσοχή· η θέα της Γης, τα φυτά και το καλό φως βοηθούν στην ανάκαμψη.",
+        "notes": "Οδηγήστε τους μαθητές να ονομάσουν τα τρία στοιχεία της σύνδεσης πριν δείξετε τη διαφάνεια."
+      },
+      "9": {
+        "title": "Οι καλύτεροι σταθμοί χρειάζονται τεκμήρια, όχι εικασίες",
+        "sub": "Οι απόψεις διαφέρουν — οι μετρήσεις αποφασίζουν. Γι' αυτό κάνουμε δοκιμασίες.",
+        "notes": "Συνδέστε το με τη λίστα του πίνακα."
+      },
+      "10": {
+        "title": "Πού ζουν τα πληρώματα σήμερα",
+        "captions": [
+          "**Η Cupola** — το μόνο παράθυρο με πραγματική θέα στη Γη",
+          "**Οι καμπίνες ύπνου του πληρώματος** — ιδιωτικός χώρος σε μέγεθος τηλεφωνικού θαλάμου"
+        ],
+        "notes": ""
+      },
+      "11": {
+        "title": "Το όραμα για το μέλλον",
+        "caption": "Περιστρεφόμενοι σταθμοί με πράσινο και παράθυρα — εικαστική σύλληψη της δεκαετίας του 1970",
+        "notes": "Εμπνέει — αλλά ίσως αιώνες μακριά (προσωπική εκτίμηση του ομιλητή)."
+      },
+      "12": {
+        "title": "Μικρά βήματα σήμερα",
+        "left": [
+          "Μικρά ποσοτικά πειράματα",
+          "μετράμε ένα πράγμα τη φορά: θόρυβο, φως, ακαταστασία…"
+        ],
+        "right": [
+          "Ποιοτική αλλαγή με τον χρόνο",
+          "καλύτερα σχεδιασμένοι σταθμοί, πιο ευτυχισμένα και πιο οξυδερκή πληρώματα"
+        ],
+        "sub": "Εμείς κάνουμε αυτά τα βήματα τώρα — και σήμερα τα κάνετε κι εσείς.",
+        "notes": "Εμείς κάνουμε αυτά τα βήματα τώρα."
+      },
+      "13": {
+        "title": "Πώς ελέγχουμε τη νόηση",
+        "quote": "«Πώς ξέρει ο καθηγητής των μαθηματικών αν είστε καλοί στα μαθηματικά;» → διαγωνίσματα.",
+        "captions": [
+          "**Χρόνος αντίδρασης (τύπου PVT)** — εγρήγορση · όλοι, ως προθέρμανση",
+          "**N-Back** — εργαζόμενη μνήμη · ηλικίες 16–18",
+          "**MATB** — εκτελεστικές λειτουργίες · εστίαση στις ηλικίες 14–15"
+        ],
+        "notes": "Κάντε πρώτα την ερώτηση στην τάξη. Τρεις δοκιμασίες, τρεις γνωστικές λειτουργίες."
+      },
+      "14": {
+        "title": "Πού τρέχει η έρευνα",
+        "captions": [
+          "**MDRS, Γιούτα** — Mars Desert Research Station με πληρώματα της ISAE-SUPAERO (MDRS 275, 293, 311, 330)",
+          "**Ο ISS** — Marcus Wandt, αποστολή Muninn της ESA, 2024"
+        ],
+        "notes": ""
+      },
+      "15": {
+        "title": "Χρόνος αντίδρασης — ένας γύρος",
+        "bullets": [
+          "Πατήστε την οθόνη (ή το SPACE) όσο πιο γρήγορα μπορείτε όταν εμφανιστεί η κόκκινη κουκκίδα",
+          "Ένας γύρος · 8 κουκκίδες · περίπου ένα λεπτό",
+          "Όλοι είναι διαφορετικοί — συγχυτικοί παράγοντες",
+          "**Εσείς έναντι του εαυτού σας**: το Εργαστήριο συνθηκών θα σας συγκρίνει αργότερα με τον εαυτό σας, ως % της δικής σας βαθμολογίας"
+        ],
+        "caption": "Οθόνη έναρξης. Γράψτε τον μέσο και τον ταχύτερο χρόνο σας στο φύλλο εργασίας.",
+        "notes": "Δώστε τον κωδικό QR όταν είστε έτοιμοι. Δείξτε ΜΟΝΟ αυτόν τον κωδικό QR."
+      },
+      "16": {
+        "title": "MATB — τέσσερις εργασίες ταυτόχρονα",
+        "sub": "Επίδειξη εκπαιδευτικού · Προεπιλογές → Λειτουργίες εκπαίδευσης: μία εργασία τη φορά στον προβολέα. Όχι QR μαθητών ακόμη.",
+        "captions": [
+          "**Παρακολούθηση συστήματος** — πατήστε τη λυχνία ή τον μετρητή που χαλάει",
+          "**Ιχνηλάτηση** — κρατήστε τον δρομέα μέσα στο τετράγωνο όταν γράφει ΧΕΙΡΟΚΙΝΗΤΟ",
+          "**Επικοινωνίες** — απαντήστε μόνο σε κλήσεις για το δικό σας διακριτικό",
+          "**Διαχείριση πόρων** — κρατήστε τις δεξαμενές A και B στο επίπεδο-στόχο"
+        ],
+        "notes": "Μόνο στον προβολέα μέχρι τη δοκιμαστική εκτέλεση. Διαβάστε κάθε πλαίσιο οδηγιών δυνατά με δικά σας λόγια."
+      },
+      "17": {
+        "title": "Δοκιμαστική εκτέλεση MATB",
+        "bullets": [
+          "Όλοι: μία εκτέλεση εξάσκησης (2 λεπτά)",
+          "Μην βγείτε — αφήστε τον χρόνο να τελειώσει",
+          "Στο τέλος: διαβάστε την **Τελική βαθμολογία** στο επάνω μέρος",
+          "Αν ένα πλαίσιο ζητήσει όνομα: πατήστε **Παράλειψη** — όχι πραγματικά ονόματα"
+        ],
+        "caption": "Οθόνη τέλους: Τελική βαθμολογία επάνω· το πλαίσιο υψηλής βαθμολογίας μπορεί να παραλειφθεί.",
+        "notes": "Κυκλοφορήστε στην αίθουσα. Όσοι μαθητές κολλάνε συνήθως ξέχασαν τον κανόνα ΑΥΤΟΜΑΤΟ/ΧΕΙΡΟΚΙΝΗΤΟ ή δεν έχουν ήχο."
+      },
+      "17b": {
+        "title": "Εργαστήριο συνθηκών — ησυχία έναντι θορύβου",
+        "bullets": [
+          "① Εκτέλεση σε ησυχία — όλοι μαζί, ηχεία κλειστά",
+          "② Εκτέλεση με θόρυβο καμπίνας — όλοι μαζί, ηχεία ανοιχτά",
+          "Πληκτρολογήστε και τις δύο βαθμολογίες στο Εργαστήριο συνθηκών",
+          "Διαβάστε την **% αλλαγή** και αντιγράψτε την στο φύλλο εργασίας"
+        ],
+        "caption": "Με τις δύο βαθμολογίες: εμφανίζονται η σύγκριση και η % αλλαγή.",
+        "notes": "Το MATB ανοίγει σε νέα καρτέλα· γυρίστε σε αυτή την καρτέλα για να πληκτρολογήσετε τη βαθμολογία. Περιμένετε ανάμεικτα αποτελέσματα — αυτή είναι η συζήτηση."
+      },
+      "18": {
+        "title": "Μάθηση και πλατό",
+        "x": [
+          "Γύρος 1",
+          "Γύρος 2",
+          "Γύρος 3",
+          "Γύρος 4",
+          "Γύρος 5",
+          "Γύρος 6",
+          "Γύρος 7",
+          "Γύρος 8",
+          "Γύρος 9",
+          "Γύρος 10"
+        ],
+        "series": "Βαθμολογία",
+        "y": "Απόδοση",
+        "bullets": [
+          "Όπως ένα νέο άθλημα: βελτιώνεστε γρήγορα, μετά φτάνετε σε **πλατό**",
+          "Οι ημερήσιες διακυμάνσεις μένουν — ύπνος, διάθεση, φαγητό",
+          "Οι πραγματικές μελέτες επαναλαμβάνουν μέχρι να σταθεροποιηθούν οι βαθμολογίες, **μετά** ελέγχουν συνθήκες",
+          "Σήμερα παίρνετε μια γεύση από αυτό το πρωτόκολλο"
+        ],
+        "notes": "Σχεδιάστε το στον πίνακα· οι πραγματικές μελέτες επαναλαμβάνουν μέχρι να σταθεροποιηθεί."
+      },
+      "19": {
+        "title": "Προσομοιωτής αρχιτεκτονικής",
+        "bullets": [
+          "Ένα ενδεικτικό μοντέλο εμπνευσμένο από την έρευνα",
+          "Ρυθμιστικά: θόρυβος · φως · ακαταστασία · βιοφιλία",
+          "Δείτε πώς κινούνται προσοχή, εργαζόμενη μνήμη και στρες",
+          "Βρείτε την καλύτερη και τη χειρότερη καμπίνα"
+        ],
+        "caption": "Σύρετε τα ρυθμιστικά· οι μπάρες ενημερώνονται ζωντανά.",
+        "notes": "Πείτε καθαρά: εκπαιδευτικό μοντέλο, όχι μετρημένα δεδομένα."
+      },
+      "20": {
+        "title": "Σχεδιαστής κάτοψης — ενημέρωση αποστολής",
+        "bullets": [
+          "Σχεδιάστε μια μονάδα σταθμού στο πλέγμα",
+          "Νόηση πληρώματος **έναντι** επιστήμης και μηχανικής — κάθε στοιχείο είναι συμβιβασμός",
+          "Κάθε μονάδα χρειάζεται ελεύθερο διάδρομο προς την **είσοδο**",
+          "Στόχος: **Επιτυχία αποστολής ≥ 70**"
+        ],
+        "caption": "Η Φόρτωση σεναρίου δίνει μια αρχική διάταξη· η λίστα της ενημέρωσης πρασινίζει καθώς προχωράτε.",
+        "notes": "Επαναλάβετε τον κανόνα του διαδρόμου προς την είσοδο. Προβάλετε τη διάταξη ενός μαθητή με υψηλή βαθμολογία."
+      },
+      "21": {
+        "title": "Εργαστήριο μοντέλων (προαιρετικό)",
+        "bullets": [
+          "Φτιάξτε τον δικό σας προσομοιωτή",
+          "Προσθέστε εισόδους και αποτελέσματα από τη λίστα του πίνακα",
+          "Οι πράσινες συνδέσεις βοηθούν, οι κόκκινες βλάπτουν",
+          "Αν αυτό το αποτέλεσμα μετράει, για τι πρέπει να σχεδιάζουμε;"
+        ],
+        "caption": "Ο χάρτης αλληλεπιδράσεων δείχνει κάθε σύνδεση του μοντέλου.",
+        "notes": "Κόψτε πρώτο αυτό το μπλοκ αν πιέζει ο χρόνος."
+      },
+      "22": {
+        "title": "Εισιτήριο εξόδου",
+        "sub": "Δύο post-it ανά μαθητή — γράψτε το όνομά σας σε καθένα.",
+        "notes_cards": [
+          [
+            "① Βοηθά τη νόηση",
+            "κάτι στην αρχιτεκτονική που βοηθά το μυαλό του πληρώματος"
+          ],
+          [
+            "② Βλάπτει τη νόηση",
+            "κάτι στην αρχιτεκτονική που τη βλάπτει"
+          ]
+        ],
+        "notes": "Συλλέξτε τα χαρτάκια για έκθεση στην τάξη ή για δική σας ανασκόπηση."
+      },
+      "23": {
+        "title": "Τέσσερα πράγματα για το σπίτι",
+        "messages": [
+          "Το διάστημα είναι για όλους.",
+          "Η αρχιτεκτονική αφορά τους ανθρώπους.",
+          "Ο σχεδιασμός είναι μια σειρά συμβιβασμών.",
+          "Εσείς είστε το μέλλον της διαστημικής εξερεύνησης."
+        ],
+        "notes": "Κλείστε με τις μεγάλες ιδέες της ημέρας· ευχαριστήστε τους ως μελλοντικούς διαστημικούς αρχιτέκτονες."
+      },
+      "24": {
+        "title": "Ευχαριστούμε",
+        "url": "magkosm.github.io/orbarch-edu",
+        "sub": "Orbital Architecture · KTH Βασιλικό Ινστιτούτο Τεχνολογίας · ESERO Σουηδίας",
+        "scan": "Ανοίξτε την εφαρμογή στο σπίτι",
+        "notes": "Δείξτε τον κωδικό QR του κόμβου για να εξερευνήσουν οι μαθητές στο σπίτι."
+      }
+    }
+  }
+}
