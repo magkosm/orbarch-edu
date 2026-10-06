@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <title>Läraranteckningar (A4) — Arkitektens sinne i omloppsbana</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 12mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.32;
+    }
+    .sheet {
+      background: #fff; min-height: 297mm; padding: 12mm;
+      box-shadow: 0 1px 6px rgba(0,0,0,.12);
+    }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 17px; margin: 0; line-height: 1.2; }
+    .facts { color: #333; font-size: 10.5px; margin: 4px 0 8px; }
+    h2 { font-size: 12px; margin: 10px 0 4px; border-bottom: 2px solid #111; padding-bottom: 2px; page-break-after: avoid; }
+    table { width: 100%; border-collapse: collapse; margin: 5px 0; table-layout: fixed; font-size: 10px; }
+    td, th { border: 1px solid #aaa; padding: 3px 5px; vertical-align: top; text-align: left; word-wrap: break-word; }
+    th { background: #f0f0f0; }
+    tr { page-break-inside: avoid; }
+    th:nth-child(1), td:nth-child(1) { width: 16%; }
+    th:nth-child(2), td:nth-child(2) { width: 42%; }
+    th:nth-child(3), td:nth-child(3) { width: 42%; }
+    .runcard th:nth-child(1), .runcard td:nth-child(1) { width: 9%; }
+    .runcard th:nth-child(2), .runcard td:nth-child(2) { width: 17%; }
+    .runcard th:nth-child(3), .runcard td:nth-child(3) { width: 44%; }
+    .runcard th:nth-child(4), .runcard td:nth-child(4) { width: 30%; }
+    .phase { font-weight: bold; }
+    ul { margin: 3px 0; padding-left: 16px; }
+    li { margin: 1px 0; }
+    .say { color: #1a4f8a; font-style: italic; }
+    .tag { display: inline-block; background: #eef; border: 1px solid #ccd; border-radius: 4px; padding: 0 4px; font-size: 9px; }
+    .small { font-size: 9px; color: #444; margin: 8px 0 0; line-height: 1.3; }
+    @media print {
+      html { background: none; }
+      .controls { display: none; }
+      body { width: auto; }
+      .sheet { box-shadow: none; padding: 0; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Skriv ut A4 stående (2 sidor — dubbelsidigt)</button></div>
+
+  <h1>Läraranteckningar — Arkitektens sinne i omloppsbana</h1>
+  <div class="facts"><b>~2 h (105–130 min som skrivet; ~90–100 med de valfria delarna strukna) · 12–18 år · mobiler + projektor + whiteboard · en QR i taget</b> · Hela planen: <span class="tag">workshop-sv.md</span></div>
+
+  <h2>Före passet</h2>
+  <ul>
+    <li>Bildspel: klistra in text från <span class="tag">slides-sv.md</span> (struktur: <span class="tag">slides-outline.md</span>); whiteboardpennor; kabinbuller i högtalarna.</li>
+    <li>QR-PDF — visa <b>en kod i taget</b> på projektorn (<span class="tag">qr-sv.pdf</span>).</li>
+    <li>Elevblad A3 (<span class="tag">handout-sv.pdf</span>); <b>2 post-it-lappar per elev</b> (namn på varje).</li>
+    <li><b>Hörlurar!</b> Kommunikationsuppgiften är talat ljud. iPhone: ring/ljudlös-reglaget → ring. Testa en iPhone + en Android dagen innan.</li>
+    <li>Säg till eleverna: inget laddas upp; skriv aldrig ett riktigt namn i appen (tryck på <b>Hoppa över</b>).</li>
+    <li>Lärardator redo för att spegla en elevs ritning. Förinställningar på startsidan (tryck på <b>Förinställningar</b>): /comms /monitoring /tracking /resource.</li>
+  </ul>
+
+  <h2>Körschema</h2>
+  <table>
+    <tr><th>Block</th><th>Du gör</th><th>Eleverna gör</th></tr>
+    <tr>
+      <td class="phase">A · Presentation<br>~35–45 min</td>
+      <td>Presentera föreläsaren · bild 1 · stationshistoria (Saljut→Tiangong) · rörig maskincentrerad design · <b>bild med svensk koppling</b> (ESA/ISS: Fuglesang var med och byggde stationen, Wandt 2024) · Wandts Destiny-labbfoto · "Vad gör rymden stressig?" · <b>whiteboard</b>: rymden → skola → hem → slappna av · bild om den kognitiva länken · nu vs. Guidices framtid · små steg · 3 tester + MDRS/ISS · åldersguide (RT 12–13 / MATB 14–15 / N-Back 16–18)</td>
+      <td>Diskuterar; bidrar till tavlan (står kvar hela passet).</td>
+    </tr>
+    <tr>
+      <td class="phase">B · Experiment<br>~45–50 min</td>
+      <td><b>QR: endast RT</b> — samla spridning, störfaktorer, "du mot dig själv, i %". <b>Projektor:</b> MATB alla uppgifter → varje träningssida → 2-minutersläget. <b>Sedan QR: MATB</b> provkörning + genomgång. <b>QR: Förhållandelabb</b> — kör ① tillsammans (högtalare av), sedan ② tillsammans (högtalare på). MATB öppnas i en <b>ny flik</b>; eleverna går tillbaka och skriver in <b>Slutpoäng</b> under ①/②; läser meningen om "% förändring". Whiteboard: inlärningskurva, platå, idrottsanalogi, körordningsproblemet, klassräkning. <b>Fullständigt detaljschema nedan.</b></td>
+      <td>RT en runda · MATB-övning · Förhållandelabb · fyller i <b>elevblad §1</b>.</td>
+    </tr>
+    <tr>
+      <td class="phase">C · Design<br>~20–30 min</td>
+      <td><b>QR: Simulator</b> — illustrativ modell, hitta reglaget som flyttar Totalt mest. <b>QR: Ritning</b> — uppdragsbeskrivning + avvägningar; upprepa korridorregeln 🚪; scenariot startar på 45, mål 70. Bygg upp en högpresterande elevs rutnät på datorn och projicera. <b>Valfritt:</b> Modellabb (stryk vid tidsbrist; Återställ till exempel efteråt) · A3-gruppskiss (elevblad §3).</td>
+      <td>Simulator → Ritning (Uppdragsframgång ≥ 70) · elevblad §2.</td>
+    </tr>
+    <tr>
+      <td class="phase">D · Avslut<br>~7 min</td>
+      <td>Samla in två post-it-lappar per elev. <b>Avslutande bild:</b> Rymden för alla · Arkitektur = människor · Design = avvägningar · Ni = framtidens rymdutforskning. Tack + länkar.</td>
+      <td>Post-it 1: hjälper kognitionen · Post-it 2: försämrar kognitionen (namn på varje).</td>
+    </tr>
+  </table>
+
+  <h2>Detaljschema — Block B (≈ 45–50 min)</h2>
+  <table class="runcard">
+    <tr><th>Tid</th><th>Visa</th><th>Säg / gör</th><th>Håll utkik efter</th></tr>
+    <tr><td>0–8</td><td>Bild 15 · <b>QR RT</b></td><td>"Tryck på den röda pricken, 8 gånger." Be 5 elever säga sitt genomsnitt. Störfaktorer → "du mot dig själv, i %".</td><td>Genomsnitt 200–400 ms. Under 150 = för tidiga tryck.</td></tr>
+    <tr><td>8–18</td><td>Projektor: Förinställningar → Snabbtest, sedan de 4 träningssidorna</td><td>Hela MATB 30 s → varje uppgift 2 min med mobilgesten → hela MATB 20 s. <b>Ingen elev-QR.</b></td><td>Eleverna kan namnge alla fyra uppgifterna. Om inte, ta om den de inte kan.</td></tr>
+    <tr><td>18–26</td><td><b>QR 2min</b></td><td>"Tryck på Jag förstår; avsluta inte; läs av Slutpoäng; Hoppa över namnrutan; skriv in den på raden <i>Provkörning</i>."</td><td>Tysta mobiler (ljudlös-reglaget) · fastnat på resultatsidan · någon avslutade i förtid → kör igen.</td></tr>
+    <tr><td>26–39</td><td><b>QR Förhållandelabb</b></td><td>① tillsammans, högtalare av → tillbaka till fliken → skriv in poängen. ② tillsammans, högtalare på → skriv in poängen. Läs %-meningen.</td><td>Båda rutorna ifyllda → diagrammet Jämförelse visas. Tappad flik → webbläsarens flikikon.</td></tr>
+    <tr><td>39–47</td><td>Whiteboard</td><td>Idrottskurva → platå → "slog ① provkörningen?" → körordningsproblemet → räkning ↓ ≈ ↑.</td><td>Flest händer i ↓ eller ≈; om ↑ dominerar vann övningen — det är poängen.</td></tr>
+  </table>
+
+  <h2>Nyckelbudskap</h2>
+  <ul>
+    <li>Dagens ISS är fortfarande rörig, bullrig och trång — designen måste förbättras med evidens.</li>
+    <li>Forskare mäter, jämför förhållanden och tar hänsyn till inlärning &amp; störfaktorer.</li>
+    <li>Ritningens avvägningar: besättningens sinne vs. uppdragets vetenskap/teknik.</li>
+  </ul>
+
+  <h2>Avslutande bild (efter utgångsbiljetten)</h2>
+  <ul>
+    <li><b>Rymden är för alla.</b></li>
+    <li><b>Arkitektur handlar om människor.</b></li>
+    <li><b>Design är en serie avvägningar.</b></li>
+    <li><b>Ni är framtiden för rymdutforskning.</b></li>
+  </ul>
+
+  <h2>Lärdomar från piloten <span class="tag">pilot: 60 elever, 3 grupper om ~20</span></h2>
+  <ul>
+    <li>Mobilerna fungerade för det mesta — prova <b>Chrome</b> om Safari strular.</li>
+    <li>MATB: demo på projektorn först; para ihop vid behov; blandade poäng är normalt.</li>
+    <li>Ritningen är beroendeframkallande — upprepa regeln om korridor till entrén; ge en 2-minutersvarning. Se <span class="tag">workshop-feedback.md</span>.</li>
+  </ul>
+
+  <h2>Förväntade värden (så att du upptäcker en trasig mobil)</h2>
+  <ul>
+    <li><b>Reaktionstid:</b> 8 röda prickar, ingen tidsgräns (~1 min). Läs av <b>Genomsnittlig reaktionstid</b>. Typiskt 200–400 ms på en mobil; under ~150 ms = tryckte för tidigt.</li>
+    <li><b>MATB 2 min:</b> Slutpoäng = Hälsan summerad varje sekund; <b>max 12 000</b>. Nästan perfekt ≈ 11 000+; en kämpig första körning kan ligga på 5 000–8 000. Ett fall på 5 % är t.ex. 10 000 → 9 500.</li>
+    <li><b>Förhållandelabb:</b> % förändring = (② − ①) ÷ ①. Svängningar på ±10 % är normalt med en körning var; klassräkningen är det riktiga resultatet.</li>
+    <li><b>Simulator:</b> standardreglage → Totalt ≈ 61; Buller på 100 → ≈ 40; allt sämst → 0; allt bäst → 100.</li>
+    <li><b>Ritning:</b> startscenario = 45. Bara checklistan = 50. Behåll 1 livsuppehållande system + 1 vetenskapsrack + träningscykel, lägg till 2 förvaring, sovutrymme, 2 akustiska zoner, växtvägg, dygnsrytmsljus, sjukvård, växthus → 70. Realistiskt tak ≈ 80; extra utmaning <b>≥ 78</b>.</li>
+  </ul>
+
+  <h2>Felsökning</h2>
+  <ul>
+    <li><b>Tiden räcker inte?</b> Stryk Modellabb → A3-skiss → korta historien.</li>
+    <li><b>För många QR-koder?</b> Bara en på skärmen i taget.</li>
+    <li><b>Inga rumshögtalare?</b> Använd appens kabinbuller i Förhållandelabbet på varje mobil (hörlurar), på standardvolymen.</li>
+    <li><b>Ingen radioröst?</b> Mobilen är ljudlös (iPhones sidoreglage) eller volymen är nere. Fortfarande inget → Chrome.</li>
+    <li><b>Rutan "Nytt toppresultat!" ber om ett namn?</b> Tryck på <b>Hoppa över</b> — den dyker upp på varje ny mobil. Skriv aldrig riktiga namn; inget laddas upp, men håll det rent.</li>
+    <li><b>Vilken siffra är poängen?</b> <b>Slutpoäng</b> överst på skärmen <i>Simulering slutförd</i> (max 12 000 = Hälsa 100 i 120 s).</li>
+    <li><b>Fel språk?</b> <span class="tag">?lng=sv</span> (engelska <span class="tag">?lng=en</span> · grekiska <span class="tag">?lng=el</span>)</li>
+  </ul>
+
+  <h2>Länkar</h2>
+  <ul>
+    <li>/reaction-default · Förinställningar: /comms /monitoring /tracking /resource · /2min · /condition-lab</li>
+    <li>/simulator · /blueprint · /model-lab (valfritt)</li>
+  </ul>
+
+  <p class="small"><b>Källor:</b> Comstock &amp; Arnegard, <i>MATB</i>, NASA TM-104174 (1992) · Dinges &amp; Powell, <i>PVT</i>, Behav. Res. Methods (1985) · Szalma &amp; Hancock, metaanalys om buller &amp; prestation, Psychol. Bull. (2011) · Clark, <i>Acoustic Issues in Human Spaceflight</i>, NASA (2001) · ESA-bloggen "I need more space" (2024) om ISS-experimentet Orbital Architecture. Fullständig lista med länkar: <span class="tag">workshop-sv.md</span> → Referenser &amp; vidare läsning.</p>
+
+  <p style="margin-top:14px;font-size:9px;color:#666;text-align:center">Orbital Architecture workshopmaterial · v2.1.2 · orbarch-edu</p>
+  </div>
+</body>
+</html>

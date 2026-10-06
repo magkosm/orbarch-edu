@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Teacher Notes (A4) — The Architect's Mind in Orbit</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 12mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 11px; line-height: 1.32;
+    }
+    .sheet {
+      background: #fff; min-height: 297mm; padding: 12mm;
+      box-shadow: 0 1px 6px rgba(0,0,0,.12);
+    }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 17px; margin: 0; line-height: 1.2; }
+    .facts { color: #333; font-size: 10.5px; margin: 4px 0 8px; }
+    h2 { font-size: 12px; margin: 10px 0 4px; border-bottom: 2px solid #111; padding-bottom: 2px; page-break-after: avoid; }
+    table { width: 100%; border-collapse: collapse; margin: 5px 0; table-layout: fixed; font-size: 10px; }
+    td, th { border: 1px solid #aaa; padding: 3px 5px; vertical-align: top; text-align: left; word-wrap: break-word; }
+    th { background: #f0f0f0; }
+    tr { page-break-inside: avoid; }
+    th:nth-child(1), td:nth-child(1) { width: 16%; }
+    th:nth-child(2), td:nth-child(2) { width: 42%; }
+    th:nth-child(3), td:nth-child(3) { width: 42%; }
+    .runcard th:nth-child(1), .runcard td:nth-child(1) { width: 9%; }
+    .runcard th:nth-child(2), .runcard td:nth-child(2) { width: 17%; }
+    .runcard th:nth-child(3), .runcard td:nth-child(3) { width: 44%; }
+    .runcard th:nth-child(4), .runcard td:nth-child(4) { width: 30%; }
+    .phase { font-weight: bold; }
+    ul { margin: 3px 0; padding-left: 16px; }
+    li { margin: 1px 0; }
+    .say { color: #1a4f8a; font-style: italic; }
+    .tag { display: inline-block; background: #eef; border: 1px solid #ccd; border-radius: 4px; padding: 0 4px; font-size: 9px; }
+    .small { font-size: 9px; color: #444; margin: 8px 0 0; line-height: 1.3; }
+    @media print {
+      html { background: none; }
+      .controls { display: none; }
+      body { width: auto; }
+      .sheet { box-shadow: none; padding: 0; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Print A4 portrait (2 pages — double-sided)</button></div>
+
+  <h1>Teacher Notes — The Architect's Mind in Orbit</h1>
+  <div class="facts"><b>~2 h (105–130 min as written; ~90–100 with optional parts cut) · ages 12–18 · phones + projector + whiteboard · one QR at a time</b> · Full plan: <span class="tag">workshop-en.md</span></div>
+
+  <h2>Before the session</h2>
+  <ul>
+    <li>Slides: paste text from <span class="tag">slides-en.md</span> (structure: <span class="tag">slides-outline.md</span>); whiteboard markers; cabin noise on speakers.</li>
+    <li>QR PDF — show <b>one code at a time</b> on projector (<span class="tag">qr-en.pdf</span>).</li>
+    <li>Handouts A3 (<span class="tag">handout-en.pdf</span>); <b>2 sticky notes per student</b> (name on each).</li>
+    <li><b>Earphones!</b> Comms task is spoken audio. iPhone: ring/silent switch → ring. Test one iPhone + one Android the day before.</li>
+    <li>Tell students: nothing is uploaded; never type a real name in the app (tap <b>Skip</b>).</li>
+    <li>Teacher laptop ready to mirror a student's Blueprint. Presets on hub (tap <b>Presets</b>): /comms /monitoring /tracking /resource.</li>
+  </ul>
+
+  <h2>Run sheet</h2>
+  <table>
+    <tr><th>Block</th><th>You do</th><th>Students do</th></tr>
+    <tr>
+      <td class="phase">A · Present<br>~35–45 m</td>
+      <td>Intro speaker · slide 1 · station history (Salyut→Tiangong) · messy machine-centric design · <b>national-connection slide</b> (ESA/ISS) · Wandt's Destiny-lab photo · "What makes space stressful?" · <b>whiteboard</b>: space → school → home → relax · cognitive link slide · current vs. Guidice future · small steps · 3 tests + MDRS/ISS · age guide (RT 12–13 / MATB 14–15 / N-Back 16–18)</td>
+      <td>Discuss; contribute to board (stays up all class).</td>
+    </tr>
+    <tr>
+      <td class="phase">B · Experiment<br>~45–50 m</td>
+      <td><b>QR: RT only</b> — gather spread, confounders, "you vs. you, as a %". <b>Projector:</b> MATB all tasks → each Training page → 2-min mode. <b>Then QR: MATB</b> dry run + walkthrough. <b>QR: Condition Lab</b> — run ① together (speakers off), then ② together (speakers on). MATB opens in a <b>new tab</b>; students come back and type <b>Final Score</b> under ①/②; read the "% change" sentence. Whiteboard: learning curve, plateau, athlete analogy, order flaw, class tally. <b>Full run card below.</b></td>
+      <td>RT one round · MATB practice · Condition Lab · fill <b>handout §1</b>.</td>
+    </tr>
+    <tr>
+      <td class="phase">C · Design<br>~20–30 m</td>
+      <td><b>QR: Simulator</b> — illustrative model, find the slider that moves Overall most. <b>QR: Blueprint</b> — brief + trade-offs; repeat 🚪 corridor rule; scenario starts at 45, target 70. Rebuild a high scorer's grid on the laptop and project it. <b>Optional:</b> Model Lab (cut if long; Reset to example afterwards) · A3 group sketch (handout §3).</td>
+      <td>Simulator → Blueprint (Mission Success ≥ 70) · handout §2.</td>
+    </tr>
+    <tr>
+      <td class="phase">D · Exit<br>~7 m</td>
+      <td>Collect two post-its per student. <b>Closing slide:</b> Space for everyone · Architecture = people · Design = trade-offs · You = future of exploration. Thanks + links.</td>
+      <td>Post-it 1: helps cognition · Post-it 2: hurts cognition (name on each).</td>
+    </tr>
+  </table>
+
+  <h2>Run card — Block B (≈ 45–50 min)</h2>
+  <table class="runcard">
+    <tr><th>Time</th><th>Show</th><th>Say / do</th><th>Look for</th></tr>
+    <tr><td>0–8</td><td>Slide 15 · <b>QR RT</b></td><td>"Tap the red dot, 8 times." Collect 5 averages aloud. Confounders → "you vs you, as a %".</td><td>Averages 200–400 ms. Under 150 = early taps.</td></tr>
+    <tr><td>8–18</td><td>Projector: Presets → Quick Test, then 4 Training pages</td><td>Full MATB 30 s → each task 2 min with the phone gesture → full MATB 20 s. <b>No student QR.</b></td><td>Students can name all four tasks. If not, redo the one they can't.</td></tr>
+    <tr><td>18–26</td><td><b>QR 2min</b></td><td>"Tap I Understand; don't Quit; read Final Score; Skip the name box; write it in <i>Practice</i>."</td><td>Silent phones (mute switch) · stuck on results page · someone quit early → run again.</td></tr>
+    <tr><td>26–39</td><td><b>QR Condition Lab</b></td><td>① together, speakers off → back to the tab → type score. ② together, speakers on → type score. Read the % sentence.</td><td>Both boxes filled → Comparison chart appears. Lost tab → browser tabs icon.</td></tr>
+    <tr><td>39–47</td><td>Whiteboard</td><td>Sports curve → plateau → "did ① beat Practice?" → order flaw → tally ↓ ≈ ↑.</td><td>Most hands in ↓ or ≈; if ↑ dominates, practice won — that's the point.</td></tr>
+  </table>
+
+  <h2>Key messages</h2>
+  <ul>
+    <li>Today's ISS is still messy, loud, cramped — design must improve with evidence.</li>
+    <li>Scientists measure, compare conditions, account for learning &amp; confounders.</li>
+    <li>Blueprint trade-offs: crew mind vs. mission science/engineering.</li>
+  </ul>
+
+  <h2>Closing slide (after exit ticket)</h2>
+  <ul>
+    <li><b>Space is for everyone.</b></li>
+    <li><b>Architecture is about people.</b></li>
+    <li><b>Design is a series of trade-offs.</b></li>
+    <li><b>You are the future of space exploration.</b></li>
+  </ul>
+
+  <h2>Pilot learnings <span class="tag">pilot: 60 students, 3 groups of ~20</span></h2>
+  <ul>
+    <li>Phones mostly OK — try <b>Chrome</b> if Safari glitches.</li>
+    <li>MATB: demo on projector first; pair if needed; mixed scores normal.</li>
+    <li>Blueprint addictive — repeat entrance corridor rule; give a 2-minute warning. See <span class="tag">workshop-feedback.md</span>.</li>
+  </ul>
+
+  <h2>Expected values (so you can spot a broken phone)</h2>
+  <ul>
+    <li><b>Reaction Time:</b> 8 red dots, no time limit (~1 min). Read <b>Average Reaction Time</b>. Typical 200–400 ms on a phone; under ~150 ms = tapped too early.</li>
+    <li><b>MATB 2-min:</b> Final Score = Health summed every second; <b>max 12,000</b>. Near-perfect ≈ 11,000+; a struggling first run can be 5,000–8,000. A 5 % drop is e.g. 10,000 → 9,500.</li>
+    <li><b>Condition Lab:</b> % change = (② − ①) ÷ ①. Swings of ±10 % are normal for one run each; the class tally is the real result.</li>
+    <li><b>Simulator:</b> default sliders → Overall ≈ 61; Noise to 100 → ≈ 40; everything worst → 0; everything best → 100.</li>
+    <li><b>Blueprint:</b> starting scenario = 45. Checklist items alone = 50. Keep 1 life support + 1 science rack + bike, add 2 stowage, sleeping quarters, 2 acoustic zones, plant wall, circadian light, med bay, greenhouse → 70. Realistic ceiling ≈ 80; stretch goal <b>≥ 78</b>.</li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><b>Running long?</b> Cut Model Lab → A3 sketch → shorten history.</li>
+    <li><b>Too many QRs?</b> One on screen at a time only.</li>
+    <li><b>No room speakers?</b> Use the in-app cabin noise in the Condition Lab on each phone (earphones), at the default volume.</li>
+    <li><b>No radio voice?</b> Phone muted (iPhone side switch) or volume down. Still nothing → Chrome.</li>
+    <li><b>"New High Score" box asks for a name?</b> Tap <b>Skip</b> — it appears on every fresh phone. Never type real names; nothing is uploaded, but keep it clean.</li>
+    <li><b>Which number is the score?</b> <b>Final Score</b> at the top of the <i>Simulation Complete</i> screen (max 12,000 = Health 100 for 120 s).</li>
+    <li><b>Wrong language?</b> <span class="tag">?lng=sv</span> or <span class="tag">?lng=el</span></li>
+  </ul>
+
+  <h2>Links</h2>
+  <ul>
+    <li>/reaction-default · Presets: /comms /monitoring /tracking /resource · /2min · /condition-lab</li>
+    <li>/simulator · /blueprint · /model-lab (optional)</li>
+  </ul>
+
+  <p class="small"><b>Sources:</b> Comstock &amp; Arnegard, <i>MATB</i>, NASA TM-104174 (1992) · Dinges &amp; Powell, <i>PVT</i>, Behav. Res. Methods (1985) · Szalma &amp; Hancock, noise &amp; performance meta-analysis, Psychol. Bull. (2011) · Clark, <i>Acoustic Issues in Human Spaceflight</i>, NASA (2001) · ESA blog "I need more space" (2024) on the Orbital Architecture ISS experiment. Full list with links: <span class="tag">workshop-en.md</span> → References &amp; further reading.</p>
+
+  <p style="margin-top:14px;font-size:9px;color:#666;text-align:center">Orbital Architecture workshop materials · v2.1.2 · orbarch-edu</p>
+  </div>
+</body>
+</html>

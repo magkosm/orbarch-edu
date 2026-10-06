@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <title>Επισκόπηση εργαστηρίου (A4) — Το μυαλό του αρχιτέκτονα σε τροχιά</title>
+  <style>
+    @page { size: 210mm 297mm; margin: 14mm; }
+    * { box-sizing: border-box; }
+    html { background: #e8e8e8; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0 auto;
+      width: 210mm; max-width: 100%; font-size: 10.6px; line-height: 1.38;
+    }
+    .sheet { background: #fff; padding: 14mm; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+    .controls { margin-bottom: 10px; }
+    button { padding: 8px 14px; border: 1px solid #ccc; border-radius: 6px; background: #f3f3f3; cursor: pointer; }
+    h1 { font-size: 19px; margin: 0 0 4px; }
+    .sub { color: #444; font-size: 12px; margin-bottom: 12px; }
+    h2 { font-size: 13px; margin: 11px 0 5px; border-bottom: 2px solid #111; padding-bottom: 3px; }
+    p, li { margin: 4px 0; }
+    ul { margin: 4px 0; padding-left: 18px; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 10.5px; }
+    td, th { border: 1px solid #aaa; padding: 5px 7px; vertical-align: top; text-align: left; }
+    th { background: #f0f0f0; }
+    .box { background: #f8f8f8; border: 1px solid #ccc; border-radius: 6px; padding: 8px 10px; margin: 8px 0; }
+    .footer { margin-top: 10px; font-size: 9px; color: #666; text-align: center; }
+    @media print { html { background: none; } .controls { display: none; } body { width: auto; } .sheet { box-shadow: none; padding: 0; } }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+  <div class="controls"><button onclick="window.print()">🖨️ Εκτύπωση A4 κατακόρυφα</button></div>
+
+  <h1>Το μυαλό του αρχιτέκτονα σε τροχιά</h1>
+  <div class="sub">Εργαστήριο για τη σχολική τάξη · Orbital Architecture · KTH &amp; ESERO · v2.1.2</div>
+
+  <div class="box">
+    <b>Για τους εκπαιδευτικούς που υλοποιούν τη συνεδρία:</b> χρησιμοποιήστε το <i>teacher-notes-el.pdf</i> την ημέρα του εργαστηρίου.
+    Αυτό το φύλλο απευθύνεται σε συντονιστές, σχολεία και ενημερώσεις εκπαιδευτών (train-the-trainer).
+  </div>
+
+  <h2>Περίληψη</h2>
+  <p>Ένα βιωματικό εργαστήριο <b>~2 ωρών</b> (105–130 λεπτά όπως είναι γραμμένο· ~90–100 λεπτά αν κοπούν τα προαιρετικά μέρη) για <b>ηλικίες 12–18</b> (πιλοτικό: Β'/Γ' Γυμνασίου).
+  Οι μαθητές χρησιμοποιούν <b>τα δικά τους κινητά</b>· ο εκπαιδευτικός χρειάζεται <b>προβολέα</b> και <b>πίνακα</b>.
+  Το θέμα είναι πώς η <b>αρχιτεκτονική</b> του διαστημικού σταθμού επηρεάζει τη <b>νόηση</b> του πληρώματος — μετρημένη με
+  τα ίδια είδη γνωστικών δοκιμασιών (χρόνος αντίδρασης, πολυεργασία) που η ερευνητική ομάδα έχει χρησιμοποιήσει σε σταθμούς προσομοίωσης του Άρη και στον ISS.</p>
+  <p><b>Εφαρμογή:</b> magkosm.github.io/orbarch-edu · Γλώσσες: EN / SV / EL (<code>?lng=sv</code> / <code>?lng=el</code>)</p>
+
+  <h2>Μαθησιακοί στόχοι</h2>
+  <ul>
+    <li>Ονομάζουν περιβαλλοντικούς παράγοντες που αυξάνουν ή μειώνουν το στρες — στο διάστημα και στην καθημερινή ζωή.</li>
+    <li>Εξηγούν πώς οι επιστήμονες μετρούν τη νόηση και συγκρίνουν συνθήκες (γραμμή βάσης έναντι στρεσογόνου παράγοντα).</li>
+    <li>Εφαρμόζουν σχεδιαστικούς συμβιβασμούς: γνωστική απόδοση πληρώματος έναντι επιστήμης και μηχανικής της αποστολής.</li>
+  </ul>
+
+  <h2>Ροή της συνεδρίας</h2>
+  <table>
+    <tr><th>Μπλοκ</th><th>Χρόνος</th><th>Τι συμβαίνει</th></tr>
+    <tr><td><b>A · Παρουσίαση</b></td><td>~35–45 λεπτά</td><td>Ιστορία των σταθμών, η πραγματικότητα του ISS (φωτογραφία του Wandt από το εργαστήριο Destiny), συζήτηση για το στρες στον πίνακα, γνωστική σύνδεση, πώς ελέγχουμε τη νόηση, ερευνητικό πλαίσιο MDRS &amp; ISS.</td></tr>
+    <tr><td><b>B · Πειράματα</b></td><td>~45–50 λεπτά</td><td>Ζέσταμα με Χρόνο αντίδρασης → διδασκαλία του MATB στον προβολέα → δοκιμαστική εκτέλεση μαθητών → Εργαστήριο συνθηκών (ησυχία έναντι θορύβου) → συζήτηση για την επίδραση μάθησης.</td></tr>
+    <tr><td><b>C · Στούντιο σχεδίασης</b></td><td>~20–30 λεπτά</td><td>Προσομοιωτής αρχιτεκτονικής → Σχεδιαστής κάτοψης οικισμού (συμβιβασμοί, κανόνας διαδρόμου προς την είσοδο) → προαιρετικό Εργαστήριο μοντέλων ή σκίτσο A3.</td></tr>
+    <tr><td><b>D · Κλείσιμο</b></td><td>~7 λεπτά</td><td>Δύο post-it ανά μαθητή (βοηθά / βλάπτει τη νόηση) · διαφάνεια κλεισίματος · ευχαριστίες.</td></tr>
+  </table>
+
+  <h2>Τι χρειάζεστε</h2>
+  <ul>
+    <li>Προβολέας + παρουσίαση (επικόλληση από το <i>slides-el.md</i>· δομή στο <i>slides-outline.md</i>)</li>
+    <li>Wi-Fi· κινητά μαθητών (προτιμήστε Chrome αντί για Safari)</li>
+    <li>Ακουστικά για τους μαθητές (η εργασία επικοινωνιών του MATB αναπαράγει εκφωνούμενες ραδιοφωνικές κλήσεις)</li>
+    <li>Εκτυπωμένο φύλλο QR — <b>ένας κωδικός QR στην οθόνη τη φορά</b></li>
+    <li>Φύλλα εργασίας A3 (1 ανά μαθητή), 2 post-it ανά μαθητή, μαρκαδόροι πίνακα</li>
+    <li>Ηχεία αίθουσας για τον θόρυβο καμπίνας (ή ο ενσωματωμένος θόρυβος στο Εργαστήριο συνθηκών)</li>
+    <li>Λάπτοπ εκπαιδευτικού για προβολή μιας κάτοψης με υψηλή βαθμολογία</li>
+  </ul>
+
+  <h2>Έντυπο υλικό (materials/pdf/)</h2>
+  <ul>
+    <li><b>workshop-overview-el.pdf</b> — αυτό το φύλλο</li>
+    <li><b>teacher-notes-el.pdf</b> — φύλλο ροής για την ημέρα του εργαστηρίου</li>
+    <li><b>handout-el.pdf</b> — φύλλο εργασίας μαθητή (A3)</li>
+    <li><b>qr-el.pdf</b> — κωδικοί QR των εργαλείων (A4)</li>
+  </ul>
+
+  <h2>Μηνύματα κλεισίματος</h2>
+  <ul>
+    <li><b>Το διάστημα είναι για όλους.</b></li>
+    <li><b>Η αρχιτεκτονική αφορά τους ανθρώπους.</b></li>
+    <li><b>Ο σχεδιασμός είναι μια σειρά συμβιβασμών.</b></li>
+    <li><b>Εσείς είστε το μέλλον της διαστημικής εξερεύνησης.</b></li>
+  </ul>
+
+  <p><b>Πλήρες σχέδιο:</b> docs/workshop/workshop-el.md · <b>Ανατροφοδότηση από το πιλοτικό:</b> docs/workshop/workshop-feedback.md</p>
+
+  <div class="footer">Εργαστήριο Orbital Architecture · v2.1.2 · orbarch-edu · ESERO · KTH</div>
+  </div>
+</body>
+</html>
