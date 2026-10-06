@@ -45,4 +45,15 @@ i18n
     }
   });
 
+// Keep <html lang> in sync with the active language so the browser applies
+// locale-aware typography (e.g. Greek uppercase accents), hyphenation and
+// assistive-technology pronunciation. `init` resolves asynchronously, so the
+// 'languageChanged' listener also covers the initial detection.
+const syncHtmlLang = (lng) => {
+  if (typeof document === 'undefined' || !lng) return;
+  document.documentElement.lang = lng.split('-')[0];
+};
+i18n.on('languageChanged', syncHtmlLang);
+syncHtmlLang(i18n.language);
+
 export default i18n; 

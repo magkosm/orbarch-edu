@@ -140,7 +140,7 @@ function ResourceManagementTaskComponent({
   isEnabled = true,
   autoEvents = false
 }, ref) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const containerRef = useRef(null);
   const [tanks, setTanks] = useState(INITIAL_STATE.tanks);
   const [pumps, setPumps] = useState(INITIAL_STATE.pumps);
@@ -1028,7 +1028,7 @@ function ResourceManagementTaskComponent({
         fontWeight: 'bold',
         flexShrink: 0 // Prevent title from shrinking
       }}>
-        <div>{t('tasks.resource.title').toUpperCase()}</div>
+        <div>{t('tasks.resource.title').toLocaleUpperCase(i18n.language)}</div>
       </div>
 
 

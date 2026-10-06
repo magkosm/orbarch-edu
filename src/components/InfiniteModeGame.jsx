@@ -245,10 +245,10 @@ const InfiniteModeGame = ({
         color: 'white'
       }}>
         <div>
-          <strong>{t('mainMenu.timeSurvived', 'Time Survived')}: </strong>{formatTimeElapsed()}
+          <strong>{t('gameOver.timeSurvived', 'Time Survived')}: </strong>{formatTimeElapsed()}
         </div>
         <div>
-          <strong>{t('tasks.performance.health', 'Health')}: </strong>{healthRef.current !== undefined ? Math.floor(healthRef.current) : 100}
+          <strong>{t('systemStatus.health', 'Health')}: </strong>{healthRef.current !== undefined ? Math.floor(healthRef.current) : 100}
         </div>
         <button
           onClick={handleQuit}
@@ -283,8 +283,8 @@ const InfiniteModeGame = ({
           zIndex: 2000,
           pointerEvents: 'auto'
         }}>
-          <h2>Game Over</h2>
-          <p>Time Survived: {formatTimeElapsed()}</p>
+          <h2>{t('gameOver.title')}</h2>
+          <p>{t('gameOver.timeSurvived')}: {formatTimeElapsed()}</p>
 
           {showScoreSaveForm ? (
             <div style={{ width: '100%', maxWidth: '400px', pointerEvents: 'auto' }}>
@@ -310,7 +310,7 @@ const InfiniteModeGame = ({
                 pointerEvents: 'auto'
               }}
             >
-              Return to Menu
+              {t('common.returnToMenu')}
             </button>
           )}
         </div>

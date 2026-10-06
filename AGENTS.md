@@ -9,7 +9,7 @@ Browser-based cognitive assessment battery for the **Orbital Architecture** rese
 (KTH Royal Institute of Technology / ESERO Sweden, PI: Michail Magkos `magkos@kth.se`).
 Used aboard the ISS (ESA astronaut Marcus Wandt, Muninn mission) and in MDRS analog missions.
 
-- **Version:** `package.json` is the source of truth (currently 2.1.1).
+- **Version:** `package.json` is the source of truth (currently 2.1.2).
 - **Live site:** https://magkosm.github.io/orbarch-edu (GitHub Pages, `gh-pages` branch).
 - **Repo:** https://github.com/magkosm/orbarch-edu (note: local folder is `matb-web-test`).
 - **License:** MIT © KTH / ESERO Sweden / Michail Magkos.
@@ -57,7 +57,9 @@ src/
 ├── assets/flags/{us,sv,el}.svg
 └── backgrounds/          # Cupola.jpg, Columbus.jpg, CASA.jpeg
 public/                   # index.html, 404.html (SPA redirect shim), manifest.json, favicon, logos
-scripts/                  # scaffold_new_language.sh, generate_comms.py, generate_nback_sounds.py
+public/educators/         # GENERATED educator hub (static, served at /educators/) — rebuild with scripts/build_educators.py
+scripts/                  # scaffold_new_language.sh, generate_comms.py, generate_nback_sounds.py,
+                          # build_educators.py + educators/ (content.json, capture_screenshots.js, README.md)
 docs/                     # workshop/ is tracked; other docs are gitignored (see .gitignore)
 build/                    # gitignored production output
 ```
@@ -126,6 +128,9 @@ npm run deploy    # build + push ./build to gh-pages branch
 - **Browserslist** in `package.json` controls the build target — don't narrow it without checking the deployed audience.
 - **Commit policy** (`CONTRIBUTING.md`): commit early/often, keep `master` always buildable, descriptive messages.
 - **`docs/*` is gitignored except `docs/workshop/`** — don't add random docs to `docs/` root; they won't be tracked.
+- **Educator hub (`public/educators/`) is generated** from `scripts/educators/content.json` + `docs/workshop/**` + screenshots.
+  After changing workshop materials or hub texts run `python3 scripts/build_educators.py`; after UI/locale changes also
+  regenerate screenshots (see `scripts/educators/README.md`). Never hand-edit `public/educators/`.
 
 ## Files that are safe to ignore (stale backups, gitignored cruft)
 

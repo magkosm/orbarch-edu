@@ -190,12 +190,14 @@ const MatbResults = ({ logs, finalScore }) => {
         downloadCSV(summaryData, `matb_summary_${timestamp}`);
     };
 
-    const performanceOptions = {
+    // Chart options are built inside the component (memoised on `t`) so their
+    // titles re-render when the language changes.
+    const performanceOptions = useMemo(() => ({
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
             legend: { position: 'top', labels: { color: 'white' } },
-            title: { display: true, text: 'System Performance Over Time', color: 'white' }
+            title: { display: true, text: t('matbResults.perfOverTime', 'System performance over time'), color: 'white' }
         },
         scales: {
             y: {
@@ -204,7 +206,7 @@ const MatbResults = ({ logs, finalScore }) => {
                 position: 'left',
                 min: 0,
                 max: 100,
-                title: { display: true, text: 'Load (%)', color: 'white' },
+                title: { display: true, text: t('matbResults.load', 'Load (%)'), color: 'white' },
                 ticks: { color: 'white' },
                 grid: { color: 'rgba(255, 255, 255, 0.1)' }
             },
@@ -217,7 +219,7 @@ const MatbResults = ({ logs, finalScore }) => {
                 min: 0,
                 max: 100,
                 grid: { drawOnChartArea: false },
-                title: { display: true, text: 'Health (%)', color: 'white' },
+                title: { display: true, text: t('matbResults.health', 'Health (%)'), color: 'white' },
                 ticks: { color: 'white' }
             },
             x: {
@@ -225,7 +227,7 @@ const MatbResults = ({ logs, finalScore }) => {
                 grid: { color: 'rgba(255, 255, 255, 0.1)' }
             }
         }
-    };
+    }), [t]);
 
     // Helper for Pie Charts
     const createPieData = (accData, label) => ({
@@ -283,26 +285,26 @@ const MatbResults = ({ logs, finalScore }) => {
         };
     }, [logs.tracking, t]);
 
-    const trackingOptions = {
+    const trackingOptions = useMemo(() => ({
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
             legend: { position: 'top', labels: { color: 'white' } },
-            title: { display: true, text: 'Tracking Performance (Lower is Better)', color: 'white' }
+            title: { display: true, text: t('matbResults.trackingPerf', 'Tracking Performance (Lower is Better)'), color: 'white' }
         },
         scales: {
             y: {
                 min: 0,
                 grid: { color: 'rgba(255, 255, 255, 0.1)' },
                 ticks: { color: 'white' },
-                title: { display: true, text: 'RMS Error', color: 'white' }
+                title: { display: true, text: t('matbResults.rmsError', 'RMS Error'), color: 'white' }
             },
             x: {
                 ticks: { color: 'white' },
                 grid: { color: 'rgba(255, 255, 255, 0.1)' }
             }
         }
-    };
+    }), [t]);
 
     return (
         <div style={{ width: '100%', color: 'white' }}>
@@ -320,7 +322,7 @@ const MatbResults = ({ logs, finalScore }) => {
                         borderRadius: '4px'
                     }}
                 >
-                    {t('scoreboard.saveScore')} (CSV)
+                    {t('matbResults.exportCsv', 'Export data (CSV)')}
                 </button>
             </div>
 
@@ -329,7 +331,7 @@ const MatbResults = ({ logs, finalScore }) => {
                 {performanceChartData ? (
                     <Line data={performanceChartData} options={performanceOptions} />
                 ) : (
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>No performance data</div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>{t('matbResults.noPerfData', 'No performance data')}</div>
                 )}
             </div>
 
@@ -338,7 +340,7 @@ const MatbResults = ({ logs, finalScore }) => {
                 {trackingChartData ? (
                     <Line data={trackingChartData} options={trackingOptions} />
                 ) : (
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>No tracking performance data</div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>{t('matbResults.noTrackingData', 'No tracking performance data')}</div>
                 )}
             </div>
 

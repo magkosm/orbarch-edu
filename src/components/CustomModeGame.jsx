@@ -314,9 +314,9 @@ const CustomModeGame = ({
             textAlign: 'center',
             maxWidth: '80%'
           }}>
-            <h2 style={{ marginBottom: '20px' }}>Game Over</h2>
-            <p style={{ fontSize: '24px', marginBottom: '10px' }}>Final Score: {Math.floor(score)}</p>
-            <p style={{ marginBottom: '30px' }}>This was a Custom Mode game with personalized settings.</p>
+            <h2 style={{ marginBottom: '20px' }}>{t('gameOver.title')}</h2>
+            <p style={{ fontSize: '24px', marginBottom: '10px' }}>{t('gameOver.finalScore')}: {Math.floor(score)}</p>
+            <p style={{ marginBottom: '30px' }}>{t('gameOver.customModeNote', 'This was a Custom Mode run with your own settings.')}</p>
 
             <button
               onClick={handleReturnToMenu}
@@ -330,7 +330,7 @@ const CustomModeGame = ({
                 cursor: 'pointer'
               }}
             >
-              Return to Main Menu
+              {t('common.returnToMenu')}
             </button>
           </div>
         </div>

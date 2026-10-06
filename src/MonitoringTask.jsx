@@ -42,7 +42,7 @@ function MonitoringTask({
   autoEvents = false,
   onPenalty
 }, ref) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   // ---------------------
   // 1) STATE & REFS
   // ---------------------
@@ -897,7 +897,7 @@ function MonitoringTask({
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <div>{t('tasks.monitoring.title').toUpperCase()}</div>
+        <div>{t('tasks.monitoring.title').toLocaleUpperCase(i18n.language)}</div>
       </div>
 
       {/* Debug metrics panel - can be toggled */}

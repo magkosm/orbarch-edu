@@ -1,4 +1,4 @@
-# MATB Web Test - Direct Access Links
+# Orbital Architecture — Direct Access Links
 
 This document provides explicit links to all simulation modes with pre-set language configurations.
 
@@ -25,19 +25,28 @@ This document provides explicit links to all simulation modes with pre-set langu
 - **N-Back Test**: [https://magkosm.github.io/orbarch-edu/nback?lng=en](https://magkosm.github.io/orbarch-edu/nback?lng=en)
 - **N-Back (Quick Start)**: [https://magkosm.github.io/orbarch-edu/nbackdefault?lng=en](https://magkosm.github.io/orbarch-edu/nbackdefault?lng=en)
 - **Full Orbital Suite**: [https://magkosm.github.io/orbarch-edu/suite?lng=en](https://magkosm.github.io/orbarch-edu/suite?lng=en)
+- **Architecture Simulator**: https://magkosm.github.io/orbarch-edu/simulator?lng=en
+- **Blueprint Designer**: https://magkosm.github.io/orbarch-edu/blueprint?lng=en
+- **Condition Lab**: https://magkosm.github.io/orbarch-edu/condition-lab?lng=en
+- **Model Lab**: https://magkosm.github.io/orbarch-edu/model-lab?lng=en
 
 ### 🇬🇷 Greek Links (ελληνικά)
 - **Κύριο Μενού**: [https://magkosm.github.io/orbarch-edu?lng=el](https://magkosm.github.io/orbarch-edu?lng=el)
 - **Κανονική Λειτουργία (5 λεπτά)**: [https://magkosm.github.io/orbarch-edu/normal?lng=el](https://magkosm.github.io/orbarch-edu/normal?lng=el)
 - **Γρήγορη Δοκιμή (2 λεπτά)**: [https://magkosm.github.io/orbarch-edu/2min?lng=el](https://magkosm.github.io/orbarch-edu/2min?lng=el)
 - **Εργασία Επικοινωνιών**: [https://magkosm.github.io/orbarch-edu/comms?lng=el](https://magkosm.github.io/orbarch-edu/comms?lng=el)
-- **Εργασία Παρακολούθησης**: [https://magkosm.github.io/orbarch-edu/monitoring?lng=el](https://magkosm.github.io/orbarch-edu/monitoring?lng=el)
-- **Εργασία Ανίχνευσης**: [https://magkosm.github.io/orbarch-edu/tracking?lng=el](https://magkosm.github.io/orbarch-edu/tracking?lng=el)
+- **Παρακολούθηση συστήματος**: [https://magkosm.github.io/orbarch-edu/monitoring?lng=el](https://magkosm.github.io/orbarch-edu/monitoring?lng=el)
+- **Εργασία ιχνηλάτησης**: [https://magkosm.github.io/orbarch-edu/tracking?lng=el](https://magkosm.github.io/orbarch-edu/tracking?lng=el)
 - **Διαχείριση Πόρων**: [https://magkosm.github.io/orbarch-edu/resource?lng=el](https://magkosm.github.io/orbarch-edu/resource?lng=el)
 - **Χρόνος Αντίδρασης**: [https://magkosm.github.io/orbarch-edu/reaction?lng=el](https://magkosm.github.io/orbarch-edu/reaction?lng=el)
 - **Χρόνος Αντίδρασης (Γρήγορη Εκκίνηση)**: [https://magkosm.github.io/orbarch-edu/reaction-default?lng=el](https://magkosm.github.io/orbarch-edu/reaction-default?lng=el)
 - **N-Back Δοκιμή**: [https://magkosm.github.io/orbarch-edu/nback?lng=el](https://magkosm.github.io/orbarch-edu/nback?lng=el)
 - **N-Back (Γρήγορη Εκκίνηση)**: [https://magkosm.github.io/orbarch-edu/nbackdefault?lng=el](https://magkosm.github.io/orbarch-edu/nbackdefault?lng=el)
+- **Προσομοιωτής αρχιτεκτονικής**: https://magkosm.github.io/orbarch-edu/simulator?lng=el
+- **Σχεδιαστής κάτοψης**: https://magkosm.github.io/orbarch-edu/blueprint?lng=el
+- **Εργαστήριο συνθηκών**: https://magkosm.github.io/orbarch-edu/condition-lab?lng=el
+- **Εργαστήριο μοντέλων**: https://magkosm.github.io/orbarch-edu/model-lab?lng=el
+- **Πλήρης σειρά δοκιμασιών**: https://magkosm.github.io/orbarch-edu/suite?lng=el
 
 ### 🇸🇪 Swedish Links (svenska)
 - **Huvudmeny**: [https://magkosm.github.io/orbarch-edu?lng=sv](https://magkosm.github.io/orbarch-edu?lng=sv)
@@ -45,6 +54,11 @@ This document provides explicit links to all simulation modes with pre-set langu
 - **Snabbtest (2 min)**: [https://magkosm.github.io/orbarch-edu/2min?lng=sv](https://magkosm.github.io/orbarch-edu/2min?lng=sv)
 - **Kommunikationsuppgift**: [https://magkosm.github.io/orbarch-edu/comms?lng=sv](https://magkosm.github.io/orbarch-edu/comms?lng=sv)
 - **Övervakningsuppgift**: [https://magkosm.github.io/orbarch-edu/monitoring?lng=sv](https://magkosm.github.io/orbarch-edu/monitoring?lng=sv)
+- **Arkitektursimulator**: https://magkosm.github.io/orbarch-edu/simulator?lng=sv
+- **Ritningsdesigner**: https://magkosm.github.io/orbarch-edu/blueprint?lng=sv
+- **Förhållandelabb**: https://magkosm.github.io/orbarch-edu/condition-lab?lng=sv
+- **Modellabb**: https://magkosm.github.io/orbarch-edu/model-lab?lng=sv
+- **Hela testsviten**: https://magkosm.github.io/orbarch-edu/suite?lng=sv
 - **Spårningsuppgift**: [https://magkosm.github.io/orbarch-edu/tracking?lng=sv](https://magkosm.github.io/orbarch-edu/tracking?lng=sv)
 - **Resurshantering**: [https://magkosm.github.io/orbarch-edu/resource?lng=sv](https://magkosm.github.io/orbarch-edu/resource?lng=sv)
 - **Reaktionstid**: [https://magkosm.github.io/orbarch-edu/reaction?lng=sv](https://magkosm.github.io/orbarch-edu/reaction?lng=sv)

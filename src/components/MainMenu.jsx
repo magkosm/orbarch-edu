@@ -940,6 +940,14 @@ const MainMenu = ({ onStartGame, onExitApp, gameResults }) => {
             'Led by Michail Magkos, KTH \u00B7 in collaboration with ESERO Sweden \u00B7 MIT License'
           )}
         </div>
+        <div style={{ marginTop: '8px' }}>
+          <a
+            href={`${process.env.PUBLIC_URL}/educators/`}
+            style={{ color: '#8ec5ff', textDecoration: 'none' }}
+          >
+            {t('mainMenu.educators', 'For educators: workshop materials & guides')}
+          </a>
+        </div>
         <div style={{ marginTop: '4px', opacity: 0.6 }}>
           {t(
             'mainMenu.usage',

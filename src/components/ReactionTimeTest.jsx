@@ -14,33 +14,36 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 const DEBUG_MODE = false;
 
 // Helper component for showing keyboard shortcuts
-const KeyboardShortcut = ({ keys, description, onClick }) => (
-  <div
-    style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      margin: '5px 0',
-      fontSize: '14px',
-      opacity: '0.9',
-      cursor: onClick ? 'pointer' : 'default'
-    }}
-    onClick={onClick}
-    title={onClick ? "Click to execute this command" : ""}
-  >
-    <span style={{ marginRight: '8px' }}>{description}:</span>
-    {keys.map((key, index) => (
-      <React.Fragment key={index}>
-        {index > 0 && <span style={{ margin: '0 4px' }}>+</span>}
-        <span style={{
-          backgroundColor: 'rgba(255,255,255,0.2)',
-          padding: '2px 6px',
-          borderRadius: '4px',
-          fontFamily: 'monospace'
-        }}>{key}</span>
-      </React.Fragment>
-    ))}
-  </div>
-);
+const KeyboardShortcut = ({ keys, description, onClick }) => {
+  const { t } = useTranslation();
+  return (
+    <div
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        margin: '5px 0',
+        fontSize: '14px',
+        opacity: '0.9',
+        cursor: onClick ? 'pointer' : 'default'
+      }}
+      onClick={onClick}
+      title={onClick ? t('common.clickToExecute', 'Click to execute this command') : ''}
+    >
+      <span style={{ marginRight: '8px' }}>{description}:</span>
+      {keys.map((key, index) => (
+        <React.Fragment key={index}>
+          {index > 0 && <span style={{ margin: '0 4px' }}>+</span>}
+          <span style={{
+            backgroundColor: 'rgba(255,255,255,0.2)',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            fontFamily: 'monospace'
+          }}>{key}</span>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+};
 
 const ReactionTimeTest = ({
   duration = 30000, // 30 seconds default
@@ -966,7 +969,7 @@ const ReactionTimeTest = ({
                 borderRadius: '4px'
               }}
             >
-              Export Data
+              {t('reactionTest.exportData', 'Export data')}
             </button>
 
             <button

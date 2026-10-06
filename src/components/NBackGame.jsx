@@ -140,7 +140,7 @@ const NBackGame = ({ onReturn }) => {
 
             <div style={{ marginBottom: '20px' }}>
               <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>
-                {t('nbackTest.trials', 'Number of Trials')}:
+                {t('nbackTest.trialCountLabel', 'Number of trials')}:
               </label>
               <input
                 type="range"

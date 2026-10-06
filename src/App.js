@@ -44,7 +44,7 @@ export const getTrackingInputMode = () => {
 };
 
 function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   // -------------------------
   // 1) STATE & HANDLERS
@@ -601,10 +601,10 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
   // Handle exiting the application (can't be fully implemented in a web app)
   const handleExitApp = () => {
     // In a web app, we can only show a confirmation or redirect
-    if (window.confirm('Are you sure you want to exit the application? This will close the browser tab.')) {
+    if (window.confirm(t('common.exitConfirm', 'Are you sure you want to exit the application? This will close the browser tab.'))) {
       window.close(); // This may be blocked by browsers without user interaction
       // As a fallback, we can redirect to a blank page or show a message
-      document.body.innerHTML = '<h1>Thanks for using MATB-II Simulation</h1><p>You can now close this tab.</p>';
+      document.body.innerHTML = `<h1>${t('common.exitThanks', 'Thanks for using Orbital Architecture Web Assessments')}</h1><p>${t('common.exitCloseTab', 'You can now close this tab.')}</p>`;
     }
   };
 
@@ -850,7 +850,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
         <button
           onClick={toggleFullscreen}
           title={t('common.fullscreen', 'Fullscreen')}
-          aria-label="Toggle fullscreen"
+          aria-label={t('common.fullscreen', 'Fullscreen')}
           style={{
             position: 'fixed',
             bottom: '10px',
@@ -1321,7 +1321,7 @@ function App({ isSuiteMode = false, suiteParams = null, onSuiteEnd = null }) {
                 fontSize: '12px'
               }}
             >
-              {t('common.background').substring(0, 2).toUpperCase()}
+              {t('common.background').substring(0, 2).toLocaleUpperCase(i18n.language)}
             </button>
             {showBackgroundSelector && (
               <div style={{

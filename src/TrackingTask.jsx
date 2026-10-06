@@ -35,7 +35,7 @@ const TrackingTask = forwardRef(({
   autoEvents = false,
   defaultInputMode
 }, ref) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [targetPosition, _setTargetPosition] = useState({ x: 0, y: 0 });
 
@@ -805,7 +805,7 @@ const TrackingTask = forwardRef(({
         padding: '0.5rem',
         fontWeight: 'bold'
       }}>
-        {t('tasks.tracking.title').toUpperCase()} - {isAuto ? t('tasks.tracking.auto') : t('tasks.tracking.manual')}
+        {t('tasks.tracking.title').toLocaleUpperCase(i18n.language)} - {isAuto ? t('tasks.tracking.auto') : t('tasks.tracking.manual')}
       </div>
 
       <div
@@ -862,7 +862,7 @@ const TrackingTask = forwardRef(({
             borderRadius: '4px',
             fontSize: '0.8rem'
           }}>
-            {isAuto ? 'AUTO' : 'MANUAL'}
+            {isAuto ? t('tasks.tracking.auto') : t('tasks.tracking.manual')}
           </div>
           <div
             style={{

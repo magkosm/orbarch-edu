@@ -1279,8 +1279,8 @@ const NBackTest = ({
 
     return (
       <div style={styles.nbackResults}>
-        <h2>N-Back Test Results</h2>
-        <p>Test completed with N = {n} ({n}-back)</p>
+        <h2>{t('nbackTest.results', 'N-Back Test Results')}</h2>
+        <p>{t('nbackTest.completedWithN', 'Test completed with N = {{n}}', { n })}</p>
 
         <div style={styles.resultsSection}>
           <h3>{t('nbackTest.traditionalAccuracy', 'Traditional Accuracy')}</h3>
@@ -1295,11 +1295,11 @@ const NBackTest = ({
                 <td style={styles.tableCell}>{metrics.dim2Accuracy}%</td>
               </tr>
               <tr style={styles.tableRow}>
-                <td style={styles.tableCell}>Letter Average RT:</td>
+                <td style={styles.tableCell}>{t('nbackTest.letterAvgRt', 'Letter Average RT')}:</td>
                 <td style={styles.tableCell}>{metrics.dim1AvgRT} ms</td>
               </tr>
               <tr style={styles.tableRow}>
-                <td style={styles.tableCell}>Position Average RT:</td>
+                <td style={styles.tableCell}>{t('nbackTest.positionAvgRt', 'Position Average RT')}:</td>
                 <td style={styles.tableCell}>{metrics.dim2AvgRT} ms</td>
               </tr>
               <tr style={{ ...styles.tableRow, ...styles.overallScore }}>
@@ -1375,7 +1375,7 @@ const NBackTest = ({
 
         {showSaveForm && (
           <div style={styles.saveForm}>
-            <h3>{t('reactionTest.results', 'Save Your Score')}</h3>
+            <h3>{t('nbackTest.saveScore', 'Save your score')}</h3>
             <input
               style={styles.input}
               type="text"
@@ -1387,13 +1387,13 @@ const NBackTest = ({
               style={styles.button}
               onClick={() => handleSaveScore(calculatedResults)}
             >
-              Submit
+              {t('gameOver.submit')}
             </button>
             <button
               style={{ ...styles.button, ...styles.cancelButton }}
               onClick={() => setShowSaveForm(false)}
             >
-              Cancel
+              {t('common.cancel')}
             </button>
           </div>
         )}
@@ -1409,7 +1409,7 @@ const NBackTest = ({
             style={{ ...styles.button, backgroundColor: '#17a2b8' }}
             onClick={handleExportData}
           >
-            Export Data
+            {t('nbackTest.exportData', 'Export data')}
           </button>
           <button
             style={styles.button}
@@ -1421,7 +1421,7 @@ const NBackTest = ({
             style={{ ...styles.button, backgroundColor: '#007BFF' }}
             onClick={handleMainMenuReturn}
           >
-            Return to Menu
+            {t('common.returnToMenu')}
           </button>
         </div>
 
@@ -1653,32 +1653,35 @@ const NBackTest = ({
 };
 
 // Helper component for showing keyboard shortcuts
-const KeyboardShortcut = ({ keys, description, onClick }) => (
-  <div
-    style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      margin: '5px 0',
-      fontSize: '14px',
-      opacity: '0.9',
-      cursor: onClick ? 'pointer' : 'default'
-    }}
-    onClick={onClick}
-    title={onClick ? "Click to execute this command" : ""}
-  >
-    <span style={{ marginRight: '8px' }}>{description}:</span>
-    {keys.map((key, index) => (
-      <React.Fragment key={index}>
-        {index > 0 && <span style={{ margin: '0 4px' }}>+</span>}
-        <span style={{
-          backgroundColor: 'rgba(255,255,255,0.2)',
-          padding: '2px 6px',
-          borderRadius: '4px',
-          fontFamily: 'monospace'
-        }}>{key}</span>
-      </React.Fragment>
-    ))}
-  </div>
-);
+const KeyboardShortcut = ({ keys, description, onClick }) => {
+  const { t } = useTranslation();
+  return (
+    <div
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        margin: '5px 0',
+        fontSize: '14px',
+        opacity: '0.9',
+        cursor: onClick ? 'pointer' : 'default'
+      }}
+      onClick={onClick}
+      title={onClick ? t('common.clickToExecute', 'Click to execute this command') : ''}
+    >
+      <span style={{ marginRight: '8px' }}>{description}:</span>
+      {keys.map((key, index) => (
+        <React.Fragment key={index}>
+          {index > 0 && <span style={{ margin: '0 4px' }}>+</span>}
+          <span style={{
+            backgroundColor: 'rgba(255,255,255,0.2)',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            fontFamily: 'monospace'
+          }}>{key}</span>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+};
 
 export default NBackTest; 

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-tpl>Orbital Architecture — reader</title>
+<meta name="titles" content='{&quot;en&quot;: &quot;Orbital Architecture — reader&quot;, &quot;sv&quot;: &quot;Orbital Architecture — läsare&quot;, &quot;el&quot;: &quot;Orbital Architecture — ανάγνωση&quot;}'>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.ico">
+<link rel="stylesheet" href="educators.css">
+
+</head>
+<body>
+<header class="top"><div class="wrap topbar">
+  <a class="brand" href="index.html">Orbital Architecture <small><span data-l="en" class="l-en">Home</span><span data-l="sv" class="l-sv">Hem</span><span data-l="el" class="l-el">Αρχική</span></small></a>
+  <nav class="main"><a href="index.html"><span data-l="en" class="l-en">Home</span><span data-l="sv" class="l-sv">Hem</span><span data-l="el" class="l-el">Αρχική</span></a><a href="index.html#materials"><span data-l="en" class="l-en">Materials</span><span data-l="sv" class="l-sv">Material</span><span data-l="el" class="l-el">Υλικό</span></a><a href="index.html#guides"><span data-l="en" class="l-en">Guides</span><span data-l="sv" class="l-sv">Guider</span><span data-l="el" class="l-el">Οδηγοί</span></a><a href="index.html#links"><span data-l="en" class="l-en">Links &amp; QR</span><span data-l="sv" class="l-sv">Länkar &amp; QR</span><span data-l="el" class="l-el">Σύνδεσμοι &amp; QR</span></a><a href="feedback.html"><span data-l="en" class="l-en">Feedback</span><span data-l="sv" class="l-sv">Återkoppling</span><span data-l="el" class="l-el">Ανατροφοδότηση</span></a><a href="https://magkosm.github.io/orbarch-edu" data-lng-link="https://magkosm.github.io/orbarch-edu/" target="_blank" rel="noopener"><span data-l="en" class="l-en">Open the app</span><span data-l="sv" class="l-sv">Öppna appen</span><span data-l="el" class="l-el">Άνοιγμα της εφαρμογής</span> ↗</a></nav>
+  <div class="langs" aria-label="Language"><button type="button" data-lang="en" aria-pressed="false">English</button><button type="button" data-lang="sv" aria-pressed="false">Svenska</button><button type="button" data-lang="el" aria-pressed="false">Ελληνικά</button></div>
+</div></header>
+
+<section class="block"><div class="wrap md" id="md"><p id="mdStatus">…</p></div></section>
+
+<footer><div class="wrap"><span data-l="en" class="l-en">Orbital Architecture · KTH Royal Institute of Technology &amp; ESERO Sweden · MIT License · Materials v2.1.2</span><span data-l="sv" class="l-sv">Orbital Architecture · KTH Kungliga Tekniska högskolan &amp; ESERO Sverige · MIT-licens · Material v2.1.2</span><span data-l="el" class="l-el">Orbital Architecture · KTH Royal Institute of Technology &amp; ESERO Sweden · Άδεια MIT · Υλικό v2.1.2</span></div></footer>
+<script src="educators.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script>
+(function(){
+  var f=new URLSearchParams(location.search).get('f')||'README.md';
+  if(/^\/|\.\.|:\/\//.test(f)) f='README.md';
+  var base='materials/'; var dir=f.indexOf('/')>=0?f.slice(0,f.lastIndexOf('/')+1):'';
+  var box=document.getElementById('md');
+  function resolve(href){
+    if(/^(https?:|mailto:|#)/.test(href)) return href;
+    var path=dir+href; var parts=[]; path.split('/').forEach(function(p){if(p==='..')parts.pop();else if(p!=='.'&&p!=='')parts.push(p);});
+    path=parts.join('/');
+    if(/\.md(#.*)?$/.test(path)){var h=path.indexOf('#');var frag=h>=0?path.slice(h):'';if(h>=0)path=path.slice(0,h);return 'view.html?f='+encodeURIComponent(path)+frag;}
+    return base+path;
+  }
+  fetch(base+f).then(function(r){if(!r.ok)throw new Error(r.status);return r.text();}).then(function(txt){
+    if(!window.marked){box.innerHTML='<p>Could not load the Markdown renderer. <a href="'+base+f+'">Open the file directly</a>.</p>';return;}
+    var renderer=new marked.Renderer();
+    var oldLink=renderer.link.bind(renderer), oldImg=renderer.image.bind(renderer);
+    renderer.link=function(h,t,x){ if(typeof h==='object'){h.href=resolve(h.href);return oldLink(h);} return oldLink(resolve(h),t,x);};
+    renderer.image=function(h,t,x){ if(typeof h==='object'){h.href=resolve(h.href);return oldImg(h);} return oldImg(resolve(h),t,x);};
+    box.innerHTML=marked.parse(txt,{renderer:renderer,gfm:true});
+    var h1=box.querySelector('h1'); if(h1) document.title=h1.textContent+' — Orbital Architecture';
+    var top=document.createElement('p'); top.innerHTML='<a href="'+base+f+'" download>⬇ '+f+'</a>'; box.insertBefore(top, box.firstChild);
+    if(location.hash){var el=document.getElementById(location.hash.slice(1)); if(el) el.scrollIntoView();}
+  }).catch(function(e){box.innerHTML='<p>Not found: '+f+'</p>';});
+})();
+</script>
+</body>
+</html>

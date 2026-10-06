@@ -30,11 +30,24 @@
     "background": "Background",
     "hideControls": "Hide Controls",
     "showControls": "Show Controls",
-    "close": "Close"
+    "close": "Close",
+    "stop": "Stop",
+    "pause": "Pause",
+    "resume": "Resume",
+    "score": "Score",
+    "gameOver": "Game Over",
+    "simulationComplete": "Simulation Complete",
+    "saving": "Saving...",
+    "fullscreen": "Fullscreen",
+    "fullscreenHint": "Fullscreen isn’t available in this browser. On iPhone: tap the Share button, then “Add to Home Screen”, and open it from the new icon for a fullscreen experience.",
+    "exitConfirm": "Are you sure you want to exit the application? This will close the browser tab.",
+    "exitThanks": "Thanks for using Orbital Architecture Web Assessments",
+    "exitCloseTab": "You can now close this tab.",
+    "clickToExecute": "Click to execute this command"
   },
   "instructionsOverlay": {
     "title": "Orbital Architecture – Multitasking",
-    "intro": "In this test you will practice doing multiple things at once.\nThe screen is divided into 5 parts; one part shows your System Status, and four tasks (System Monitoring, Tracking auto, Communication task, Resource Management) that you need to keep track of.",
+    "intro": "In this test you will practice doing several things at once.\nThe screen is divided into 5 parts: one shows your System Status, and the other four show the tasks you need to keep track of (System Monitoring, Tracking, Communications, Resource Management).",
     "sysStatTitle": "System Status",
     "sysStat": "System status shows how your entire system is performing.\nBy monitoring and solving the four different tasks, you try to keep the system Health as high as possible and the Load as low as possible.\nWe will now go through the different tasks and practice them one by one before trying them all simultaneously.",
     "sysMonTitle": "System Monitoring",
@@ -42,12 +55,13 @@
     "trackTitle": "Tracking – Auto",
     "track": "In this task, you must correct the cursor drift so it stays within the small square in the center.\nWhen the green box with 'AUTO' turns blue with the text 'MANUAL', you need to manually correct the cursor position to keep it within the central square.\nYou control the cursor position with the WASD keys (W=up; A=left; S=down; D=right) or by clicking/touching and dragging.",
     "commTitle": "Communication Task",
-    "comm": "In this task you must respond to audio instructions about changing radio frequencies. Some messages are addressed to you (your callsign), but you must ignore others (addressed to other callsigns).\nYour callsign is written at the top of the task (ESA504).\n\nControls:\n1. To select the radio to change, use [UP] and [DOWN] arrow keys.\n2. To change the frequency (number) for the selected radio, use [RIGHT] and [LEFT] arrow keys.",
+    "comm": "In this task you must respond to audio instructions about changing radio frequencies. Some messages are addressed to you (your callsign), but you must ignore others (addressed to other callsigns).\nYour callsign is written at the top of the task (ESA504).\n\nControls — Keyboard: [UP]/[DOWN] select a radio, [LEFT]/[RIGHT] change its frequency. Touch: tap the − / + buttons next to each radio.",
     "resManTitle": "Resource Management",
-    "resMan": "In this task you must maintain levels in the two main tanks (A and B) by using a set of reserve tanks and pumps, each with specific flow rates.\nYour task is to toggle numbered pumps on and off to get tanks A and B as close to their normal levels as possible.\nNormal levels for A and B tanks are indicated by the red line through the tank.\nPumps can sometimes fail, indicated by turning red.\nFlow rates for different pumps are shown below the respective pump (when active).\n\nControls:\nTo turn pumps on or off, use the number keys corresponding to the pump number.",
+    "resMan": "In this task you must maintain levels in the two main tanks (A and B) by using a set of reserve tanks and pumps, each with specific flow rates.\nYour task is to toggle numbered pumps on and off to get tanks A and B as close to their normal levels as possible.\nNormal levels for A and B tanks are indicated by the red line through the tank.\nPumps can sometimes fail, indicated by turning red.\nFlow rates for different pumps are shown below the respective pump (when active).\n\nControls:\nTo turn a pump on or off, press its number key or tap the pump.",
     "multiTitle": "Multitasking",
     "multi": "The challenge is now to do all these tasks simultaneously.\nGood luck!",
-    "ready": "I Understand - Start Practice"
+    "ready": "I understand — Start",
+    "startPractice": "I understand — Start practice"
   },
   "suite": {
     "matbEasy": "MATB - Easy Difficulty",
@@ -71,8 +85,8 @@
     "load": "Load"
   },
   "mainMenu": {
-    "title": "MATB-II Simulation",
-    "subtitle": "Multi-Attribute Task Battery for Human-Automation Interaction Research",
+    "title": "Orbital Architecture — Web Assessments",
+    "subtitle": "MATB-II multitasking, Reaction Time, N-Back and space-architecture design tools (KTH / ESERO)",
     "normalMode": "Normal Mode",
     "infiniteMode": "Infinite Mode",
     "infiniteDesc": "In Infinite Mode, you play until your health reaches zero. The difficulty increases faster than in Normal Mode. Your score is the time you survive.",
@@ -83,7 +97,7 @@
     "scoreboard": "Performance History",
     "changeBackground": "Change Background",
     "gameModeDescription": "Game Mode",
-    "pressStartToBegin": "Press 'Start Simulation' to begin",
+    "pressStartToBegin": "Choose a mode and press 'Start' to begin",
     "pressCtrlQToReturn": "During simulation, press Ctrl+Q to return to this menu",
     "presets": "Presets",
     "cognitiveTests": "Cognitive Tests",
@@ -93,11 +107,15 @@
     "2minTest": "Quick Test (2 min)",
     "2minDesc": "Quick validation run with all tasks enabled.",
     "standardRun": "Standard 10-Minute Run",
-    "standardDesc": "Full duration session for data collection."
+    "standardDesc": "Full duration session for data collection.",
+    "relatedProjects": "Orbital Architecture — related projects",
+    "credits": "Led by Michail Magkos, KTH · in collaboration with ESERO Sweden · MIT License",
+    "usage": "Flown on ESA mission Muninn (ISS) · ISAE-SUPAERO MDRS 275, 293, 311 & 330",
+    "educators": "For educators: workshop materials & guides"
   },
   "scoreboard": {
-    "title": "Top Performances",
-    "playerName": "Participant ID",
+    "title": "Performance History",
+    "playerName": "Participant ID / nickname",
     "score": "Performance Score",
     "time": "Time",
     "date": "Date",
@@ -109,8 +127,8 @@
     "scoreSaved": "Performance data saved",
     "newHighScore": "New High Score!",
     "yourScore": "Your score",
-    "enterName": "Enter your name:",
-    "yourName": "Your Name",
+    "enterName": "Enter your participant ID or nickname:",
+    "yourName": "ID / nickname",
     "saveScore": "Save Score",
     "anonymous": "Anonymous"
   },
@@ -121,7 +139,7 @@
   "reactionTest": {
     "title": "Reaction Time Test",
     "configTitle": "Reaction Time Test Configuration",
-    "instructions": "Test your reaction time by clicking or pressing SPACE as quickly as possible when you see a red dot.",
+    "instructions": "Test your reaction time: tap the screen (or press SPACE) as quickly as possible when the red dot appears.",
     "testDetails": "The test will last up to {{duration}} seconds with a maximum of {{maxStimuli}} stimuli.",
     "startTest": "Start Test",
     "duration": "Test Duration (seconds)",
@@ -149,12 +167,18 @@
     "tryAgain": "Try Again",
     "noReactionTimes": "No reaction times recorded",
     "limitByStimuli": "Limit by Stimuli",
-    "limitByTime": "Limit by Time"
+    "limitByTime": "Limit by Time",
+    "reactionTime": "Reaction Time (ms)",
+    "tryAgainToTest": "Try again to test your reaction time.",
+    "returnToMenu": "Return to main menu",
+    "forceStimulus": "Force Stimulus",
+    "scheduleNext": "Schedule Next",
+    "exportData": "Export data"
   },
   "nbackTest": {
     "title": "N-Back Test",
     "configTitle": "N-Back Test Configuration",
-    "instructions": "This is a dual n-back test with audio-visual and visuospatial components.",
+    "instructions": "This is a dual N-Back test with a letter component (heard and shown) and a position component (where the square appears).",
     "letterInstructions": "Press L if the current letter matches the letter from {{n}} steps ago.",
     "positionInstructions": "Press A if the current square position matches the position from {{n}} steps ago.",
     "testDetails": "The test will consist of {{trials}} stimuli presented for {{time}} seconds each.",
@@ -199,7 +223,17 @@
     "returnToMenu": "Return to main menu",
     "audioEnabled": "Audio Enabled",
     "audioOn": "Audio ON",
-    "audioOff": "Audio OFF"
+    "audioOff": "Audio OFF",
+    "saveScore": "Save your score",
+    "trialCountLabel": "Number of trials",
+    "completedWithN": "Test completed with N = {{n}}",
+    "letterAvgRt": "Letter average RT:",
+    "positionAvgRt": "Position average RT:",
+    "exportData": "Export data",
+    "hitRate": "Hit rate",
+    "faRate": "False alarm rate",
+    "progress": "Progress",
+    "level": "Level"
   },
   "training": {
     "commOnly": "Communications Training",
@@ -274,7 +308,7 @@
   "gameOver": {
     "title": "Simulation Complete",
     "score": "Previous Session Results",
-    "enterName": "Enter Participant ID",
+    "enterName": "Enter participant ID or nickname",
     "submit": "Save Data",
     "playAgain": "Restart Simulation",
     "mainMenu": "Main Menu",
@@ -283,7 +317,21 @@
     "inactive": "Inactive",
     "time": "Time",
     "currentScore": "Score",
-    "quit": "Quit Game"
+    "quit": "Quit Game",
+    "customModeNote": "This was a Custom Mode run with your own settings."
+  },
+  "matbResults": {
+    "perfOverTime": "System performance over time",
+    "load": "Load (%)",
+    "health": "Health (%)",
+    "trackingPerf": "Tracking performance (lower is better)",
+    "rmsError": "RMS error",
+    "noPerfData": "No performance data",
+    "noTrackingData": "No tracking performance data",
+    "exportRaw": "Export raw data",
+    "exportPlot": "Export plot data",
+    "exportCsv": "Export data (CSV)",
+    "noExportData": "No performance data available to export."
   },
   "simulator": {
     "menuButton": "Architecture Simulator",
@@ -321,14 +369,14 @@
     "clear": "Clear module",
     "loadScenario": "Load scenario",
     "reactionTime": "Simulated reaction time",
-    "rescued": "Rescued by {{ms}} ms vs. a neutral cabin",
+    "rescued": "{{ms}} ms faster than a neutral cabin",
     "slower": "{{ms}} ms slower than a neutral cabin",
     "missionSuccess": "Mission success",
     "cognition": "Crew cognition",
     "missionValue": "Mission value",
     "brief": "Mission brief",
     "entrance": "Entrance — modules need a clear corridor here",
-    "hoverHint": "Hover a feature to see what it does, then click the grid to place it.",
+    "hoverHint": "Tap (or hover) a feature to see what it does, then tap the grid to place it.",
     "metricsV": {
       "science": "Science",
       "health": "Health",
@@ -386,7 +434,7 @@
     "enterScore": "Enter final score",
     "comparison": "Comparison",
     "dropped": "Performance dropped {{pct}}% under noise.",
-    "held": "Performance held up ({{pct}}% change) under noise."
+    "held": "Performance held up or improved (+{{pct}}%) under noise."
   },
   "modelLab": {
     "menuButton": "Model Lab",
@@ -425,7 +473,7 @@
     "outcomePlaceholder": "e.g. Fatigue",
     "min": "Min",
     "max": "Max",
-    "initial": "Start",
+    "initial": "Start value",
     "newInput": "New input",
     "newOutcome": "New outcome",
     "interactions": "Interactions with inputs",

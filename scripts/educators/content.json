@@ -1,0 +1,1708 @@
+{
+  "_readme": "Source for the educator hub (public/educators). Every text is {en, sv, el}. Build with: python3 scripts/build_educators.py. Screenshots come from scripts/educators/README.md.",
+  "site": {
+    "title": {
+      "en": "Orbital Architecture — Educator hub",
+      "sv": "Orbital Architecture — Lärarportal",
+      "el": "Orbital Architecture — Πύλη εκπαιδευτικών"
+    },
+    "tagline": {
+      "en": "Everything a teacher needs to run the workshop “The Architect's Mind in Orbit”: plans, print materials, screenshot guides for every tool, QR links and a feedback form.",
+      "sv": "Allt en lärare behöver för att genomföra workshopen ”Arkitektens sinne i omloppsbana”: plan, utskriftsmaterial, skärmbildsguider för varje verktyg, QR-länkar och ett återkopplingsformulär.",
+      "el": "Όλα όσα χρειάζεται ένας εκπαιδευτικός για να υλοποιήσει το εργαστήριο «Το μυαλό του αρχιτέκτονα σε τροχιά»: σχέδιο, έντυπο υλικό, οδηγούς με στιγμιότυπα οθόνης για κάθε εργαλείο, συνδέσμους QR και φόρμα ανατροφοδότησης."
+    },
+    "app_url": "https://magkosm.github.io/orbarch-edu",
+    "repo_url": "https://github.com/magkosm/orbarch-edu",
+    "contact_email": "magkos@kth.se",
+    "feedback_endpoint": "",
+    "ui": {
+      "language": {
+        "en": "Language",
+        "sv": "Språk",
+        "el": "Γλώσσα"
+      },
+      "nav_home": {
+        "en": "Home",
+        "sv": "Hem",
+        "el": "Αρχική"
+      },
+      "nav_materials": {
+        "en": "Materials",
+        "sv": "Material",
+        "el": "Υλικό"
+      },
+      "nav_guides": {
+        "en": "Guides",
+        "sv": "Guider",
+        "el": "Οδηγοί"
+      },
+      "nav_links": {
+        "en": "Links & QR",
+        "sv": "Länkar & QR",
+        "el": "Σύνδεσμοι & QR"
+      },
+      "nav_feedback": {
+        "en": "Feedback",
+        "sv": "Återkoppling",
+        "el": "Ανατροφοδότηση"
+      },
+      "open_app": {
+        "en": "Open the app",
+        "sv": "Öppna appen",
+        "el": "Άνοιγμα της εφαρμογής"
+      },
+      "start_here": {
+        "en": "Start here",
+        "sv": "Börja här",
+        "el": "Ξεκινήστε εδώ"
+      },
+      "start_steps": {
+        "en": [
+          "Read the workshop plan (≈2 hours, ages 12–18; 90–100 min with the optional parts cut).",
+          "Print the A3 student handout (1 per student), the teacher notes (2 pages, double-sided) and the QR sheet.",
+          "Build the slide deck from the slide text, or just use the plan and the QR sheet.",
+          "Test on one iPhone and one Android the day before: comms audio plays, the 2-minute MATB ends on “Simulation Complete”, the Condition Lab noise keeps playing.",
+          "In class: project one QR at a time. Students use their own phones and earphones. No real names in the app — tap Skip on the high-score box."
+        ],
+        "sv": [
+          "Läs workshopplanen (≈2 timmar, 12–18 år; 90–100 min om de valfria delarna stryks).",
+          "Skriv ut elevbladet i A3 (1 per elev), lärarnoteringarna (2 sidor, dubbelsidigt) och QR-arket.",
+          "Bygg bildspelet utifrån bildtexten, eller använd bara planen och QR-arket.",
+          "Testa på en iPhone och en Android dagen innan: kommunikationsljudet spelas upp, 2-minuters-MATB slutar med ”Simulering slutförd”, bullret i Förhållandelabbet fortsätter spela.",
+          "I klassrummet: visa en QR-kod i taget på projektorn. Eleverna använder sina egna mobiler och hörlurar. Inga riktiga namn i appen — tryck på Hoppa över i toppresultatrutan."
+        ],
+        "el": [
+          "Διαβάστε το σχέδιο του εργαστηρίου (≈2 ώρες, ηλικίες 12–18· 90–100 λεπτά αν παραλειφθούν τα προαιρετικά μέρη).",
+          "Εκτυπώστε το φύλλο μαθητή A3 (1 ανά μαθητή), τις σημειώσεις εκπαιδευτικού (2 σελίδες, διπλής όψης) και το φύλλο QR.",
+          "Φτιάξτε την παρουσίαση από το κείμενο των διαφανειών ή χρησιμοποιήστε απλώς το σχέδιο και το φύλλο QR.",
+          "Δοκιμάστε σε ένα iPhone και ένα Android την προηγούμενη μέρα: ο ήχος των επικοινωνιών παίζει, το MATB 2 λεπτών τελειώνει με «Ολοκλήρωση προσομοίωσης», ο θόρυβος του Εργαστηρίου συνθηκών συνεχίζει να παίζει.",
+          "Στην τάξη: προβάλλετε έναν κωδικό QR κάθε φορά. Οι μαθητές χρησιμοποιούν τα δικά τους κινητά και ακουστικά. Όχι πραγματικά ονόματα στην εφαρμογή — πατήστε «Παράλειψη» στο πλαίσιο υψηλής βαθμολογίας."
+        ]
+      },
+      "materials_title": {
+        "en": "Materials by language",
+        "sv": "Material per språk",
+        "el": "Υλικό ανά γλώσσα"
+      },
+      "materials_intro": {
+        "en": "Each language has the same set: the plan, the one-page overview for coordinators, the two-page teacher notes, the A3 student handout, the slide text and the QR sheet. HTML files open in the browser and print with the page size already set; PDFs are ready to print.",
+        "sv": "Varje språk har samma uppsättning: planen, ensidesöversikten för samordnare, de tvåsidiga lärarnoteringarna, elevbladet i A3, bildtexten och QR-arket. HTML-filerna öppnas i webbläsaren och skrivs ut med sidformatet redan inställt; PDF-filerna är klara att skriva ut.",
+        "el": "Κάθε γλώσσα έχει το ίδιο σύνολο: το σχέδιο, τη μονοσέλιδη επισκόπηση για συντονιστές, τις δισέλιδες σημειώσεις εκπαιδευτικού, το φύλλο μαθητή A3, το κείμενο των διαφανειών και το φύλλο QR. Τα αρχεία HTML ανοίγουν στο πρόγραμμα περιήγησης και εκτυπώνονται με προρυθμισμένο μέγεθος σελίδας· τα PDF είναι έτοιμα για εκτύπωση."
+      },
+      "guides_title": {
+        "en": "Screenshot guides",
+        "sv": "Skärmbildsguider",
+        "el": "Οδηγοί με στιγμιότυπα οθόνης"
+      },
+      "guides_intro": {
+        "en": "Step-by-step walkthroughs of every tool, with screenshots of the real app in your language. Each guide says what the teacher does, what the student sees and what to write on the handout.",
+        "sv": "Steg-för-steg-genomgångar av varje verktyg, med skärmbilder från den riktiga appen på ditt språk. Varje guide anger vad läraren gör, vad eleven ser och vad som ska skrivas på elevbladet.",
+        "el": "Αναλυτικές οδηγίες βήμα προς βήμα για κάθε εργαλείο, με στιγμιότυπα οθόνης από την πραγματική εφαρμογή στη γλώσσα σας. Κάθε οδηγός λέει τι κάνει ο εκπαιδευτικός, τι βλέπει ο μαθητής και τι σημειώνεται στο φύλλο μαθητή."
+      },
+      "links_title": {
+        "en": "Deep links & QR codes",
+        "sv": "Direktlänkar & QR-koder",
+        "el": "Άμεσοι σύνδεσμοι & κωδικοί QR"
+      },
+      "links_intro": {
+        "en": "Every link forces the app language. Print the QR sheet (one code per A4 page) and reveal one code at a time on the projector.",
+        "sv": "Varje länk tvingar fram appens språk. Skriv ut QR-arket (en kod per A4-sida) och visa en kod i taget på projektorn.",
+        "el": "Κάθε σύνδεσμος επιβάλλει τη γλώσσα της εφαρμογής. Εκτυπώστε το φύλλο QR (ένας κωδικός ανά σελίδα A4) και αποκαλύπτετε έναν κωδικό κάθε φορά στον προβολέα."
+      },
+      "feedback_title": {
+        "en": "Teacher feedback",
+        "sv": "Återkoppling från lärare",
+        "el": "Ανατροφοδότηση εκπαιδευτικών"
+      },
+      "feedback_intro": {
+        "en": "You ran the workshop (or tried to)? Five minutes of feedback shapes the next version. Nothing is sent automatically: the form opens a prefilled e-mail to the project lead, or you can copy the text and send it any way you like.",
+        "sv": "Har du genomfört workshopen (eller försökt)? Fem minuters återkoppling formar nästa version. Inget skickas automatiskt: formuläret öppnar ett förifyllt e-postmeddelande till projektledaren, eller så kopierar du texten och skickar den hur du vill.",
+        "el": "Υλοποιήσατε το εργαστήριο (ή το προσπαθήσατε); Πέντε λεπτά ανατροφοδότησης διαμορφώνουν την επόμενη έκδοση. Τίποτα δεν αποστέλλεται αυτόματα: η φόρμα ανοίγει ένα προσυμπληρωμένο e-mail προς τον υπεύθυνο του έργου, ή μπορείτε να αντιγράψετε το κείμενο και να το στείλετε όπως προτιμάτε."
+      },
+      "more_title": {
+        "en": "More",
+        "sv": "Mer",
+        "el": "Περισσότερα"
+      },
+      "pilot_feedback": {
+        "en": "Pilot feedback & backlog (60 students, 3 × 20)",
+        "sv": "Pilotåterkoppling & backlogg (60 elever, 3 × 20)",
+        "el": "Ανατροφοδότηση πιλοτικού & εκκρεμότητες (60 μαθητές, 3 × 20)"
+      },
+      "changelog": {
+        "en": "Changelog",
+        "sv": "Ändringslogg",
+        "el": "Ιστορικό αλλαγών"
+      },
+      "source": {
+        "en": "Source code (MIT)",
+        "sv": "Källkod (MIT)",
+        "el": "Πηγαίος κώδικας (MIT)"
+      },
+      "plan": {
+        "en": "Workshop plan",
+        "sv": "Workshopplan",
+        "el": "Σχέδιο εργαστηρίου"
+      },
+      "overview": {
+        "en": "Workshop overview (1 page, for coordinators)",
+        "sv": "Workshopöversikt (1 sida, för samordnare)",
+        "el": "Επισκόπηση εργαστηρίου (1 σελίδα, για συντονιστές)"
+      },
+      "teacher_notes": {
+        "en": "Teacher notes (2 pages)",
+        "sv": "Lärarnoteringar (2 sidor)",
+        "el": "Σημειώσεις εκπαιδευτικού (2 σελίδες)"
+      },
+      "handout": {
+        "en": "Student handout (A3)",
+        "sv": "Elevblad (A3)",
+        "el": "Φύλλο μαθητή (A3)"
+      },
+      "slides": {
+        "en": "Slide text (24 slides)",
+        "sv": "Bildtext (24 bilder)",
+        "el": "Κείμενο διαφανειών (24 διαφάνειες)"
+      },
+      "slides_outline": {
+        "en": "Slide outline (structure, English)",
+        "sv": "Bildspelsdisposition (struktur, engelska)",
+        "el": "Διάρθρωση διαφανειών (δομή, αγγλικά)"
+      },
+      "qr_sheet": {
+        "en": "QR sheet (one code per page)",
+        "sv": "QR-ark (en kod per sida)",
+        "el": "Φύλλο QR (ένας κωδικός ανά σελίδα)"
+      },
+      "html": {
+        "en": "HTML",
+        "sv": "HTML",
+        "el": "HTML"
+      },
+      "pdf": {
+        "en": "PDF",
+        "sv": "PDF",
+        "el": "PDF"
+      },
+      "markdown": {
+        "en": "Markdown",
+        "sv": "Markdown",
+        "el": "Markdown"
+      },
+      "view": {
+        "en": "Read online",
+        "sv": "Läs online",
+        "el": "Διαβάστε στο διαδίκτυο"
+      },
+      "all_languages": {
+        "en": "All three languages",
+        "sv": "Alla tre språken",
+        "el": "Και οι τρεις γλώσσες"
+      },
+      "guide_steps": {
+        "en": "Steps",
+        "sv": "Steg",
+        "el": "Βήματα"
+      },
+      "guide_back": {
+        "en": "← All guides",
+        "sv": "← Alla guider",
+        "el": "← Όλοι οι οδηγοί"
+      },
+      "teacher_does": {
+        "en": "Teacher",
+        "sv": "Läraren",
+        "el": "Εκπαιδευτικός"
+      },
+      "student_sees": {
+        "en": "Students",
+        "sv": "Eleverna",
+        "el": "Μαθητές"
+      },
+      "tip": {
+        "en": "Tip",
+        "sv": "Tips",
+        "el": "Συμβουλή"
+      },
+      "handout_box": {
+        "en": "On the handout",
+        "sv": "På elevbladet",
+        "el": "Στο φύλλο μαθητή"
+      },
+      "phone_view": {
+        "en": "On a phone",
+        "sv": "På mobilen",
+        "el": "Σε κινητό"
+      },
+      "screenshot_alt": {
+        "en": "Screenshot",
+        "sv": "Skärmbild",
+        "el": "Στιγμιότυπο οθόνης"
+      },
+      "tool": {
+        "en": "Tool",
+        "sv": "Verktyg",
+        "el": "Εργαλείο"
+      },
+      "link": {
+        "en": "Link",
+        "sv": "Länk",
+        "el": "Σύνδεσμος"
+      },
+      "qr": {
+        "en": "QR",
+        "sv": "QR",
+        "el": "QR"
+      },
+      "when": {
+        "en": "When",
+        "sv": "När",
+        "el": "Πότε"
+      },
+      "footer": {
+        "en": "Orbital Architecture · KTH Royal Institute of Technology & ESERO Sweden · MIT License · Materials v2.1.2",
+        "sv": "Orbital Architecture · KTH Kungliga Tekniska högskolan & ESERO Sverige · MIT-licens · Material v2.1.2",
+        "el": "Orbital Architecture · KTH Royal Institute of Technology & ESERO Sweden · Άδεια MIT · Υλικό v2.1.2"
+      },
+      "feedback_form": {
+        "name": {
+          "en": "Your name (optional)",
+          "sv": "Ditt namn (valfritt)",
+          "el": "Το όνομά σας (προαιρετικό)"
+        },
+        "email": {
+          "en": "E-mail for a reply (optional)",
+          "sv": "E-post för svar (valfritt)",
+          "el": "E-mail για απάντηση (προαιρετικό)"
+        },
+        "school": {
+          "en": "School / organisation & country",
+          "sv": "Skola / organisation & land",
+          "el": "Σχολείο / οργανισμός & χώρα"
+        },
+        "role": {
+          "en": "Your role",
+          "sv": "Din roll",
+          "el": "Ο ρόλος σας"
+        },
+        "roles": {
+          "en": [
+            "Teacher",
+            "ESERO / science-centre educator",
+            "Teacher trainer",
+            "Researcher",
+            "Other"
+          ],
+          "sv": [
+            "Lärare",
+            "ESERO-/science center-pedagog",
+            "Lärarutbildare",
+            "Forskare",
+            "Annat"
+          ],
+          "el": [
+            "Εκπαιδευτικός",
+            "Εκπαιδευτής ESERO / κέντρου επιστημών",
+            "Επιμορφωτής εκπαιδευτικών",
+            "Ερευνητής/-τρια",
+            "Άλλο"
+          ]
+        },
+        "class": {
+          "en": "Class (age / grade, number of students)",
+          "sv": "Klass (ålder / årskurs, antal elever)",
+          "el": "Τάξη (ηλικία / τάξη, αριθμός μαθητών)"
+        },
+        "language_used": {
+          "en": "Language used in class",
+          "sv": "Språk som användes i klassen",
+          "el": "Γλώσσα που χρησιμοποιήθηκε στην τάξη"
+        },
+        "blocks": {
+          "en": "Which parts did you run?",
+          "sv": "Vilka delar genomförde du?",
+          "el": "Ποια μέρη υλοποιήσατε;"
+        },
+        "blocks_list": {
+          "en": [
+            "A · Presentation & whiteboard",
+            "B · Reaction Time",
+            "B · MATB (presets + 2-min)",
+            "B · Condition Lab",
+            "C · Simulator",
+            "C · Blueprint Designer",
+            "C · Model Lab",
+            "D · Exit ticket"
+          ],
+          "sv": [
+            "A · Presentation & whiteboard",
+            "B · Reaktionstid",
+            "B · MATB (förinställningar + 2 min)",
+            "B · Förhållandelabb",
+            "C · Simulator",
+            "C · Ritningsdesigner",
+            "C · Modellabb",
+            "D · Utgångsbiljett"
+          ],
+          "el": [
+            "A · Παρουσίαση & πίνακας",
+            "B · Χρόνος αντίδρασης",
+            "B · MATB (προεπιλογές + 2 λεπτά)",
+            "B · Εργαστήριο συνθηκών",
+            "C · Προσομοιωτής",
+            "C · Σχεδιαστής κάτοψης",
+            "C · Εργαστήριο μοντέλων",
+            "D · Εισιτήριο εξόδου"
+          ]
+        },
+        "rating_hint": {
+          "en": "1 = poor · 5 = excellent",
+          "sv": "1 = dåligt · 5 = utmärkt",
+          "el": "1 = κακό · 5 = εξαιρετικό"
+        },
+        "ratings": {
+          "en": [
+            "Clarity of the teacher materials",
+            "Timing / pacing as written",
+            "Student engagement",
+            "The app worked on students' phones",
+            "Screenshot guides were useful"
+          ],
+          "sv": [
+            "Lärarmaterialets tydlighet",
+            "Tidsplan / tempo som skrivet",
+            "Elevernas engagemang",
+            "Appen fungerade på elevernas mobiler",
+            "Skärmbildsguiderna var användbara"
+          ],
+          "el": [
+            "Σαφήνεια του υλικού για εκπαιδευτικούς",
+            "Χρονισμός / ρυθμός όπως είναι γραμμένος",
+            "Συμμετοχή των μαθητών",
+            "Η εφαρμογή λειτούργησε στα κινητά των μαθητών",
+            "Οι οδηγοί με στιγμιότυπα οθόνης ήταν χρήσιμοι"
+          ]
+        },
+        "problems": {
+          "en": "What went wrong or was confusing? (tools, instructions, translations)",
+          "sv": "Vad gick fel eller var förvirrande? (verktyg, instruktioner, översättningar)",
+          "el": "Τι πήγε στραβά ή ήταν μπερδεμένο; (εργαλεία, οδηγίες, μεταφράσεις)"
+        },
+        "best": {
+          "en": "What worked best?",
+          "sv": "Vad fungerade bäst?",
+          "el": "Τι λειτούργησε καλύτερα;"
+        },
+        "wishes": {
+          "en": "What should the next version add or change?",
+          "sv": "Vad bör nästa version lägga till eller ändra?",
+          "el": "Τι θα πρέπει να προσθέσει ή να αλλάξει η επόμενη έκδοση;"
+        },
+        "consent": {
+          "en": "You may quote my feedback (anonymously) when improving the materials.",
+          "sv": "Ni får citera min återkoppling (anonymt) när materialet förbättras.",
+          "el": "Μπορείτε να παραθέσετε την ανατροφοδότησή μου (ανώνυμα) κατά τη βελτίωση του υλικού."
+        },
+        "send_email": {
+          "en": "Send by e-mail",
+          "sv": "Skicka via e-post",
+          "el": "Αποστολή με e-mail"
+        },
+        "copy": {
+          "en": "Copy text",
+          "sv": "Kopiera text",
+          "el": "Αντιγραφή κειμένου"
+        },
+        "copied": {
+          "en": "Copied — paste it into any message.",
+          "sv": "Kopierat — klistra in det i valfritt meddelande.",
+          "el": "Αντιγράφηκε — επικολλήστε το σε οποιοδήποτε μήνυμα."
+        },
+        "github": {
+          "en": "Open as a GitHub issue",
+          "sv": "Öppna som GitHub-ärende",
+          "el": "Άνοιγμα ως ζήτημα (issue) στο GitHub"
+        },
+        "download": {
+          "en": "Download as .txt",
+          "sv": "Ladda ner som .txt",
+          "el": "Λήψη ως .txt"
+        },
+        "send_online": {
+          "en": "Send",
+          "sv": "Skicka",
+          "el": "Αποστολή"
+        },
+        "sent": {
+          "en": "Thank you — your feedback was sent.",
+          "sv": "Tack — din återkoppling har skickats.",
+          "el": "Ευχαριστούμε — η ανατροφοδότησή σας στάλθηκε."
+        },
+        "send_failed": {
+          "en": "Sending failed. Please use “Send by e-mail” or “Copy text” instead.",
+          "sv": "Det gick inte att skicka. Använd ”Skicka via e-post” eller ”Kopiera text” i stället.",
+          "el": "Η αποστολή απέτυχε. Χρησιμοποιήστε «Αποστολή με e-mail» ή «Αντιγραφή κειμένου»."
+        },
+        "draft_note": {
+          "en": "Your draft is kept in this browser until you clear it.",
+          "sv": "Ditt utkast sparas i den här webbläsaren tills du rensar det.",
+          "el": "Το πρόχειρό σας διατηρείται σε αυτό το πρόγραμμα περιήγησης μέχρι να το διαγράψετε."
+        },
+        "clear": {
+          "en": "Clear form",
+          "sv": "Rensa formuläret",
+          "el": "Καθαρισμός φόρμας"
+        },
+        "subject": {
+          "en": "Workshop feedback — The Architect's Mind in Orbit",
+          "sv": "Återkoppling på workshopen — Arkitektens sinne i omloppsbana",
+          "el": "Ανατροφοδότηση εργαστηρίου — Το μυαλό του αρχιτέκτονα σε τροχιά"
+        }
+      }
+    }
+  },
+  "tools": [
+    {
+      "key": "reaction-default",
+      "path": "/reaction-default",
+      "name": {
+        "en": "Reaction Time",
+        "sv": "Reaktionstidstest",
+        "el": "Δοκιμασία χρόνου αντίδρασης"
+      },
+      "when": {
+        "en": "Block B1 — warm-up, one round",
+        "sv": "Block B1 — uppvärmning, en omgång",
+        "el": "Μπλοκ B1 — προθέρμανση, ένας γύρος"
+      }
+    },
+    {
+      "key": "matb-2min",
+      "path": "/2min",
+      "name": {
+        "en": "MATB — 2 minutes",
+        "sv": "MATB — 2 minuter",
+        "el": "MATB — 2 λεπτά"
+      },
+      "when": {
+        "en": "Block B3 (dry run) and B4 (via Condition Lab)",
+        "sv": "Block B3 (provkörning) och B4 (via Förhållandelabbet)",
+        "el": "Μπλοκ B3 (δοκιμαστική εκτέλεση) και B4 (μέσω Εργαστηρίου συνθηκών)"
+      }
+    },
+    {
+      "key": "condition-lab",
+      "path": "/condition-lab",
+      "name": {
+        "en": "Condition Lab",
+        "sv": "Förhållandelabb",
+        "el": "Εργαστήριο συνθηκών"
+      },
+      "when": {
+        "en": "Block B4 — quiet vs. noise",
+        "sv": "Block B4 — tyst vs. buller",
+        "el": "Μπλοκ B4 — ησυχία έναντι θορύβου"
+      }
+    },
+    {
+      "key": "simulator",
+      "path": "/simulator",
+      "name": {
+        "en": "Architecture Simulator",
+        "sv": "Arkitektursimulator",
+        "el": "Προσομοιωτής αρχιτεκτονικής"
+      },
+      "when": {
+        "en": "Block C1",
+        "sv": "Block C1",
+        "el": "Μπλοκ C1"
+      }
+    },
+    {
+      "key": "blueprint",
+      "path": "/blueprint",
+      "name": {
+        "en": "Blueprint Designer",
+        "sv": "Ritningsdesigner",
+        "el": "Σχεδιαστής κάτοψης"
+      },
+      "when": {
+        "en": "Block C2",
+        "sv": "Block C2",
+        "el": "Μπλοκ C2"
+      }
+    },
+    {
+      "key": "model-lab",
+      "path": "/model-lab",
+      "name": {
+        "en": "Model Lab (optional)",
+        "sv": "Modellabb (valfritt)",
+        "el": "Εργαστήριο μοντέλων (προαιρετικό)"
+      },
+      "when": {
+        "en": "Block C3",
+        "sv": "Block C3",
+        "el": "Μπλοκ C3"
+      }
+    },
+    {
+      "key": "hub",
+      "path": "/",
+      "name": {
+        "en": "Main hub",
+        "sv": "Startsidan",
+        "el": "Αρχική σελίδα"
+      },
+      "when": {
+        "en": "Closing slide / anytime",
+        "sv": "Avslutande bild / när som helst",
+        "el": "Διαφάνεια κλεισίματος / οποιαδήποτε στιγμή"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "path": "/comms",
+      "name": {
+        "en": "Communications only",
+        "sv": "Endast Kommunikation",
+        "el": "Μόνο Επικοινωνίες"
+      }
+    },
+    {
+      "path": "/monitoring",
+      "name": {
+        "en": "System Monitoring only",
+        "sv": "Endast Systemövervakning",
+        "el": "Μόνο Παρακολούθηση συστήματος"
+      }
+    },
+    {
+      "path": "/tracking",
+      "name": {
+        "en": "Tracking only",
+        "sv": "Endast Spårning",
+        "el": "Μόνο Ιχνηλάτηση"
+      }
+    },
+    {
+      "path": "/resource",
+      "name": {
+        "en": "Resource Management only",
+        "sv": "Endast Resurshantering",
+        "el": "Μόνο Διαχείριση πόρων"
+      }
+    },
+    {
+      "path": "/nbackdefault",
+      "name": {
+        "en": "N-Back (reference, ages 16–18)",
+        "sv": "N-Back (referens, 16–18 år)",
+        "el": "N-Back (αναφορά, ηλικίες 16–18)"
+      }
+    }
+  ],
+  "guides": [
+    {
+      "id": "getting-started",
+      "shot": "hub",
+      "title": {
+        "en": "Getting started: the hub, languages and presets",
+        "sv": "Kom igång: startsidan, språk och förinställningar",
+        "el": "Ξεκινώντας: η αρχική σελίδα, οι γλώσσες και οι προεπιλογές"
+      },
+      "intro": {
+        "en": "What the app looks like, how to force the language, where the single-task presets live, and how to check devices before the lesson.",
+        "sv": "Hur appen ser ut, hur du tvingar fram språket, var förinställningarna för enskilda uppgifter finns och hur du kontrollerar enheterna före lektionen.",
+        "el": "Πώς φαίνεται η εφαρμογή, πώς επιβάλλετε τη γλώσσα, πού βρίσκονται οι προεπιλογές μεμονωμένων εργασιών και πώς ελέγχετε τις συσκευές πριν από το μάθημα."
+      },
+      "steps": [
+        {
+          "shot": "hub",
+          "heading": {
+            "en": "The main hub",
+            "sv": "Startsidan",
+            "el": "Η αρχική σελίδα"
+          },
+          "teacher": {
+            "en": "Open the app on the projector laptop. Everything the workshop uses is reachable from this page: the three big buttons (MATB, Reaction Time, N-Back), Presets, Performance history, and the four education tools at the bottom (Architecture Simulator, Blueprint Designer, Condition Lab, Model Lab).",
+            "sv": "Öppna appen på projektordatorn. Allt som workshopen använder nås från den här sidan: de tre stora knapparna (MATB, Reaktionstid, N-Back), Förinställningar, Prestationshistorik och de fyra utbildningsverktygen längst ner (Arkitektursimulator, Ritningsdesigner, Förhållandelabb, Modellabb).",
+            "el": "Ανοίξτε την εφαρμογή στον φορητό υπολογιστή του προβολέα. Όλα όσα χρησιμοποιεί το εργαστήριο είναι προσβάσιμα από αυτή τη σελίδα: τα τρία μεγάλα κουμπιά (MATB, Χρόνος αντίδρασης, N-Back), οι Προεπιλογές, το Ιστορικό επιδόσεων και τα τέσσερα εκπαιδευτικά εργαλεία στο κάτω μέρος (Προσομοιωτής αρχιτεκτονικής, Σχεδιαστής κάτοψης, Εργαστήριο συνθηκών, Εργαστήριο μοντέλων)."
+          },
+          "student": {
+            "en": "Students never need this page during the workshop — they scan one QR per activity. The closing slide can show the hub QR so they can explore at home.",
+            "sv": "Eleverna behöver aldrig den här sidan under workshopen — de skannar en QR-kod per aktivitet. Den avslutande bilden kan visa startsidans QR-kod så att de kan utforska hemma.",
+            "el": "Οι μαθητές δεν χρειάζονται ποτέ αυτή τη σελίδα κατά το εργαστήριο — σαρώνουν έναν κωδικό QR ανά δραστηριότητα. Η διαφάνεια κλεισίματος μπορεί να δείχνει τον κωδικό QR της αρχικής σελίδας, για να εξερευνήσουν στο σπίτι."
+          },
+          "tip": {
+            "en": "Add ?lng=sv or ?lng=el to any link to force the language (the flags at the top switch it too). The language is remembered on that phone.",
+            "sv": "Lägg till ?lng=sv eller ?lng=el i valfri länk för att tvinga fram språket (flaggorna högst upp byter det också). Språket sparas på den mobilen.",
+            "el": "Προσθέστε ?lng=sv ή ?lng=el σε οποιονδήποτε σύνδεσμο για να επιβάλετε τη γλώσσα (οι σημαίες στο επάνω μέρος την αλλάζουν επίσης). Η γλώσσα απομνημονεύεται σε εκείνο το κινητό."
+          }
+        },
+        {
+          "shot": "hub-presets",
+          "heading": {
+            "en": "Presets: one task at a time",
+            "sv": "Förinställningar: en uppgift i taget",
+            "el": "Προεπιλογές: μία εργασία κάθε φορά"
+          },
+          "teacher": {
+            "en": "Tap Presets. The pop-up lists the single-task training pages (Communications, System Monitoring, Tracking, Resource Management) and the quick runs. Use these on the projector in Block B2 to teach each MATB task alone before students run all four together.",
+            "sv": "Tryck på Förinställningar. Rutan listar träningssidorna för enskilda uppgifter (Kommunikation, Systemövervakning, Spårning, Resurshantering) och snabbkörningarna. Använd dem på projektorn i block B2 för att lära ut varje MATB-uppgift för sig innan eleverna kör alla fyra samtidigt.",
+            "el": "Πατήστε «Προεπιλογές». Το αναδυόμενο παράθυρο παραθέτει τις σελίδες εκπαίδευσης μεμονωμένων εργασιών (Επικοινωνίες, Παρακολούθηση συστήματος, Ιχνηλάτηση, Διαχείριση πόρων) και τις γρήγορες δοκιμασίες. Χρησιμοποιήστε τις στον προβολέα στο μπλοκ B2 για να διδάξετε κάθε εργασία MATB ξεχωριστά, πριν οι μαθητές εκτελέσουν και τις τέσσερις μαζί."
+          },
+          "student": {
+            "en": "Nothing yet — this is projector-only. Students get the 2-minute QR only after the demo.",
+            "sv": "Inget ännu — detta är bara för projektorn. Eleverna får 2-minuters-QR-koden först efter demon.",
+            "el": "Τίποτα ακόμη — αυτό είναι μόνο για τον προβολέα. Οι μαθητές παίρνουν τον κωδικό QR των 2 λεπτών μόνο μετά την επίδειξη."
+          },
+          "tip": {
+            "en": "The presets also exist as deep links (/comms, /monitoring, /tracking, /resource) so you can bookmark them.",
+            "sv": "Förinställningarna finns också som direktlänkar (/comms, /monitoring, /tracking, /resource) så att du kan bokmärka dem.",
+            "el": "Οι προεπιλογές υπάρχουν και ως άμεσοι σύνδεσμοι (/comms, /monitoring, /tracking, /resource), ώστε να μπορείτε να τους αποθηκεύσετε ως σελιδοδείκτες."
+          }
+        },
+        {
+          "shot": "hub-phone",
+          "heading": {
+            "en": "On a phone",
+            "sv": "På mobilen",
+            "el": "Σε κινητό"
+          },
+          "teacher": {
+            "en": "The same hub on a phone. Everything scales; landscape is better for the MATB, portrait is fine for the other tools.",
+            "sv": "Samma startsida på en mobil. Allt skalas; liggande läge är bättre för MATB, stående fungerar bra för de andra verktygen.",
+            "el": "Η ίδια αρχική σελίδα σε κινητό. Όλα προσαρμόζονται· ο οριζόντιος προσανατολισμός είναι καλύτερος για το MATB, ο κατακόρυφος είναι μια χαρά για τα άλλα εργαλεία."
+          },
+          "student": {
+            "en": "Ask students to turn the phone to landscape for the MATB and to use earphones: the Communications task is spoken audio. iPhone users must flip the ring/silent switch to ring.",
+            "sv": "Be eleverna vända mobilen till liggande läge för MATB och använda hörlurar: Kommunikationsuppgiften är talat ljud. iPhone-användare måste ställa ring-/ljudlösknappen på ring.",
+            "el": "Ζητήστε από τους μαθητές να γυρίσουν το κινητό οριζόντια για το MATB και να χρησιμοποιήσουν ακουστικά: η εργασία Επικοινωνίες είναι ομιλούμενος ήχος. Οι χρήστες iPhone πρέπει να βάλουν τον διακόπτη κουδουνίσματος/σίγασης στη θέση κουδουνίσματος."
+          },
+          "tip": {
+            "en": "Test one iPhone and one Android the day before: comms audio, Condition Lab noise, and that the 2-minute run ends with “Simulation Complete”.",
+            "sv": "Testa en iPhone och en Android dagen innan: kommunikationsljud, bullret i Förhållandelabbet och att 2-minuterskörningen slutar med ”Simulering slutförd”.",
+            "el": "Δοκιμάστε ένα iPhone και ένα Android την προηγούμενη μέρα: ήχο επικοινωνιών, θόρυβο του Εργαστηρίου συνθηκών και ότι η εκτέλεση 2 λεπτών τελειώνει με «Ολοκλήρωση προσομοίωσης»."
+          }
+        }
+      ]
+    },
+    {
+      "id": "matb",
+      "shot": "matb-run",
+      "title": {
+        "en": "MATB: teaching the four tasks and running the 2-minute test",
+        "sv": "MATB: lär ut de fyra uppgifterna och kör 2-minuterstestet",
+        "el": "MATB: διδασκαλία των τεσσάρων εργασιών και εκτέλεση της δοκιμασίας 2 λεπτών"
+      },
+      "intro": {
+        "en": "Block B2 (projector demo, one task at a time) and Block B3 (every student runs the 2-minute test once). The same 2-minute run is used again in the Condition Lab.",
+        "sv": "Block B2 (projektordemo, en uppgift i taget) och block B3 (varje elev kör 2-minuterstestet en gång). Samma 2-minuterskörning används igen i Förhållandelabbet.",
+        "el": "Μπλοκ B2 (επίδειξη στον προβολέα, μία εργασία κάθε φορά) και μπλοκ B3 (κάθε μαθητής εκτελεί τη δοκιμασία 2 λεπτών μία φορά). Η ίδια εκτέλεση 2 λεπτών χρησιμοποιείται ξανά στο Εργαστήριο συνθηκών."
+      },
+      "steps": [
+        {
+          "shot": "training-monitoring-overlay",
+          "heading": {
+            "en": "Each training page opens with its instruction box",
+            "sv": "Varje träningssida öppnas med sin instruktionsruta",
+            "el": "Κάθε σελίδα εκπαίδευσης ανοίγει με το πλαίσιο οδηγιών της"
+          },
+          "teacher": {
+            "en": "Open /monitoring on the projector. Read the instruction box aloud in your own words, then tap the green button to start.",
+            "sv": "Öppna /monitoring på projektorn. Läs instruktionsrutan högt med egna ord och tryck sedan på den gröna knappen ”Jag förstår — Starta” för att börja.",
+            "el": "Ανοίξτε το /monitoring στον προβολέα. Διαβάστε δυνατά το πλαίσιο οδηγιών με δικά σας λόγια και μετά πατήστε το πράσινο κουμπί «Κατάλαβα — Έναρξη» για να ξεκινήσετε."
+          },
+          "student": {
+            "en": "Watch the projector.",
+            "sv": "Titta på projektorn.",
+            "el": "Παρακολουθήστε τον προβολέα."
+          },
+          "tip": {
+            "en": "The box text is the same one students will read on their phones, so pointing at it now saves questions later.",
+            "sv": "Texten i rutan är samma som eleverna läser på sina mobiler, så att peka på den nu sparar frågor senare.",
+            "el": "Το κείμενο του πλαισίου είναι το ίδιο που θα διαβάσουν οι μαθητές στα κινητά τους, οπότε αν το δείξετε τώρα γλιτώνετε ερωτήσεις αργότερα."
+          }
+        },
+        {
+          "shot": "training-monitoring",
+          "heading": {
+            "en": "System Monitoring",
+            "sv": "Systemövervakning",
+            "el": "Παρακολούθηση συστήματος"
+          },
+          "teacher": {
+            "en": "Show 3–4 events: F1 stops being green or F2 turns red → tap it; a gauge dot drifts into the pink zone → tap that gauge (F3–F6). Then press Quit.",
+            "sv": "Visa 3–4 händelser: F1 slutar vara grön eller F2 blir röd → tryck på den; en mätarpunkt driver in i den rosa zonen → tryck på den mätaren (F3–F6). Tryck sedan på Avsluta spelet.",
+            "el": "Δείξτε 3–4 συμβάντα: το F1 παύει να είναι πράσινο ή το F2 γίνεται κόκκινο → πατήστε το· η κουκκίδα ενός μετρητή γλιστρά στη ροζ ζώνη → πατήστε αυτόν τον μετρητή (F3–F6). Έπειτα πατήστε «Έξοδος από το παιχνίδι»."
+          },
+          "student": {
+            "en": "On a phone they simply tap the light or the gauge.",
+            "sv": "På mobilen trycker de helt enkelt på lampan eller mätaren.",
+            "el": "Στο κινητό απλώς πατούν τη λυχνία ή τον μετρητή."
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "training-tracking",
+          "heading": {
+            "en": "Tracking",
+            "sv": "Spårning",
+            "el": "Ιχνηλάτηση"
+          },
+          "teacher": {
+            "en": "Open /tracking. When the badge switches from AUTO to MANUAL, keep the cursor inside the small centre square: drag it with a finger (or WASD on a keyboard).",
+            "sv": "Öppna /tracking. När märket växlar från AUTO till MANUELL, håll markören inne i den lilla mittrutan: dra den med fingret (eller WASD på ett tangentbord).",
+            "el": "Ανοίξτε το /tracking. Όταν η ένδειξη αλλάζει από ΑΥΤΟΜΑΤΟ σε ΧΕΙΡΟΚΙΝΗΤΟ, κρατήστε τον δρομέα μέσα στο μικρό κεντρικό τετράγωνο: σύρετέ τον με το δάχτυλο (ή με WASD σε πληκτρολόγιο)."
+          },
+          "student": {
+            "en": "Drag the cursor only while it says MANUAL; in AUTO the system flies itself.",
+            "sv": "Dra markören bara medan det står MANUELL; i AUTO flyger systemet självt.",
+            "el": "Σύρετε τον δρομέα μόνο όσο γράφει ΧΕΙΡΟΚΙΝΗΤΟ· στο ΑΥΤΟΜΑΤΟ το σύστημα πετά μόνο του."
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "training-comms",
+          "heading": {
+            "en": "Communications",
+            "sv": "Kommunikation",
+            "el": "Επικοινωνίες"
+          },
+          "teacher": {
+            "en": "Open /comms with the speakers on. A radio call names a callsign, a radio (NAV1/NAV2/COM1/COM2) and a frequency. Only calls for the own callsign shown at the top need an answer: select that radio, set the frequency with − / + (or the arrow keys).",
+            "sv": "Öppna /comms med högtalarna på. Ett radioanrop nämner en anropssignal, en radio (NAV1/NAV2/COM1/COM2) och en frekvens. Bara anrop till den egna anropssignalen som visas högst upp ska besvaras: välj den radion och ställ in frekvensen med − / + (eller piltangenterna).",
+            "el": "Ανοίξτε το /comms με τα ηχεία ανοιχτά. Μια ραδιοκλήση αναφέρει ένα διακριτικό, ένα ράδιο (NAV1/NAV2/COM1/COM2) και μια συχνότητα. Μόνο οι κλήσεις προς το δικό σας διακριτικό, που φαίνεται στο επάνω μέρος, χρειάζονται απάντηση: επιλέξτε εκείνο το ράδιο και ρυθμίστε τη συχνότητα με − / + (ή με τα βέλη)."
+          },
+          "student": {
+            "en": "This is why earphones matter: without sound the task cannot be played and the score drops.",
+            "sv": "Det är därför hörlurar är viktiga: utan ljud går uppgiften inte att spela och poängen sjunker.",
+            "el": "Γι' αυτό έχουν σημασία τα ακουστικά: χωρίς ήχο η εργασία δεν μπορεί να παιχτεί και η βαθμολογία πέφτει."
+          },
+          "tip": {
+            "en": "Calls for other callsigns must be ignored — changing anything then counts as a false alarm.",
+            "sv": "Anrop till andra anropssignaler ska ignoreras — att ändra något då räknas som falsklarm.",
+            "el": "Οι κλήσεις προς άλλα διακριτικά πρέπει να αγνοούνται — αν αλλάξετε κάτι τότε, μετρά ως ψευδής συναγερμός."
+          }
+        },
+        {
+          "shot": "training-resource",
+          "heading": {
+            "en": "Resource Management",
+            "sv": "Resurshantering",
+            "el": "Διαχείριση πόρων"
+          },
+          "teacher": {
+            "en": "Open /resource. Keep tanks A and B near their target level by switching pumps on and off; a red pump has failed and comes back by itself after a while.",
+            "sv": "Öppna /resource. Håll tankarna A och B nära sin målnivå genom att slå på och av pumpar; en röd pump är trasig och kommer tillbaka av sig själv efter ett tag.",
+            "el": "Ανοίξτε το /resource. Κρατήστε τις δεξαμενές A και B κοντά στη στάθμη-στόχο ενεργοποιώντας και απενεργοποιώντας αντλίες· μια κόκκινη αντλία έχει βλάβη και επανέρχεται μόνη της μετά από λίγο."
+          },
+          "student": {
+            "en": "Tap a pump (or press its number) to toggle it.",
+            "sv": "Tryck på en pump (eller dess siffra) för att slå på/av den.",
+            "el": "Πατήστε μια αντλία (ή το πλήκτρο με τον αριθμό της) για να την ενεργοποιήσετε/απενεργοποιήσετε."
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "matb-overlay",
+          "heading": {
+            "en": "The 2-minute run starts with the same instruction box",
+            "sv": "2-minuterskörningen börjar med samma instruktionsruta",
+            "el": "Η εκτέλεση 2 λεπτών ξεκινά με το ίδιο πλαίσιο οδηγιών"
+          },
+          "teacher": {
+            "en": "Show the 2-min QR (Block B3). Each phone opens this box; students tap the green button when ready.",
+            "sv": "Visa 2-minuters-QR-koden (block B3). Varje mobil öppnar den här rutan; eleverna trycker på den gröna knappen när de är redo.",
+            "el": "Δείξτε τον κωδικό QR των 2 λεπτών (μπλοκ B3). Κάθε κινητό ανοίγει αυτό το πλαίσιο· οι μαθητές πατούν το πράσινο κουμπί όταν είναι έτοιμοι."
+          },
+          "student": {
+            "en": "Read the box, tap the button. The 2 minutes start immediately.",
+            "sv": "Läs rutan, tryck på knappen. De 2 minuterna börjar direkt.",
+            "el": "Διαβάστε το πλαίσιο, πατήστε το κουμπί. Τα 2 λεπτά ξεκινούν αμέσως."
+          },
+          "tip": {
+            "en": "Tell them before they tap: don't press Quit, let the two minutes run out.",
+            "sv": "Säg till innan de trycker: tryck inte på Avsluta spelet, låt de två minuterna gå ut.",
+            "el": "Πείτε τους πριν πατήσουν: μην πατήσετε «Έξοδος από το παιχνίδι», αφήστε τα δύο λεπτά να τελειώσουν."
+          }
+        },
+        {
+          "shot": "matb-run",
+          "heading": {
+            "en": "All four tasks at once",
+            "sv": "Alla fyra uppgifterna samtidigt",
+            "el": "Και οι τέσσερις εργασίες ταυτόχρονα"
+          },
+          "teacher": {
+            "en": "Top bar: time counting down from 02:00, the running score and the red Quit button. The System Status panel on the right shows Health and Load. The score adds the current Health value every second (maximum 12,000).",
+            "sv": "Övre raden: tiden räknar ner från 02:00, den löpande poängen och den röda knappen Avsluta spelet. Panelen Systemstatus till höger visar Hälsa och Belastning. Poängen ökar med det aktuella Hälsa-värdet varje sekund (max 12 000).",
+            "el": "Επάνω γραμμή: ο χρόνος μετρά αντίστροφα από το 02:00, η τρέχουσα βαθμολογία και το κόκκινο κουμπί «Έξοδος από το παιχνίδι». Ο πίνακας «Κατάσταση συστήματος» στα δεξιά δείχνει Υγεία και Φορτίο. Η βαθμολογία προσθέτει την τρέχουσα τιμή Υγείας κάθε δευτερόλεπτο (μέγιστο 12.000)."
+          },
+          "student": {
+            "en": "Handle whatever lights up; expect to feel overloaded — that is the point.",
+            "sv": "Hantera det som tänds; räkna med att känna dig överbelastad — det är poängen.",
+            "el": "Αντιμετωπίστε ό,τι ανάβει· περιμένετε να νιώσετε υπερφόρτωση — αυτό είναι το ζητούμενο."
+          },
+          "tip": {
+            "en": "Walk the room. Students who freeze usually forgot the AUTO/MANUAL rule or have no sound.",
+            "sv": "Gå runt i rummet. Elever som fryser har oftast glömt AUTO/MANUELL-regeln eller har inget ljud.",
+            "el": "Κυκλοφορήστε στην αίθουσα. Οι μαθητές που «παγώνουν» συνήθως ξέχασαν τον κανόνα ΑΥΤΟΜΑΤΟ/ΧΕΙΡΟΚΙΝΗΤΟ ή δεν έχουν ήχο."
+          }
+        },
+        {
+          "shot": "matb-end",
+          "heading": {
+            "en": "The end screen: which number to write down",
+            "sv": "Slutskärmen: vilken siffra som ska skrivas ner",
+            "el": "Η οθόνη τέλους: ποιον αριθμό να σημειώσετε"
+          },
+          "teacher": {
+            "en": "After two minutes the screen says “Simulation Complete” with “Final Score: N” at the top. That is the number for the handout. The export buttons are researcher tools — ignore them.",
+            "sv": "Efter två minuter står det ”Simulering slutförd” med ”Slutpoäng: N” högst upp. Det är siffran för elevbladet. Exportknapparna är forskarverktyg — strunta i dem.",
+            "el": "Μετά από δύο λεπτά η οθόνη γράφει «Ολοκλήρωση προσομοίωσης» με «Τελική βαθμολογία: N» στο επάνω μέρος. Αυτός είναι ο αριθμός για το φύλλο μαθητή. Τα κουμπιά εξαγωγής είναι εργαλεία για ερευνητές — αγνοήστε τα."
+          },
+          "student": {
+            "en": "If a “New high score!” box asks for a name: tap Skip. Never type a real name. Then write the Final Score on the handout.",
+            "sv": "Om en ruta ”Nytt toppresultat!” ber om ett namn: tryck på Hoppa över. Skriv aldrig ett riktigt namn. Skriv sedan Slutpoäng på elevbladet.",
+            "el": "Αν ένα πλαίσιο «Νέα υψηλή βαθμολογία!» ζητήσει όνομα: πατήστε «Παράλειψη». Μην πληκτρολογείτε ποτέ πραγματικό όνομα. Έπειτα γράψτε την Τελική βαθμολογία στο φύλλο μαθητή."
+          },
+          "handout": {
+            "en": "Row “Practice” in section 1 (Block B3); rows ① and ② come from the Condition Lab (Block B4).",
+            "sv": "Raden ”Provkörning” i avsnitt 1 (block B3); raderna ① och ② kommer från Förhållandelabbet (block B4).",
+            "el": "Γραμμή «Εξάσκηση» στην ενότητα 1 (μπλοκ B3)· οι γραμμές ① και ② προέρχονται από το Εργαστήριο συνθηκών (μπλοκ B4)."
+          },
+          "tip": {
+            "en": "Typical scores: 5,000–8,000 on a first run; around 11,000 means almost no mistakes.",
+            "sv": "Typiska poäng: 5 000–8 000 vid en första körning; runt 11 000 betyder nästan inga misstag.",
+            "el": "Τυπικές βαθμολογίες: 5.000–8.000 σε μια πρώτη εκτέλεση· γύρω στις 11.000 σημαίνει σχεδόν κανένα λάθος."
+          }
+        },
+        {
+          "shot": "matb-run-phone",
+          "heading": {
+            "en": "On a phone (landscape)",
+            "sv": "På mobilen (liggande)",
+            "el": "Σε κινητό (οριζόντια)"
+          },
+          "teacher": {
+            "en": "This is what students see. The grid scales to fit; the ⛶ button at the bottom left toggles fullscreen where the browser allows it.",
+            "sv": "Det här ser eleverna. Rutnätet skalas för att passa; knappen ⛶ längst ner till vänster växlar helskärm där webbläsaren tillåter det.",
+            "el": "Αυτό βλέπουν οι μαθητές. Το πλέγμα προσαρμόζεται στην οθόνη· το κουμπί ⛶ κάτω αριστερά ενεργοποιεί την πλήρη οθόνη όπου το επιτρέπει το πρόγραμμα περιήγησης."
+          },
+          "student": {
+            "en": "Landscape, earphones in, sound on.",
+            "sv": "Liggande läge, hörlurar i, ljudet på.",
+            "el": "Οριζόντια, ακουστικά στα αυτιά, ήχος ανοιχτός."
+          },
+          "tip": {
+            "en": "On iPhone, fullscreen is only available after “Add to Home Screen”; it is not required.",
+            "sv": "På iPhone finns helskärm bara efter ”Lägg till på hemskärmen”; det är inte nödvändigt.",
+            "el": "Σε iPhone, η πλήρης οθόνη είναι διαθέσιμη μόνο μετά από «Προσθήκη στην οθόνη Αφετηρίας»· δεν είναι απαραίτητη."
+          }
+        }
+      ]
+    },
+    {
+      "id": "reaction-time",
+      "shot": "reaction-run",
+      "title": {
+        "en": "Reaction Time: the warm-up round",
+        "sv": "Reaktionstid: uppvärmningsomgången",
+        "el": "Χρόνος αντίδρασης: ο γύρος προθέρμανσης"
+      },
+      "intro": {
+        "en": "Block B1. Everyone runs one round (8 stimuli, about a minute) and writes down the average — the first number on the handout and the start of the discussion about spread, confounders and normalisation.",
+        "sv": "Block B1. Alla kör en omgång (8 stimuli, ungefär en minut) och skriver ner genomsnittet — den första siffran på elevbladet och starten på diskussionen om spridning, störfaktorer och normalisering.",
+        "el": "Μπλοκ B1. Όλοι εκτελούν έναν γύρο (8 ερεθίσματα, περίπου ένα λεπτό) και σημειώνουν τον μέσο όρο — τον πρώτο αριθμό στο φύλλο μαθητή και την αφετηρία της συζήτησης για τη διασπορά, τους συγχυτικούς παράγοντες και την κανονικοποίηση."
+      },
+      "steps": [
+        {
+          "shot": "reaction-start",
+          "heading": {
+            "en": "Start screen",
+            "sv": "Startskärm",
+            "el": "Οθόνη έναρξης"
+          },
+          "teacher": {
+            "en": "Show only the Reaction Time QR. Students read the two lines and tap the green start button.",
+            "sv": "Visa bara QR-koden för Reaktionstid. Eleverna läser de två raderna och trycker på den gröna knappen Starta test.",
+            "el": "Δείξτε μόνο τον κωδικό QR του Χρόνου αντίδρασης. Οι μαθητές διαβάζουν τις δύο γραμμές και πατούν το πράσινο κουμπί «Έναρξη δοκιμασίας»."
+          },
+          "student": {
+            "en": "Tap the screen (or press SPACE) as fast as possible when the red dot appears. Tapping too early counts against you.",
+            "sv": "Tryck på skärmen (eller MELLANSLAG) så snabbt som möjligt när den röda pricken dyker upp. Att trycka för tidigt räknas emot dig.",
+            "el": "Πατήστε την οθόνη (ή το SPACE) όσο πιο γρήγορα μπορείτε όταν εμφανιστεί η κόκκινη κουκκίδα. Αν πατήσετε πολύ νωρίς, μετρά εις βάρος σας."
+          },
+          "tip": {
+            "en": "The test ends after 8 dots or 64 seconds, whichever comes first.",
+            "sv": "Testet slutar efter 8 prickar eller 64 sekunder, beroende på vilket som kommer först.",
+            "el": "Η δοκιμασία τελειώνει μετά από 8 κουκκίδες ή 64 δευτερόλεπτα, όποιο έρθει πρώτο."
+          }
+        },
+        {
+          "shot": "reaction-run",
+          "heading": {
+            "en": "During the test",
+            "sv": "Under testet",
+            "el": "Κατά τη διάρκεια της δοκιμασίας"
+          },
+          "teacher": {
+            "en": "A grey screen, then a red dot at a random moment. Nothing to do on the projector — walk the room.",
+            "sv": "En grå skärm, sedan en röd prick vid ett slumpmässigt ögonblick. Inget att göra på projektorn — gå runt i rummet.",
+            "el": "Μια γκρι οθόνη και έπειτα μια κόκκινη κουκκίδα σε τυχαία στιγμή. Τίποτα να κάνετε στον προβολέα — κυκλοφορήστε στην αίθουσα."
+          },
+          "student": {
+            "en": "Tap the dot. The next one comes after a random pause.",
+            "sv": "Tryck på pricken. Nästa kommer efter en slumpmässig paus.",
+            "el": "Πατήστε την κουκκίδα. Η επόμενη έρχεται μετά από τυχαία παύση."
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "reaction-results",
+          "heading": {
+            "en": "Results",
+            "sv": "Resultat",
+            "el": "Αποτελέσματα"
+          },
+          "teacher": {
+            "en": "Collect a few averages aloud and expect a wide spread (typically 200–400 ms; under 150 ms is a premature tap). This is the moment to introduce confounders — age, gaming, sleep, mood, food — and why the Condition Lab compares each person with themselves.",
+            "sv": "Samla in några genomsnitt högt och räkna med stor spridning (typiskt 200–400 ms; under 150 ms är ett för tidigt tryck). Här passar det att introducera störfaktorer — ålder, spelande, sömn, humör, mat — och varför Förhållandelabbet jämför varje person med sig själv.",
+            "el": "Συγκεντρώστε φωναχτά μερικούς μέσους όρους και περιμένετε μεγάλη διασπορά (τυπικά 200–400 ms· κάτω από 150 ms είναι πρόωρο πάτημα). Είναι η στιγμή να εισαγάγετε τους συγχυτικούς παράγοντες — ηλικία, βιντεοπαιχνίδια, ύπνος, διάθεση, φαγητό — και γιατί το Εργαστήριο συνθηκών συγκρίνει κάθε άτομο με τον εαυτό του."
+          },
+          "student": {
+            "en": "Write the average and the fastest time on the handout. Return to the main menu with the grey button; the keyboard shortcut Ctrl+Q is for laptops.",
+            "sv": "Skriv genomsnittet och den snabbaste tiden på elevbladet. Gå tillbaka till huvudmenyn med den grå knappen; kortkommandot Ctrl+Q är för datorer.",
+            "el": "Γράψτε τον μέσο όρο και τον ταχύτερο χρόνο στο φύλλο μαθητή. Επιστρέψτε στο κύριο μενού με το γκρι κουμπί· η συντόμευση Ctrl+Q είναι για φορητούς υπολογιστές."
+          },
+          "handout": {
+            "en": "Section 1, first line: average ___ ms · fastest ___ ms.",
+            "sv": "Avsnitt 1, första raden: genomsnitt ___ ms · snabbaste ___ ms.",
+            "el": "Ενότητα 1, πρώτη γραμμή: μέσος όρος ___ ms · ταχύτερος ___ ms."
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "reaction-config",
+          "heading": {
+            "en": "Optional: the configurable test",
+            "sv": "Valfritt: det konfigurerbara testet",
+            "el": "Προαιρετικό: η ρυθμιζόμενη δοκιμασία"
+          },
+          "teacher": {
+            "en": "/reaction opens the full configuration (duration or number of stimuli, delay range). Not needed in the workshop; useful for older classes or a longer measurement.",
+            "sv": "/reaction öppnar hela konfigurationen (varaktighet eller antal stimuli, fördröjningsintervall). Behövs inte i workshopen; användbart för äldre klasser eller en längre mätning.",
+            "el": "Το /reaction ανοίγει την πλήρη ρύθμιση (διάρκεια ή πλήθος ερεθισμάτων, εύρος καθυστέρησης). Δεν χρειάζεται στο εργαστήριο· χρήσιμο για μεγαλύτερες τάξεις ή μια μεγαλύτερη μέτρηση."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "reaction-start-phone",
+          "heading": {
+            "en": "On a phone",
+            "sv": "På mobilen",
+            "el": "Σε κινητό"
+          },
+          "teacher": {
+            "en": "Portrait is fine for this test.",
+            "sv": "Stående läge fungerar bra för det här testet.",
+            "el": "Ο κατακόρυφος προσανατολισμός είναι μια χαρά για αυτή τη δοκιμασία."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "condition-lab",
+      "shot": "condition-lab-result",
+      "title": {
+        "en": "Condition Lab: quiet vs. noise",
+        "sv": "Förhållandelabb: tyst vs. buller",
+        "el": "Εργαστήριο συνθηκών: ησυχία έναντι θορύβου"
+      },
+      "intro": {
+        "en": "Block B4, the core experiment: the same 2-minute MATB twice — ① in quiet, ② with cabin noise — then the app shows the percentage change. Run ① together and ② together so the “quiet” baseline is really quiet.",
+        "sv": "Block B4, kärnexperimentet: samma 2-minuters-MATB två gånger — ① i tystnad, ② med kabinbuller — sedan visar appen den procentuella förändringen. Kör ① gemensamt och ② gemensamt så att den ”tysta” baslinjen verkligen är tyst.",
+        "el": "Μπλοκ B4, το βασικό πείραμα: το ίδιο MATB 2 λεπτών δύο φορές — ① σε ησυχία, ② με θόρυβο καμπίνας — και μετά η εφαρμογή δείχνει την ποσοστιαία μεταβολή. Εκτελέστε το ① όλοι μαζί και το ② όλοι μαζί, ώστε η «ήσυχη» γραμμή βάσης να είναι πραγματικά ήσυχη."
+      },
+      "steps": [
+        {
+          "shot": "condition-lab",
+          "heading": {
+            "en": "The lab page",
+            "sv": "Labbsidan",
+            "el": "Η σελίδα του εργαστηρίου"
+          },
+          "teacher": {
+            "en": "Show the Condition Lab QR. Point out the three parts: the cabin-noise button with its volume slider, card ① Baseline (quiet) and card ② Stressed (noise). Each card has a run button and a score box.",
+            "sv": "Visa QR-koden för Förhållandelabbet. Peka ut de tre delarna: kabinbullerknappen med sitt volymreglage, kort ① Baslinje (tyst) och kort ② Stressad (buller). Varje kort har en körknapp och en poängruta.",
+            "el": "Δείξτε τον κωδικό QR του Εργαστηρίου συνθηκών. Επισημάνετε τα τρία μέρη: το κουμπί θορύβου καμπίνας με το ρυθμιστικό έντασης, την κάρτα ① «Γραμμή βάσης (ησυχία)» και την κάρτα ② «Υπό στρες (θόρυβος)». Κάθε κάρτα έχει ένα κουμπί εκτέλεσης και ένα πλαίσιο βαθμολογίας."
+          },
+          "student": {
+            "en": "Don't tap anything yet.",
+            "sv": "Tryck inte på något ännu.",
+            "el": "Μην πατήσετε τίποτα ακόμη."
+          },
+          "tip": {
+            "en": "The noise keeps playing in this tab while the MATB opens in a new tab — that is intended.",
+            "sv": "Bullret fortsätter spela i den här fliken medan MATB öppnas i en ny flik — det är avsiktligt.",
+            "el": "Ο θόρυβος συνεχίζει να παίζει σε αυτή την καρτέλα ενώ το MATB ανοίγει σε νέα καρτέλα — αυτό είναι σκόπιμο."
+          }
+        },
+        {
+          "shot": "matb-run",
+          "heading": {
+            "en": "Run ① together, speakers off",
+            "sv": "Kör ① gemensamt, högtalarna av",
+            "el": "Εκτέλεση ① όλοι μαζί, ηχεία κλειστά"
+          },
+          "teacher": {
+            "en": "Room quiet. On your count everyone taps “Run MATB (quiet)”. The MATB opens in a new browser tab with the usual instruction box; students tap the green button and play two minutes.",
+            "sv": "Tyst i rummet. På din signal trycker alla på ”Kör MATB (tyst)”. MATB öppnas i en ny webbläsarflik med den vanliga instruktionsrutan; eleverna trycker på den gröna knappen och spelar i två minuter.",
+            "el": "Ησυχία στην αίθουσα. Με το σύνθημά σας όλοι πατούν «Εκτέλεση MATB (ησυχία)». Το MATB ανοίγει σε νέα καρτέλα του προγράμματος περιήγησης με το συνηθισμένο πλαίσιο οδηγιών· οι μαθητές πατούν το πράσινο κουμπί και παίζουν δύο λεπτά."
+          },
+          "student": {
+            "en": "When it ends: read the Final Score, tap Skip if asked for a name, then go back to the Condition Lab tab (the tabs icon in the browser) and type the score under ①.",
+            "sv": "När det är slut: läs av Slutpoäng, tryck på Hoppa över om ett namn efterfrågas, gå sedan tillbaka till Förhållandelabbets flik (flikikonen i webbläsaren) och skriv in poängen under ①.",
+            "el": "Όταν τελειώσει: διαβάστε την Τελική βαθμολογία, πατήστε «Παράλειψη» αν ζητηθεί όνομα, μετά επιστρέψτε στην καρτέλα του Εργαστηρίου συνθηκών (το εικονίδιο καρτελών στο πρόγραμμα περιήγησης) και πληκτρολογήστε τη βαθμολογία κάτω από το ①."
+          },
+          "tip": {
+            "en": "Finding the other tab is the number-one stall point on phones. Say it before they tap.",
+            "sv": "Att hitta den andra fliken är det vanligaste stoppet på mobiler. Säg det innan de trycker.",
+            "el": "Το να βρουν την άλλη καρτέλα είναι το νούμερο ένα σημείο όπου κολλούν στα κινητά. Πείτε το πριν πατήσουν."
+          }
+        },
+        {
+          "shot": "condition-lab-result",
+          "heading": {
+            "en": "Run ② with noise, then read the change",
+            "sv": "Kör ② med buller, läs sedan av förändringen",
+            "el": "Εκτέλεση ② με θόρυβο και έπειτα ανάγνωση της μεταβολής"
+          },
+          "teacher": {
+            "en": "Start the room speakers (cabin noise, loud enough that you must raise your voice slightly). Everyone taps “Run MATB (with noise)” — this also switches on the phone's own noise. Same routine; the score goes under ②. With both boxes filled the page shows a comparison chart and one sentence: performance dropped X % or held up.",
+            "sv": "Starta rumshögtalarna (kabinbuller, så högt att du måste höja rösten lite). Alla trycker på ”Kör MATB (med buller)” — det slår också på mobilens eget buller. Samma rutin; poängen skrivs under ②. När båda rutorna är ifyllda visar sidan ett jämförelsediagram och en mening: ”Prestationen sjönk X % under buller.” eller ”Prestationen höll i sig eller förbättrades (+X %) under buller.”",
+            "el": "Ξεκινήστε τα ηχεία της αίθουσας (θόρυβος καμπίνας, αρκετά δυνατά ώστε να πρέπει να υψώσετε λίγο τη φωνή σας). Όλοι πατούν «Εκτέλεση MATB (με θόρυβο)» — αυτό ενεργοποιεί και τον θόρυβο του ίδιου του κινητού. Ίδια διαδικασία· η βαθμολογία πάει κάτω από το ②. Με τα δύο πλαίσια συμπληρωμένα, η σελίδα δείχνει ένα γράφημα σύγκρισης και μία πρόταση: «Η επίδοση μειώθηκε κατά X% υπό θόρυβο.» ή «Η επίδοση διατηρήθηκε ή βελτιώθηκε (+X%) υπό θόρυβο.»"
+          },
+          "student": {
+            "en": "Copy the number and the direction (↓ lower / ↑ higher) to the handout.",
+            "sv": "För över siffran och riktningen (↓ lägre / ↑ högre) till elevbladet.",
+            "el": "Μεταφέρετε τον αριθμό και την κατεύθυνση (↓ χαμηλότερα / ↑ υψηλότερα) στο φύλλο μαθητή."
+          },
+          "handout": {
+            "en": "Section 1: rows ① and ②, then the “My change” line (X = (② − ①) ÷ ① × 100).",
+            "sv": "Avsnitt 1: raderna ① och ②, sedan raden ”Min förändring” (X = (② − ①) ÷ ① × 100).",
+            "el": "Ενότητα 1: γραμμές ① και ②, έπειτα η γραμμή «Η αλλαγή μου» (X = (② − ①) ÷ ① × 100)."
+          },
+          "tip": {
+            "en": "Expect mixed results — some students improve because of learning. That is the discussion in Block B5, not a failure.",
+            "sv": "Räkna med blandade resultat — några elever förbättras på grund av inlärning. Det är diskussionen i block B5, inte ett misslyckande.",
+            "el": "Περιμένετε μικτά αποτελέσματα — κάποιοι μαθητές βελτιώνονται λόγω μάθησης. Αυτή είναι η συζήτηση του μπλοκ B5, όχι αποτυχία."
+          }
+        },
+        {
+          "shot": "condition-lab-phone",
+          "heading": {
+            "en": "On a phone",
+            "sv": "På mobilen",
+            "el": "Σε κινητό"
+          },
+          "teacher": {
+            "en": "The cards stack vertically; the volume slider stays at the top.",
+            "sv": "Korten staplas vertikalt; volymreglaget stannar högst upp.",
+            "el": "Οι κάρτες στοιβάζονται κατακόρυφα· το ρυθμιστικό έντασης μένει στο επάνω μέρος."
+          },
+          "student": {
+            "en": "Keep the phone volume at about half; the room speakers are the real stressor, the phone noise is a backup for earphone users.",
+            "sv": "Håll mobilens volym på ungefär hälften; rumshögtalarna är den verkliga stressorn, mobilbullret är en reserv för dem med hörlurar.",
+            "el": "Κρατήστε την ένταση του κινητού περίπου στη μέση· τα ηχεία της αίθουσας είναι ο πραγματικός στρεσογόνος παράγοντας, ο θόρυβος του κινητού είναι εφεδρεία για όσους έχουν ακουστικά."
+          },
+          "tip": {
+            "en": "iPhones may pause the phone noise while the MATB tab is in front. Fine — the speakers do the job.",
+            "sv": "iPhone kan pausa mobilbullret medan MATB-fliken ligger överst. Det gör inget — högtalarna sköter jobbet.",
+            "el": "Τα iPhone μπορεί να παύσουν τον θόρυβο του κινητού όσο η καρτέλα MATB είναι μπροστά. Δεν πειράζει — τα ηχεία κάνουν τη δουλειά."
+          }
+        }
+      ]
+    },
+    {
+      "id": "simulator",
+      "shot": "simulator",
+      "title": {
+        "en": "Architecture Simulator: sliders and cognition",
+        "sv": "Arkitektursimulator: reglage och kognition",
+        "el": "Προσομοιωτής αρχιτεκτονικής: ρυθμιστικά και νόηση"
+      },
+      "intro": {
+        "en": "Block C1, five minutes. An illustrative model: four design parameters (noise, biophilia, clutter, lighting) move three cognitive scores (attention, working memory, stress) and an overall score.",
+        "sv": "Block C1, fem minuter. En illustrativ modell: fyra designparametrar (buller, biofili, röra, belysning) påverkar tre kognitiva mått (uppmärksamhet, arbetsminne, stress) och en totalpoäng.",
+        "el": "Μπλοκ C1, πέντε λεπτά. Ένα ενδεικτικό μοντέλο: τέσσερις παράμετροι σχεδιασμού (θόρυβος, βιοφιλία, ακαταστασία, φωτισμός) μετακινούν τρεις γνωστικές βαθμολογίες (προσοχή, εργαζόμενη μνήμη, στρες) και μια συνολική βαθμολογία."
+      },
+      "steps": [
+        {
+          "shot": "simulator",
+          "heading": {
+            "en": "Drag the sliders, watch the bars",
+            "sv": "Dra i reglagen, se staplarna",
+            "el": "Σύρετε τα ρυθμιστικά, παρακολουθήστε τις μπάρες"
+          },
+          "teacher": {
+            "en": "Project it first: raise Noise and watch Stress climb; raise Biophilia and watch Attention recover. Then release the QR and let students explore for two minutes.",
+            "sv": "Visa det på projektorn först: höj Buller och se Stress stiga; höj Biofili och se Uppmärksamhet återhämta sig. Släpp sedan QR-koden och låt eleverna utforska i två minuter.",
+            "el": "Προβάλετέ το πρώτα: ανεβάστε τον Θόρυβο και δείτε το Στρες να ανεβαίνει· ανεβάστε τη Βιοφιλία και δείτε την Προσοχή να ανακάμπτει. Έπειτα δώστε τον κωδικό QR και αφήστε τους μαθητές να εξερευνήσουν για δύο λεπτά."
+          },
+          "student": {
+            "en": "Find the setting that maximises the overall score, then the setting that ruins it. What did you change?",
+            "sv": "Hitta inställningen som maximerar totalpoängen, sedan den som förstör den. Vad ändrade du?",
+            "el": "Βρείτε τη ρύθμιση που μεγιστοποιεί τη συνολική βαθμολογία και μετά εκείνη που την καταστρέφει. Τι αλλάξατε;"
+          },
+          "tip": {
+            "en": "Say clearly: this is an educational model inspired by research, not measured data — the Blueprint Designer is where the trade-offs get real.",
+            "sv": "Säg tydligt: detta är en pedagogisk modell inspirerad av forskning, inte uppmätta data — i Ritningsdesignern blir avvägningarna på riktigt.",
+            "el": "Πείτε καθαρά: αυτό είναι ένα εκπαιδευτικό μοντέλο εμπνευσμένο από την έρευνα, όχι μετρημένα δεδομένα — στον Σχεδιαστή κάτοψης οι συμβιβασμοί γίνονται πραγματικοί."
+          }
+        }
+      ]
+    },
+    {
+      "id": "blueprint",
+      "shot": "blueprint-scenario",
+      "title": {
+        "en": "Blueprint Designer: design a module",
+        "sv": "Ritningsdesigner: designa en modul",
+        "el": "Σχεδιαστής κάτοψης: σχεδιάστε μια μονάδα"
+      },
+      "intro": {
+        "en": "Block C2, fifteen minutes. Students place equipment on a grid; every item helps the mission or the crew's mind, and most hurt the other. The corridor rule is the one thing you will repeat.",
+        "sv": "Block C2, femton minuter. Eleverna placerar utrustning på ett rutnät; varje föremål gynnar uppdraget eller besättningens sinne, och de flesta skadar det andra. Korridorregeln är det du kommer att upprepa.",
+        "el": "Μπλοκ C2, δεκαπέντε λεπτά. Οι μαθητές τοποθετούν εξοπλισμό σε ένα πλέγμα· κάθε στοιχείο βοηθά την αποστολή ή τη νόηση του πληρώματος, και τα περισσότερα βλάπτουν το άλλο. Ο κανόνας του διαδρόμου είναι αυτό που θα επαναλαμβάνετε."
+      },
+      "steps": [
+        {
+          "shot": "blueprint",
+          "heading": {
+            "en": "Palette, grid and mission brief",
+            "sv": "Palett, rutnät och uppdragsbeskrivning",
+            "el": "Παλέτα, πλέγμα και ενημέρωση αποστολής"
+          },
+          "teacher": {
+            "en": "Project the page. Left: the palette of twelve features and the grid; tapping a feature shows what it does. Right: the Mission success score, the simulated reaction time, the mission brief checklist and the cognition / mission-value bars.",
+            "sv": "Visa sidan på projektorn. Till vänster: paletten med tolv funktioner och rutnätet; trycker du på en funktion visas vad den gör. Till höger: poängen Uppdragsframgång, den simulerade reaktionstiden, checklistan i Uppdragsbeskrivning och staplarna för kognition / uppdragsvärde.",
+            "el": "Προβάλετε τη σελίδα. Αριστερά: η παλέτα με τα δώδεκα στοιχεία και το πλέγμα· πατώντας ένα στοιχείο βλέπετε τι κάνει. Δεξιά: η βαθμολογία «Επιτυχία αποστολής», ο προσομοιωμένος χρόνος αντίδρασης, η λίστα ελέγχου της «Ενημέρωσης αποστολής» και οι μπάρες γνωστικής απόδοσης / αξίας αποστολής."
+          },
+          "student": {
+            "en": "Tap a feature, then tap a grid cell to place it. Erase with the eraser. Clear module resets everything.",
+            "sv": "Tryck på en funktion och sedan på en ruta i rutnätet för att placera den. Ta bort med Sudda. Rensa modul nollställer allt.",
+            "el": "Πατήστε ένα στοιχείο και μετά ένα κελί του πλέγματος για να το τοποθετήσετε. Σβήστε με το «Σβήσιμο». Ο «Καθαρισμός μονάδας» επαναφέρει τα πάντα."
+          },
+          "tip": {
+            "en": "Start from the mission brief: at least one life-support unit, two stowage units, sleeping quarters, every module reachable from the entrance, Mission success ≥ 70.",
+            "sv": "Utgå från uppdragsbeskrivningen: minst en livsuppehållande enhet, två förvaringsenheter, sovutrymme, varje modul nåbar från entrén, Uppdragsframgång ≥ 70.",
+            "el": "Ξεκινήστε από την ενημέρωση αποστολής: τουλάχιστον μία μονάδα υποστήριξης ζωής, δύο μονάδες αποθήκευσης, χώρος ύπνου, κάθε μονάδα προσβάσιμη από την είσοδο, Επιτυχία αποστολής ≥ 70."
+          }
+        },
+        {
+          "shot": "blueprint-scenario",
+          "heading": {
+            "en": "Load scenario and the corridor rule",
+            "sv": "Ladda scenario och korridorregeln",
+            "el": "Φόρτωση σεναρίου και ο κανόνας του διαδρόμου"
+          },
+          "teacher": {
+            "en": "“Load scenario” places a starting layout. Show how a module with no free path to the entrance (🚪) is flagged in the brief — then repeat the rule: every module needs a clear corridor to the entrance.",
+            "sv": "”Ladda scenario” placerar ut en startlayout. Visa hur en modul utan fri väg till entrén (🚪) flaggas i uppdragsbeskrivningen — upprepa sedan regeln: varje modul behöver en fri korridor till entrén.",
+            "el": "Η «Φόρτωση σεναρίου» τοποθετεί μια αρχική διάταξη. Δείξτε πώς μια μονάδα χωρίς ελεύθερη διαδρομή προς την είσοδο (🚪) επισημαίνεται στην ενημέρωση — και μετά επαναλάβετε τον κανόνα: κάθε μονάδα χρειάζεται ελεύθερο διάδρομο προς την είσοδο."
+          },
+          "student": {
+            "en": "Tick the checklist on the handout as you go; write the final Mission success and the simulated reaction time.",
+            "sv": "Bocka av checklistan på elevbladet efter hand; skriv den slutliga Uppdragsframgången och den simulerade reaktionstiden.",
+            "el": "Τσεκάρετε τη λίστα ελέγχου στο φύλλο μαθητή καθώς προχωράτε· γράψτε την τελική Επιτυχία αποστολής και τον προσομοιωμένο χρόνο αντίδρασης."
+          },
+          "handout": {
+            "en": "Section 2 checklist and the “My score” line; section 3 sketch; the two-sentence pitch.",
+            "sv": "Checklistan i avsnitt 2 och raden ”Min poäng”; skissen i avsnitt 3; pitchen på två meningar.",
+            "el": "Λίστα ελέγχου της ενότητας 2 και η γραμμή «Η βαθμολογία μου»· σκίτσο της ενότητας 3· η παρουσίαση δύο προτάσεων."
+          },
+          "tip": {
+            "en": "Expected values: the scenario starts around 45; the checklist alone gets you to about 50; a good design reaches 78 or more. Ask a high scorer to show their layout on the projector.",
+            "sv": "Förväntade värden: scenariot börjar runt 45; bara checklistan tar dig till ungefär 50; en bra design når 78 eller mer. Be någon med hög poäng visa sin layout på projektorn.",
+            "el": "Αναμενόμενες τιμές: το σενάριο ξεκινά γύρω στο 45· η λίστα ελέγχου από μόνη της σας φέρνει περίπου στο 50· ένας καλός σχεδιασμός φτάνει 78 ή περισσότερο. Ζητήστε από κάποιον με υψηλή βαθμολογία να δείξει τη διάταξή του στον προβολέα."
+          }
+        },
+        {
+          "shot": "blueprint-phone",
+          "heading": {
+            "en": "On a phone",
+            "sv": "På mobilen",
+            "el": "Σε κινητό"
+          },
+          "teacher": {
+            "en": "Palette on top, grid below, scores further down — students scroll.",
+            "sv": "Paletten överst, rutnätet under, poängen längre ner — eleverna scrollar.",
+            "el": "Παλέτα επάνω, πλέγμα από κάτω, βαθμολογίες πιο κάτω — οι μαθητές κάνουν κύλιση."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "model-lab",
+      "shot": "model-lab-map",
+      "title": {
+        "en": "Model Lab: build your own simulator (optional)",
+        "sv": "Modellabb: bygg din egen simulator (valfritt)",
+        "el": "Εργαστήριο μοντέλων: φτιάξτε τον δικό σας προσομοιωτή (προαιρετικό)"
+      },
+      "intro": {
+        "en": "Block C3, ten minutes if time allows. Students add their own inputs and outcomes from the whiteboard list and connect them with positive or negative links — making the model-building step of research visible.",
+        "sv": "Block C3, tio minuter om tiden räcker. Eleverna lägger till egna indata och utfall från listan på tavlan och kopplar dem med positiva eller negativa länkar — så att forskningens modellbyggande steg blir synligt.",
+        "el": "Μπλοκ C3, δέκα λεπτά αν το επιτρέπει ο χρόνος. Οι μαθητές προσθέτουν δικές τους εισόδους και αποτελέσματα από τη λίστα του πίνακα και τα συνδέουν με θετικές ή αρνητικές συνδέσεις — κάνοντας ορατό το βήμα της κατασκευής μοντέλου στην έρευνα."
+      },
+      "steps": [
+        {
+          "shot": "model-lab",
+          "heading": {
+            "en": "Inputs and outcomes",
+            "sv": "Indata och utfall",
+            "el": "Είσοδοι και αποτελέσματα"
+          },
+          "teacher": {
+            "en": "Left column: inputs (sliders) with min/max and whether higher is good or bad. Right column: outcomes with their bars. Pick one item from the whiteboard list and add it as a new input.",
+            "sv": "Vänster kolumn: indata (reglage) med min/max och om högre är bra eller dåligt. Höger kolumn: utfall med sina staplar. Välj en punkt från listan på tavlan och lägg till den som nytt reglage.",
+            "el": "Αριστερή στήλη: είσοδοι (ρυθμιστικά) με ελάχ./μέγ. και αν το υψηλότερο είναι καλό ή κακό. Δεξιά στήλη: αποτελέσματα με τις μπάρες τους. Διαλέξτε ένα στοιχείο από τη λίστα του πίνακα και προσθέστε το ως νέα είσοδο."
+          },
+          "student": {
+            "en": "Add an input, add an outcome, set the links, and see the bars move.",
+            "sv": "Lägg till ett reglage, lägg till ett utfall, sätt länkarna och se staplarna röra sig.",
+            "el": "Προσθέστε μια είσοδο, προσθέστε ένα αποτέλεσμα, ορίστε τις συνδέσεις και δείτε τις μπάρες να κινούνται."
+          },
+          "tip": {
+            "en": "The model is saved on that device; “Reset to example” restores the default.",
+            "sv": "Modellen sparas på den enheten; ”Återställ till exempel” återställer standardmodellen.",
+            "el": "Το μοντέλο αποθηκεύεται σε εκείνη τη συσκευή· η «Επαναφορά στο παράδειγμα» επαναφέρει το προεπιλεγμένο."
+          }
+        },
+        {
+          "shot": "model-lab-map",
+          "heading": {
+            "en": "The interaction map",
+            "sv": "Interaktionskartan",
+            "el": "Ο χάρτης αλληλεπιδράσεων"
+          },
+          "teacher": {
+            "en": "“Show interaction map” draws the inputs and outcomes as a graph; green links help, red links hurt. Use it to discuss: if this outcome matters in a given module, which attributes should we design for?",
+            "sv": "”Visa interaktionskarta” ritar indata och utfall som en graf; gröna länkar hjälper, röda skadar. Använd den för att diskutera: om det här utfallet är viktigt i en viss modul, vilka egenskaper bör vi designa för?",
+            "el": "Η «Εμφάνιση χάρτη αλληλεπιδράσεων» σχεδιάζει τις εισόδους και τα αποτελέσματα ως γράφημα· οι πράσινες συνδέσεις βοηθούν, οι κόκκινες βλάπτουν. Χρησιμοποιήστε τον για συζήτηση: αν αυτό το αποτέλεσμα έχει σημασία σε μια συγκεκριμένη μονάδα, για ποια χαρακτηριστικά πρέπει να σχεδιάσουμε;"
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "Cut this block first if you are running late.",
+            "sv": "Stryk det här blocket först om du ligger efter i tid.",
+            "el": "Κόψτε πρώτα αυτό το μπλοκ αν πιέζει ο χρόνος."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nback",
+      "shot": "nback-run",
+      "title": {
+        "en": "N-Back: the working-memory test (reference, ages 16–18)",
+        "sv": "N-Back: arbetsminnestestet (referens, 16–18 år)",
+        "el": "N-Back: η δοκιμασία εργαζόμενης μνήμης (αναφορά, ηλικίες 16–18)"
+      },
+      "intro": {
+        "en": "Not part of the standard 2-hour flow. Mention it on the “How we test cognition” slide; run it with older classes or as a projector demo.",
+        "sv": "Ingår inte i det vanliga 2-timmarsupplägget. Nämn det på bilden ”Hur vi testar kognition”; kör det med äldre klasser eller som projektordemo.",
+        "el": "Δεν αποτελεί μέρος της τυπικής ροής 2 ωρών. Αναφέρετέ το στη διαφάνεια «Πώς ελέγχουμε τη νόηση»· εκτελέστε το με μεγαλύτερες τάξεις ή ως επίδειξη στον προβολέα."
+      },
+      "steps": [
+        {
+          "shot": "nback-start",
+          "heading": {
+            "en": "Start screen",
+            "sv": "Startskärm",
+            "el": "Οθόνη έναρξης"
+          },
+          "teacher": {
+            "en": "/nbackdefault starts a dual 2-back with 20 trials: a letter is spoken and shown while a square appears in one of nine positions.",
+            "sv": "/nbackdefault startar ett dubbelt 2-back med 20 försök: en bokstav läses upp och visas samtidigt som en ruta dyker upp i en av nio positioner.",
+            "el": "Το /nbackdefault ξεκινά ένα διπλό 2-back με 20 δοκιμές: ένα γράμμα ακούγεται και εμφανίζεται, ενώ ένα τετράγωνο εμφανίζεται σε μία από εννέα θέσεις."
+          },
+          "student": {
+            "en": "Press L when the letter matches the one from two steps ago, A when the position matches. Both can match.",
+            "sv": "Tryck på L när bokstaven matchar den från två steg tillbaka, A när positionen matchar. Båda kan matcha.",
+            "el": "Πατήστε L όταν το γράμμα ταιριάζει με εκείνο δύο βήματα πριν, A όταν ταιριάζει η θέση. Μπορεί να ταιριάζουν και τα δύο."
+          },
+          "tip": {
+            "en": "The keys are keyboard-only, so this is a laptop or projector activity rather than a phone one.",
+            "sv": "Tangenterna finns bara på tangentbord, så detta är en dator- eller projektoraktivitet snarare än en mobilaktivitet.",
+            "el": "Τα πλήκτρα είναι μόνο για πληκτρολόγιο, οπότε αυτή είναι δραστηριότητα για φορητό υπολογιστή ή προβολέα και όχι για κινητό."
+          }
+        },
+        {
+          "shot": "nback-run",
+          "heading": {
+            "en": "During the test",
+            "sv": "Under testet",
+            "el": "Κατά τη διάρκεια της δοκιμασίας"
+          },
+          "teacher": {
+            "en": "The first two trials are for memorising; responses start from trial three.",
+            "sv": "De första två försöken är till för att memorera; svaren börjar från försök tre.",
+            "el": "Οι πρώτες δύο δοκιμές είναι για απομνημόνευση· οι αποκρίσεις ξεκινούν από την τρίτη δοκιμή."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "nback-results",
+          "heading": {
+            "en": "Results",
+            "sv": "Resultat",
+            "el": "Αποτελέσματα"
+          },
+          "teacher": {
+            "en": "Hits, misses, false alarms and correct rejections per dimension, plus a sensitivity score (d′). Good for a discussion of signal detection with older students.",
+            "sv": "Träffar, missar, falsklarm och korrekta avvisanden per dimension, plus ett känslighetsmått (d′). Bra för en diskussion om signaldetektering med äldre elever.",
+            "el": "Επιτυχίες, παραλείψεις, ψευδείς συναγερμοί και σωστές απορρίψεις ανά διάσταση, συν μια βαθμολογία ευαισθησίας (d′). Κατάλληλο για συζήτηση περί ανίχνευσης σήματος με μεγαλύτερους μαθητές."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "nback-config",
+          "heading": {
+            "en": "Configuration",
+            "sv": "Konfiguration",
+            "el": "Ρύθμιση"
+          },
+          "teacher": {
+            "en": "/nback lets you set N, the number of trials and the stimulus time.",
+            "sv": "/nback låter dig ställa in N, antalet försök och stimulustiden.",
+            "el": "Το /nback σάς επιτρέπει να ορίσετε το N, το πλήθος των δοκιμών και τον χρόνο ερεθίσματος."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "data-privacy",
+      "shot": "hub-history",
+      "title": {
+        "en": "Scores, data and privacy",
+        "sv": "Poäng, data och integritet",
+        "el": "Βαθμολογίες, δεδομένα και ιδιωτικότητα"
+      },
+      "intro": {
+        "en": "What the app stores, what it does not, and what to tell students.",
+        "sv": "Vad appen sparar, vad den inte sparar och vad du ska säga till eleverna.",
+        "el": "Τι αποθηκεύει η εφαρμογή, τι όχι, και τι να πείτε στους μαθητές."
+      },
+      "steps": [
+        {
+          "shot": "hub-history",
+          "heading": {
+            "en": "Performance history",
+            "sv": "Prestationshistorik",
+            "el": "Ιστορικό επιδόσεων"
+          },
+          "teacher": {
+            "en": "Scores saved on a device are listed here, per mode. Nothing is uploaded anywhere: every score lives only in that phone's browser storage.",
+            "sv": "Poäng som sparats på en enhet listas här, per läge. Inget laddas upp någonstans: varje poäng finns bara i den mobilens webbläsarlagring.",
+            "el": "Οι βαθμολογίες που αποθηκεύονται σε μια συσκευή εμφανίζονται εδώ, ανά λειτουργία. Τίποτα δεν ανεβαίνει πουθενά: κάθε βαθμολογία ζει μόνο στην αποθήκευση του προγράμματος περιήγησης εκείνου του κινητού."
+          },
+          "student": {
+            "en": "Tell students: no real names — the box after a run asks for a participant ID or nickname; tapping Skip is fine.",
+            "sv": "Säg till eleverna: inga riktiga namn — rutan efter en körning ber om deltagar-ID eller smeknamn; det går bra att trycka på Hoppa över.",
+            "el": "Πείτε στους μαθητές: όχι πραγματικά ονόματα — το πλαίσιο μετά από μια εκτέλεση ζητά αναγνωριστικό συμμετέχοντα ή ψευδώνυμο· το πάτημα της «Παράλειψης» είναι μια χαρά."
+          },
+          "tip": {
+            "en": "On shared devices, the hidden shortcut Shift+S+Q on the hub wipes all saved scores.",
+            "sv": "På delade enheter raderar det dolda kortkommandot Shift+S+Q på startsidan alla sparade poäng.",
+            "el": "Σε κοινόχρηστες συσκευές, η κρυφή συντόμευση Shift+S+Q στην αρχική σελίδα διαγράφει όλες τις αποθηκευμένες βαθμολογίες."
+          }
+        },
+        {
+          "shot": "matb-end",
+          "heading": {
+            "en": "Exports",
+            "sv": "Exporter",
+            "el": "Εξαγωγές"
+          },
+          "teacher": {
+            "en": "The CSV export buttons on the end screens download the raw logs of that run (for researchers). Students can ignore them; teachers who want class data collect the Final Scores from the handouts.",
+            "sv": "CSV-exportknapparna på slutskärmarna laddar ner råloggarna från den körningen (för forskare). Eleverna kan strunta i dem; lärare som vill ha klassdata samlar in Slutpoäng från elevbladen.",
+            "el": "Τα κουμπιά εξαγωγής CSV στις οθόνες τέλους κατεβάζουν τα πρωτογενή αρχεία καταγραφής εκείνης της εκτέλεσης (για ερευνητές). Οι μαθητές μπορούν να τα αγνοήσουν· οι εκπαιδευτικοί που θέλουν δεδομένα τάξης συλλέγουν τις Τελικές βαθμολογίες από τα φύλλα μαθητή."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "hub-custom",
+          "heading": {
+            "en": "Custom mode",
+            "sv": "Anpassat läge",
+            "el": "Προσαρμοσμένη λειτουργία"
+          },
+          "teacher": {
+            "en": "For your own experiments: choose which tasks run, the event rate, difficulty and duration. Not used in the workshop.",
+            "sv": "För egna experiment: välj vilka uppgifter som körs, händelsefrekvens, svårighetsgrad och varaktighet. Används inte i workshopen.",
+            "el": "Για δικά σας πειράματα: επιλέξτε ποιες εργασίες εκτελούνται, τον ρυθμό συμβάντων, τη δυσκολία και τη διάρκεια. Δεν χρησιμοποιείται στο εργαστήριο."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "shot": "training-comms",
+      "title": {
+        "en": "Troubleshooting in class",
+        "sv": "Felsökning i klassrummet",
+        "el": "Αντιμετώπιση προβλημάτων στην τάξη"
+      },
+      "intro": {
+        "en": "The problems seen in the pilot and what fixes them in under a minute.",
+        "sv": "Problemen som sågs i piloten och vad som löser dem på under en minut.",
+        "el": "Τα προβλήματα που παρατηρήθηκαν στο πιλοτικό και τι τα λύνει σε λιγότερο από ένα λεπτό."
+      },
+      "steps": [
+        {
+          "shot": "",
+          "heading": {
+            "en": "The page is in the wrong language",
+            "sv": "Sidan är på fel språk",
+            "el": "Η σελίδα είναι σε λάθος γλώσσα"
+          },
+          "teacher": {
+            "en": "Tap the flag at the top of the hub, or add ?lng=en / ?lng=sv / ?lng=el to the link. The QR codes on the printed sheet already force the language.",
+            "sv": "Tryck på flaggan högst upp på startsidan, eller lägg till ?lng=en / ?lng=sv / ?lng=el i länken. QR-koderna på det utskrivna arket tvingar redan fram språket.",
+            "el": "Πατήστε τη σημαία στο επάνω μέρος της αρχικής σελίδας ή προσθέστε ?lng=en / ?lng=sv / ?lng=el στον σύνδεσμο. Οι κωδικοί QR στο εκτυπωμένο φύλλο επιβάλλουν ήδη τη γλώσσα."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "training-comms",
+          "heading": {
+            "en": "No radio voice in the Communications task",
+            "sv": "Ingen radioröst i Kommunikationsuppgiften",
+            "el": "Δεν ακούγεται φωνή ραδιοφώνου στην εργασία Επικοινωνίες"
+          },
+          "teacher": {
+            "en": "Phone muted (iPhone ring/silent switch), volume at zero, or Safari blocking audio. Earphones in, switch to ring, volume up; if it still fails, use Chrome.",
+            "sv": "Mobilen är ljudlös (iPhones ring-/ljudlösknapp), volymen på noll eller Safari blockerar ljud. Hörlurar i, knappen på ring, volymen upp; fungerar det ändå inte, använd Chrome.",
+            "el": "Κινητό σε σίγαση (διακόπτης κουδουνίσματος/σίγασης του iPhone), ένταση στο μηδέν ή το Safari μπλοκάρει τον ήχο. Ακουστικά στα αυτιά, διακόπτης στο κουδούνισμα, ένταση πάνω· αν και πάλι αποτύχει, χρησιμοποιήστε Chrome."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "matb-end",
+          "heading": {
+            "en": "A box asks for a name",
+            "sv": "En ruta ber om ett namn",
+            "el": "Ένα πλαίσιο ζητά όνομα"
+          },
+          "teacher": {
+            "en": "That is the high-score form; it appears on every fresh phone. Tap Skip. Never type real names.",
+            "sv": "Det är toppresultatformuläret; det visas på varje ny mobil. Tryck på Hoppa över. Skriv aldrig riktiga namn.",
+            "el": "Είναι η φόρμα υψηλής βαθμολογίας· εμφανίζεται σε κάθε καινούργιο κινητό. Πατήστε «Παράλειψη». Μην πληκτρολογείτε ποτέ πραγματικά ονόματα."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "condition-lab",
+          "heading": {
+            "en": "“I can't find the Condition Lab again”",
+            "sv": "”Jag hittar inte Förhållandelabbet igen”",
+            "el": "«Δεν μπορώ να ξαναβρώ το Εργαστήριο συνθηκών»"
+          },
+          "teacher": {
+            "en": "The MATB opened in a new tab. Tap the tabs icon in the browser and switch back; the lab page is still there with the noise playing.",
+            "sv": "MATB öppnades i en ny flik. Tryck på flikikonen i webbläsaren och byt tillbaka; labbsidan finns kvar med bullret igång.",
+            "el": "Το MATB άνοιξε σε νέα καρτέλα. Πατήστε το εικονίδιο καρτελών στο πρόγραμμα περιήγησης και γυρίστε πίσω· η σελίδα του εργαστηρίου είναι ακόμη εκεί με τον θόρυβο να παίζει."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "",
+          "heading": {
+            "en": "Running late",
+            "sv": "Tiden räcker inte",
+            "el": "Πιέζει ο χρόνος"
+          },
+          "teacher": {
+            "en": "Cut in this order: Model Lab → the A3 group sketch → shorten the station history. Keep the whiteboard discussion and the Condition Lab; never cut the learning-effects discussion (B5).",
+            "sv": "Stryk i denna ordning: Modellabbet → A3-gruppskissen → korta ner stationshistoriken. Behåll taveldiskussionen och Förhållandelabbet; stryk aldrig diskussionen om inlärningseffekter (B5).",
+            "el": "Κόψτε με αυτή τη σειρά: Εργαστήριο μοντέλων → ομαδικό σκίτσο A3 → συντομεύστε την ιστορία των σταθμών. Κρατήστε τη συζήτηση στον πίνακα και το Εργαστήριο συνθηκών· μην κόβετε ποτέ τη συζήτηση για τα αποτελέσματα μάθησης (B5)."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        },
+        {
+          "shot": "",
+          "heading": {
+            "en": "A student has no phone",
+            "sv": "En elev har ingen mobil",
+            "el": "Ένας μαθητής δεν έχει κινητό"
+          },
+          "teacher": {
+            "en": "Pair them with a neighbour for the experiments and let them run the Blueprint Designer on the teacher laptop; their reaction-time row stays empty.",
+            "sv": "Para ihop eleven med en bänkgranne för experimenten och låt hen köra Ritningsdesignern på lärardatorn; raden för reaktionstid lämnas tom.",
+            "el": "Βάλτε τον σε ζευγάρι με έναν διπλανό για τα πειράματα και αφήστε τον να εκτελέσει τον Σχεδιαστή κάτοψης στον φορητό υπολογιστή του εκπαιδευτικού· η γραμμή του χρόνου αντίδρασης μένει κενή."
+          },
+          "student": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          },
+          "tip": {
+            "en": "",
+            "sv": "",
+            "el": ""
+          }
+        }
+      ]
+    }
+  ]
+}

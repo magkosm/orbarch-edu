@@ -359,7 +359,7 @@ const NormalModeGame = ({
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
       downloadCSV(logs.performance, `performance_plots_${timestamp} `);
     } else {
-      alert("No performance data available to export.");
+      alert(t('matbResults.noExportData', 'No performance data available to export.'));
     }
   };
 
@@ -437,10 +437,10 @@ const NormalModeGame = ({
 
           <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', pointerEvents: 'auto' }}>
             <button onClick={handleExportData} style={{ padding: '8px', cursor: 'pointer' }}>
-              Export Raw Data
+              {t('matbResults.exportRaw', 'Export raw data')}
             </button>
             <button onClick={handleExportPlots} style={{ padding: '8px', cursor: 'pointer' }}>
-              Export Plot Data
+              {t('matbResults.exportPlot', 'Export plot data')}
             </button>
           </div>
 

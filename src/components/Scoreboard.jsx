@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ScoreboardService from '../services/ScoreboardService';
 
 const Scoreboard = ({ mode, onClose }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [scores, setScores] = useState([]);
   const [selectedMode, setSelectedMode] = useState(mode || 'normal');
 
@@ -31,13 +31,13 @@ const Scoreboard = ({ mode, onClose }) => {
       return `${numericScore.toFixed(1)}`;
     }
     // Normal mode - just show the number
-    return Math.floor(score).toLocaleString();
+    return Math.floor(score).toLocaleString(i18n.language);
   };
 
   // Format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', {
+    return new Intl.DateTimeFormat(i18n.language, {
       month: 'short',
       day: 'numeric',
       year: 'numeric',

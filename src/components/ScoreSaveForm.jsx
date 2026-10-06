@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ScoreboardService from '../services/ScoreboardService';
 
 const ScoreSaveForm = ({ score, mode, onSaved, onSkip }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [playerName, setPlayerName] = useState('');
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
@@ -25,7 +25,7 @@ const ScoreSaveForm = ({ score, mode, onSaved, onSkip }) => {
       return `${minutes}:${seconds.toString().padStart(2, '0')}`;
     }
     // Normal mode - just show the number
-    return Math.floor(scoreValue).toLocaleString();
+    return Math.floor(scoreValue).toLocaleString(i18n.language);
   };
   
   const handleSubmit = (e) => {

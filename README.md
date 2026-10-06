@@ -2,7 +2,9 @@
 
 ## EDUCATORS HERE
 
-**→ [Workshop hub](./docs/workshop/README.md)**
+**→ Online educator hub: https://magkosm.github.io/orbarch-edu/educators/** — all materials (EN/SV/EL), screenshot guides for every tool, QR links and a feedback form.
+
+**→ [Workshop hub in this repo](./docs/workshop/README.md)**
 
 ---
 
@@ -22,7 +24,7 @@ Desert Research Station (MDRS)** in Utah — crews **MDRS 275, 293, 311 and 330*
 
 **Live app:** https://magkosm.github.io/orbarch-edu
 
-**Status:** Operational · **Version:** 2.1.1
+**Status:** Operational · **Version:** 2.1.2
 
 ---
 

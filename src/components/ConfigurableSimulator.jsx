@@ -23,21 +23,78 @@ const PALETTE = ['#4fd1c5', '#63b3ed', '#f6ad55', '#9ae6b4', '#b794f4', '#fc8181
 
 const uid = (prefix) => `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 6)}`;
 
-// Sensible space-architecture starting point (labels localised at build time).
+// Translation keys naming the DEFAULT (example) sliders/outcomes. Each default
+// item stores its key as `labelKey` next to `label`, so its name follows the
+// active language; user-created items (and renamed defaults) keep their
+// free-text `label`.
+const DEFAULT_SLIDER_KEYS = {
+  noise: 'simulator.sliders.noise',
+  biophilia: 'simulator.sliders.biophilia',
+  clutter: 'simulator.sliders.clutter',
+  lighting: 'simulator.sliders.lighting'
+};
+const DEFAULT_OUTCOME_KEYS = {
+  attention: 'simulator.metrics.attention',
+  memory: 'simulator.metrics.memory',
+  stress: 'simulator.metrics.stress'
+};
+
+// Display name of a slider/outcome: a default item follows the active language
+// via `labelKey` until the user renames it; everything else uses `label`.
+function itemName(item, t) {
+  if (!item) return '';
+  if (item.labelKey && !item.renamed) return t(item.labelKey, item.label);
+  return item.label;
+}
+
+// Patch for a user edit of an item's name. A default item becomes `renamed`
+// (frozen to the typed text) unless the text is exactly its translated name,
+// in which case it goes back to following the language.
+function labelPatch(item, value, t) {
+  if (!item.labelKey) return { label: value };
+  return { label: value, renamed: value.trim() !== t(item.labelKey) };
+}
+
+// Older stored configs carry only the translated `label`, frozen in whichever
+// language was active when the model was created. Attach `labelKey` to the
+// default items (matched by id) and flag them `renamed` when the stored label
+// matches none of the bundled translations, i.e. the user edited it.
+function migrateLabelKeys(config, i18n) {
+  if (!config || typeof config !== 'object') return config;
+  let langs = Object.keys((i18n && i18n.options && i18n.options.resources) || {});
+  if (langs.length === 0) langs = ['en'];
+  const isDefaultLabel = (key, label) => langs.some((lng) => i18n.t(key, { lng }) === label);
+  const migrate = (items, keys) => (Array.isArray(items) ? items.map((item) => {
+    if (!item || item.labelKey || !keys[item.id]) return item;
+    const labelKey = keys[item.id];
+    const hasLabel = typeof item.label === 'string' && item.label.trim() !== '';
+    return { ...item, labelKey, renamed: hasLabel && !isDefaultLabel(labelKey, item.label) };
+  }) : items);
+  return {
+    ...config,
+    sliders: migrate(config.sliders, DEFAULT_SLIDER_KEYS),
+    outcomes: migrate(config.outcomes, DEFAULT_OUTCOME_KEYS)
+  };
+}
+
+// Sensible space-architecture starting point (labels localised at build time,
+// and kept in sync with the language afterwards through `labelKey`).
 function buildDefaultConfig(t) {
+  const S = DEFAULT_SLIDER_KEYS;
+  const O = DEFAULT_OUTCOME_KEYS;
   return {
     sliders: [
       // `links` describe how OTHER inputs push this input up/down (slider-to-slider
       // coupling). Example: biophilia adds some clutter and a little noise.
-      { id: 'noise', label: t('simulator.sliders.noise', 'Noise'), value: 40, min: 0, max: 100, bad: true, links: { biophilia: 0.15 } },
-      { id: 'biophilia', label: t('simulator.sliders.biophilia', 'Biophilia'), value: 55, min: 0, max: 100, bad: false, links: {} },
-      { id: 'clutter', label: t('simulator.sliders.clutter', 'Clutter'), value: 35, min: 0, max: 100, bad: true, links: { biophilia: 0.25 } },
-      { id: 'lighting', label: t('simulator.sliders.lighting', 'Lighting'), value: 60, min: 0, max: 100, bad: false, links: {} }
+      { id: 'noise', labelKey: S.noise, label: t(S.noise, 'Noise'), value: 40, min: 0, max: 100, bad: true, links: { biophilia: 0.15 } },
+      { id: 'biophilia', labelKey: S.biophilia, label: t(S.biophilia, 'Biophilia'), value: 55, min: 0, max: 100, bad: false, links: {} },
+      { id: 'clutter', labelKey: S.clutter, label: t(S.clutter, 'Clutter'), value: 35, min: 0, max: 100, bad: true, links: { biophilia: 0.25 } },
+      { id: 'lighting', labelKey: S.lighting, label: t(S.lighting, 'Lighting'), value: 60, min: 0, max: 100, bad: false, links: {} }
     ],
     outcomes: [
-      { id: 'attention', label: t('simulator.metrics.attention', 'Attention'), base: 55, color: '#4fd1c5', bad: false, weights: { noise: -0.35, biophilia: 0.20, clutter: -0.25, lighting: 0.30 } },
-      { id: 'memory', label: t('simulator.metrics.memory', 'Working Memory'), base: 55, color: '#63b3ed', bad: false, weights: { noise: -0.30, biophilia: 0.25, clutter: -0.30, lighting: 0.20 } },
-      { id: 'stress', label: t('simulator.metrics.stress', 'Stress'), base: 30, color: '#f6ad55', bad: true, weights: { noise: 0.40, biophilia: -0.20, clutter: 0.30, lighting: -0.15 } }
+      { id: 'attention', labelKey: O.attention, label: t(O.attention, 'Attention'), base: 55, color: '#4fd1c5', bad: false, weights: { noise: -0.35, biophilia: 0.20, clutter: -0.25, lighting: 0.30 } },
+      { id: 'memory', labelKey: O.memory, label: t(O.memory, 'Working Memory'), base: 55, color: '#63b3ed', bad: false, weights: { noise: -0.30, biophilia: 0.25, clutter: -0.30, lighting: 0.20 } },
+      { id: 'stress', labelKey: O.stress, label: t(O.stress, 'Stress'), base: 30, color: '#f6ad55', bad: true, weights: { noise: 0.40, biophilia: -0.20, clutter: 0.30, lighting: -0.15 } }
     ]
   };
 }
@@ -77,13 +134,13 @@ function computeOutcomeValue(outcome, sliders, eff) {
 }
 
 function ConfigurableSimulator() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
   const [config, setConfig] = useState(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) return JSON.parse(stored);
+      if (stored) return migrateLabelKeys(JSON.parse(stored), i18n);
     } catch (e) { /* ignore */ }
     return null; // resolved in effect (needs t)
   });
@@ -222,7 +279,7 @@ function ConfigurableSimulator() {
               return (
                 <div key={s.id} style={card}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <input value={s.label} onChange={(e) => updateSlider(s.id, { label: e.target.value })} style={inlineLabelInput} />
+                    <input value={itemName(s, t)} onChange={(e) => updateSlider(s.id, labelPatch(s, e.target.value, t))} style={inlineLabelInput} />
                     <span style={{ fontSize: '13px', opacity: 0.85, fontVariantNumeric: 'tabular-nums' }}>
                       {s.value}
                       {coupled && <span style={{ color: '#b794f4' }}> → {effVal}</span>}
@@ -251,7 +308,7 @@ function ConfigurableSimulator() {
                         const w = (s.links && s.links[src.id]) || 0;
                         return (
                           <div key={src.id} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                            <span style={{ width: '38%', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{src.label}</span>
+                            <span style={{ width: '38%', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{itemName(src, t)}</span>
                             <input type="range" min="-1" max="1" step="0.05" value={w} onChange={(e) => setLink(s.id, src.id, e.target.value)} style={{ flex: 1, accentColor: w >= 0 ? '#9ae6b4' : '#fc8181' }} />
                             <span style={{ width: 38, textAlign: 'right', fontSize: '12px', color: w > 0 ? '#9ae6b4' : w < 0 ? '#fc8181' : 'rgba(255,255,255,0.6)', fontVariantNumeric: 'tabular-nums' }}>
                               {w > 0 ? '+' : ''}{w.toFixed(2)}
@@ -287,7 +344,7 @@ function ConfigurableSimulator() {
                   <g key={o.id}>
                     <rect x={x} y={y} width={barW} height={h} rx="4" fill={warn ? '#f56565' : o.color} />
                     <text x={x + barW / 2} y={y - 5} fontSize="12" fontWeight="bold" textAnchor="middle" fill={warn ? '#f56565' : '#e6edf3'}>{warn ? '⚠ ' : ''}{o.value}</text>
-                    <text x={x + barW / 2} y={204} fontSize="9" textAnchor="middle" fill="rgba(255,255,255,0.75)">{o.label}</text>
+                    <text x={x + barW / 2} y={204} fontSize="9" textAnchor="middle" fill="rgba(255,255,255,0.75)">{itemName(o, t)}</text>
                   </g>
                 );
               })}
@@ -302,7 +359,7 @@ function ConfigurableSimulator() {
               <div key={o.id} style={card}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ width: 12, height: 12, borderRadius: '50%', background: o.color, flexShrink: 0 }} />
-                  <input value={o.label} onChange={(e) => updateOutcome(o.id, { label: e.target.value })} style={inlineLabelInput} />
+                  <input value={itemName(o, t)} onChange={(e) => updateOutcome(o.id, labelPatch(o, e.target.value, t))} style={inlineLabelInput} />
                   <button onClick={() => setEditingOutcomeId(editingOutcomeId === o.id ? null : o.id)} style={btnDangerLink}>
                     {editingOutcomeId === o.id ? t('modelLab.done', 'done') : t('modelLab.editWeights', 'weights')}
                   </button>
@@ -325,7 +382,7 @@ function ConfigurableSimulator() {
                       const w = o.weights[s.id] || 0;
                       return (
                         <div key={s.id} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                          <span style={{ width: '38%', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.label}</span>
+                          <span style={{ width: '38%', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{itemName(s, t)}</span>
                           <input type="range" min="-1" max="1" step="0.05" value={w} onChange={(e) => setWeight(o.id, s.id, e.target.value)} style={{ flex: 1, accentColor: w >= 0 ? '#9ae6b4' : '#fc8181' }} />
                           <span style={{ width: 38, textAlign: 'right', fontSize: '12px', color: w > 0 ? '#9ae6b4' : w < 0 ? '#fc8181' : 'rgba(255,255,255,0.6)', fontVariantNumeric: 'tabular-nums' }}>
                             {w > 0 ? '+' : ''}{w.toFixed(2)}
@@ -383,7 +440,7 @@ function ConfigurableSimulator() {
 // then another to connect them; click a wire to adjust its weight.
 // ---------------------------------------------------------------------------
 function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink, onSetValue }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [connectSource, setConnectSource] = useState(null);
   const [selected, setSelected] = useState(null);
   const [hover, setHover] = useState(null);
@@ -458,9 +515,10 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink, onSe
     else onSetLink(selected.targetId, selected.sourceId, w);
   };
 
-  const labelOf = (kind, id) => (kind === 'slider'
-    ? (sliders.find((s) => s.id === id)?.label || id)
-    : (outcomes.find((o) => o.id === id)?.label || id));
+  const labelOf = (kind, id) => {
+    const item = kind === 'slider' ? sliders.find((s) => s.id === id) : outcomes.find((o) => o.id === id);
+    return (item && itemName(item, t)) || id;
+  };
 
   const isSel = (node) => connectSource && connectSource.kind === node.kind && connectSource.id === node.id;
 
@@ -539,10 +597,10 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink, onSe
 
         {/* column headers */}
         <text x={inputX} y={20} fontSize="10.5" fontWeight="bold" letterSpacing="1" textAnchor="middle" fill="rgba(255,255,255,0.5)">
-          {t('modelLab.inputsShort', 'INPUTS').toUpperCase()}
+          {t('modelLab.inputsShort', 'INPUTS').toLocaleUpperCase(i18n.language)}
         </text>
         <text x={outcomeX} y={20} fontSize="10.5" fontWeight="bold" letterSpacing="1" textAnchor="middle" fill="rgba(255,255,255,0.5)">
-          {t('modelLab.outcomes', 'Outcomes').toUpperCase()}
+          {t('modelLab.outcomes', 'Outcomes').toLocaleUpperCase(i18n.language)}
         </text>
 
         {/* slider -> outcome wires */}
@@ -611,7 +669,7 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink, onSe
                 fill="url(#gIn)" stroke={sel ? '#4fd1c5' : hi ? '#cbd5e1' : 'rgba(255,255,255,0.18)'} strokeWidth={sel || hi ? 2 : 1} filter="url(#nodeShadow)" />
               <rect x={inputX - nodeW / 2} y={y - nodeH / 2} width="4" height={nodeH} rx="2" fill={s.bad ? BAD : '#4fd1c5'} />
               <circle cx={inputX + nodeW / 2} cy={y} r="3" fill="#4fd1c5" />
-              <text x={inputX + 6} y={y - 10} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(s.label, 16)}</text>
+              <text x={inputX + 6} y={y - 10} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(itemName(s, t), 16)}</text>
               <text x={inputX + 6} y={y + 1} fontSize="9" textAnchor="middle" fill={coupled ? '#c4b5fd' : 'rgba(255,255,255,0.55)'}>
                 {s.value}{coupled ? ` → ${effVal}` : ''}
               </text>
@@ -645,7 +703,7 @@ function InteractionGraph({ sliders, outcomes, eff, onSetWeight, onSetLink, onSe
                 fill="url(#gOut)" stroke={sel ? '#4fd1c5' : warn ? '#f56565' : hi ? '#cbd5e1' : o.color} strokeWidth={sel || hi || warn ? 2 : 1.5} filter="url(#nodeShadow)" />
               <rect x={outcomeX - nodeW / 2} y={y - nodeH / 2} width="4" height={nodeH} rx="2" fill={o.bad ? BAD : GOOD} />
               <circle cx={outcomeX - nodeW / 2} cy={y} r="3" fill={o.color} />
-              <text x={outcomeX - 8} y={y + 4} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(o.label, 12)}</text>
+              <text x={outcomeX - 8} y={y + 4} fontSize="11" fontWeight="bold" textAnchor="middle" fill="#e6edf3">{truncate(itemName(o, t), 12)}</text>
               {warn && <text x={outcomeX + nodeW / 2 - 48} y={y + 5} fontSize="13" textAnchor="middle">⚠️</text>}
               <g>
                 <rect x={outcomeX + nodeW / 2 - 34} y={y - 11} width="28" height="22" rx="6" fill={warn ? '#f56565' : o.color} />
@@ -773,7 +831,7 @@ function AddOutcomeModal({ sliders, colorSeed, onAdd, onCancel }) {
           const w = weights[s.id] || 0;
           return (
             <div key={s.id} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-              <span style={{ width: '36%', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.label}</span>
+              <span style={{ width: '36%', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{itemName(s, t)}</span>
               <input type="range" min="-1" max="1" step="0.05" value={w} onChange={(e) => setWeights((prev) => ({ ...prev, [s.id]: Number(e.target.value) }))} style={{ flex: 1, accentColor: w >= 0 ? '#9ae6b4' : '#fc8181' }} />
               <span style={{ width: 38, textAlign: 'right', fontSize: '12px', color: w > 0 ? '#9ae6b4' : w < 0 ? '#fc8181' : 'rgba(255,255,255,0.6)' }}>{w > 0 ? '+' : ''}{w.toFixed(2)}</span>
             </div>
